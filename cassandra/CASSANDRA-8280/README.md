@@ -13,7 +13,10 @@ direnv allow
 python CASSANDRA-8280.py
 # ctrl+c
 cd ..
+cp apache-cassandra-2.1.1/logs/system.log log
 ```
 
-check apache-cassandra-2.1.1/logs/system.log
+# CASSANDRA-8280
+
+카산드라 서버에 exception을 발생시키는 이슈입니다.
 

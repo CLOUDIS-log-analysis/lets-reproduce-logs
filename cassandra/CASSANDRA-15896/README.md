@@ -8,6 +8,10 @@ direnv allow
 mvn clean package
 cd ../cassandra
 sudo docker compose down
+cp ./log/debug.log log
 ```
 
-check ./logs/debug.log
+# CASSANDRA-15896
+
+카산드라 서버에 exception을 발생시키는 이슈입니다.
+
