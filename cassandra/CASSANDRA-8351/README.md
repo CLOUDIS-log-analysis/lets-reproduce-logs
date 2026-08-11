@@ -23,7 +23,6 @@ Segmentation fault (core dumped)
 fish의 경우:
 ```
 fish: Job 1, './apache-cassandra-2.1.2/bin/cq…' terminated by signal SIGSEGV (Address boundary error)
-segmentation
 ```
 
 이 메시지는 리다이렉션 되지 않기 때문에 남겨진 로그 파일에는 남지 않습니다.
