@@ -1,0 +1,10 @@
+services:
+  redis-target:
+    image: redis:8.4.0
+    container_name: vrem-repro
+    ports:
+      - 6399:6379
+    volumes:
+      - ./data:/data
+    command: redis-server --appendonly no --save '' --protected-mode no --loglevel debug --logfile /data/baseline.log
+
