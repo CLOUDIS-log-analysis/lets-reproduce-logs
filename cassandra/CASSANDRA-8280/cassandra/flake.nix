@@ -35,22 +35,26 @@
         };
       in {
         devShells.default = pkgs.mkShell {
-          packages = with pkgs-old; [
-            ((nixpkgs-python.packages.${system}."2.7.10") .overrideAttrs (old: {
-              configureFlags =
-                (old.configureFlags)
-                ++ [
-                  "--with-openssl=${openssl_1_0_2}"
-                ];
-              nativeBuildInputs =
-                (old.nativeBuildInputs)
-                ++ (with pkgs; [
-                  openssl_1_0_2
-                ]);
-            }))
-            openjdk8
-            ant
-          ];
+          packages = with pkgs-old;
+            [
+              ((nixpkgs-python.packages.${system}."2.7.10") .overrideAttrs (old: {
+                configureFlags =
+                  (old.configureFlags)
+                  ++ [
+                    "--with-openssl=${openssl_1_0_2}"
+                  ];
+                nativeBuildInputs =
+                  (old.nativeBuildInputs)
+                  ++ (with pkgs; [
+                    openssl_1_0_2
+                  ]);
+              }))
+              openjdk8
+              ant
+            ]
+            ++ (with pkgs; [
+              wget
+            ]);
         };
       };
     };

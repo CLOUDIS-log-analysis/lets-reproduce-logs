@@ -1,0 +1,5 @@
+CASSANDRA-21290
+CASSANDRA-21491: not reproducible
+CASSANDRA-19668: sigsegv, not reproducible
+CASSANDRA-16939: out of memory 상황에서의 동작
+CASSANDRA-14773: int overflow, test는 제공되었으나 실제 버그발생 시나리오는 제공되지 않음
