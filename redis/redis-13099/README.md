@@ -1,6 +1,6 @@
 # Step to reproduce
 
-sudo chmod 777 data log
+sudo chmod 777 log
 
 sudo chmod +x trigger/*.sh
 
