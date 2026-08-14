@@ -6,7 +6,14 @@
 
 # Step to reproduce
 
+```shell
+
+chmod 777 ./data
+chmod 666 ./data/*
+
 ./run.sh
+
+```
 
 # redis-15424
 
