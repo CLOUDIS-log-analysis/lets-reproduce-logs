@@ -5,13 +5,19 @@
 sudo chmod 777 log
 
 docker compose up -d
+
 ./fragtrigger.sh
 
 docker compose down
 
 # Check
 [system log] ./log/baseline.log 에서 virtual memory 104854824 사용중이라는 로그 확인
+
 " - 60 clients connected (0 slaves), 104854824 bytes in use"
-[kernel log] sudo dmesg -T | tail -30 으로 메모리 초과로 인한 OOM Killer 개입 확인
+
+
+[kernel log] sudo dmesg -T | tail -20 으로 메모리 초과로 인한 OOM Killer 개입 확인
+
 "oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=docker-adbaf9ae041f921f696bff13a02993c62c53f2eb95f4a9e665ea578c98d4262c.scope,mems_allowed=0,oom_memcg=/system.slice/docker-adbaf9ae041f921f696bff13a02993c62c53f2eb95f4a9e665ea578c98d4262c.scope,task_memcg=/system.slice/docker-adbaf9ae041f921f696bff13a02993c62c53f2eb95f4a9e665ea578c98d4262c.scope,task=redis-server,pid=107327,uid=999"
+
 "Memory cgroup out of memory: Killed process 107327 (redis-server) total-vm:209580kB, anon-rss:133060kB, file-rss:3072kB, shmem-rss:0kB, UID:999 pgtables:416kB oom_score_adj:0"
