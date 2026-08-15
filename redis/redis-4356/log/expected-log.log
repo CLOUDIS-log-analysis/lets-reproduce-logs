@@ -1,0 +1,261 @@
+1:C 15 Aug 06:55:19.524 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 15 Aug 06:55:19.525 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 15 Aug 06:55:19.525 # Configuration loaded
+1:M 15 Aug 06:55:19.526 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+1:M 15 Aug 06:55:19.528 * Running mode=standalone, port=6379.
+1:M 15 Aug 06:55:19.528 # Server initialized
+1:M 15 Aug 06:55:19.528 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 15 Aug 06:55:19.528 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+1:M 15 Aug 06:55:19.528 * Ready to accept connections
+1:M 15 Aug 06:55:19.528 - 0 clients connected (0 slaves), 766160 bytes in use
+1:M 15 Aug 06:55:20.126 - Accepted 127.0.0.1:43026
+1:M 15 Aug 06:55:20.127 - Client closed connection
+1:M 15 Aug 06:55:21.297 - Accepted 127.0.0.1:57460
+1:M 15 Aug 06:55:21.300 - Client closed connection
+1:M 15 Aug 06:55:22.471 - Accepted 127.0.0.1:57474
+1:M 15 Aug 06:55:22.472 - Client closed connection
+1:M 15 Aug 06:55:23.639 - Accepted 127.0.0.1:57478
+1:M 15 Aug 06:55:23.639 - Client closed connection
+1:M 15 Aug 06:55:24.545 - 0 clients connected (0 slaves), 766160 bytes in use
+1:M 15 Aug 06:55:24.791 - Accepted 127.0.0.1:57486
+1:M 15 Aug 06:55:24.792 - Client closed connection
+1:M 15 Aug 06:55:25.967 - Accepted 127.0.0.1:57502
+1:M 15 Aug 06:55:25.968 - Client closed connection
+1:M 15 Aug 06:55:27.120 - Accepted 127.0.0.1:57506
+1:M 15 Aug 06:55:27.121 - Client closed connection
+1:M 15 Aug 06:55:28.278 - Accepted 127.0.0.1:57508
+1:M 15 Aug 06:55:28.280 - Client closed connection
+1:M 15 Aug 06:55:29.451 - Accepted 127.0.0.1:57516
+1:M 15 Aug 06:55:29.453 - Client closed connection
+1:M 15 Aug 06:55:29.566 - 0 clients connected (0 slaves), 766160 bytes in use
+1:M 15 Aug 06:55:30.621 - Accepted 127.0.0.1:50362
+1:M 15 Aug 06:55:30.621 - Client closed connection
+1:M 15 Aug 06:55:31.798 - Accepted 127.0.0.1:50376
+1:M 15 Aug 06:55:31.800 - Client closed connection
+1:M 15 Aug 06:55:32.955 - Accepted 127.0.0.1:50392
+1:M 15 Aug 06:55:32.956 - Client closed connection
+1:M 15 Aug 06:55:34.119 - Accepted 127.0.0.1:50396
+1:M 15 Aug 06:55:34.120 - Client closed connection
+1:M 15 Aug 06:55:34.586 - 0 clients connected (0 slaves), 766160 bytes in use
+1:M 15 Aug 06:55:35.276 - Accepted 127.0.0.1:50402
+1:M 15 Aug 06:55:35.276 - Client closed connection
+1:M 15 Aug 06:55:36.443 - Accepted 127.0.0.1:50414
+1:M 15 Aug 06:55:36.444 - Client closed connection
+1:M 15 Aug 06:55:37.606 - Accepted 127.0.0.1:50424
+1:M 15 Aug 06:55:37.606 - Client closed connection
+1:M 15 Aug 06:55:38.781 - Accepted 127.0.0.1:50434
+1:M 15 Aug 06:55:38.784 - Client closed connection
+1:M 15 Aug 06:55:39.607 - 0 clients connected (0 slaves), 766160 bytes in use
+1:M 15 Aug 06:55:39.935 - Accepted 127.0.0.1:50438
+1:M 15 Aug 06:55:39.936 - Client closed connection
+1:M 15 Aug 06:55:41.103 - Accepted 127.0.0.1:49684
+1:M 15 Aug 06:55:41.105 - Client closed connection
+1:M 15 Aug 06:55:42.244 - Accepted 127.0.0.1:49698
+1:M 15 Aug 06:55:42.245 - Client closed connection
+1:M 15 Aug 06:55:43.414 - Accepted 127.0.0.1:49710
+1:M 15 Aug 06:55:43.414 - Client closed connection
+1:M 15 Aug 06:55:44.585 - Accepted 127.0.0.1:49712
+1:M 15 Aug 06:55:44.586 - Client closed connection
+1:M 15 Aug 06:55:44.625 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:55:45.751 - Accepted 127.0.0.1:49726
+1:M 15 Aug 06:55:45.753 - Client closed connection
+1:M 15 Aug 06:55:46.918 - Accepted 127.0.0.1:49728
+1:M 15 Aug 06:55:46.918 - Client closed connection
+1:M 15 Aug 06:55:48.064 - Accepted 127.0.0.1:49732
+1:M 15 Aug 06:55:48.065 - Client closed connection
+1:M 15 Aug 06:55:49.210 - Accepted 127.0.0.1:49738
+1:M 15 Aug 06:55:49.211 - Client closed connection
+1:M 15 Aug 06:55:49.644 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:55:50.377 - Accepted 127.0.0.1:49754
+1:M 15 Aug 06:55:50.378 - Client closed connection
+1:M 15 Aug 06:55:51.541 - Accepted 127.0.0.1:51724
+1:M 15 Aug 06:55:51.542 - Client closed connection
+1:M 15 Aug 06:55:52.709 - Accepted 127.0.0.1:51728
+1:M 15 Aug 06:55:52.711 - Client closed connection
+1:M 15 Aug 06:55:53.855 - Accepted 127.0.0.1:51738
+1:M 15 Aug 06:55:53.855 - Client closed connection
+1:M 15 Aug 06:55:54.663 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:55:55.040 - Accepted 127.0.0.1:51752
+1:M 15 Aug 06:55:55.041 - Client closed connection
+1:M 15 Aug 06:55:56.225 - Accepted 127.0.0.1:51756
+1:M 15 Aug 06:55:56.225 - Client closed connection
+1:M 15 Aug 06:55:57.389 - Accepted 127.0.0.1:51762
+1:M 15 Aug 06:55:57.390 - Client closed connection
+1:M 15 Aug 06:55:58.566 - Accepted 127.0.0.1:51768
+1:M 15 Aug 06:55:58.568 - Client closed connection
+1:M 15 Aug 06:55:59.682 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:55:59.714 - Accepted 127.0.0.1:51780
+1:M 15 Aug 06:55:59.714 - Client closed connection
+1:M 15 Aug 06:56:00.872 - Accepted 127.0.0.1:38622
+1:M 15 Aug 06:56:00.873 - Client closed connection
+1:M 15 Aug 06:56:02.033 - Accepted 127.0.0.1:38630
+1:M 15 Aug 06:56:02.034 - Client closed connection
+1:M 15 Aug 06:56:03.222 - Accepted 127.0.0.1:38632
+1:M 15 Aug 06:56:03.223 - Client closed connection
+1:M 15 Aug 06:56:04.390 - Accepted 127.0.0.1:38636
+1:M 15 Aug 06:56:04.391 - Client closed connection
+1:M 15 Aug 06:56:04.706 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:56:05.585 - Accepted 127.0.0.1:38638
+1:M 15 Aug 06:56:05.586 - Client closed connection
+1:M 15 Aug 06:56:06.769 - Accepted 127.0.0.1:38654
+1:M 15 Aug 06:56:06.770 - Client closed connection
+1:M 15 Aug 06:56:07.921 - Accepted 127.0.0.1:38660
+1:M 15 Aug 06:56:07.921 - Client closed connection
+1:M 15 Aug 06:56:09.093 - Accepted 127.0.0.1:38672
+1:M 15 Aug 06:56:09.094 - Client closed connection
+1:M 15 Aug 06:56:09.728 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:56:10.253 - Accepted 127.0.0.1:38678
+1:M 15 Aug 06:56:10.254 - Client closed connection
+1:M 15 Aug 06:56:11.419 - Accepted 127.0.0.1:45046
+1:M 15 Aug 06:56:11.420 - Client closed connection
+1:M 15 Aug 06:56:12.598 - Accepted 127.0.0.1:45058
+1:M 15 Aug 06:56:12.600 - Client closed connection
+1:M 15 Aug 06:56:13.774 - Accepted 127.0.0.1:45070
+1:M 15 Aug 06:56:13.776 - Client closed connection
+1:M 15 Aug 06:56:14.747 - 0 clients connected (0 slaves), 765136 bytes in use
+1:M 15 Aug 06:56:14.944 - Accepted 127.0.0.1:45078
+1:M 15 Aug 06:56:14.944 - Client closed connection
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45086
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45098
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45114
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45122
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45136
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45138
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45150
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45166
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45172
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45182
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45194
+1:M 15 Aug 06:56:15.953 - Accepted 127.0.0.1:45198
+1:M 15 Aug 06:56:15.954 - Accepted 127.0.0.1:45206
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45208
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45222
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45234
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45250
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45264
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45280
+1:M 15 Aug 06:56:15.955 - Accepted 127.0.0.1:45284
+1:M 15 Aug 06:56:15.957 - Accepted 127.0.0.1:45300
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45314
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45324
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45338
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45340
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45352
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45368
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45382
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45390
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45398
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45412
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45422
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45426
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45434
+1:M 15 Aug 06:56:15.958 - Accepted 127.0.0.1:45438
+1:M 15 Aug 06:56:15.959 - Accepted 127.0.0.1:45448
+1:M 15 Aug 06:56:15.959 - Accepted 127.0.0.1:45460
+1:M 15 Aug 06:56:15.959 - Accepted 127.0.0.1:45468
+1:M 15 Aug 06:56:15.959 - Accepted 127.0.0.1:45482
+1:M 15 Aug 06:56:15.959 - Accepted 127.0.0.1:45496
+1:M 15 Aug 06:56:15.962 - Accepted 127.0.0.1:45512
+1:M 15 Aug 06:56:15.962 - Accepted 127.0.0.1:45520
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45530
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45540
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45546
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45552
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45554
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45566
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45582
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45586
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45592
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45598
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45604
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45608
+1:M 15 Aug 06:56:15.966 - Accepted 127.0.0.1:45610
+1:M 15 Aug 06:56:15.968 - Accepted 127.0.0.1:45616
+1:M 15 Aug 06:56:15.969 - Accepted 127.0.0.1:45620
+1:M 15 Aug 06:56:15.969 - Accepted 127.0.0.1:45624
+1:M 15 Aug 06:56:15.969 - Accepted 127.0.0.1:45630
+1:M 15 Aug 06:56:15.969 - Accepted 127.0.0.1:45642
+1:M 15 Aug 06:56:16.038 - Accepted 127.0.0.1:45650
+1:M 15 Aug 06:56:16.039 - Client closed connection
+1:M 15 Aug 06:56:17.155 - Accepted 127.0.0.1:45660
+1:M 15 Aug 06:56:17.157 - Client closed connection
+1:M 15 Aug 06:56:18.288 - Accepted 127.0.0.1:45676
+1:M 15 Aug 06:56:18.289 - Client closed connection
+1:M 15 Aug 06:56:19.374 - Accepted 127.0.0.1:45692
+1:M 15 Aug 06:56:19.376 - Client closed connection
+1:M 15 Aug 06:56:19.754 - DB 0: 31317 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:19.754 - 60 clients connected (0 slaves), 104854680 bytes in use
+1:M 15 Aug 06:56:20.474 - Accepted 127.0.0.1:45694
+1:M 15 Aug 06:56:20.476 - Client closed connection
+1:M 15 Aug 06:56:21.556 - Accepted 127.0.0.1:33756
+1:M 15 Aug 06:56:21.557 - Client closed connection
+1:M 15 Aug 06:56:22.638 - Accepted 127.0.0.1:33770
+1:M 15 Aug 06:56:22.640 - Client closed connection
+1:M 15 Aug 06:56:23.726 - Accepted 127.0.0.1:33778
+1:M 15 Aug 06:56:23.727 - Client closed connection
+1:M 15 Aug 06:56:24.754 - DB 0: 56582 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:24.754 - 60 clients connected (0 slaves), 104848784 bytes in use
+1:M 15 Aug 06:56:24.817 - Accepted 127.0.0.1:33790
+1:M 15 Aug 06:56:24.818 - Client closed connection
+1:M 15 Aug 06:56:25.907 - Accepted 127.0.0.1:33796
+1:M 15 Aug 06:56:25.908 - Client closed connection
+1:M 15 Aug 06:56:26.996 - Accepted 127.0.0.1:33804
+1:M 15 Aug 06:56:26.998 - Client closed connection
+1:M 15 Aug 06:56:28.087 - Accepted 127.0.0.1:33818
+1:M 15 Aug 06:56:28.088 - Client closed connection
+1:M 15 Aug 06:56:29.171 - Accepted 127.0.0.1:33822
+1:M 15 Aug 06:56:29.173 - Client closed connection
+1:M 15 Aug 06:56:29.754 - DB 0: 61083 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:29.754 - 60 clients connected (0 slaves), 104852152 bytes in use
+1:M 15 Aug 06:56:30.271 - Accepted 127.0.0.1:33830
+1:M 15 Aug 06:56:30.273 - Client closed connection
+1:M 15 Aug 06:56:31.348 - Accepted 127.0.0.1:50664
+1:M 15 Aug 06:56:31.350 - Client closed connection
+1:M 15 Aug 06:56:32.434 - Accepted 127.0.0.1:50680
+1:M 15 Aug 06:56:32.435 - Client closed connection
+1:M 15 Aug 06:56:33.553 - Accepted 127.0.0.1:50682
+1:M 15 Aug 06:56:33.554 - Client closed connection
+1:M 15 Aug 06:56:34.637 - Accepted 127.0.0.1:50698
+1:M 15 Aug 06:56:34.638 - Client closed connection
+1:M 15 Aug 06:56:34.755 - DB 0: 45824 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:34.755 - 60 clients connected (0 slaves), 104848624 bytes in use
+1:M 15 Aug 06:56:35.735 - Accepted 127.0.0.1:50704
+1:M 15 Aug 06:56:35.736 - Client closed connection
+1:M 15 Aug 06:56:36.822 - Accepted 127.0.0.1:50706
+1:M 15 Aug 06:56:36.824 - Client closed connection
+1:M 15 Aug 06:56:37.905 - Accepted 127.0.0.1:50716
+1:M 15 Aug 06:56:37.907 - Client closed connection
+1:M 15 Aug 06:56:38.988 - Accepted 127.0.0.1:50726
+1:M 15 Aug 06:56:38.989 - Client closed connection
+1:M 15 Aug 06:56:39.755 - DB 0: 71038 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:39.755 - 60 clients connected (0 slaves), 104842912 bytes in use
+1:M 15 Aug 06:56:40.071 - Accepted 127.0.0.1:50740
+1:M 15 Aug 06:56:40.075 - Client closed connection
+1:M 15 Aug 06:56:41.162 - Accepted 127.0.0.1:45490
+1:M 15 Aug 06:56:41.163 - Client closed connection
+1:M 15 Aug 06:56:42.236 - Accepted 127.0.0.1:45504
+1:M 15 Aug 06:56:42.238 - Client closed connection
+1:M 15 Aug 06:56:43.313 - Accepted 127.0.0.1:45522
+1:M 15 Aug 06:56:43.315 - Client closed connection
+1:M 15 Aug 06:56:44.400 - Accepted 127.0.0.1:45524
+1:M 15 Aug 06:56:44.401 - Client closed connection
+1:M 15 Aug 06:56:44.755 - DB 0: 79547 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:44.755 - 60 clients connected (0 slaves), 104857560 bytes in use
+1:M 15 Aug 06:56:45.482 - Accepted 127.0.0.1:45528
+1:M 15 Aug 06:56:45.484 - Client closed connection
+1:M 15 Aug 06:56:46.577 - Accepted 127.0.0.1:45532
+1:M 15 Aug 06:56:46.581 - Client closed connection
+1:M 15 Aug 06:56:47.663 - Accepted 127.0.0.1:45548
+1:M 15 Aug 06:56:47.664 - Client closed connection
+1:M 15 Aug 06:56:48.746 - Accepted 127.0.0.1:45558
+1:M 15 Aug 06:56:48.749 - Client closed connection
+1:M 15 Aug 06:56:49.755 - DB 0: 64333 keys (0 volatile) in 131072 slots HT.
+1:M 15 Aug 06:56:49.755 - 60 clients connected (0 slaves), 104848360 bytes in use
+1:M 15 Aug 06:56:49.825 - Accepted 127.0.0.1:45568
+1:M 15 Aug 06:56:49.826 - Client closed connection
+1:M 15 Aug 06:56:50.911 - Accepted 127.0.0.1:36326
+1:M 15 Aug 06:56:50.912 - Client closed connection
+1:M 15 Aug 06:56:51.995 - Accepted 127.0.0.1:36330
+1:M 15 Aug 06:56:51.998 - Client closed connection
+1:M 15 Aug 06:56:53.092 - Accepted 127.0.0.1:36332
+1:M 15 Aug 06:56:53.094 - Client closed connection
