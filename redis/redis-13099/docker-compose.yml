@@ -3,5 +3,6 @@ services:
     image: redis:7.2
     container_name: redis-13099-test
     volumes:
+      - ./data:/data
       - ./log:/var/log/redis
     command: redis-server --appendonly yes --appendfsync everysec --loglevel debug --logfile /var/log/redis/baseline.log
