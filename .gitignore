@@ -1,3 +1,4 @@
 .direnv
 target
 apache-cassandra-*
+.venv
