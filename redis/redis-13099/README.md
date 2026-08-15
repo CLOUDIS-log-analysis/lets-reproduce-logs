@@ -7,9 +7,7 @@
 
 # Step to reproduce
 
-mkdir log
-
-sudo chmod 777 log
+sudo chmod 777 data log
 
 sudo chmod +x trigger/*.sh
 
