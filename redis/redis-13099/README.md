@@ -6,6 +6,7 @@
 - 메인 스레드가 blcok상태가 되어 어떠한 커맨드 응답도 반환받지 못하므로 네트워크 큐에서 대기하던 클라이언트 애플리케이션에서 timeout exception 발생
 
 # Step to reproduce
+mkdir data
 
 sudo chmod 777 data log
 
