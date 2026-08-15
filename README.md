@@ -22,5 +22,5 @@ README.md에 쓰여진 절차대로 진행하여 expected-log와 같은 형태�
 
 등록된 이슈들을 README.md에 쓰여진 대로 실행하여 각자의 머신에서도 재현이 되는지 확인해 주세요.
 
-만약 절차가 난해하거나 재현이 안되는 경우 pr, 이슈, 직접건의 등의 방법으로 개선해 주세요. 
+만약 절차가 난해하거나 재현이 안되는 경우 pr, [이슈](https://github.com/CLOUDIS-log-analysis/lets-reproduce-logs/issues/2), 직접건의 등의 방법으로 개선해 주세요. 
 
