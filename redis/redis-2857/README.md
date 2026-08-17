@@ -3,9 +3,11 @@ AOF 재작성 등을 위해 백그라운드 프로세스를 fork()하다가 실�
 
 # Step to Reproduce
 sudo chmod 777 log
+
 sudo chmod +x ./trigger.sh
 
 sudo docker compose up -d --build
+
 ./trigger.sh
 
 "누수된 FD 개수가 더이상 증가하지 않을 때 CTRL + C 강제종료"
