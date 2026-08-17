@@ -1,0 +1,8 @@
+services:
+  redis-fdleak:
+    build: .
+    container_name: redis-2857-test
+    volumes:
+      - ./log:/var/log
+    ulimits:
+      nofile: 256
