@@ -1,0 +1,194 @@
+1:M 17 Aug 03:57:49.174 # You requested maxclients of 10000 requiring at least 10032 max file descriptors.
+1:M 17 Aug 03:57:49.174 # Redis can't set maximum open files to 10032 because of OS error: Operation not permitted.
+1:M 17 Aug 03:57:49.174 # Current maximum open files is 256. maxclients has been reduced to 224 to compensate for low ulimit. If you need higher maxclients increase 'ulimit -n'.
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.5 (c7ec1a36/1) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 1
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+1:M 17 Aug 03:57:49.175 # Server started, Redis version 3.0.5
+1:M 17 Aug 03:57:49.175 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:M 17 Aug 03:57:49.175 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+1:M 17 Aug 03:57:49.175 * The server is now ready to accept connections on port 6379
+1:M 17 Aug 03:57:49.175 - 0 clients connected (0 slaves), 248312 bytes in use
+1:M 17 Aug 03:57:54.194 - 0 clients connected (0 slaves), 248312 bytes in use
+1:M 17 Aug 03:57:59.168 - Accepted 127.0.0.1:32920
+1:M 17 Aug 03:57:59.169 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:57:59.169 - Client closed connection
+1:M 17 Aug 03:57:59.212 - 0 clients connected (0 slaves), 248312 bytes in use
+1:M 17 Aug 03:57:59.538 - Accepted 127.0.0.1:32922
+1:M 17 Aug 03:57:59.538 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:57:59.539 - Client closed connection
+1:M 17 Aug 03:57:59.864 - Accepted 127.0.0.1:32924
+1:M 17 Aug 03:57:59.865 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:57:59.866 - Client closed connection
+1:M 17 Aug 03:58:00.215 - Accepted 127.0.0.1:32936
+1:M 17 Aug 03:58:00.216 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:00.217 - Client closed connection
+1:M 17 Aug 03:58:00.582 - Accepted 127.0.0.1:32826
+1:M 17 Aug 03:58:00.582 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:00.582 - Client closed connection
+1:M 17 Aug 03:58:00.919 - Accepted 127.0.0.1:32834
+1:M 17 Aug 03:58:00.919 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:00.920 - Client closed connection
+1:M 17 Aug 03:58:01.267 - Accepted 127.0.0.1:32838
+1:M 17 Aug 03:58:01.268 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:01.269 - Client closed connection
+1:M 17 Aug 03:58:01.611 - Accepted 127.0.0.1:32854
+1:M 17 Aug 03:58:01.611 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:01.611 - Client closed connection
+1:M 17 Aug 03:58:01.894 - Accepted 127.0.0.1:32860
+1:M 17 Aug 03:58:01.894 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:01.894 - Client closed connection
+1:M 17 Aug 03:58:02.174 - Accepted 127.0.0.1:32870
+1:M 17 Aug 03:58:02.179 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:02.180 - Client closed connection
+1:M 17 Aug 03:58:02.495 - Accepted 127.0.0.1:32878
+1:M 17 Aug 03:58:02.496 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:02.497 - Client closed connection
+1:M 17 Aug 03:58:02.862 - Accepted 127.0.0.1:32894
+1:M 17 Aug 03:58:02.862 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:02.863 - Client closed connection
+1:M 17 Aug 03:58:03.217 - Accepted 127.0.0.1:32898
+1:M 17 Aug 03:58:03.217 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:03.218 - Client closed connection
+1:M 17 Aug 03:58:03.553 - Accepted 127.0.0.1:32902
+1:M 17 Aug 03:58:03.554 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:03.554 - Client closed connection
+1:M 17 Aug 03:58:03.910 - Accepted 127.0.0.1:32912
+1:M 17 Aug 03:58:03.910 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:03.910 - Client closed connection
+1:M 17 Aug 03:58:04.229 - 0 clients connected (0 slaves), 248312 bytes in use
+1:M 17 Aug 03:58:04.243 - Accepted 127.0.0.1:32918
+1:M 17 Aug 03:58:04.243 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:04.244 - Client closed connection
+1:M 17 Aug 03:58:04.610 - Accepted 127.0.0.1:32930
+1:M 17 Aug 03:58:04.610 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:04.610 - Client closed connection
+1:M 17 Aug 03:58:04.924 - Accepted 127.0.0.1:32944
+1:M 17 Aug 03:58:04.924 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:04.924 - Client closed connection
+1:M 17 Aug 03:58:05.311 - Accepted 127.0.0.1:32950
+1:M 17 Aug 03:58:05.311 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:05.312 - Client closed connection
+1:M 17 Aug 03:58:05.650 - Accepted 127.0.0.1:32956
+1:M 17 Aug 03:58:05.651 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:05.657 - Client closed connection
+1:M 17 Aug 03:58:06.001 - Accepted 127.0.0.1:32970
+1:M 17 Aug 03:58:06.001 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:06.002 - Client closed connection
+1:M 17 Aug 03:58:06.355 - Accepted 127.0.0.1:32978
+1:M 17 Aug 03:58:06.355 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:06.356 - Client closed connection
+1:M 17 Aug 03:58:06.717 - Accepted 127.0.0.1:32980
+1:M 17 Aug 03:58:06.717 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:06.718 - Client closed connection
+1:M 17 Aug 03:58:06.989 - Accepted 127.0.0.1:32988
+1:M 17 Aug 03:58:06.989 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:06.989 - Client closed connection
+1:M 17 Aug 03:58:07.283 - Accepted 127.0.0.1:32992
+1:M 17 Aug 03:58:07.284 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:07.284 - Client closed connection
+1:M 17 Aug 03:58:07.590 - Accepted 127.0.0.1:32996
+1:M 17 Aug 03:58:07.590 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:07.590 - Client closed connection
+1:M 17 Aug 03:58:07.930 - Accepted 127.0.0.1:33010
+1:M 17 Aug 03:58:07.930 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:07.931 - Client closed connection
+1:M 17 Aug 03:58:08.238 - Accepted 127.0.0.1:33014
+1:M 17 Aug 03:58:08.238 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:08.238 - Client closed connection
+1:M 17 Aug 03:58:08.579 - Accepted 127.0.0.1:33026
+1:M 17 Aug 03:58:08.580 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:08.580 - Client closed connection
+1:M 17 Aug 03:58:08.926 - Accepted 127.0.0.1:33034
+1:M 17 Aug 03:58:08.926 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:08.927 - Client closed connection
+1:M 17 Aug 03:58:09.243 - 0 clients connected (0 slaves), 248312 bytes in use
+1:M 17 Aug 03:58:09.281 - Accepted 127.0.0.1:33048
+1:M 17 Aug 03:58:09.281 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:09.282 - Client closed connection
+1:M 17 Aug 03:58:09.649 - Accepted 127.0.0.1:33064
+1:M 17 Aug 03:58:09.649 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:09.650 - Client closed connection
+1:M 17 Aug 03:58:09.984 - Accepted 127.0.0.1:33066
+1:M 17 Aug 03:58:09.984 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:09.984 - Client closed connection
+1:M 17 Aug 03:58:10.342 - Accepted 127.0.0.1:33080
+1:M 17 Aug 03:58:10.342 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:10.343 - Client closed connection
+1:M 17 Aug 03:58:10.667 - Accepted 127.0.0.1:46816
+1:M 17 Aug 03:58:10.668 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:10.668 - Client closed connection
+1:M 17 Aug 03:58:11.021 - Accepted 127.0.0.1:46828
+1:M 17 Aug 03:58:11.021 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:11.021 - Client closed connection
+1:M 17 Aug 03:58:11.372 - Accepted 127.0.0.1:46830
+1:M 17 Aug 03:58:11.372 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:11.374 - Client closed connection
+1:M 17 Aug 03:58:11.712 - Accepted 127.0.0.1:46846
+1:M 17 Aug 03:58:11.713 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:11.713 - Client closed connection
+1:M 17 Aug 03:58:12.023 - Accepted 127.0.0.1:46860
+1:M 17 Aug 03:58:12.023 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:12.024 - Client closed connection
+1:M 17 Aug 03:58:12.302 - Accepted 127.0.0.1:46876
+1:M 17 Aug 03:58:12.302 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:12.303 - Client closed connection
+1:M 17 Aug 03:58:12.591 - Accepted 127.0.0.1:46884
+1:M 17 Aug 03:58:12.592 # Can't rewrite append only file in background: fork: Resource temporarily unavailable
+1:M 17 Aug 03:58:12.592 - Client closed connection
+1:M 17 Aug 03:58:12.940 - Accepted 127.0.0.1:46888
+1:M 17 Aug 03:58:12.940 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:12.941 - Client closed connection
+1:M 17 Aug 03:58:13.282 - Accepted 127.0.0.1:46902
+1:M 17 Aug 03:58:13.282 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:13.285 - Client closed connection
+1:M 17 Aug 03:58:13.647 - Accepted 127.0.0.1:46906
+1:M 17 Aug 03:58:13.647 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:13.648 - Client closed connection
+1:M 17 Aug 03:58:14.002 - Accepted 127.0.0.1:46912
+1:M 17 Aug 03:58:14.002 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:14.004 - Client closed connection
+1:M 17 Aug 03:58:14.259 - 0 clients connected (0 slaves), 247288 bytes in use
+1:M 17 Aug 03:58:14.350 - Accepted 127.0.0.1:46916
+1:M 17 Aug 03:58:14.350 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:14.351 - Client closed connection
+1:M 17 Aug 03:58:14.700 - Accepted 127.0.0.1:46920
+1:M 17 Aug 03:58:14.700 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:14.701 - Client closed connection
+1:M 17 Aug 03:58:15.031 - Accepted 127.0.0.1:46934
+1:M 17 Aug 03:58:15.031 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:15.032 - Client closed connection
+1:M 17 Aug 03:58:15.369 - Accepted 127.0.0.1:46948
+1:M 17 Aug 03:58:15.369 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:15.369 - Client closed connection
+1:M 17 Aug 03:58:15.723 - Accepted 127.0.0.1:46960
+1:M 17 Aug 03:58:15.723 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:15.723 - Client closed connection
+1:M 17 Aug 03:58:16.064 - Accepted 127.0.0.1:46974
+1:M 17 Aug 03:58:16.064 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:16.065 - Client closed connection
+1:M 17 Aug 03:58:16.405 - Accepted 127.0.0.1:46990
+1:M 17 Aug 03:58:16.405 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:16.405 - Client closed connection
+1:M 17 Aug 03:58:16.739 - Accepted 127.0.0.1:46992
+1:M 17 Aug 03:58:16.739 # Error opening /setting AOF rewrite IPC pipes: Too many open files
+1:M 17 Aug 03:58:16.739 - Client closed connection
+1:M 17 Aug 03:58:19.279 - 0 clients connected (0 slaves), 247288 bytes in use
+1:signal-handler (1786939104) Received SIGTERM scheduling shutdown...
+1:M 17 Aug 03:58:24.196 # User requested shutdown...
+1:M 17 Aug 03:58:24.197 # Redis is now ready to exit, bye bye...
