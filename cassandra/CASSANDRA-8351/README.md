@@ -11,7 +11,7 @@ sed -i 's/<root level="INFO">/<root level="DEBUG">/g' ./apache-cassandra-2.1.2/c
 cp ./apache-cassandra-2.1.2/logs/system.log cassandra-log 
 ```
 
-# CASSANDRA-8351
+# (CASSANDRA-8351)[https://issues.apache.org/jira/browse/CASSANDRA-8351]
 이 이슈는 cassandra 서버 자체의 버그가 아닌, 부속 프로그램인 cqlsh에 일어나는 segfault에 관한 내용입니다. 
 
 화면 마지막에 출력되는 segfault 라인은 실행 중이던 프로세스에서 나온 로그가 아닌 실행할 때 사용한 shell의 메시지입니다.
