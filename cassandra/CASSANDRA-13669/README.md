@@ -12,7 +12,7 @@ restart cassandra server then you will get the error.
 cp ./apache-cassandra-3.9/logs/debug.log ./log
 ```
 
-# (CASSANDRA-13669)[https://issues.apache.org/jira/browse/CASSANDRA-13669]
+# [CASSANDRA-13669](https://issues.apache.org/jira/browse/CASSANDRA-13669)
 
 카산드라 서버에 특정 쿼리를 진행하면 서버 재시작시에 크래쉬가 일어나는 이슈입니다.
 

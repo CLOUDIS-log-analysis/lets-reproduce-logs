@@ -16,7 +16,7 @@ cd ..
 cp apache-cassandra-2.1.1/logs/system.log log
 ```
 
-# (CASSANDRA-8280)[https://issues.apache.org/jira/browse/CASSANDRA-8280]
+# [CASSANDRA-8280](https://issues.apache.org/jira/browse/CASSANDRA-8280)
 
 카산드라 서버에 exception을 발생시키는 이슈입니다.
 

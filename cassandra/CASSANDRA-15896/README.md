@@ -11,7 +11,7 @@ sudo docker compose down
 cp ./log/debug.log log
 ```
 
-# (CASSANDRA-15896)[https://issues.apache.org/jira/browse/CASSANDRA-15896]
+# [CASSANDRA-15896](https://issues.apache.org/jira/browse/CASSANDRA-15896)
 
 카산드라 서버에 exception을 발생시키는 이슈입니다.
 
