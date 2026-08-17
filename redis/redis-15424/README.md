@@ -16,6 +16,11 @@ chmod 666 ./data/*
 
 ```
 
+check
+
+./log
+./monitor-log
+
 # redis-15424
 
 특정 동작 수행 중 확률적으로 crash가 발생하는 이슈
