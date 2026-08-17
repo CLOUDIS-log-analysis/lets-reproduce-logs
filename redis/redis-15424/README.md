@@ -8,6 +8,7 @@
 
 ```shell
 
+mkdir ./data
 chmod 777 ./data
 chmod 666 ./data/*
 
