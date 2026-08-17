@@ -1,16 +1,30 @@
-# Step to reproduce
+# SERVER-51733
+# 1 -> 2 -> 3
 
-```shell
+# 1. 컨테이너 실행
+``` bash
+sudo docker compose up -d
+``` 
 
-mkdir ./data
-cp ./repro.sh ./data
-chmod 777 ./data
-chmod 777 ./data/repro.sh
-docker compose up
-sudo cp ./data/mongod.log log
-sudo chown $(id -u) log
-
+# 2. 이후 MongoDB shell에서 진행필요
+``` bash
+sudo docker exec -it mongo51733 \
+mongo localhost:27019 \
+--authenticationDatabase "admin" \
+-u "root" \
+-p "DontTryThis1satHome"
 ```
 
-# SERVER-77168
-
+# 3. config서버 인증을 활성화 -> 크래시발생!
+``` javascript
+rs.initiate({
+    _id:"configs",
+    configsvr:true,
+    members:[
+        {
+            _id:0,
+            host:"localhost:27019"
+        }
+    ]
+})
+```

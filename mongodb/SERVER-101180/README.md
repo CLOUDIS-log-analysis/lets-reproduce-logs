@@ -1,16 +1,27 @@
-# Step to reproduce
+# SERVER-101180
+# 1 -> 2 -> 3
 
-```shell
+# 1. 컨테이너 실행
 
-mkdir ./data
-cp ./repro.sh ./data
-chmod 777 ./data
-chmod 777 ./data/repro.sh
-docker compose up
-sudo cp ./data/mongod.log log
-sudo chown $(id -u) log
-
+```bash
+sudo docker compose up -d
 ```
 
-# SERVER-77168
+# 2. MongoDB Shell 접속
 
+```bash
+sudo docker exec -it mongo101180 mongosh
+```
+
+# 3. 재현 코드 실행
+
+MongoDB Shell에서 아래 코드를 그대로 실행한다.
+
+```javascript
+kCollName = "boom";
+db[kCollName].insert({_id: "X".repeat(16776704)});
+db[kCollName].remove({});
+```
+
+# 간단한 설명!
+MongoDB의 BatchedDelete 처리 과정에서 invariant failure가 발생해서 mongoDB가 비정상 종료된다.
