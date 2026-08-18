@@ -54,6 +54,14 @@
 
 #let zookeeper_logs = ("zk2247",);
 #iterate_logs("zookeeper", zookeeper_logs)
+#pagebreak()
+#set page(
+  header: [
+    #set text(size: 0.5em);
+    "ZOOKEEPER-2592"
+  ],
+)
+#cmarker.render(read("../zookeeper/ZOOKEEPER-2592/summary.md"))
 
 #let redis_logs = ("redis-2857", "redis-4356", "redis-13099", "redis-15424");
 #iterate_logs("redis", redis_logs)

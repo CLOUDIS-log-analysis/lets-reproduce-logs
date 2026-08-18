@@ -1,0 +1,152 @@
+2026-08-18 05:18:13,466 [myid:] - INFO  [main:QuorumPeerConfig@114] - Reading configuration from: /root/zookeeper-3.5.1-alpha/bin/../conf/zoo.cfg
+2026-08-18 05:18:13,473 [myid:] - INFO  [main:QuorumPeerConfig@316] - clientPortAddress is 0.0.0.0/0.0.0.0:2181
+2026-08-18 05:18:13,473 [myid:] - INFO  [main:QuorumPeerConfig@320] - secureClientPort is not set
+2026-08-18 05:18:13,475 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2026-08-18 05:18:13,475 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2026-08-18 05:18:13,476 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2026-08-18 05:18:13,476 [myid:] - WARN  [main:QuorumPeerMain@122] - Either no config or no quorum defined in config, running  in standalone mode
+2026-08-18 05:18:13,480 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:hiearchy=default
+2026-08-18 05:18:13,480 [myid:] - DEBUG [main:HierarchyDynamicMBean@260] - postRegister is called.
+2026-08-18 05:18:13,482 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=root
+2026-08-18 05:18:13,482 [myid:] - DEBUG [main:LoggerDynamicMBean@258] - Adding AppenderMBean for appender named CONSOLE
+2026-08-18 05:18:13,486 [myid:] - DEBUG [main:AppenderDynamicMBean@158] - getMBeanInfo called.
+2026-08-18 05:18:13,486 [myid:] - DEBUG [main:AppenderDynamicMBean@337] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:appender=CONSOLE
+2026-08-18 05:18:13,486 [myid:] - DEBUG [main:AppenderDynamicMBean@197] - Adding LayoutMBean:CONSOLE,layout=org.apache.log4j.PatternLayout
+2026-08-18 05:18:13,487 [myid:] - DEBUG [main:LayoutDynamicMBean@140] - getMBeanInfo called.
+2026-08-18 05:18:13,487 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:appender=CONSOLE,layout=org.apache.log4j.PatternLayout
+2026-08-18 05:18:13,489 [myid:] - DEBUG [main:LoggerDynamicMBean@258] - Adding AppenderMBean for appender named TRACEFILE
+2026-08-18 05:18:13,489 [myid:] - DEBUG [main:AppenderDynamicMBean@158] - getMBeanInfo called.
+2026-08-18 05:18:13,489 [myid:] - DEBUG [main:AppenderDynamicMBean@337] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:appender=TRACEFILE
+2026-08-18 05:18:13,489 [myid:] - DEBUG [main:AppenderDynamicMBean@197] - Adding LayoutMBean:TRACEFILE,layout=org.apache.log4j.PatternLayout
+2026-08-18 05:18:13,489 [myid:] - DEBUG [main:LayoutDynamicMBean@140] - getMBeanInfo called.
+2026-08-18 05:18:13,490 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:appender=TRACEFILE,layout=org.apache.log4j.PatternLayout
+2026-08-18 05:18:13,491 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [root] as listener.
+2026-08-18 05:18:13,492 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.log4j.jmx.LayoutDynamicMBean
+2026-08-18 05:18:13,492 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.log4j.jmx.LayoutDynamicMBean] as listener.
+2026-08-18 05:18:13,492 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.zookeeper.server.quorum.QuorumPeerMain
+2026-08-18 05:18:13,492 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.zookeeper.server.quorum.QuorumPeerMain] as listener.
+2026-08-18 05:18:13,493 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.log4j.jmx.LoggerDynamicMBean
+2026-08-18 05:18:13,494 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.log4j.jmx.LoggerDynamicMBean] as listener.
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.zookeeper.server.quorum.QuorumPeerConfig
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.zookeeper.server.quorum.QuorumPeerConfig] as listener.
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.zookeeper.server.ZooKeeperServerMain
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.zookeeper.server.ZooKeeperServerMain] as listener.
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.zookeeper.jmx.MBeanRegistry
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.zookeeper.jmx.MBeanRegistry] as listener.
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.log4j.jmx.HierarchyDynamicMBean
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.log4j.jmx.HierarchyDynamicMBean] as listener.
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.log4j.jmx.AppenderDynamicMBean
+2026-08-18 05:18:13,495 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.log4j.jmx.AppenderDynamicMBean] as listener.
+2026-08-18 05:18:13,496 [myid:] - DEBUG [main:AbstractDynamicMBean@148] - preRegister called. Server=com.sun.jmx.mbeanserver.JmxMBeanServer@d716361, name=log4j:logger=org.apache.zookeeper.server.DatadirCleanupManager
+2026-08-18 05:18:13,496 [myid:] - DEBUG [main:HierarchyDynamicMBean@128] - ---Adding logger [org.apache.zookeeper.server.DatadirCleanupManager] as listener.
+2026-08-18 05:18:13,496 [myid:] - INFO  [main:QuorumPeerConfig@114] - Reading configuration from: /root/zookeeper-3.5.1-alpha/bin/../conf/zoo.cfg
+2026-08-18 05:18:13,497 [myid:] - INFO  [main:QuorumPeerConfig@316] - clientPortAddress is 0.0.0.0/0.0.0.0:2181
+2026-08-18 05:18:13,497 [myid:] - INFO  [main:QuorumPeerConfig@320] - secureClientPort is not set
+2026-08-18 05:18:13,497 [myid:] - INFO  [main:ZooKeeperServerMain@113] - Starting server
+2026-08-18 05:18:13,498 [myid:] - DEBUG [main:FileTxnSnapLog@84] - Opening datadir:/tmp/zookeeper snapDir:/tmp/zookeeper
+2026-08-18 05:18:13,507 [myid:] - INFO  [main:Environment@109] - Server environment:zookeeper.version=3.5.1-alpha-1693007, built on 07/28/2015 07:19 GMT
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:host.name=nixos
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.version=1.8.0_442
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.vendor=Oracle Corporation
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.home=/nix/store/lrmxmaip63idihacd71x619lhgyyb4ib-openjdk-8u442-b06/lib/openjdk/jre
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.class.path=/root/zookeeper-3.5.1-alpha/bin/../build/classes:/root/zookeeper-3.5.1-alpha/bin/../build/lib/*.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/slf4j-log4j12-1.7.5.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/slf4j-api-1.7.5.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/servlet-api-2.5-20081211.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/netty-3.7.0.Final.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/log4j-1.2.16.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/jline-2.11.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/jetty-util-6.1.26.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/jetty-6.1.26.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/javacc.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/jackson-mapper-asl-1.9.11.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/jackson-core-asl-1.9.11.jar:/root/zookeeper-3.5.1-alpha/bin/../lib/commons-cli-1.2.jar:/root/zookeeper-3.5.1-alpha/bin/../zookeeper-3.5.1-alpha.jar:/root/zookeeper-3.5.1-alpha/bin/../src/java/lib/*.jar:/root/zookeeper-3.5.1-alpha/bin/../conf:
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.library.path=
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.io.tmpdir=/tmp
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:java.compiler=<NA>
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:os.name=Linux
+2026-08-18 05:18:13,509 [myid:] - INFO  [main:Environment@109] - Server environment:os.arch=amd64
+2026-08-18 05:18:13,510 [myid:] - INFO  [main:Environment@109] - Server environment:os.version=6.12.63
+2026-08-18 05:18:13,510 [myid:] - INFO  [main:Environment@109] - Server environment:user.name=root
+2026-08-18 05:18:13,510 [myid:] - INFO  [main:Environment@109] - Server environment:user.home=/root
+2026-08-18 05:18:13,510 [myid:] - INFO  [main:Environment@109] - Server environment:user.dir=/root/zookeeper-3.5.1-alpha
+2026-08-18 05:18:13,511 [myid:] - INFO  [main:Environment@109] - Server environment:os.memory.free=111MB
+2026-08-18 05:18:13,511 [myid:] - INFO  [main:Environment@109] - Server environment:os.memory.max=966MB
+2026-08-18 05:18:13,511 [myid:] - INFO  [main:Environment@109] - Server environment:os.memory.total=121MB
+2026-08-18 05:18:13,513 [myid:] - INFO  [main:ZooKeeperServer@858] - minSessionTimeout set to 4000
+2026-08-18 05:18:13,513 [myid:] - INFO  [main:ZooKeeperServer@867] - maxSessionTimeout set to 40000
+2026-08-18 05:18:13,513 [myid:] - INFO  [main:ZooKeeperServer@156] - Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 datadir /tmp/zookeeper/version-2 snapdir /tmp/zookeeper/version-2
+2026-08-18 05:18:13,528 [myid:] - INFO  [main:Slf4jLog@67] - Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+2026-08-18 05:18:13,528 [myid:] - DEBUG [main:Slf4jLog@40] - Container Server@3d8c7aca + SelectChannelConnector@0.0.0.0:8080 as connector
+2026-08-18 05:18:13,537 [myid:] - DEBUG [main:Slf4jLog@40] - Container Server@3d8c7aca + org.mortbay.jetty.servlet.Context@77b52d12{/,null} as handler
+2026-08-18 05:18:13,537 [myid:] - DEBUG [main:Slf4jLog@40] - Container org.mortbay.jetty.servlet.Context@77b52d12{/,null} + ServletHandler@2d554825 as handler
+2026-08-18 05:18:13,544 [myid:] - DEBUG [main:Slf4jLog@40] - Container ServletHandler@2d554825 + org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764 as servlet
+2026-08-18 05:18:13,546 [myid:] - DEBUG [main:Slf4jLog@40] - Container ServletHandler@2d554825 + (S=org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764,[/commands/*]) as servletMapping
+2026-08-18 05:18:13,549 [myid:] - DEBUG [main:Slf4jLog@40] - filterNameMap=null
+2026-08-18 05:18:13,549 [myid:] - DEBUG [main:Slf4jLog@40] - pathFilters=null
+2026-08-18 05:18:13,549 [myid:] - DEBUG [main:Slf4jLog@40] - servletFilterMap=null
+2026-08-18 05:18:13,549 [myid:] - DEBUG [main:Slf4jLog@40] - servletPathMap={/commands/*=org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764}
+2026-08-18 05:18:13,549 [myid:] - DEBUG [main:Slf4jLog@40] - servletNameMap={org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764=org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764}
+2026-08-18 05:18:13,550 [myid:] - INFO  [main:Slf4jLog@67] - jetty-6.1.26
+2026-08-18 05:18:13,562 [myid:] - DEBUG [main:Slf4jLog@40] - Container Server@3d8c7aca + org.mortbay.thread.QueuedThreadPool@32e6e9c3 as threadpool
+2026-08-18 05:18:13,564 [myid:] - DEBUG [main:Slf4jLog@40] - started org.mortbay.thread.QueuedThreadPool@32e6e9c3
+2026-08-18 05:18:13,578 [myid:] - DEBUG [main:Slf4jLog@40] - Container org.mortbay.jetty.servlet.Context@77b52d12{/,null} + ErrorHandler@5649fd9b as errorHandler
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - filterNameMap=null
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - pathFilters=null
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - servletFilterMap=null
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - servletPathMap={/commands/*=org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764}
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - servletNameMap={org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764=org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764}
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - starting ServletHandler@2d554825
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - started ServletHandler@2d554825
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - starting org.mortbay.jetty.servlet.Context@77b52d12{/,null}
+2026-08-18 05:18:13,579 [myid:] - DEBUG [main:Slf4jLog@40] - starting ErrorHandler@5649fd9b
+2026-08-18 05:18:13,581 [myid:] - DEBUG [main:Slf4jLog@40] - started ErrorHandler@5649fd9b
+2026-08-18 05:18:13,582 [myid:] - DEBUG [main:Slf4jLog@40] - started org.apache.zookeeper.server.admin.JettyAdminServer$CommandServlet-1419810764
+2026-08-18 05:18:13,582 [myid:] - DEBUG [main:Slf4jLog@40] - started org.mortbay.jetty.servlet.Context@77b52d12{/,null}
+2026-08-18 05:18:13,582 [myid:] - DEBUG [main:Slf4jLog@40] - starting Server@3d8c7aca
+2026-08-18 05:18:13,585 [myid:] - DEBUG [main:Slf4jLog@40] - started org.mortbay.jetty.nio.SelectChannelConnector$1@617faa95
+2026-08-18 05:18:13,587 [myid:] - INFO  [main:Slf4jLog@67] - Started SelectChannelConnector@0.0.0.0:8080
+2026-08-18 05:18:13,588 [myid:] - DEBUG [main:Slf4jLog@40] - started SelectChannelConnector@0.0.0.0:8080
+2026-08-18 05:18:13,588 [myid:] - DEBUG [main:Slf4jLog@40] - started Server@3d8c7aca
+2026-08-18 05:18:13,592 [myid:] - INFO  [main:JettyAdminServer@105] - Started AdminServer on address 0.0.0.0, port 8080 and command URL /commands
+2026-08-18 05:18:13,602 [myid:] - INFO  [main:NIOServerCnxnFactory@673] - Configuring NIO connection handler with 10s sessionless connection timeout, 1 selector thread(s), 2 worker threads, and 64 kB direct buffers.
+2026-08-18 05:18:13,605 [myid:] - INFO  [main:NIOServerCnxnFactory@686] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-08-18 05:18:13,626 [myid:] - INFO  [main:FileTxnSnapLog@298] - Snapshotting: 0x0 to /tmp/zookeeper/version-2/snapshot.0
+2026-08-18 05:18:13,649 [myid:] - INFO  [main:ContainerManager@64] - Using checkIntervalMs=60000 maxPerMinute=10000
+2026-08-18 05:18:16,737 [myid:] - INFO  [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /0:0:0:0:0:0:0:1:32924
+2026-08-18 05:18:16,740 [myid:] - INFO  [NIOWorkerThread-1:NIOServerCnxn@485] - Processing stmk command from /0:0:0:0:0:0:0:1:32924
+2026-08-18 05:18:16,742 [myid:] - WARN  [NIOWorkerThread-1:WorkerService$ScheduledWorkRequest@164] - Unexpected exception
+java.nio.BufferUnderflowException
+	at java.nio.Buffer.nextGetIndex(Buffer.java:510)
+	at java.nio.HeapByteBuffer.getLong(HeapByteBuffer.java:427)
+	at org.apache.zookeeper.server.NIOServerCnxn.checkFourLetterWord(NIOServerCnxn.java:514)
+	at org.apache.zookeeper.server.NIOServerCnxn.readLength(NIOServerCnxn.java:535)
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:331)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory$IOWorkRequest.doWork(NIOServerCnxnFactory.java:530)
+	at org.apache.zookeeper.server.WorkerService$ScheduledWorkRequest.run(WorkerService.java:162)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2026-08-18 05:18:16,744 [myid:] - INFO  [NIOWorkerThread-1:NIOServerCnxn@606] - Closed socket connection for client /0:0:0:0:0:0:0:1:32924 (no session established for client)
+2026-08-18 05:18:25,429 [myid:] - INFO  [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:42968
+2026-08-18 05:18:25,444 [myid:] - DEBUG [NIOWorkerThread-2:ZooKeeperServer@914] - Session establishment request from client /127.0.0.1:42968 client's lastZxid is 0x0
+2026-08-18 05:18:25,456 [myid:] - INFO  [NIOWorkerThread-2:ZooKeeperServer@964] - Client attempting to establish new session at /127.0.0.1:42968
+2026-08-18 05:18:25,459 [myid:] - DEBUG [NIOWorkerThread-2:SessionTrackerImpl@269] - Adding session 0x10000029b510000
+2026-08-18 05:18:25,459 [myid:] - TRACE [NIOWorkerThread-2:ZooTrace@71] - SessionTrackerImpl --- Adding session 0x10000029b510000 30000
+2026-08-18 05:18:25,463 [myid:] - TRACE [ProcessThread(sid:0 cport:2181)::ZooTrace@90] - :Psessionid:0x10000029b510000 type:createSession cxid:0x0 zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2026-08-18 05:18:25,468 [myid:] - TRACE [ProcessThread(sid:0 cport:2181)::ZooTrace@71] - SessionTrackerImpl --- Existing session 0x10000029b510000 30000
+2026-08-18 05:18:25,469 [myid:] - INFO  [SyncThread:0:FileTxnLog@200] - Creating new log file: log.1
+2026-08-18 05:18:25,470 [myid:] - ERROR [SyncThread:0:ZooKeeperCriticalThread@48] - Severe unrecoverable error, from thread : SyncThread:0
+java.io.IOException: No space left on device
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(FileOutputStream.java:326)
+	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+	at org.apache.zookeeper.server.persistence.FileTxnLog.append(FileTxnLog.java:212)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.append(FileTxnSnapLog.java:372)
+	at org.apache.zookeeper.server.ZKDatabase.append(ZKDatabase.java:548)
+	at org.apache.zookeeper.server.SyncRequestProcessor.run(SyncRequestProcessor.java:122)
+2026-08-18 05:18:25,470 [myid:] - INFO  [SyncThread:0:ZooKeeperServer$ZooKeeperServerListenerImpl@475] - Thread SyncThread:0 exits, error code 1
+2026-08-18 05:18:25,470 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@498] - shutting down
+2026-08-18 05:18:25,470 [myid:] - INFO  [SyncThread:0:SessionTrackerImpl@232] - Shutting down
+2026-08-18 05:18:25,471 [myid:] - TRACE [SyncThread:0:ZooTrace@71] - Shutdown SessionTrackerImpl!
+2026-08-18 05:18:25,472 [myid:] - INFO  [SyncThread:0:PrepRequestProcessor@967] - Shutting down
+2026-08-18 05:18:25,472 [myid:] - INFO  [SyncThread:0:SyncRequestProcessor@191] - Shutting down
+2026-08-18 05:18:25,472 [myid:] - TRACE [ProcessThread(sid:0 cport:2181)::ZooTrace@90] - :Psessionid:0x0 type:notification cxid:0x0 zxid:0xfffffffffffffffe txntype:unknown reqpath:n/a
+2026-08-18 05:18:25,472 [myid:] - INFO  [ProcessThread(sid:0 cport:2181)::PrepRequestProcessor@154] - PrepRequestProcessor exited loop!
+2026-08-18 05:18:26,800 [myid:] - INFO  [SessionTracker:SessionTrackerImpl@158] - SessionTrackerImpl exited loop!
+2026-08-18 05:18:44,417 [myid:] - INFO  [NIOServerCxnFactory.AcceptThread:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory$AcceptThread@296] - Accepted socket connection from /127.0.0.1:42890
+2026-08-18 05:18:44,430 [myid:] - DEBUG [NIOWorkerThread-1:ZooKeeperServer@914] - Session establishment request from client /127.0.0.1:42890 client's lastZxid is 0x0
+2026-08-18 05:18:44,431 [myid:] - INFO  [NIOWorkerThread-1:ZooKeeperServer@964] - Client attempting to establish new session at /127.0.0.1:42890
+2026-08-18 05:18:44,431 [myid:] - DEBUG [NIOWorkerThread-1:SessionTrackerImpl@269] - Adding session 0x10000029b510001
+2026-08-18 05:18:44,431 [myid:] - TRACE [NIOWorkerThread-1:ZooTrace@71] - SessionTrackerImpl --- Adding session 0x10000029b510001 30000
+2026-08-18 05:19:02,800 [myid:] - INFO  [ConnnectionExpirer:NIOServerCnxn@606] - Closed socket connection for client /127.0.0.1:42968 which had sessionid 0x10000029b510000
