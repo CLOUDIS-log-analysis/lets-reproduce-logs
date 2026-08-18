@@ -1,9 +1,18 @@
 services:
-  redis-target:
-    image: mongo:6.0.1
-    container_name: mongo-77168
-    volumes:
-      - ./data:/data
-    command: /data/repro.sh
-    # command: mongod --port 3000 --dbpath data --logpath data/mongod.log --wiredTigerCacheSizeGB 1 --auth
+  mongo:
+    image: mongo:8.0.15
+    container_name: mongo115200
+    restart: "no"
 
+    command:
+      - mongod
+      - --bind_ip_all
+      - --logpath
+      - /var/log/mongodb/mongod.log
+      - --logappend
+      - --setParameter
+      - logLevel=5
+
+    volumes:
+      - ./data:/data/db
+      - ./logs:/var/log/mongodb
