@@ -1,0 +1,34 @@
+networks:
+  zk-net-3496:
+    driver: bridge
+
+services:
+  zk1:
+    image: zookeeper:3.5.5
+    container_name: zk1
+    environment:
+      ZOO_LOG4J_PROP: "TRACE,CONSOLE,ROLLINGFILE"
+      
+    networks:
+      - zk-net-3496
+    volumes:
+      # - ./zoo.cfg:/conf/zoo.cfg:ro
+      - ./log4j.properties:/conf/log4j.properties
+      - ./data:/data
+      - ./datalog:/datalog
+      - ./logs:/logs
+
+  zk-py:
+    image: python:3.10-slim
+    container_name: zk-py
+    networks:
+      - zk-net-3496
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      sh -c "pip install uv &&
+             uv sync && configs:
+             uv add kazoo &&
+             tail -f /dev/null"
+    
