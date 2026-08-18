@@ -1,6 +1,5 @@
 # SERVER-77168
-MongoDB Sharded Cluster 환경.
-Config Server 초기화 과정 중 Replica Set 설정, Config 데이터베이스 초기화 과정에서 발생!
+Time Series Collection을 mongorestore로 복원할 때 mongodb가 crash하는 버그이다.
 
 # 재현 방법
 ```shell
