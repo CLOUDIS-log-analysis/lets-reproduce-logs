@@ -58,7 +58,7 @@
 #set page(
   header: [
     #set text(size: 0.5em);
-    "ZOOKEEPER-2592"
+    ZOOKEEPER-2592
   ],
 )
 #cmarker.render(read("../zookeeper/ZOOKEEPER-2592/summary.md"))
