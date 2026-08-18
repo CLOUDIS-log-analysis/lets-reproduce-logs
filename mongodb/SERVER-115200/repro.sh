@@ -1,17 +1,71 @@
-#!/usr/bin/env bash
 
-# create standalone mongod with auth
-mongod --port 3000 --dbpath data --logpath /data/mongod.log --wiredTigerCacheSizeGB 1 --auth --fork
-mongosh --port 3000 --eval 'rs.initiate()'
-mongosh admin --port 3000 --eval "db.createUser({user: 'user', pwd: 'password', roles: ['root']})"
+set -e
 
-# create & insert data into a time series collection
-mongosh --port 3000 --username "user" --password "password" --eval 'db.setLogLevel(5)'
-mongosh --port 3000 --username "user" --password "password" --eval 'db.createCollection( "weather", { timeseries: { timeField: "timestamp", metaField: "metadata", granularity: "hours" } } )'
-mongosh --port 3000 --username "user" --password "password" --eval 'db.weather.insertOne( { "metadata": { "sensorId": 5578, "type": "temperature" }, "timestamp": ISODate("2021-05-18T00:00:00.000Z"), "temp": 12 } )'
+CONTAINER_NAME="mongo115200"
+BASE_DIR="$HOME/mongo115200"
+JOURNAL_DIR="$BASE_DIR/data/journal"
 
-# dump
-mongodump --port 3000 --username "user" --password "password"
+sudo docker compose up -d
 
-# restore
-mongorestore --port 3000 --drop --username "user" --password "password" dump/test/system.buckets.weather.bson
+cat > /tmp/repro115200_insert.js <<'JS'
+const dbx = db.getSiblingDB("repro115200");
+
+dbx.t.drop();
+
+for (let b = 0; b < 30; b++) {
+  const docs = [];
+
+  for (let i = 0; i < 1000; i++) {
+    docs.push({
+      _id: b * 1000 + i,
+      pad: "x".repeat(2000),
+      ts: new Date()
+    });
+  }
+
+  dbx.runCommand({
+    insert: "t",
+    documents: docs,
+    writeConcern: { j: true }
+  });
+
+  print("batch", b, "inserted");
+}
+
+print("count:", dbx.t.countDocuments());
+JS
+
+sudo docker cp /tmp/repro115200_insert.js ${CONTAINER_NAME}:/tmp/repro115200_insert.js
+
+sudo docker exec ${CONTAINER_NAME} mongosh --quiet /tmp/repro115200_insert.js
+
+sudo docker kill -s SIGKILL ${CONTAINER_NAME}
+
+WTLOG=$(sudo find "${JOURNAL_DIR}" -maxdepth 1 -type f -name 'WiredTigerLog.*' | sort | tail -1)
+
+sudo python3 - "$WTLOG" <<'PY'
+import sys
+
+p = sys.argv[1]
+offset = 128
+
+with open(p, "r+b") as f:
+    f.seek(offset)
+    before = f.read(16)
+
+    f.seek(offset)
+    f.write(b"\xff\xff\xff\xff")
+
+print("patched:", p)
+print("offset:", offset)
+print("before:", before.hex())
+print("after: ffffffff")
+PY
+
+sudo docker start ${CONTAINER_NAME}
+
+sleep 5
+
+sudo docker ps -a --filter name=${CONTAINER_NAME}
+
+sudo grep -Ei 'WiredTiger|WTRECOV|journal|recovery|corrupt|fatal|signal|segv|SIGSEGV|BACKTRACE|abort|assert|invariant|D[1-5]|DEBUG_[1-5]' "${BASE_DIR}/logs/mongod.log" -C 10 || true
