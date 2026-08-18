@@ -3,3 +3,5 @@ target
 apache-cassandra-*
 .venv
 .DS_Store
+*.qcow2
+*.tar*
