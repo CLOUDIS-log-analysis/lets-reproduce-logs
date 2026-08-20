@@ -1,6 +1,8 @@
 # Overview
 Writable Replica에 만료된 key를 지우고 명령어를 AOF에 전송하기위해 큐 사용
+
 그 과정에서 작업이 끝난 후 큐를 비우는 로직 누락
+
 다음 AOF에 전송하기 전 큐가 비어있지 않아 방어로직 Assertion failure
 
 # Step to reproduce
