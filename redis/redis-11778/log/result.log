@@ -1,0 +1,392 @@
+1:C 20 Aug 2026 08:41:48.767 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 20 Aug 2026 08:41:48.767 # Redis version=7.0.4, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 20 Aug 2026 08:41:48.767 # Configuration loaded
+1:S 20 Aug 2026 08:41:48.767 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+1:S 20 Aug 2026 08:41:48.767 * monotonic clock: POSIX clock_gettime
+1:S 20 Aug 2026 08:41:48.768 * Running mode=standalone, port=6379.
+1:S 20 Aug 2026 08:41:48.768 # Server initialized
+1:S 20 Aug 2026 08:41:48.768 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:S 20 Aug 2026 08:41:48.769 . The AOF directory appendonlydir doesn't exist
+1:S 20 Aug 2026 08:41:48.772 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+1:S 20 Aug 2026 08:41:48.775 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+1:S 20 Aug 2026 08:41:48.775 * Ready to accept connections
+1:S 20 Aug 2026 08:41:48.775 . 0 clients connected (0 replicas), 863528 bytes in use
+1:S 20 Aug 2026 08:41:48.775 * Connecting to MASTER redis-master:6380
+1:S 20 Aug 2026 08:41:48.777 * MASTER <-> REPLICA sync started
+1:S 20 Aug 2026 08:41:48.777 * Non blocking connect for SYNC fired the event.
+1:S 20 Aug 2026 08:41:48.777 * Master replied to PING, replication can continue...
+1:S 20 Aug 2026 08:41:48.777 * Partial resynchronization not possible (no cached master)
+1:S 20 Aug 2026 08:41:50.250 - Accepted 127.0.0.1:45692
+1:S 20 Aug 2026 08:41:50.250 - Client closed connection id=3 addr=127.0.0.1:45692 laddr=127.0.0.1:6379 fd=10 name= age=0 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37632 events=r cmd=config|get user=default redir=-1 resp=2
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45704
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45712
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45724
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45732
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45738
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45742
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45754
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45758
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45762
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45770
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45784
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45790
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45806
+1:S 20 Aug 2026 08:41:50.251 - Accepted 127.0.0.1:45814
+1:S 20 Aug 2026 08:41:50.252 - Accepted 127.0.0.1:45824
+1:S 20 Aug 2026 08:41:50.252 - Accepted 127.0.0.1:45828
+1:S 20 Aug 2026 08:41:50.252 - Accepted 127.0.0.1:45834
+1:S 20 Aug 2026 08:41:50.253 - Accepted 127.0.0.1:45836
+1:S 20 Aug 2026 08:41:50.253 - Accepted 127.0.0.1:45838
+1:S 20 Aug 2026 08:41:50.253 - Accepted 127.0.0.1:45854
+1:S 20 Aug 2026 08:41:53.567 * Full resync from master: 9bd8460746ac1ace900de7614d7e8b5e513edf8c:0
+1:S 20 Aug 2026 08:41:53.568 * MASTER <-> REPLICA sync: receiving streamed RDB from master with EOF to disk
+1:S 20 Aug 2026 08:41:53.590 * MASTER <-> REPLICA sync: Flushing old data
+1:S 20 Aug 2026 08:41:53.665 * MASTER <-> REPLICA sync: Loading DB in memory
+1:S 20 Aug 2026 08:41:53.674 * Loading RDB produced by version 7.0.4
+1:S 20 Aug 2026 08:41:53.674 * RDB age 0 seconds
+1:S 20 Aug 2026 08:41:53.674 * RDB memory usage when created 0.90 Mb
+1:S 20 Aug 2026 08:41:53.674 * Done loading RDB, keys loaded: 0, keys expired: 0.
+1:S 20 Aug 2026 08:41:53.674 * MASTER <-> REPLICA sync: Finished with success
+1:S 20 Aug 2026 08:41:53.674 * Creating AOF incr file temp-appendonly.aof.incr on background rewrite
+1:S 20 Aug 2026 08:41:53.676 * Background append only file rewriting started by pid 27
+27:C 20 Aug 2026 08:41:53.679 * Successfully created the temporary AOF base file temp-rewriteaof-bg-27.aof
+27:C 20 Aug 2026 08:41:53.681 * Fork CoW for AOF rewrite: current 1 MB, peak 1 MB, average 1 MB
+1:S 20 Aug 2026 08:41:53.776 * Background AOF rewrite terminated with success
+1:S 20 Aug 2026 08:41:53.777 * Successfully renamed the temporary AOF base file temp-rewriteaof-bg-27.aof into appendonly.aof.2.base.rdb
+1:S 20 Aug 2026 08:41:53.777 * Successfully renamed the temporary AOF incr file temp-appendonly.aof.incr into appendonly.aof.2.incr.aof
+1:S 20 Aug 2026 08:41:53.785 * Removing the history file appendonly.aof.1.incr.aof in the background
+1:S 20 Aug 2026 08:41:53.785 * Removing the history file appendonly.aof.1.base.rdb in the background
+1:S 20 Aug 2026 08:41:53.791 * Background AOF rewrite finished successfully
+1:S 20 Aug 2026 08:41:53.791 - Background AOF rewrite signal handler took 14506us
+1:S 20 Aug 2026 08:41:53.891 - DB 0: 9809 keys (9809 volatile) in 16384 slots HT.
+1:S 20 Aug 2026 08:41:53.891 . 21 clients connected (0 replicas), 3561240 bytes in use
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+1:S 20 Aug 2026 08:41:58.304 # === ASSERTION FAILED ===
+1:S 20 Aug 2026 08:41:58.304 # ==> blocked.c:624 'server.also_propagate.numops == 0' is not true
+
+------ STACK TRACE ------
+
+Backtrace:
+redis-server *:6379(handleClientsBlockedOnKeys+0x22a)[0x64e535706d3a]
+redis-server *:6379(beforeSleep+0xd6)[0x64e535679386]
+redis-server *:6379(aeProcessEvents+0xd8)[0x64e535675778]
+redis-server *:6379(aeMain+0x1d)[0x64e535675c0d]
+redis-server *:6379(main+0x311)[0x64e535671591]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xea)[0x7c13fe66fd0a]
+redis-server *:6379(_start+0x2a)[0x64e535671bea]
+
+------ INFO OUTPUT ------
+# Server
+redis_version:7.0.4
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:4f8875cbf3281026
+redis_mode:standalone
+os:Linux 6.8.0-136-generic x86_64
+arch_bits:64
+monotonic_clock:POSIX clock_gettime
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:10.2.1
+process_id:1
+process_supervised:no
+run_id:eef40b4ccf5a2610765cb43432f72aa717ba6fa5
+tcp_port:6379
+server_time_usec:1787215318304410
+uptime_in_seconds:10
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:8830422
+executable:/data/redis-server
+config_file:
+io_threads_active:0
+
+# Clients
+connected_clients:21
+cluster_connections:0
+maxclients:10000
+client_recent_max_input_buffer:20480
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+clients_in_timeout_table:0
+
+# Memory
+used_memory:20811896
+used_memory_human:19.85M
+used_memory_rss:34824192
+used_memory_rss_human:33.21M
+used_memory_peak:23938224
+used_memory_peak_human:22.83M
+used_memory_peak_perc:86.94%
+used_memory_overhead:9615908
+used_memory_startup:863200
+used_memory_dataset:11195988
+used_memory_dataset_perc:56.12%
+allocator_allocated:20910800
+allocator_active:21291008
+allocator_resident:30818304
+total_system_memory:4105379840
+total_system_memory_human:3.82G
+used_memory_lua:31744
+used_memory_vm_eval:31744
+used_memory_lua_human:31.00K
+used_memory_scripts_eval:0
+number_of_cached_scripts:0
+number_of_functions:0
+number_of_libraries:0
+used_memory_vm_functions:32768
+used_memory_vm_total:64512
+used_memory_vm_total_human:63.00K
+used_memory_functions:184
+used_memory_scripts:184
+used_memory_scripts_human:184B
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.02
+allocator_frag_bytes:380208
+allocator_rss_ratio:1.45
+allocator_rss_bytes:9527296
+rss_overhead_ratio:1.13
+rss_overhead_bytes:4005888
+mem_fragmentation_ratio:1.67
+mem_fragmentation_bytes:14014480
+mem_not_counted_for_evict:1536
+mem_replication_backlog:4
+mem_total_replication_buffers:0
+mem_clients_slaves:0
+mem_clients_normal:447240
+mem_cluster_links:0
+mem_aof_buffer:1536
+mem_allocator:jemalloc-5.2.1
+active_defrag_running:0
+lazyfree_pending_objects:0
+lazyfreed_objects:0
+
+# Persistence
+loading:0
+async_loading:0
+current_cow_peak:0
+current_cow_size:0
+current_cow_size_age:0
+current_fork_perc:0.00
+current_save_keys_processed:0
+current_save_keys_total:0
+rdb_changes_since_last_save:592146
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1787215308
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_saves:0
+rdb_last_cow_size:0
+rdb_last_load_keys_expired:0
+rdb_last_load_keys_loaded:0
+aof_enabled:1
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:0
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_rewrites:1
+aof_rewrites_consecutive_failures:0
+aof_last_write_status:ok
+aof_last_cow_size:1667072
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+aof_current_size:31175718
+aof_base_size:487103
+aof_pending_rewrite:0
+aof_buffer_length:1128
+aof_pending_bio_fsync:0
+aof_delayed_fsync:0
+
+# Stats
+total_connections_received:21
+total_commands_processed:592148
+instantaneous_ops_per_sec:88545
+total_net_input_bytes:43226993
+total_net_output_bytes:2960948
+total_net_repl_input_bytes:258
+total_net_repl_output_bytes:0
+instantaneous_input_kbps:6312.31
+instantaneous_output_kbps:432.36
+instantaneous_input_repl_kbps:0.00
+instantaneous_output_repl_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:5397
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:0
+evicted_keys:0
+evicted_clients:0
+total_eviction_exceeded_time:0
+current_eviction_exceeded_time:0
+keyspace_hits:0
+keyspace_misses:0
+pubsub_channels:0
+pubsub_patterns:0
+pubsubshard_channels:0
+latest_fork_usec:1344
+total_forks:1
+migrate_cached_sockets:0
+slave_expires_tracked_keys:96978
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:0
+dump_payload_sanitizations:0
+total_reads_processed:592148
+total_writes_processed:592141
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+reply_buffer_shrinks:21
+reply_buffer_expands:0
+
+# Replication
+role:slave
+master_host:redis-master
+master_port:6380
+master_link_status:up
+master_last_io_seconds_ago:5
+master_sync_in_progress:0
+slave_read_repl_offset:0
+slave_repl_offset:0
+slave_priority:100
+slave_read_only:0
+replica_announced:1
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:9bd8460746ac1ace900de7614d7e8b5e513edf8c
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:1
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:5.215539
+used_cpu_user:2.550904
+used_cpu_sys_children:0.014102
+used_cpu_user_children:0.000867
+used_cpu_sys_main_thread:5.185758
+used_cpu_user_main_thread:2.549609
+
+# Modules
+
+# Commandstats
+cmdstat_set:calls=592146,usec=1063522,usec_per_call=1.80,rejected_calls=0,failed_calls=0
+cmdstat_config|get:calls=2,usec=23,usec_per_call=11.50,rejected_calls=0,failed_calls=0
+
+# Errorstats
+
+# Latencystats
+latency_percentiles_usec_set:p50=2.007,p99=6.015,p99.9=18.047
+latency_percentiles_usec_config|get:p50=4.015,p99=19.071,p99.9=19.071
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=96978,expires=96978,avg_ttl=0
+
+------ CLIENT LIST OUTPUT ------
+id=16 addr=127.0.0.1:45806 laddr=127.0.0.1:6379 fd=22 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=17 addr=127.0.0.1:45814 laddr=127.0.0.1:6379 fd=23 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=18 addr=127.0.0.1:45824 laddr=127.0.0.1:6379 fd=24 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=24 addr=172.19.0.2:6380 laddr=172.19.0.3:51324 fd=9 name= age=5 idle=5 flags=M db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=4 argv-mem=0 multi-mem=0 rbs=1024 rbp=34 obl=0 oll=0 omem=0 tot-mem=1800 events=r cmd=NULL user=(superuser) redir=-1 resp=2
+id=19 addr=127.0.0.1:45828 laddr=127.0.0.1:6379 fd=25 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=20 addr=127.0.0.1:45834 laddr=127.0.0.1:6379 fd=26 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=21 addr=127.0.0.1:45836 laddr=127.0.0.1:6379 fd=27 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=22 addr=127.0.0.1:45838 laddr=127.0.0.1:6379 fd=28 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=23 addr=127.0.0.1:45854 laddr=127.0.0.1:6379 fd=29 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=4 addr=127.0.0.1:45704 laddr=127.0.0.1:6379 fd=10 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=5 addr=127.0.0.1:45712 laddr=127.0.0.1:6379 fd=11 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=6 addr=127.0.0.1:45724 laddr=127.0.0.1:6379 fd=12 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=7 addr=127.0.0.1:45732 laddr=127.0.0.1:6379 fd=13 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=8 addr=127.0.0.1:45738 laddr=127.0.0.1:6379 fd=14 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=9 addr=127.0.0.1:45742 laddr=127.0.0.1:6379 fd=15 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=10 addr=127.0.0.1:45754 laddr=127.0.0.1:6379 fd=16 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=11 addr=127.0.0.1:45758 laddr=127.0.0.1:6379 fd=17 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=12 addr=127.0.0.1:45762 laddr=127.0.0.1:6379 fd=18 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=13 addr=127.0.0.1:45770 laddr=127.0.0.1:6379 fd=19 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=14 addr=127.0.0.1:45784 laddr=127.0.0.1:6379 fd=20 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=5 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+id=15 addr=127.0.0.1:45790 laddr=127.0.0.1:6379 fd=21 name= age=8 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=5 obl=0 oll=0 omem=0 tot-mem=22272 events=r cmd=set user=default redir=-1 resp=2
+
+------ MODULES INFO OUTPUT ------
+
+------ CONFIG DEBUG OUTPUT ------
+repl-diskless-sync yes
+replica-read-only no
+proto-max-bulk-len 512mb
+activedefrag no
+sanitize-dump-payload no
+lazyfree-lazy-eviction no
+repl-diskless-load disabled
+lazyfree-lazy-server-del no
+io-threads-do-reads no
+lazyfree-lazy-expire no
+lazyfree-lazy-user-flush no
+lazyfree-lazy-user-del no
+io-threads 1
+slave-read-only no
+list-compress-depth 0
+client-query-buffer-limit 1gb
+
+------ FAST MEMORY TEST ------
+1:S 20 Aug 2026 08:41:58.305 # Bio thread for job type #0 terminated
+1:S 20 Aug 2026 08:41:58.305 # Bio thread for job type #1 terminated
+1:S 20 Aug 2026 08:41:58.305 # Bio thread for job type #2 terminated
+*** Preparing to test memory region 64e5358d4000 (2301952 bytes)
+*** Preparing to test memory region 64e53a575000 (270336 bytes)
+*** Preparing to test memory region 7c13f4000000 (135168 bytes)
+*** Preparing to test memory region 7c13f88ff000 (7340032 bytes)
+*** Preparing to test memory region 7c13f9000000 (8388608 bytes)
+*** Preparing to test memory region 7c13f9800000 (8388608 bytes)
+*** Preparing to test memory region 7c13fa100000 (9437184 bytes)
+*** Preparing to test memory region 7c13faa7f000 (3670016 bytes)
+*** Preparing to test memory region 7c13fae00000 (8388608 bytes)
+*** Preparing to test memory region 7c13fb600000 (2097152 bytes)
+*** Preparing to test memory region 7c13fb87c000 (5767168 bytes)
+*** Preparing to test memory region 7c13fbdfd000 (8388608 bytes)
+*** Preparing to test memory region 7c13fc5fe000 (8388608 bytes)
+*** Preparing to test memory region 7c13fcdff000 (8388608 bytes)
+*** Preparing to test memory region 7c13fd600000 (8388608 bytes)
+*** Preparing to test memory region 7c13fde00000 (8388608 bytes)
+*** Preparing to test memory region 7c13fe628000 (8192 bytes)
+*** Preparing to test memory region 7c13fe640000 (49152 bytes)
+*** Preparing to test memory region 7c13fe81d000 (16384 bytes)
+*** Preparing to test memory region 7c13fe83f000 (16384 bytes)
+*** Preparing to test memory region 7c13feb33000 (16384 bytes)
+*** Preparing to test memory region 7c13fed14000 (8192 bytes)
+*** Preparing to test memory region 7c13fed44000 (4096 bytes)
+.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/redis/redis/issues
+
+  If a Redis module was involved, please open in the module's repo instead.
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+
+  Some other issues could be detected by redis-server --check-system

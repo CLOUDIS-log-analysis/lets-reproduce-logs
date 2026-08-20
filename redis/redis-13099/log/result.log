@@ -1,0 +1,190 @@
+1:C 20 Aug 2026 12:17:26.625 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:C 20 Aug 2026 12:17:26.625 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 20 Aug 2026 12:17:26.625 * Redis version=7.2.15, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 20 Aug 2026 12:17:26.625 * Configuration loaded
+1:M 20 Aug 2026 12:17:26.626 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+1:M 20 Aug 2026 12:17:26.626 * monotonic clock: POSIX clock_gettime
+1:M 20 Aug 2026 12:17:26.627 * Running mode=standalone, port=6379.
+1:M 20 Aug 2026 12:17:26.628 * Server initialized
+1:M 20 Aug 2026 12:17:26.628 . The AOF directory appendonlydir doesn't exist
+1:M 20 Aug 2026 12:17:26.630 * Creating AOF base file appendonly.aof.1.base.rdb on server start
+1:M 20 Aug 2026 12:17:26.635 * Creating AOF incr file appendonly.aof.1.incr.aof on server start
+1:M 20 Aug 2026 12:17:26.635 * Ready to accept connections tcp
+1:M 20 Aug 2026 12:17:26.635 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:31.659 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:36.683 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:41.706 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:46.739 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:51.761 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:17:56.803 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:01.827 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:06.866 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:11.925 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:16.966 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:21.990 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:27.034 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:32.076 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:37.124 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:45.959 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:51.000 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:18:56.044 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:01.088 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:06.132 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:11.171 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:16.199 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:21.226 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:26.262 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:39.772 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:44.809 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:49.834 . 0 clients connected (0 replicas), 866536 bytes in use
+1:M 20 Aug 2026 12:19:51.654 - Accepted 127.0.0.1:58576
+1:M 20 Aug 2026 12:19:51.655 - Client closed connection id=3 addr=127.0.0.1:58576 laddr=127.0.0.1:6379 fd=9 name= age=0 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=16384 rbp=16384 obl=0 oll=0 omem=0 tot-mem=37760 events=r cmd=config|get user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:19:51.655 - Accepted 127.0.0.1:58584
+1:M 20 Aug 2026 12:19:51.656 - Accepted 127.0.0.1:58586
+1:M 20 Aug 2026 12:19:51.656 - Accepted 127.0.0.1:58592
+1:M 20 Aug 2026 12:19:51.656 - Accepted 127.0.0.1:58608
+1:M 20 Aug 2026 12:19:51.657 - Accepted 127.0.0.1:58620
+1:M 20 Aug 2026 12:19:51.657 - Accepted 127.0.0.1:58622
+1:M 20 Aug 2026 12:19:51.657 - Accepted 127.0.0.1:58632
+1:M 20 Aug 2026 12:19:51.657 - Accepted 127.0.0.1:58644
+1:M 20 Aug 2026 12:19:51.658 - Accepted 127.0.0.1:58652
+1:M 20 Aug 2026 12:19:51.658 - Accepted 127.0.0.1:58664
+1:M 20 Aug 2026 12:19:51.658 - Accepted 127.0.0.1:58670
+1:M 20 Aug 2026 12:19:51.658 - Accepted 127.0.0.1:58680
+1:M 20 Aug 2026 12:19:51.658 - Accepted 127.0.0.1:58692
+1:M 20 Aug 2026 12:19:51.659 - Accepted 127.0.0.1:58700
+1:M 20 Aug 2026 12:19:51.659 - Accepted 127.0.0.1:58712
+1:M 20 Aug 2026 12:19:51.661 - Accepted 127.0.0.1:58714
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58730
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58744
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58756
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58768
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58782
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58788
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58798
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58800
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58806
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58822
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58830
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58834
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58842
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58856
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58864
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58876
+1:M 20 Aug 2026 12:19:51.662 - Accepted 127.0.0.1:58878
+1:M 20 Aug 2026 12:19:51.664 - Accepted 127.0.0.1:58882
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58888
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58894
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58896
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58910
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58920
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58928
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58932
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58948
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58964
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58966
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58978
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:58990
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:59002
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:59008
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:59012
+1:M 20 Aug 2026 12:19:51.665 - Accepted 127.0.0.1:59026
+1:M 20 Aug 2026 12:19:51.982 * 10000 changes in 60 seconds. Saving...
+1:M 20 Aug 2026 12:19:51.987 * Background saving started by pid 351
+351:C 20 Aug 2026 12:19:52.001 - Fork CoW for RDB: current 1 MB, peak 1 MB, average 1 MB
+1:M 20 Aug 2026 12:19:53.041 * Asynchronous AOF fsync is taking too long (disk is busy?). Writing the AOF buffer without waiting for fsync to complete, this may slow down Redis.
+1:M 20 Aug 2026 12:19:55.096 * Asynchronous AOF fsync is taking too long (disk is busy?). Writing the AOF buffer without waiting for fsync to complete, this may slow down Redis.
+1:M 20 Aug 2026 12:19:55.702 - DB 0: 97548 keys (0 volatile) in 16384 slots HT.
+1:M 20 Aug 2026 12:19:55.702 . 50 clients connected (0 replicas), 200406048 bytes in use
+1:M 20 Aug 2026 12:19:57.063 * Asynchronous AOF fsync is taking too long (disk is busy?). Writing the AOF buffer without waiting for fsync to complete, this may slow down Redis.
+1:M 20 Aug 2026 12:20:00.001 * Asynchronous AOF fsync is taking too long (disk is busy?). Writing the AOF buffer without waiting for fsync to complete, this may slow down Redis.
+1:M 20 Aug 2026 12:20:01.767 - Client closed connection id=24 addr=127.0.0.1:58782 laddr=127.0.0.1:6379 fd=29 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.769 - Client closed connection id=4 addr=127.0.0.1:58584 laddr=127.0.0.1:6379 fd=9 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.769 - Client closed connection id=5 addr=127.0.0.1:58586 laddr=127.0.0.1:6379 fd=10 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.769 - Client closed connection id=6 addr=127.0.0.1:58592 laddr=127.0.0.1:6379 fd=11 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.769 - Client closed connection id=7 addr=127.0.0.1:58608 laddr=127.0.0.1:6379 fd=12 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.769 - Client closed connection id=8 addr=127.0.0.1:58620 laddr=127.0.0.1:6379 fd=13 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=9 addr=127.0.0.1:58622 laddr=127.0.0.1:6379 fd=14 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=10 addr=127.0.0.1:58632 laddr=127.0.0.1:6379 fd=15 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=11 addr=127.0.0.1:58644 laddr=127.0.0.1:6379 fd=16 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=12 addr=127.0.0.1:58652 laddr=127.0.0.1:6379 fd=17 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=13 addr=127.0.0.1:58664 laddr=127.0.0.1:6379 fd=18 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=14 addr=127.0.0.1:58670 laddr=127.0.0.1:6379 fd=19 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=15 addr=127.0.0.1:58680 laddr=127.0.0.1:6379 fd=20 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.770 - Client closed connection id=16 addr=127.0.0.1:58692 laddr=127.0.0.1:6379 fd=21 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=17 addr=127.0.0.1:58700 laddr=127.0.0.1:6379 fd=22 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=18 addr=127.0.0.1:58712 laddr=127.0.0.1:6379 fd=23 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=19 addr=127.0.0.1:58714 laddr=127.0.0.1:6379 fd=24 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=20 addr=127.0.0.1:58730 laddr=127.0.0.1:6379 fd=25 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=21 addr=127.0.0.1:58744 laddr=127.0.0.1:6379 fd=26 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=22 addr=127.0.0.1:58756 laddr=127.0.0.1:6379 fd=27 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=23 addr=127.0.0.1:58768 laddr=127.0.0.1:6379 fd=28 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=25 addr=127.0.0.1:58788 laddr=127.0.0.1:6379 fd=30 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=26 addr=127.0.0.1:58798 laddr=127.0.0.1:6379 fd=31 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.771 - Client closed connection id=27 addr=127.0.0.1:58800 laddr=127.0.0.1:6379 fd=32 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=28 addr=127.0.0.1:58806 laddr=127.0.0.1:6379 fd=33 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=29 addr=127.0.0.1:58822 laddr=127.0.0.1:6379 fd=34 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=30 addr=127.0.0.1:58830 laddr=127.0.0.1:6379 fd=35 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=31 addr=127.0.0.1:58834 laddr=127.0.0.1:6379 fd=36 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=32 addr=127.0.0.1:58842 laddr=127.0.0.1:6379 fd=37 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=33 addr=127.0.0.1:58856 laddr=127.0.0.1:6379 fd=38 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=34 addr=127.0.0.1:58864 laddr=127.0.0.1:6379 fd=39 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=35 addr=127.0.0.1:58876 laddr=127.0.0.1:6379 fd=40 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=36 addr=127.0.0.1:58878 laddr=127.0.0.1:6379 fd=41 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.772 - Client closed connection id=37 addr=127.0.0.1:58882 laddr=127.0.0.1:6379 fd=42 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=38 addr=127.0.0.1:58888 laddr=127.0.0.1:6379 fd=43 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=39 addr=127.0.0.1:58894 laddr=127.0.0.1:6379 fd=44 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=40 addr=127.0.0.1:58896 laddr=127.0.0.1:6379 fd=45 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=41 addr=127.0.0.1:58910 laddr=127.0.0.1:6379 fd=46 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=42 addr=127.0.0.1:58920 laddr=127.0.0.1:6379 fd=47 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=43 addr=127.0.0.1:58928 laddr=127.0.0.1:6379 fd=48 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=44 addr=127.0.0.1:58932 laddr=127.0.0.1:6379 fd=49 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=45 addr=127.0.0.1:58948 laddr=127.0.0.1:6379 fd=50 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=46 addr=127.0.0.1:58964 laddr=127.0.0.1:6379 fd=51 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=47 addr=127.0.0.1:58966 laddr=127.0.0.1:6379 fd=52 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=48 addr=127.0.0.1:58978 laddr=127.0.0.1:6379 fd=53 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=49 addr=127.0.0.1:58990 laddr=127.0.0.1:6379 fd=54 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=50 addr=127.0.0.1:59002 laddr=127.0.0.1:6379 fd=55 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=51 addr=127.0.0.1:59008 laddr=127.0.0.1:6379 fd=56 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.773 - Client closed connection id=52 addr=127.0.0.1:59012 laddr=127.0.0.1:6379 fd=57 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.774 - Client closed connection id=53 addr=127.0.0.1:59026 laddr=127.0.0.1:6379 fd=58 name= age=10 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=95 obl=0 oll=0 omem=0 tot-mem=22400 events=r cmd=set user=default redir=-1 resp=2 lib-name= lib-ver=
+1:M 20 Aug 2026 12:20:01.952 # Warning, detected child with unmatched pid: 21
+1:M 20 Aug 2026 12:20:02.053 # Warning, detected child with unmatched pid: 22
+1:M 20 Aug 2026 12:20:02.153 # Warning, detected child with unmatched pid: 23
+1:M 20 Aug 2026 12:20:02.254 # Warning, detected child with unmatched pid: 24
+1:M 20 Aug 2026 12:20:02.355 - DB 0: 99996 keys (0 volatile) in 131072 slots HT.
+1:M 20 Aug 2026 12:20:02.355 . 0 clients connected (0 replicas), 195080152 bytes in use
+1:M 20 Aug 2026 12:20:03.059 * Asynchronous AOF fsync is taking too long (disk is busy?). Writing the AOF buffer without waiting for fsync to complete, this may slow down Redis.
+1:M 20 Aug 2026 12:20:07.446 - DB 0: 99996 keys (0 volatile) in 131072 slots HT.
+1:M 20 Aug 2026 12:20:07.446 . 0 clients connected (0 replicas), 136359904 bytes in use
+351:C 20 Aug 2026 12:20:10.549 * DB saved on disk
+351:C 20 Aug 2026 12:20:10.552 * Fork CoW for RDB: current 36 MB, peak 36 MB, average 19 MB
+1:M 20 Aug 2026 12:20:10.564 * Background saving terminated with success
+1:M 20 Aug 2026 12:20:10.664 * Starting automatic rewriting of AOF on 106900002200% growth
+1:M 20 Aug 2026 12:20:11.222 * Creating AOF incr file appendonly.aof.2.incr.aof on background rewrite
+1:M 20 Aug 2026 12:20:11.242 * Background append only file rewriting started by pid 377
+377:C 20 Aug 2026 12:20:11.259 - Fork CoW for AOF rewrite: current 0 MB, peak 0 MB, average 0 MB
+1:M 20 Aug 2026 12:20:11.344 # Warning, detected child with unmatched pid: 363
+1:M 20 Aug 2026 12:20:11.445 # Warning, detected child with unmatched pid: 364
+1:M 20 Aug 2026 12:20:11.545 # Warning, detected child with unmatched pid: 361
+1:M 20 Aug 2026 12:20:11.646 # Warning, detected child with unmatched pid: 362
+377:C 20 Aug 2026 12:20:11.975 * Successfully created the temporary AOF base file temp-rewriteaof-bg-377.aof
+377:C 20 Aug 2026 12:20:11.984 * Fork CoW for AOF rewrite: current 1 MB, peak 1 MB, average 0 MB
+1:M 20 Aug 2026 12:20:12.049 * Background AOF rewrite terminated with success
+1:M 20 Aug 2026 12:20:12.049 * Successfully renamed the temporary AOF base file temp-rewriteaof-bg-377.aof into appendonly.aof.2.base.rdb
+1:M 20 Aug 2026 12:20:12.054 * Removing the history file appendonly.aof.1.incr.aof in the background
+1:M 20 Aug 2026 12:20:12.054 * Removing the history file appendonly.aof.1.base.rdb in the background
+1:M 20 Aug 2026 12:20:12.059 * Background AOF rewrite finished successfully
+1:M 20 Aug 2026 12:20:12.059 - Background AOF rewrite signal handler took 10558us
+1:M 20 Aug 2026 12:20:13.065 - DB 0: 99996 keys (0 volatile) in 131072 slots HT.
+1:M 20 Aug 2026 12:20:13.065 . 0 clients connected (0 replicas), 136359832 bytes in use
+1:M 20 Aug 2026 12:20:18.096 - DB 0: 99996 keys (0 volatile) in 131072 slots HT.
+1:M 20 Aug 2026 12:20:18.096 . 0 clients connected (0 replicas), 136359832 bytes in use
+1:M 20 Aug 2026 12:20:23.126 - DB 0: 99996 keys (0 volatile) in 131072 slots HT.
+1:M 20 Aug 2026 12:20:23.126 . 0 clients connected (0 replicas), 136359832 bytes in use
+1:signal-handler (1787228426) Received SIGTERM scheduling shutdown...
+1:M 20 Aug 2026 12:20:26.248 * User requested shutdown...
+1:M 20 Aug 2026 12:20:26.248 * Calling fsync() on the AOF file.
+1:M 20 Aug 2026 12:20:26.248 * Saving the final RDB snapshot before exiting.
+1:M 20 Aug 2026 12:20:27.440 * DB saved on disk
+1:M 20 Aug 2026 12:20:27.440 # Redis is now ready to exit, bye bye...

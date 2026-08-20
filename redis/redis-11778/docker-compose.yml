@@ -1,0 +1,16 @@
+services:
+  redis-master:
+    image: redis:7.0.4
+    container_name: redis-11778-master
+    command: redis-server --port 6380 --protected-mode no
+    ports:
+      - "6380:6380"
+
+  redis-target:
+    image: redis:7.0.4
+    container_name: redis-11778-test
+    volumes:
+      - ./log:/var/log/redis
+    command: redis-server --port 6379 --replicaof redis-master 6380 --replica-read-only no --appendonly yes --loglevel debug --logfile /var/log/redis/baseline.log
+    depends_on:
+      - redis-master
