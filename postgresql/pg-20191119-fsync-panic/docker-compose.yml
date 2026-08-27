@@ -1,0 +1,19 @@
+services:
+  pg-bug-repro:
+    build: .
+    container_name: pg_fsync_panic_test
+    ulimits:
+      core: -1
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+        - ./logs:/usr/local/pgsql/data/log
+    command: >
+      -c max_wal_size=32MB
+      -c checkpoint_timeout=30s
+      -c shared_buffers=128kB
+      -c log_timezone=Asia/Seoul
+      -c logging_collector=on
+      -c log_directory=log
+      -c log_min_messages=debug2
+      -c log_error_verbosity=verbose

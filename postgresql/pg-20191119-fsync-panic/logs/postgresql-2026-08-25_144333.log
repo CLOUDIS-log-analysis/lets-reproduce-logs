@@ -1,0 +1,1882 @@
+2026-08-25 14:43:33.123 KST [8] LOG:  00000: database system was shut down at 2026-08-24 20:59:04 KST
+2026-08-25 14:43:33.123 KST [8] LOCATION:  StartupXLOG, xlog.c:6242
+2026-08-25 14:43:33.123 KST [8] DEBUG:  00000: checkpoint record is at 0/15CCB88
+2026-08-25 14:43:33.123 KST [8] LOCATION:  StartupXLOG, xlog.c:6532
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: redo record is at 0/15CCB88; shutdown true
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6609
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: next transaction ID: 486; next OID: 12674
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6613
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6617
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: oldest unfrozen transaction ID: 479, in database 1
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6620
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6623
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupXLOG, xlog.c:6626
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: transaction ID wrap limit is 2147484126, limited by database with OID 1
+2026-08-25 14:43:33.124 KST [8] LOCATION:  SetTransactionIdLimit, varsup.c:408
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-08-25 14:43:33.124 KST [8] LOCATION:  SetMultiXactIdLimit, multixact.c:2267
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: starting up replication slots
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupReplicationSlots, slot.c:1114
+2026-08-25 14:43:33.124 KST [8] DEBUG:  00000: starting up replication origin progress state
+2026-08-25 14:43:33.124 KST [8] LOCATION:  StartupReplicationOrigin, origin.c:695
+2026-08-25 14:43:33.125 KST [8] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-08-25 14:43:33.125 KST [8] LOCATION:  SetMultiXactIdLimit, multixact.c:2267
+2026-08-25 14:43:33.125 KST [8] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-08-25 14:43:33.125 KST [8] LOCATION:  SetOffsetVacuumLimit, multixact.c:2630
+2026-08-25 14:43:33.133 KST [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-08-25 14:43:33.133 KST [1] LOCATION:  do_start_bgworker, postmaster.c:5726
+2026-08-25 14:43:33.133 KST [1] LOG:  00000: database system is ready to accept connections
+2026-08-25 14:43:33.133 KST [1] LOCATION:  reaper, postmaster.c:2994
+2026-08-25 14:43:33.135 KST [9] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-08-25 14:43:33.135 KST [9] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1350
+2026-08-25 14:43:33.136 KST [12] DEBUG:  00000: autovacuum launcher started
+2026-08-25 14:43:33.136 KST [12] LOCATION:  AutoVacLauncherMain, autovacuum.c:440
+2026-08-25 14:43:33.136 KST [14] DEBUG:  00000: logical replication launcher started
+2026-08-25 14:43:33.136 KST [14] LOCATION:  ApplyLauncherMain, launcher.c:976
+2026-08-25 14:43:33.144 KST [13] DEBUG:  00000: received inquiry for database 0
+2026-08-25 14:43:33.144 KST [13] LOCATION:  pgstat_recv_inquiry, pgstat.c:5821
+2026-08-25 14:43:33.144 KST [13] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-08-25 14:43:33.144 KST [13] LOCATION:  pgstat_write_statsfiles, pgstat.c:4865
+2026-08-25 14:43:33.174 KST [1] DEBUG:  00000: forked new backend, pid=38 socket=10
+2026-08-25 14:43:33.174 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:33.186 KST [1] DEBUG:  00000: forked new backend, pid=39 socket=10
+2026-08-25 14:43:33.186 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:33.187 KST [1] DEBUG:  00000: forked new backend, pid=40 socket=10
+2026-08-25 14:43:33.187 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:33.187 KST [1] DEBUG:  00000: forked new backend, pid=41 socket=10
+2026-08-25 14:43:33.187 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:33.685 KST [38] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:33.685 KST [38] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:33.685 KST [38] STATEMENT:  cluster t;
+2026-08-25 14:43:33.686 KST [41] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:33.686 KST [41] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:33.686 KST [41] STATEMENT:  cluster t;
+2026-08-25 14:43:33.686 KST [39] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:33.686 KST [39] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:33.686 KST [39] STATEMENT:  cluster t;
+2026-08-25 14:43:33.687 KST [40] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:33.687 KST [40] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:33.687 KST [40] STATEMENT:  cluster t;
+2026-08-25 14:43:33.689 KST [1] DEBUG:  00000: server process (PID 41) exited with exit code 0
+2026-08-25 14:43:33.689 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:33.693 KST [1] DEBUG:  00000: server process (PID 38) exited with exit code 0
+2026-08-25 14:43:33.693 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:33.694 KST [1] DEBUG:  00000: server process (PID 40) exited with exit code 0
+2026-08-25 14:43:33.694 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:33.694 KST [1] DEBUG:  00000: server process (PID 39) exited with exit code 0
+2026-08-25 14:43:33.694 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.047 KST [1] DEBUG:  00000: forked new backend, pid=65 socket=10
+2026-08-25 14:43:34.047 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.049 KST [1] DEBUG:  00000: forked new backend, pid=66 socket=10
+2026-08-25 14:43:34.049 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.050 KST [1] DEBUG:  00000: forked new backend, pid=67 socket=10
+2026-08-25 14:43:34.050 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.054 KST [1] DEBUG:  00000: forked new backend, pid=68 socket=10
+2026-08-25 14:43:34.054 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.074 KST [65] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.074 KST [65] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.074 KST [66] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.074 KST [66] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.074 KST [66] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.074 KST [66] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:34.074 KST [66] STATEMENT:  update t set i = i;
+2026-08-25 14:43:34.074 KST [65] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.074 KST [65] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:34.074 KST [65] STATEMENT:  update t set i = i;
+2026-08-25 14:43:34.074 KST [68] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.074 KST [68] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.075 KST [68] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.075 KST [68] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:34.075 KST [68] STATEMENT:  update t set i = i;
+2026-08-25 14:43:34.079 KST [1] DEBUG:  00000: server process (PID 65) exited with exit code 0
+2026-08-25 14:43:34.079 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.080 KST [1] DEBUG:  00000: server process (PID 66) exited with exit code 0
+2026-08-25 14:43:34.080 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.083 KST [1] DEBUG:  00000: server process (PID 68) exited with exit code 0
+2026-08-25 14:43:34.083 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.085 KST [67] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.085 KST [67] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.085 KST [67] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:34.085 KST [67] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:34.085 KST [67] STATEMENT:  update t set i = i;
+2026-08-25 14:43:34.087 KST [1] DEBUG:  00000: server process (PID 67) exited with exit code 0
+2026-08-25 14:43:34.087 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.801 KST [1] DEBUG:  00000: forked new backend, pid=93 socket=10
+2026-08-25 14:43:34.801 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.805 KST [93] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:34.805 KST [93] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.805 KST [93] STATEMENT:  cluster t;
+2026-08-25 14:43:34.806 KST [1] DEBUG:  00000: forked new backend, pid=94 socket=10
+2026-08-25 14:43:34.806 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.806 KST [1] DEBUG:  00000: server process (PID 93) exited with exit code 0
+2026-08-25 14:43:34.806 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.810 KST [94] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:34.810 KST [94] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.810 KST [94] STATEMENT:  cluster t;
+2026-08-25 14:43:34.813 KST [1] DEBUG:  00000: server process (PID 94) exited with exit code 0
+2026-08-25 14:43:34.813 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.813 KST [1] DEBUG:  00000: forked new backend, pid=95 socket=10
+2026-08-25 14:43:34.813 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.814 KST [1] DEBUG:  00000: forked new backend, pid=96 socket=10
+2026-08-25 14:43:34.814 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:34.818 KST [96] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:34.818 KST [96] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.818 KST [96] STATEMENT:  cluster t;
+2026-08-25 14:43:34.818 KST [95] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:34.818 KST [95] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:34.818 KST [95] STATEMENT:  cluster t;
+2026-08-25 14:43:34.820 KST [1] DEBUG:  00000: server process (PID 96) exited with exit code 0
+2026-08-25 14:43:34.820 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:34.821 KST [1] DEBUG:  00000: server process (PID 95) exited with exit code 0
+2026-08-25 14:43:34.821 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.285 KST [1] DEBUG:  00000: forked new backend, pid=119 socket=10
+2026-08-25 14:43:35.285 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.291 KST [119] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.291 KST [119] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.291 KST [119] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.291 KST [119] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:35.291 KST [119] STATEMENT:  update t set i = i;
+2026-08-25 14:43:35.294 KST [1] DEBUG:  00000: forked new backend, pid=120 socket=10
+2026-08-25 14:43:35.294 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.295 KST [1] DEBUG:  00000: server process (PID 119) exited with exit code 0
+2026-08-25 14:43:35.295 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.300 KST [1] DEBUG:  00000: forked new backend, pid=121 socket=10
+2026-08-25 14:43:35.300 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.300 KST [120] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.300 KST [120] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.300 KST [120] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.300 KST [120] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:35.300 KST [120] STATEMENT:  update t set i = i;
+2026-08-25 14:43:35.300 KST [1] DEBUG:  00000: forked new backend, pid=122 socket=10
+2026-08-25 14:43:35.300 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.301 KST [1] DEBUG:  00000: server process (PID 120) exited with exit code 0
+2026-08-25 14:43:35.301 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.303 KST [122] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.303 KST [122] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.303 KST [122] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.303 KST [122] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:35.303 KST [122] STATEMENT:  update t set i = i;
+2026-08-25 14:43:35.304 KST [1] DEBUG:  00000: server process (PID 122) exited with exit code 0
+2026-08-25 14:43:35.304 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.306 KST [121] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.306 KST [121] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.306 KST [121] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:35.306 KST [121] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:35.306 KST [121] STATEMENT:  update t set i = i;
+2026-08-25 14:43:35.307 KST [1] DEBUG:  00000: server process (PID 121) exited with exit code 0
+2026-08-25 14:43:35.307 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.913 KST [1] DEBUG:  00000: forked new backend, pid=146 socket=10
+2026-08-25 14:43:35.913 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.915 KST [146] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:35.915 KST [146] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.915 KST [146] STATEMENT:  cluster t;
+2026-08-25 14:43:35.919 KST [1] DEBUG:  00000: server process (PID 146) exited with exit code 0
+2026-08-25 14:43:35.919 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.921 KST [1] DEBUG:  00000: forked new backend, pid=147 socket=10
+2026-08-25 14:43:35.921 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.923 KST [1] DEBUG:  00000: forked new backend, pid=148 socket=10
+2026-08-25 14:43:35.923 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.923 KST [147] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:35.923 KST [147] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.923 KST [147] STATEMENT:  cluster t;
+2026-08-25 14:43:35.924 KST [1] DEBUG:  00000: server process (PID 147) exited with exit code 0
+2026-08-25 14:43:35.924 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.927 KST [148] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:35.927 KST [148] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.927 KST [148] STATEMENT:  cluster t;
+2026-08-25 14:43:35.928 KST [1] DEBUG:  00000: server process (PID 148) exited with exit code 0
+2026-08-25 14:43:35.928 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:35.933 KST [1] DEBUG:  00000: forked new backend, pid=149 socket=10
+2026-08-25 14:43:35.933 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:35.936 KST [149] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:35.936 KST [149] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:35.936 KST [149] STATEMENT:  cluster t;
+2026-08-25 14:43:35.937 KST [1] DEBUG:  00000: server process (PID 149) exited with exit code 0
+2026-08-25 14:43:35.937 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:36.497 KST [1] DEBUG:  00000: forked new backend, pid=174 socket=10
+2026-08-25 14:43:36.497 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:36.502 KST [1] DEBUG:  00000: forked new backend, pid=175 socket=10
+2026-08-25 14:43:36.502 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:36.502 KST [1] DEBUG:  00000: forked new backend, pid=176 socket=10
+2026-08-25 14:43:36.502 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:36.503 KST [174] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.503 KST [174] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:36.503 KST [174] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.503 KST [174] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:36.503 KST [174] STATEMENT:  update t set i = i;
+2026-08-25 14:43:36.504 KST [1] DEBUG:  00000: server process (PID 174) exited with exit code 0
+2026-08-25 14:43:36.504 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:36.507 KST [175] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.507 KST [175] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:36.507 KST [175] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.507 KST [175] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:36.507 KST [175] STATEMENT:  update t set i = i;
+2026-08-25 14:43:36.508 KST [176] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.508 KST [176] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:36.508 KST [176] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.508 KST [176] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:36.508 KST [176] STATEMENT:  update t set i = i;
+2026-08-25 14:43:36.509 KST [1] DEBUG:  00000: server process (PID 175) exited with exit code 0
+2026-08-25 14:43:36.509 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:36.510 KST [1] DEBUG:  00000: server process (PID 176) exited with exit code 0
+2026-08-25 14:43:36.510 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:36.515 KST [1] DEBUG:  00000: forked new backend, pid=177 socket=10
+2026-08-25 14:43:36.515 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:36.518 KST [177] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.518 KST [177] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:36.518 KST [177] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:36.518 KST [177] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:36.518 KST [177] STATEMENT:  update t set i = i;
+2026-08-25 14:43:36.518 KST [1] DEBUG:  00000: server process (PID 177) exited with exit code 0
+2026-08-25 14:43:36.518 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.015 KST [1] DEBUG:  00000: forked new backend, pid=201 socket=10
+2026-08-25 14:43:37.015 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.018 KST [201] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:37.018 KST [201] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.018 KST [201] STATEMENT:  cluster t;
+2026-08-25 14:43:37.020 KST [1] DEBUG:  00000: server process (PID 201) exited with exit code 0
+2026-08-25 14:43:37.020 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.026 KST [1] DEBUG:  00000: forked new backend, pid=202 socket=10
+2026-08-25 14:43:37.026 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.029 KST [202] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:37.029 KST [202] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.029 KST [202] STATEMENT:  cluster t;
+2026-08-25 14:43:37.031 KST [1] DEBUG:  00000: server process (PID 202) exited with exit code 0
+2026-08-25 14:43:37.031 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.031 KST [1] DEBUG:  00000: forked new backend, pid=203 socket=10
+2026-08-25 14:43:37.031 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.033 KST [1] DEBUG:  00000: forked new backend, pid=204 socket=10
+2026-08-25 14:43:37.033 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.036 KST [203] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:37.036 KST [203] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.036 KST [203] STATEMENT:  cluster t;
+2026-08-25 14:43:37.037 KST [204] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:37.037 KST [204] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.037 KST [204] STATEMENT:  cluster t;
+2026-08-25 14:43:37.037 KST [1] DEBUG:  00000: server process (PID 203) exited with exit code 0
+2026-08-25 14:43:37.037 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.038 KST [1] DEBUG:  00000: server process (PID 204) exited with exit code 0
+2026-08-25 14:43:37.038 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.707 KST [1] DEBUG:  00000: forked new backend, pid=228 socket=10
+2026-08-25 14:43:37.707 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.708 KST [1] DEBUG:  00000: forked new backend, pid=229 socket=10
+2026-08-25 14:43:37.708 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.712 KST [228] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.712 KST [228] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.712 KST [228] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.712 KST [228] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:37.712 KST [228] STATEMENT:  update t set i = i;
+2026-08-25 14:43:37.713 KST [229] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.713 KST [229] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.713 KST [229] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.713 KST [229] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:37.713 KST [229] STATEMENT:  update t set i = i;
+2026-08-25 14:43:37.714 KST [1] DEBUG:  00000: forked new backend, pid=230 socket=10
+2026-08-25 14:43:37.714 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.714 KST [1] DEBUG:  00000: forked new backend, pid=231 socket=10
+2026-08-25 14:43:37.714 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:37.716 KST [1] DEBUG:  00000: server process (PID 229) exited with exit code 0
+2026-08-25 14:43:37.716 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.717 KST [1] DEBUG:  00000: server process (PID 228) exited with exit code 0
+2026-08-25 14:43:37.717 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.718 KST [230] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.718 KST [230] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.718 KST [230] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.718 KST [230] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:37.718 KST [230] STATEMENT:  update t set i = i;
+2026-08-25 14:43:37.718 KST [231] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.718 KST [231] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:37.719 KST [231] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:37.719 KST [231] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:37.719 KST [231] STATEMENT:  update t set i = i;
+2026-08-25 14:43:37.721 KST [1] DEBUG:  00000: server process (PID 230) exited with exit code 0
+2026-08-25 14:43:37.721 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:37.721 KST [1] DEBUG:  00000: server process (PID 231) exited with exit code 0
+2026-08-25 14:43:37.721 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.127 KST [1] DEBUG:  00000: forked new backend, pid=253 socket=10
+2026-08-25 14:43:38.127 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.130 KST [253] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:38.130 KST [253] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.130 KST [253] STATEMENT:  cluster t;
+2026-08-25 14:43:38.133 KST [1] DEBUG:  00000: forked new backend, pid=254 socket=10
+2026-08-25 14:43:38.133 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.134 KST [1] DEBUG:  00000: server process (PID 253) exited with exit code 0
+2026-08-25 14:43:38.134 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.137 KST [254] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:38.137 KST [254] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.137 KST [254] STATEMENT:  cluster t;
+2026-08-25 14:43:38.138 KST [1] DEBUG:  00000: server process (PID 254) exited with exit code 0
+2026-08-25 14:43:38.138 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.140 KST [1] DEBUG:  00000: forked new backend, pid=255 socket=10
+2026-08-25 14:43:38.140 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.144 KST [255] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:38.144 KST [255] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.144 KST [255] STATEMENT:  cluster t;
+2026-08-25 14:43:38.146 KST [1] DEBUG:  00000: server process (PID 255) exited with exit code 0
+2026-08-25 14:43:38.146 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.147 KST [1] DEBUG:  00000: forked new backend, pid=256 socket=10
+2026-08-25 14:43:38.147 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.150 KST [256] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:38.150 KST [256] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.150 KST [256] STATEMENT:  cluster t;
+2026-08-25 14:43:38.151 KST [1] DEBUG:  00000: server process (PID 256) exited with exit code 0
+2026-08-25 14:43:38.151 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.920 KST [1] DEBUG:  00000: forked new backend, pid=281 socket=10
+2026-08-25 14:43:38.920 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.924 KST [1] DEBUG:  00000: forked new backend, pid=282 socket=10
+2026-08-25 14:43:38.924 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.924 KST [281] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.924 KST [281] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.924 KST [281] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.924 KST [281] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:38.924 KST [281] STATEMENT:  update t set i = i;
+2026-08-25 14:43:38.926 KST [1] DEBUG:  00000: forked new backend, pid=283 socket=10
+2026-08-25 14:43:38.926 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.926 KST [1] DEBUG:  00000: server process (PID 281) exited with exit code 0
+2026-08-25 14:43:38.926 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.929 KST [282] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.929 KST [282] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.929 KST [282] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.929 KST [282] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:38.929 KST [282] STATEMENT:  update t set i = i;
+2026-08-25 14:43:38.931 KST [1] DEBUG:  00000: server process (PID 282) exited with exit code 0
+2026-08-25 14:43:38.931 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.932 KST [283] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.932 KST [283] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.932 KST [283] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.932 KST [283] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:38.932 KST [283] STATEMENT:  update t set i = i;
+2026-08-25 14:43:38.934 KST [1] DEBUG:  00000: forked new backend, pid=284 socket=10
+2026-08-25 14:43:38.934 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:38.934 KST [1] DEBUG:  00000: server process (PID 283) exited with exit code 0
+2026-08-25 14:43:38.934 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:38.936 KST [284] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.936 KST [284] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:38.937 KST [284] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:38.937 KST [284] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:38.937 KST [284] STATEMENT:  update t set i = i;
+2026-08-25 14:43:38.937 KST [1] DEBUG:  00000: server process (PID 284) exited with exit code 0
+2026-08-25 14:43:38.937 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:39.231 KST [1] DEBUG:  00000: forked new backend, pid=308 socket=10
+2026-08-25 14:43:39.231 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:39.239 KST [308] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:39.239 KST [308] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:39.239 KST [308] STATEMENT:  cluster t;
+2026-08-25 14:43:39.243 KST [1] DEBUG:  00000: server process (PID 308) exited with exit code 0
+2026-08-25 14:43:39.243 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:39.246 KST [1] DEBUG:  00000: forked new backend, pid=309 socket=10
+2026-08-25 14:43:39.246 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:39.249 KST [1] DEBUG:  00000: forked new backend, pid=310 socket=10
+2026-08-25 14:43:39.249 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:39.250 KST [1] DEBUG:  00000: forked new backend, pid=311 socket=10
+2026-08-25 14:43:39.250 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:39.250 KST [309] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:39.250 KST [309] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:39.250 KST [309] STATEMENT:  cluster t;
+2026-08-25 14:43:39.252 KST [1] DEBUG:  00000: server process (PID 309) exited with exit code 0
+2026-08-25 14:43:39.252 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:39.252 KST [310] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:39.252 KST [310] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:39.252 KST [310] STATEMENT:  cluster t;
+2026-08-25 14:43:39.254 KST [1] DEBUG:  00000: server process (PID 310) exited with exit code 0
+2026-08-25 14:43:39.254 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:39.254 KST [311] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:39.254 KST [311] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:39.254 KST [311] STATEMENT:  cluster t;
+2026-08-25 14:43:39.255 KST [1] DEBUG:  00000: server process (PID 311) exited with exit code 0
+2026-08-25 14:43:39.255 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:39.952 KST [1] DEBUG:  00000: forked new backend, pid=318 socket=10
+2026-08-25 14:43:39.952 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:39.972 KST [318] DEBUG:  42P01: relation "t" does not exist
+2026-08-25 14:43:39.972 KST [318] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:39.972 KST [318] NOTICE:  00000: table "t" does not exist, skipping
+2026-08-25 14:43:39.972 KST [318] LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1184
+2026-08-25 14:43:39.974 KST [1] DEBUG:  00000: server process (PID 318) exited with exit code 0
+2026-08-25 14:43:39.974 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.124 KST [1] DEBUG:  00000: forked new backend, pid=345 socket=10
+2026-08-25 14:43:40.124 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.137 KST [1] DEBUG:  00000: forked new backend, pid=348 socket=10
+2026-08-25 14:43:40.137 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.140 KST [1] DEBUG:  00000: forked new backend, pid=349 socket=10
+2026-08-25 14:43:40.140 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.141 KST [348] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.141 KST [348] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.141 KST [348] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.141 KST [348] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:40.141 KST [348] STATEMENT:  update t set i = i;
+2026-08-25 14:43:40.142 KST [1] DEBUG:  00000: server process (PID 348) exited with exit code 0
+2026-08-25 14:43:40.142 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.144 KST [349] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.144 KST [349] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.144 KST [349] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.144 KST [349] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:40.144 KST [349] STATEMENT:  update t set i = i;
+2026-08-25 14:43:40.147 KST [1] DEBUG:  00000: server process (PID 349) exited with exit code 0
+2026-08-25 14:43:40.147 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.147 KST [1] DEBUG:  00000: forked new backend, pid=350 socket=10
+2026-08-25 14:43:40.147 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.151 KST [350] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.151 KST [350] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.151 KST [350] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.151 KST [350] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:40.151 KST [350] STATEMENT:  update t set i = i;
+2026-08-25 14:43:40.153 KST [1] DEBUG:  00000: server process (PID 350) exited with exit code 0
+2026-08-25 14:43:40.153 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.159 KST [1] DEBUG:  00000: forked new backend, pid=351 socket=10
+2026-08-25 14:43:40.159 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.162 KST [351] DEBUG:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.162 KST [351] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.162 KST [351] ERROR:  42P01: relation "t" does not exist at character 8
+2026-08-25 14:43:40.162 KST [351] LOCATION:  parserOpenTable, parse_relation.c:1191
+2026-08-25 14:43:40.162 KST [351] STATEMENT:  update t set i = i;
+2026-08-25 14:43:40.162 KST [1] DEBUG:  00000: server process (PID 351) exited with exit code 0
+2026-08-25 14:43:40.162 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.338 KST [1] DEBUG:  00000: forked new backend, pid=376 socket=10
+2026-08-25 14:43:40.338 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.347 KST [1] DEBUG:  00000: forked new backend, pid=377 socket=10
+2026-08-25 14:43:40.347 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.348 KST [376] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:40.348 KST [376] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.348 KST [376] STATEMENT:  cluster t;
+2026-08-25 14:43:40.350 KST [1] DEBUG:  00000: server process (PID 376) exited with exit code 0
+2026-08-25 14:43:40.350 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.351 KST [377] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:40.351 KST [377] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.351 KST [377] STATEMENT:  cluster t;
+2026-08-25 14:43:40.354 KST [1] DEBUG:  00000: server process (PID 377) exited with exit code 0
+2026-08-25 14:43:40.354 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.359 KST [1] DEBUG:  00000: forked new backend, pid=378 socket=10
+2026-08-25 14:43:40.359 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.361 KST [1] DEBUG:  00000: forked new backend, pid=379 socket=10
+2026-08-25 14:43:40.361 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:40.362 KST [378] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:40.362 KST [378] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.362 KST [378] STATEMENT:  cluster t;
+2026-08-25 14:43:40.364 KST [379] ERROR:  42P01: relation "t" does not exist
+2026-08-25 14:43:40.364 KST [379] LOCATION:  RangeVarGetRelidExtended, namespace.c:423
+2026-08-25 14:43:40.364 KST [379] STATEMENT:  cluster t;
+2026-08-25 14:43:40.364 KST [1] DEBUG:  00000: server process (PID 378) exited with exit code 0
+2026-08-25 14:43:40.364 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:40.364 KST [1] DEBUG:  00000: server process (PID 379) exited with exit code 0
+2026-08-25 14:43:40.364 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.086 KST [345] DEBUG:  00000: CREATE TABLE / PRIMARY KEY will create implicit index "t_pkey" for table "t"
+2026-08-25 14:43:41.086 KST [345] LOCATION:  DefineIndex, indexcmds.c:936
+2026-08-25 14:43:41.189 KST [345] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:41.189 KST [345] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:41.200 KST [1] DEBUG:  00000: server process (PID 345) exited with exit code 0
+2026-08-25 14:43:41.200 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.337 KST [1] DEBUG:  00000: forked new backend, pid=396 socket=10
+2026-08-25 14:43:41.337 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.350 KST [1] DEBUG:  00000: forked new backend, pid=408 socket=10
+2026-08-25 14:43:41.350 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.379 KST [1] DEBUG:  00000: server process (PID 408) exited with exit code 0
+2026-08-25 14:43:41.379 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.385 KST [1] DEBUG:  00000: forked new backend, pid=409 socket=10
+2026-08-25 14:43:41.385 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.388 KST [1] DEBUG:  00000: forked new backend, pid=410 socket=10
+2026-08-25 14:43:41.388 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.389 KST [1] DEBUG:  00000: forked new backend, pid=411 socket=10
+2026-08-25 14:43:41.389 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.393 KST [1] DEBUG:  00000: server process (PID 410) exited with exit code 0
+2026-08-25 14:43:41.393 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.395 KST [1] DEBUG:  00000: server process (PID 411) exited with exit code 0
+2026-08-25 14:43:41.395 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.400 KST [1] DEBUG:  00000: server process (PID 409) exited with exit code 0
+2026-08-25 14:43:41.400 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.439 KST [1] DEBUG:  00000: forked new backend, pid=434 socket=10
+2026-08-25 14:43:41.439 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.450 KST [1] DEBUG:  00000: forked new backend, pid=435 socket=10
+2026-08-25 14:43:41.450 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.459 KST [1] DEBUG:  00000: forked new backend, pid=436 socket=10
+2026-08-25 14:43:41.459 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.461 KST [1] DEBUG:  00000: forked new backend, pid=437 socket=10
+2026-08-25 14:43:41.461 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.688 KST [434] ERROR:  42704: there is no previously clustered index for table "t"
+2026-08-25 14:43:41.688 KST [434] LOCATION:  cluster, cluster.c:162
+2026-08-25 14:43:41.688 KST [434] STATEMENT:  cluster t;
+2026-08-25 14:43:41.691 KST [1] DEBUG:  00000: server process (PID 434) exited with exit code 0
+2026-08-25 14:43:41.691 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.693 KST [435] ERROR:  42704: there is no previously clustered index for table "t"
+2026-08-25 14:43:41.693 KST [435] LOCATION:  cluster, cluster.c:162
+2026-08-25 14:43:41.693 KST [435] STATEMENT:  cluster t;
+2026-08-25 14:43:41.693 KST [1] DEBUG:  00000: server process (PID 396) exited with exit code 0
+2026-08-25 14:43:41.693 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.694 KST [436] ERROR:  42704: there is no previously clustered index for table "t"
+2026-08-25 14:43:41.694 KST [436] LOCATION:  cluster, cluster.c:162
+2026-08-25 14:43:41.694 KST [436] STATEMENT:  cluster t;
+2026-08-25 14:43:41.698 KST [437] ERROR:  42704: there is no previously clustered index for table "t"
+2026-08-25 14:43:41.698 KST [437] LOCATION:  cluster, cluster.c:162
+2026-08-25 14:43:41.698 KST [437] STATEMENT:  cluster t;
+2026-08-25 14:43:41.700 KST [1] DEBUG:  00000: server process (PID 435) exited with exit code 0
+2026-08-25 14:43:41.700 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.700 KST [1] DEBUG:  00000: server process (PID 437) exited with exit code 0
+2026-08-25 14:43:41.700 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.701 KST [1] DEBUG:  00000: server process (PID 436) exited with exit code 0
+2026-08-25 14:43:41.701 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:41.804 KST [1] DEBUG:  00000: forked new backend, pid=443 socket=10
+2026-08-25 14:43:41.804 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:41.844 KST [443] DEBUG:  00000: clustering "public.t" using index scan on "t_pkey"
+2026-08-25 14:43:41.844 KST [443] LOCATION:  copy_table_data, cluster.c:898
+2026-08-25 14:43:41.962 KST [443] DEBUG:  00000: "t": found 0 removable, 5000 nonremovable row versions in 23 pages
+2026-08-25 14:43:41.962 KST [443] DETAIL:  0 dead row versions cannot be removed yet.
+	CPU: user: 0.01 s, system: 0.01 s, elapsed: 0.11 s.
+2026-08-25 14:43:41.962 KST [443] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:41.965 KST [443] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:41.965 KST [443] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:42.061 KST [443] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:42.061 KST [443] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:42.061 KST [443] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:42.061 KST [443] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:42.196 KST [1] DEBUG:  00000: server process (PID 443) exited with exit code 0
+2026-08-25 14:43:42.196 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:42.602 KST [1] DEBUG:  00000: forked new backend, pid=467 socket=10
+2026-08-25 14:43:42.602 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.606 KST [1] DEBUG:  00000: forked new backend, pid=468 socket=10
+2026-08-25 14:43:42.606 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.612 KST [1] DEBUG:  00000: forked new backend, pid=469 socket=10
+2026-08-25 14:43:42.612 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.614 KST [1] DEBUG:  00000: forked new backend, pid=470 socket=10
+2026-08-25 14:43:42.614 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.722 KST [1] DEBUG:  00000: server process (PID 467) exited with exit code 0
+2026-08-25 14:43:42.722 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:42.803 KST [1] DEBUG:  00000: forked new backend, pid=494 socket=10
+2026-08-25 14:43:42.803 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.824 KST [1] DEBUG:  00000: forked new backend, pid=495 socket=10
+2026-08-25 14:43:42.824 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.831 KST [1] DEBUG:  00000: forked new backend, pid=496 socket=10
+2026-08-25 14:43:42.831 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.831 KST [1] DEBUG:  00000: forked new backend, pid=497 socket=10
+2026-08-25 14:43:42.831 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:42.863 KST [1] DEBUG:  00000: server process (PID 468) exited with exit code 0
+2026-08-25 14:43:42.863 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:43.016 KST [1] DEBUG:  00000: server process (PID 469) exited with exit code 0
+2026-08-25 14:43:43.016 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:43.121 KST [1] DEBUG:  00000: server process (PID 470) exited with exit code 0
+2026-08-25 14:43:43.121 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:43.150 KST [494] DEBUG:  00000: clustering "public.t" using index scan on "t_pkey"
+2026-08-25 14:43:43.150 KST [494] LOCATION:  copy_table_data, cluster.c:898
+2026-08-25 14:43:43.601 KST [494] DEBUG:  00000: "t": found 0 removable, 20000 nonremovable row versions in 111 pages
+2026-08-25 14:43:43.601 KST [494] DETAIL:  15000 dead row versions cannot be removed yet.
+	CPU: user: 0.04 s, system: 0.03 s, elapsed: 0.45 s.
+2026-08-25 14:43:43.601 KST [494] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:43.609 KST [494] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:43.609 KST [494] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:43.707 KST [1] DEBUG:  00000: forked new backend, pid=510 socket=10
+2026-08-25 14:43:43.707 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:43.714 KST [1] DEBUG:  00000: forked new backend, pid=511 socket=10
+2026-08-25 14:43:43.714 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:43.848 KST [494] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:43.848 KST [494] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:43.848 KST [494] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:43.848 KST [494] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:43.893 KST [497] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:43.893 KST [497] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:43.920 KST [1] DEBUG:  00000: server process (PID 494) exited with exit code 0
+2026-08-25 14:43:43.920 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:43.966 KST [1] DEBUG:  00000: forked new backend, pid=518 socket=10
+2026-08-25 14:43:43.966 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:44.060 KST [1] DEBUG:  00000: forked new backend, pid=525 socket=10
+2026-08-25 14:43:44.060 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:44.244 KST [1] DEBUG:  00000: forked new backend, pid=532 socket=10
+2026-08-25 14:43:44.244 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:44.291 KST [497] DEBUG:  00000: "t": found 0 removable, 20000 nonremovable row versions in 89 pages
+2026-08-25 14:43:44.291 KST [497] DETAIL:  15000 dead row versions cannot be removed yet.
+	CPU: user: 0.02 s, system: 0.02 s, elapsed: 0.40 s.
+2026-08-25 14:43:44.291 KST [497] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:44.293 KST [497] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:44.293 KST [497] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:44.348 KST [1] DEBUG:  00000: forked new backend, pid=539 socket=10
+2026-08-25 14:43:44.348 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:44.533 KST [497] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:44.533 KST [497] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:44.533 KST [497] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:44.533 KST [497] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:44.565 KST [1] DEBUG:  00000: server process (PID 497) exited with exit code 0
+2026-08-25 14:43:44.565 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:44.574 KST [495] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:44.574 KST [495] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:45.000 KST [495] DEBUG:  00000: "t": found 0 removable, 20000 nonremovable row versions in 89 pages
+2026-08-25 14:43:45.000 KST [495] DETAIL:  15000 dead row versions cannot be removed yet.
+	CPU: user: 0.02 s, system: 0.02 s, elapsed: 0.43 s.
+2026-08-25 14:43:45.000 KST [495] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:45.005 KST [495] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:45.005 KST [495] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:45.070 KST [1] DEBUG:  00000: forked new backend, pid=546 socket=10
+2026-08-25 14:43:45.070 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:45.263 KST [495] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:45.263 KST [495] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:45.263 KST [495] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:45.263 KST [495] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:45.289 KST [1] DEBUG:  00000: server process (PID 495) exited with exit code 0
+2026-08-25 14:43:45.289 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:45.301 KST [496] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:45.301 KST [496] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:45.692 KST [1] DEBUG:  00000: forked new backend, pid=553 socket=10
+2026-08-25 14:43:45.692 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:45.704 KST [496] DEBUG:  00000: "t": found 0 removable, 20000 nonremovable row versions in 89 pages
+2026-08-25 14:43:45.704 KST [496] DETAIL:  15000 dead row versions cannot be removed yet.
+	CPU: user: 0.03 s, system: 0.01 s, elapsed: 0.40 s.
+2026-08-25 14:43:45.704 KST [496] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:45.707 KST [496] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:45.707 KST [496] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:45.733 KST [9] LOG:  00000: checkpoints are occurring too frequently (12 seconds apart)
+2026-08-25 14:43:45.733 KST [9] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-25 14:43:45.733 KST [9] LOCATION:  CheckpointerMain, checkpointer.c:457
+2026-08-25 14:43:45.733 KST [496] DEBUG:  00000: creating and filling new WAL file
+2026-08-25 14:43:45.733 KST [496] LOCATION:  XLogFileInit, xlog.c:3241
+2026-08-25 14:43:45.801 KST [9] DEBUG:  00000: performing replication slot checkpoint
+2026-08-25 14:43:45.801 KST [9] LOCATION:  CheckPointReplicationSlots, slot.c:1078
+2026-08-25 14:43:45.808 KST [496] DEBUG:  00000: done creating and filling new WAL file
+2026-08-25 14:43:45.808 KST [496] LOCATION:  XLogFileInit, xlog.c:3371
+2026-08-25 14:43:46.061 KST [496] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:46.061 KST [496] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:46.061 KST [496] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:46.061 KST [496] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:46.075 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.075 KST [510] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:46.075 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.082 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.082 KST [510] CONTEXT:  writing block 0 of relation base/12673/1259
+2026-08-25 14:43:46.082 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.089 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.089 KST [510] CONTEXT:  writing block 4 of relation base/12673/2704
+2026-08-25 14:43:46.089 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.093 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.093 KST [510] CONTEXT:  writing block 2 of relation base/12673/2703
+2026-08-25 14:43:46.093 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.099 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.099 KST [510] CONTEXT:  writing block 9 of relation base/12673/1247
+2026-08-25 14:43:46.099 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.105 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.105 KST [510] CONTEXT:  writing block 41 of relation base/12673/2674
+2026-08-25 14:43:46.105 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.109 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.109 KST [510] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:46.109 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.113 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.113 KST [510] CONTEXT:  writing block 2 of relation base/12673/2703
+2026-08-25 14:43:46.113 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.119 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.119 KST [510] CONTEXT:  writing block 33 of relation base/12673/2673
+2026-08-25 14:43:46.119 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.123 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.123 KST [510] CONTEXT:  writing block 1 of relation base/12673/2704
+2026-08-25 14:43:46.123 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.127 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.127 KST [510] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:46.127 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.131 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.131 KST [510] CONTEXT:  writing block 39 of relation base/12673/2674
+2026-08-25 14:43:46.131 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.136 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.136 KST [510] CONTEXT:  writing block 9 of relation base/12673/1247
+2026-08-25 14:43:46.136 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.142 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.142 KST [510] CONTEXT:  writing block 2 of relation base/12673/2662
+2026-08-25 14:43:46.142 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.146 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.146 KST [510] CONTEXT:  writing block 5 of relation base/12673/2663
+2026-08-25 14:43:46.146 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.150 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.150 KST [510] CONTEXT:  writing block 4 of relation base/12673/3455
+2026-08-25 14:43:46.150 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.157 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.157 KST [510] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:46.157 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.160 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.160 KST [510] CONTEXT:  writing block 32 of relation base/12673/2673
+2026-08-25 14:43:46.160 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.164 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.164 KST [510] CONTEXT:  writing block 21 of relation base/12673/2674
+2026-08-25 14:43:46.164 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.168 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.168 KST [510] CONTEXT:  writing block 0 of relation base/12673/1259
+2026-08-25 14:43:46.168 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.176 KST [510] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:46.176 KST [510] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:46.288 KST [510] DEBUG:  00000: "t": found 15000 removable, 5000 nonremovable row versions in 89 pages
+2026-08-25 14:43:46.288 KST [510] DETAIL:  0 dead row versions cannot be removed yet.
+	CPU: user: 0.02 s, system: 0.00 s, elapsed: 0.11 s.
+2026-08-25 14:43:46.288 KST [510] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:46.290 KST [510] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:46.290 KST [510] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:46.362 KST [1] DEBUG:  00000: server process (PID 496) exited with exit code 0
+2026-08-25 14:43:46.362 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:46.380 KST [510] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:46.380 KST [510] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:46.380 KST [510] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:46.380 KST [510] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:46.387 KST [9] DEBUG:  00000: snapshot of 2+0 running transaction ids (lsn 0/206E910 oldest xid 502 latest complete 501 next xid 504)
+2026-08-25 14:43:46.387 KST [9] LOCATION:  LogCurrentRunningXacts, standby.c:994
+2026-08-25 14:43:46.387 KST [510] DEBUG:  00000: compacted fsync request queue from 16 entries to 14 entries
+2026-08-25 14:43:46.387 KST [510] LOCATION:  CompactCheckpointerRequestQueue, checkpointer.c:1265
+2026-08-25 14:43:46.388 KST [518] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.388 KST [518] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:46.388 KST [518] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.389 KST [525] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.389 KST [525] CONTEXT:  writing block 0 of relation base/12673/1259
+2026-08-25 14:43:46.389 KST [525] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.390 KST [539] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.390 KST [539] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.393 KST [532] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.393 KST [532] CONTEXT:  writing block 22 of relation base/12673/16409
+2026-08-25 14:43:46.393 KST [532] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.394 KST [9] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-25 14:43:46.394 KST [9] LOCATION:  RemoveOldXlogFiles, xlog.c:3956
+2026-08-25 14:43:46.399 KST [532] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.399 KST [532] CONTEXT:  writing block 2 of relation base/12673/16412
+2026-08-25 14:43:46.399 KST [532] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.399 KST [518] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.399 KST [518] CONTEXT:  writing block 16 of relation base/12673/16412
+2026-08-25 14:43:46.399 KST [518] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.403 KST [9] DEBUG:  00000: recycled write-ahead log file "000000010000000000000001"
+2026-08-25 14:43:46.403 KST [9] LOCATION:  RemoveXlogFile, xlog.c:4104
+2026-08-25 14:43:46.403 KST [9] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-25 14:43:46.403 KST [9] LOCATION:  SlruScanDirectory, slru.c:1414
+2026-08-25 14:43:46.403 KST [539] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:46.403 KST [539] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:46.421 KST [1] DEBUG:  00000: forked new backend, pid=560 socket=10
+2026-08-25 14:43:46.421 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:46.515 KST [1] DEBUG:  00000: server process (PID 539) exited with exit code 0
+2026-08-25 14:43:46.515 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:46.885 KST [1] DEBUG:  00000: server process (PID 525) exited with exit code 0
+2026-08-25 14:43:46.885 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:47.060 KST [1] DEBUG:  00000: server process (PID 518) exited with exit code 0
+2026-08-25 14:43:47.060 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:47.294 KST [1] DEBUG:  00000: server process (PID 532) exited with exit code 0
+2026-08-25 14:43:47.294 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:47.320 KST [546] DEBUG:  00000: clustering "public.t" using index scan on "t_pkey"
+2026-08-25 14:43:47.320 KST [546] LOCATION:  copy_table_data, cluster.c:898
+2026-08-25 14:43:47.481 KST [1] DEBUG:  00000: forked new backend, pid=567 socket=10
+2026-08-25 14:43:47.481 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:47.750 KST [1] DEBUG:  00000: forked new backend, pid=574 socket=10
+2026-08-25 14:43:47.750 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:47.907 KST [546] DEBUG:  00000: "t": found 0 removable, 30000 nonremovable row versions in 133 pages
+2026-08-25 14:43:47.907 KST [546] DETAIL:  25000 dead row versions cannot be removed yet.
+	CPU: user: 0.05 s, system: 0.02 s, elapsed: 0.58 s.
+2026-08-25 14:43:47.907 KST [546] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:47.913 KST [546] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:47.913 KST [546] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:48.137 KST [1] DEBUG:  00000: forked new backend, pid=581 socket=10
+2026-08-25 14:43:48.137 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:48.273 KST [546] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:48.273 KST [546] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:48.273 KST [546] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:48.273 KST [546] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:48.283 KST [10] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:48.283 KST [10] CONTEXT:  writing block 53 of relation base/12673/1249
+2026-08-25 14:43:48.283 KST [10] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:48.289 KST [10] DEBUG:  00000: snapshot of 4+0 running transaction ids (lsn 0/283F2C8 oldest xid 503 latest complete 508 next xid 512)
+2026-08-25 14:43:48.289 KST [10] LOCATION:  LogCurrentRunningXacts, standby.c:994
+2026-08-25 14:43:48.306 KST [1] DEBUG:  00000: forked new backend, pid=588 socket=10
+2026-08-25 14:43:48.306 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:48.307 KST [553] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:48.307 KST [553] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:48.347 KST [1] DEBUG:  00000: server process (PID 546) exited with exit code 0
+2026-08-25 14:43:48.347 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:48.528 KST [1] DEBUG:  00000: forked new backend, pid=595 socket=10
+2026-08-25 14:43:48.528 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:48.891 KST [553] DEBUG:  00000: "t": found 0 removable, 30000 nonremovable row versions in 133 pages
+2026-08-25 14:43:48.891 KST [553] DETAIL:  25000 dead row versions cannot be removed yet.
+	CPU: user: 0.03 s, system: 0.04 s, elapsed: 0.59 s.
+2026-08-25 14:43:48.891 KST [553] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:48.897 KST [553] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:48.897 KST [553] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:49.275 KST [553] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:49.275 KST [553] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:49.275 KST [553] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:49.275 KST [553] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:49.295 KST [510] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:49.295 KST [510] CONTEXT:  writing block 9 of relation base/12673/1247
+2026-08-25 14:43:49.295 KST [510] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:49.306 KST [510] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:49.306 KST [510] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:49.333 KST [1] DEBUG:  00000: server process (PID 553) exited with exit code 0
+2026-08-25 14:43:49.333 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:49.478 KST [1] DEBUG:  00000: forked new backend, pid=602 socket=10
+2026-08-25 14:43:49.478 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:49.896 KST [510] DEBUG:  00000: "t": found 0 removable, 30000 nonremovable row versions in 133 pages
+2026-08-25 14:43:49.896 KST [510] DETAIL:  25000 dead row versions cannot be removed yet.
+	CPU: user: 0.03 s, system: 0.03 s, elapsed: 0.59 s.
+2026-08-25 14:43:49.896 KST [510] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:49.903 KST [510] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:49.903 KST [510] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:50.291 KST [510] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:50.291 KST [510] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:50.291 KST [510] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:50.291 KST [510] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:50.321 KST [560] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:50.321 KST [560] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:50.466 KST [1] DEBUG:  00000: forked new backend, pid=609 socket=10
+2026-08-25 14:43:50.466 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:50.911 KST [560] DEBUG:  00000: "t": found 0 removable, 30000 nonremovable row versions in 133 pages
+2026-08-25 14:43:50.911 KST [560] DETAIL:  25000 dead row versions cannot be removed yet.
+	CPU: user: 0.04 s, system: 0.02 s, elapsed: 0.59 s.
+2026-08-25 14:43:50.911 KST [560] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:50.917 KST [560] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:50.917 KST [560] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:51.327 KST [560] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:51.327 KST [560] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:51.327 KST [560] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:51.327 KST [560] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:51.365 KST [1] DEBUG:  00000: server process (PID 560) exited with exit code 0
+2026-08-25 14:43:51.365 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:51.665 KST [567] DEBUG:  00000: clustering "public.t" using sequential scan and sort
+2026-08-25 14:43:51.665 KST [567] LOCATION:  copy_table_data, cluster.c:904
+2026-08-25 14:43:52.376 KST [567] DEBUG:  00000: "t": found 0 removable, 35000 nonremovable row versions in 155 pages
+2026-08-25 14:43:52.376 KST [567] DETAIL:  30000 dead row versions cannot be removed yet.
+	CPU: user: 0.05 s, system: 0.03 s, elapsed: 0.71 s.
+2026-08-25 14:43:52.376 KST [567] LOCATION:  copy_table_data, cluster.c:935
+2026-08-25 14:43:52.382 KST [567] DEBUG:  00000: building index "t_pkey" on table "t" serially
+2026-08-25 14:43:52.382 KST [567] LOCATION:  index_build, index.c:2799
+2026-08-25 14:43:52.424 KST [9] LOG:  00000: checkpoints are occurring too frequently (7 seconds apart)
+2026-08-25 14:43:52.424 KST [9] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-25 14:43:52.424 KST [9] LOCATION:  CheckpointerMain, checkpointer.c:457
+2026-08-25 14:43:52.433 KST [9] DEBUG:  00000: performing replication slot checkpoint
+2026-08-25 14:43:52.433 KST [9] LOCATION:  CheckPointReplicationSlots, slot.c:1078
+2026-08-25 14:43:52.469 KST [1] DEBUG:  00000: forked new backend, pid=616 socket=10
+2026-08-25 14:43:52.469 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:52.831 KST [567] DEBUG:  00000: drop auto-cascades to type pg_temp_16384
+2026-08-25 14:43:52.831 KST [567] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:52.831 KST [567] DEBUG:  00000: drop auto-cascades to type pg_temp_16384[]
+2026-08-25 14:43:52.831 KST [567] LOCATION:  reportDependentObjects, dependency.c:1129
+2026-08-25 14:43:52.848 KST [574] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.848 KST [574] CONTEXT:  writing block 56 of relation base/12673/2608
+2026-08-25 14:43:52.848 KST [574] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.849 KST [581] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.849 KST [581] CONTEXT:  writing block 0 of relation base/12673/1259
+2026-08-25 14:43:52.849 KST [581] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.853 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.853 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.858 KST [574] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.858 KST [574] CONTEXT:  writing block 154 of relation base/12673/16429
+2026-08-25 14:43:52.858 KST [574] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.858 KST [581] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.858 KST [581] CONTEXT:  writing block 1 of relation base/12673/16432
+2026-08-25 14:43:52.858 KST [581] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.860 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.860 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.867 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.867 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.872 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.872 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.878 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.878 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.886 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.886 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.894 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.894 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.904 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.904 KST [588] CONTEXT:  writing block 3 of relation base/12673/16429
+2026-08-25 14:43:52.904 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.909 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.909 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.914 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.914 KST [588] CONTEXT:  writing block 2 of relation base/12673/16429
+2026-08-25 14:43:52.914 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.919 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.919 KST [588] CONTEXT:  writing block 1 of relation base/12673/16432
+2026-08-25 14:43:52.919 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.925 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.925 KST [588] CONTEXT:  writing block 1 of relation base/12673/16429
+2026-08-25 14:43:52.925 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.930 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.930 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.935 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.935 KST [588] CONTEXT:  writing block 5 of relation base/12673/16429
+2026-08-25 14:43:52.935 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.939 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.939 KST [588] CONTEXT:  writing block 98 of relation base/12673/16432
+2026-08-25 14:43:52.939 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.946 KST [588] DEBUG:  00000: could not forward fsync request because request queue is full
+2026-08-25 14:43:52.946 KST [588] CONTEXT:  writing block 4 of relation base/12673/16429
+2026-08-25 14:43:52.946 KST [588] LOCATION:  register_dirty_segment, md.c:912
+2026-08-25 14:43:52.947 KST [9] DEBUG:  58P01: could not fsync file "base/12673/16425.77" but retrying: No such file or directory
+2026-08-25 14:43:52.947 KST [9] LOCATION:  ProcessSyncRequests, sync.c:398
+2026-08-25 14:43:52.947 KST [9] PANIC:  58P01: could not fsync file "base/12673/16425.77": No such file or directory
+2026-08-25 14:43:52.947 KST [9] LOCATION:  ProcessSyncRequests, sync.c:393
+2026-08-25 14:43:52.949 KST [1] LOG:  00000: checkpointer process (PID 9) was terminated by signal 6: Aborted
+2026-08-25 14:43:52.949 KST [1] LOCATION:  LogChildExit, postmaster.c:3678
+2026-08-25 14:43:52.949 KST [1] LOG:  00000: terminating any other active server processes
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3405
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 14
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3448
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 616
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 609
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 602
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 595
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 588
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 581
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 574
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 567
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [602] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.949 KST [602] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.949 KST [602] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.949 KST [602] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 511
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 510
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3500
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 10
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3530
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 11
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3554
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 12
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3578
+2026-08-25 14:43:52.949 KST [1] DEBUG:  00000: sending SIGQUIT to process 13
+2026-08-25 14:43:52.949 KST [1] LOCATION:  HandleChildCrash, postmaster.c:3608
+2026-08-25 14:43:52.949 KST [510] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.949 KST [510] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.949 KST [510] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.949 KST [510] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.949 KST [511] WARNING:  57P02: terminating connection because of crash of another server process at character 8
+2026-08-25 14:43:52.949 KST [511] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.949 KST [511] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.949 KST [511] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.950 KST [616] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.950 KST [616] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.950 KST [616] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.950 KST [616] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.951 KST [12] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.951 KST [12] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.951 KST [12] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.951 KST [12] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.951 KST [581] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.951 KST [581] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.951 KST [581] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.951 KST [581] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.952 KST [609] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.952 KST [609] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.952 KST [609] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.952 KST [609] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.952 KST [13] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-08-25 14:43:52.952 KST [13] LOCATION:  pgstat_write_statsfiles, pgstat.c:4865
+2026-08-25 14:43:52.952 KST [13] DEBUG:  00000: writing stats file "pg_stat/db_12673.stat"
+2026-08-25 14:43:52.952 KST [13] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5022
+2026-08-25 14:43:52.953 KST [13] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_12673.stat"
+2026-08-25 14:43:52.953 KST [13] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5103
+2026-08-25 14:43:52.953 KST [595] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.953 KST [595] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.953 KST [595] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.953 KST [595] CONTEXT:  while updating tuple (0,1) in relation "t"
+2026-08-25 14:43:52.953 KST [595] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.953 KST [13] DEBUG:  00000: writing stats file "pg_stat/db_0.stat"
+2026-08-25 14:43:52.953 KST [13] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5022
+2026-08-25 14:43:52.953 KST [567] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.953 KST [567] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.953 KST [567] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.953 KST [567] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.953 KST [574] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.953 KST [574] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.953 KST [574] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.953 KST [574] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.953 KST [1] DEBUG:  00000: server process (PID 602) exited with exit code 2
+2026-08-25 14:43:52.953 KST [1] DETAIL:  Failed process was running: cluster t;
+2026-08-25 14:43:52.953 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.957 KST [1] DEBUG:  00000: server process (PID 609) exited with exit code 2
+2026-08-25 14:43:52.957 KST [1] DETAIL:  Failed process was running: cluster t;
+2026-08-25 14:43:52.957 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.957 KST [1] DEBUG:  00000: server process (PID 616) exited with exit code 2
+2026-08-25 14:43:52.957 KST [1] DETAIL:  Failed process was running: cluster t;
+2026-08-25 14:43:52.957 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.958 KST [13] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_0.stat"
+2026-08-25 14:43:52.958 KST [13] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5103
+2026-08-25 14:43:52.961 KST [588] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-25 14:43:52.961 KST [588] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-25 14:43:52.961 KST [588] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-25 14:43:52.961 KST [588] CONTEXT:  writing block 4 of relation base/12673/16429
+2026-08-25 14:43:52.961 KST [588] LOCATION:  quickdie, postgres.c:2709
+2026-08-25 14:43:52.966 KST [1] DEBUG:  00000: server process (PID 511) exited with exit code 2
+2026-08-25 14:43:52.966 KST [1] DETAIL:  Failed process was running: update t set i = i;
+2026-08-25 14:43:52.966 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.976 KST [1] DEBUG:  00000: server process (PID 567) exited with exit code 2
+2026-08-25 14:43:52.976 KST [1] DETAIL:  Failed process was running: cluster t;
+2026-08-25 14:43:52.976 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.976 KST [1] DEBUG:  00000: server process (PID 574) exited with exit code 2
+2026-08-25 14:43:52.976 KST [1] DETAIL:  Failed process was running: update t set i = i;
+2026-08-25 14:43:52.976 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.976 KST [1] DEBUG:  00000: server process (PID 581) exited with exit code 2
+2026-08-25 14:43:52.976 KST [1] DETAIL:  Failed process was running: update t set i = i;
+2026-08-25 14:43:52.976 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.976 KST [1] DEBUG:  00000: server process (PID 595) exited with exit code 2
+2026-08-25 14:43:52.976 KST [1] DETAIL:  Failed process was running: update t set i = i;
+2026-08-25 14:43:52.976 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.986 KST [1] DEBUG:  00000: server process (PID 510) exited with exit code 2
+2026-08-25 14:43:52.986 KST [1] DETAIL:  Failed process was running: cluster t;
+2026-08-25 14:43:52.986 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.986 KST [1] DEBUG:  00000: server process (PID 588) exited with exit code 2
+2026-08-25 14:43:52.986 KST [1] DETAIL:  Failed process was running: update t set i = i;
+2026-08-25 14:43:52.986 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:52.986 KST [1] LOG:  00000: all server processes terminated; reinitializing
+2026-08-25 14:43:52.986 KST [1] LOCATION:  PostmasterStateMachine, postmaster.c:3917
+2026-08-25 14:43:52.986 KST [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1093690059
+2026-08-25 14:43:52.986 KST [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:367
+2026-08-25 14:43:52.988 KST [1] DEBUG:  00000: mmap(8388608) with MAP_HUGETLB failed, huge pages disabled: Cannot allocate memory
+2026-08-25 14:43:52.988 KST [1] LOCATION:  CreateAnonymousSegment, pg_shmem.c:556
+2026-08-25 14:43:52.997 KST [1] DEBUG:  00000: SlruScanDirectory invoking callback on pg_notify/0000
+2026-08-25 14:43:52.997 KST [1] LOCATION:  SlruScanDirectory, slru.c:1414
+2026-08-25 14:43:52.997 KST [1] DEBUG:  00000: removing file "pg_notify/0000"
+2026-08-25 14:43:52.997 KST [1] LOCATION:  SlruInternalDeleteSegment, slru.c:1269
+2026-08-25 14:43:52.997 KST [1] DEBUG:  00000: dynamic shared memory system will support 308 segments
+2026-08-25 14:43:52.997 KST [1] LOCATION:  dsm_postmaster_startup, dsm.c:165
+2026-08-25 14:43:52.997 KST [1] DEBUG:  00000: created dynamic shared memory control segment 1191357423 (7408 bytes)
+2026-08-25 14:43:52.997 KST [1] LOCATION:  dsm_postmaster_startup, dsm.c:189
+2026-08-25 14:43:52.998 KST [617] LOG:  00000: database system was interrupted; last known up at 2026-08-25 14:43:46 KST
+2026-08-25 14:43:52.998 KST [617] LOCATION:  StartupXLOG, xlog.c:6267
+2026-08-25 14:43:52.998 KST [617] DEBUG:  00000: removing all temporary WAL segments
+2026-08-25 14:43:52.998 KST [617] LOCATION:  RemoveTempXlogFiles, xlog.c:3918
+2026-08-25 14:43:54.081 KST [1] DEBUG:  00000: forked new backend, pid=640 socket=10
+2026-08-25 14:43:54.081 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.081 KST [640] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.081 KST [640] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.084 KST [1] DEBUG:  00000: server process (PID 640) exited with exit code 1
+2026-08-25 14:43:54.084 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.093 KST [1] DEBUG:  00000: forked new backend, pid=641 socket=10
+2026-08-25 14:43:54.093 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.093 KST [641] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.093 KST [641] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.095 KST [1] DEBUG:  00000: server process (PID 641) exited with exit code 1
+2026-08-25 14:43:54.095 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.113 KST [1] DEBUG:  00000: forked new backend, pid=642 socket=10
+2026-08-25 14:43:54.113 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.114 KST [642] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.114 KST [642] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.115 KST [1] DEBUG:  00000: forked new backend, pid=643 socket=10
+2026-08-25 14:43:54.115 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.116 KST [1] DEBUG:  00000: server process (PID 642) exited with exit code 1
+2026-08-25 14:43:54.116 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.116 KST [643] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.116 KST [643] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.117 KST [1] DEBUG:  00000: server process (PID 643) exited with exit code 1
+2026-08-25 14:43:54.117 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.177 KST [1] DEBUG:  00000: forked new backend, pid=665 socket=10
+2026-08-25 14:43:54.177 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.177 KST [665] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.177 KST [665] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.177 KST [1] DEBUG:  00000: server process (PID 665) exited with exit code 1
+2026-08-25 14:43:54.177 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.180 KST [1] DEBUG:  00000: forked new backend, pid=666 socket=10
+2026-08-25 14:43:54.180 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.180 KST [666] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.180 KST [666] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.181 KST [1] DEBUG:  00000: server process (PID 666) exited with exit code 1
+2026-08-25 14:43:54.181 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.185 KST [1] DEBUG:  00000: forked new backend, pid=667 socket=10
+2026-08-25 14:43:54.185 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.185 KST [667] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.185 KST [667] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.186 KST [1] DEBUG:  00000: server process (PID 667) exited with exit code 1
+2026-08-25 14:43:54.186 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:54.193 KST [1] DEBUG:  00000: forked new backend, pid=668 socket=10
+2026-08-25 14:43:54.193 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:54.193 KST [668] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:54.193 KST [668] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:54.193 KST [1] DEBUG:  00000: server process (PID 668) exited with exit code 1
+2026-08-25 14:43:54.193 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.213 KST [1] DEBUG:  00000: forked new backend, pid=692 socket=10
+2026-08-25 14:43:55.213 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.213 KST [692] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.213 KST [692] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.214 KST [1] DEBUG:  00000: server process (PID 692) exited with exit code 1
+2026-08-25 14:43:55.214 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.222 KST [1] DEBUG:  00000: forked new backend, pid=693 socket=10
+2026-08-25 14:43:55.222 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.222 KST [693] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.222 KST [693] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.222 KST [1] DEBUG:  00000: server process (PID 693) exited with exit code 1
+2026-08-25 14:43:55.222 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.223 KST [1] DEBUG:  00000: forked new backend, pid=694 socket=10
+2026-08-25 14:43:55.223 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.224 KST [694] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.224 KST [694] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.225 KST [1] DEBUG:  00000: server process (PID 694) exited with exit code 1
+2026-08-25 14:43:55.225 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.231 KST [1] DEBUG:  00000: forked new backend, pid=695 socket=10
+2026-08-25 14:43:55.231 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.232 KST [695] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.232 KST [695] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.232 KST [1] DEBUG:  00000: server process (PID 695) exited with exit code 1
+2026-08-25 14:43:55.232 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.389 KST [1] DEBUG:  00000: forked new backend, pid=720 socket=10
+2026-08-25 14:43:55.389 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.390 KST [720] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.390 KST [720] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.391 KST [1] DEBUG:  00000: server process (PID 720) exited with exit code 1
+2026-08-25 14:43:55.391 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.394 KST [1] DEBUG:  00000: forked new backend, pid=721 socket=10
+2026-08-25 14:43:55.394 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.394 KST [721] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.394 KST [721] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.395 KST [1] DEBUG:  00000: server process (PID 721) exited with exit code 1
+2026-08-25 14:43:55.395 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.400 KST [1] DEBUG:  00000: forked new backend, pid=722 socket=10
+2026-08-25 14:43:55.400 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.400 KST [722] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.400 KST [722] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.401 KST [1] DEBUG:  00000: forked new backend, pid=723 socket=10
+2026-08-25 14:43:55.401 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:55.401 KST [1] DEBUG:  00000: server process (PID 722) exited with exit code 1
+2026-08-25 14:43:55.401 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:55.402 KST [723] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:55.402 KST [723] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:55.402 KST [1] DEBUG:  00000: server process (PID 723) exited with exit code 1
+2026-08-25 14:43:55.402 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.329 KST [1] DEBUG:  00000: forked new backend, pid=747 socket=10
+2026-08-25 14:43:56.329 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.329 KST [747] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.329 KST [747] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.332 KST [1] DEBUG:  00000: server process (PID 747) exited with exit code 1
+2026-08-25 14:43:56.332 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.334 KST [1] DEBUG:  00000: forked new backend, pid=748 socket=10
+2026-08-25 14:43:56.334 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.334 KST [748] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.334 KST [748] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.335 KST [1] DEBUG:  00000: server process (PID 748) exited with exit code 1
+2026-08-25 14:43:56.335 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.337 KST [1] DEBUG:  00000: forked new backend, pid=749 socket=10
+2026-08-25 14:43:56.337 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.337 KST [749] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.337 KST [749] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.338 KST [1] DEBUG:  00000: server process (PID 749) exited with exit code 1
+2026-08-25 14:43:56.338 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.345 KST [1] DEBUG:  00000: forked new backend, pid=750 socket=10
+2026-08-25 14:43:56.345 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.346 KST [750] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.346 KST [750] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.346 KST [1] DEBUG:  00000: server process (PID 750) exited with exit code 1
+2026-08-25 14:43:56.346 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.603 KST [1] DEBUG:  00000: forked new backend, pid=774 socket=10
+2026-08-25 14:43:56.603 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.603 KST [774] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.603 KST [774] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.605 KST [1] DEBUG:  00000: server process (PID 774) exited with exit code 1
+2026-08-25 14:43:56.605 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.609 KST [1] DEBUG:  00000: forked new backend, pid=775 socket=10
+2026-08-25 14:43:56.609 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.610 KST [775] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.610 KST [775] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.610 KST [1] DEBUG:  00000: forked new backend, pid=776 socket=10
+2026-08-25 14:43:56.610 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.611 KST [1] DEBUG:  00000: server process (PID 775) exited with exit code 1
+2026-08-25 14:43:56.611 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.612 KST [776] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.612 KST [776] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.612 KST [1] DEBUG:  00000: server process (PID 776) exited with exit code 1
+2026-08-25 14:43:56.612 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:56.618 KST [1] DEBUG:  00000: forked new backend, pid=777 socket=10
+2026-08-25 14:43:56.618 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:56.619 KST [777] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:56.619 KST [777] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:56.619 KST [1] DEBUG:  00000: server process (PID 777) exited with exit code 1
+2026-08-25 14:43:56.619 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.434 KST [1] DEBUG:  00000: forked new backend, pid=801 socket=10
+2026-08-25 14:43:57.434 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.434 KST [801] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.434 KST [801] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.435 KST [1] DEBUG:  00000: server process (PID 801) exited with exit code 1
+2026-08-25 14:43:57.435 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.445 KST [1] DEBUG:  00000: forked new backend, pid=802 socket=10
+2026-08-25 14:43:57.445 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.447 KST [802] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.447 KST [802] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.447 KST [1] DEBUG:  00000: server process (PID 802) exited with exit code 1
+2026-08-25 14:43:57.447 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.448 KST [1] DEBUG:  00000: forked new backend, pid=803 socket=10
+2026-08-25 14:43:57.448 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.449 KST [803] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.449 KST [803] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.450 KST [1] DEBUG:  00000: server process (PID 803) exited with exit code 1
+2026-08-25 14:43:57.450 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.453 KST [1] DEBUG:  00000: forked new backend, pid=804 socket=10
+2026-08-25 14:43:57.453 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.453 KST [804] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.453 KST [804] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.454 KST [1] DEBUG:  00000: server process (PID 804) exited with exit code 1
+2026-08-25 14:43:57.454 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.815 KST [1] DEBUG:  00000: forked new backend, pid=828 socket=10
+2026-08-25 14:43:57.815 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.815 KST [828] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.815 KST [828] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.815 KST [1] DEBUG:  00000: server process (PID 828) exited with exit code 1
+2026-08-25 14:43:57.815 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.818 KST [1] DEBUG:  00000: forked new backend, pid=829 socket=10
+2026-08-25 14:43:57.818 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.818 KST [829] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.818 KST [829] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.819 KST [1] DEBUG:  00000: server process (PID 829) exited with exit code 1
+2026-08-25 14:43:57.819 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.825 KST [1] DEBUG:  00000: forked new backend, pid=830 socket=10
+2026-08-25 14:43:57.825 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.826 KST [830] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.826 KST [830] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.826 KST [1] DEBUG:  00000: server process (PID 830) exited with exit code 1
+2026-08-25 14:43:57.826 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:57.827 KST [1] DEBUG:  00000: forked new backend, pid=831 socket=10
+2026-08-25 14:43:57.827 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:57.827 KST [831] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:57.827 KST [831] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:57.828 KST [1] DEBUG:  00000: server process (PID 831) exited with exit code 1
+2026-08-25 14:43:57.828 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:58.559 KST [1] DEBUG:  00000: forked new backend, pid=855 socket=10
+2026-08-25 14:43:58.559 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:58.559 KST [855] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:58.559 KST [855] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:58.560 KST [1] DEBUG:  00000: server process (PID 855) exited with exit code 1
+2026-08-25 14:43:58.560 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:58.561 KST [1] DEBUG:  00000: forked new backend, pid=856 socket=10
+2026-08-25 14:43:58.561 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:58.562 KST [856] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:58.562 KST [856] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:58.562 KST [1] DEBUG:  00000: server process (PID 856) exited with exit code 1
+2026-08-25 14:43:58.562 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:58.577 KST [1] DEBUG:  00000: forked new backend, pid=857 socket=10
+2026-08-25 14:43:58.577 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:58.577 KST [857] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:58.577 KST [857] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:58.578 KST [1] DEBUG:  00000: server process (PID 857) exited with exit code 1
+2026-08-25 14:43:58.578 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:58.583 KST [1] DEBUG:  00000: forked new backend, pid=858 socket=10
+2026-08-25 14:43:58.583 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:58.583 KST [858] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:58.583 KST [858] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:58.584 KST [1] DEBUG:  00000: server process (PID 858) exited with exit code 1
+2026-08-25 14:43:58.584 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.032 KST [1] DEBUG:  00000: forked new backend, pid=883 socket=10
+2026-08-25 14:43:59.032 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.033 KST [883] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.033 KST [883] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.035 KST [1] DEBUG:  00000: server process (PID 883) exited with exit code 1
+2026-08-25 14:43:59.035 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.038 KST [1] DEBUG:  00000: forked new backend, pid=884 socket=10
+2026-08-25 14:43:59.038 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.038 KST [884] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.038 KST [884] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.040 KST [1] DEBUG:  00000: server process (PID 884) exited with exit code 1
+2026-08-25 14:43:59.040 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.041 KST [1] DEBUG:  00000: forked new backend, pid=885 socket=10
+2026-08-25 14:43:59.041 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.041 KST [885] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.041 KST [885] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.042 KST [1] DEBUG:  00000: server process (PID 885) exited with exit code 1
+2026-08-25 14:43:59.042 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.046 KST [1] DEBUG:  00000: forked new backend, pid=886 socket=10
+2026-08-25 14:43:59.046 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.046 KST [886] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.046 KST [886] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.047 KST [1] DEBUG:  00000: server process (PID 886) exited with exit code 1
+2026-08-25 14:43:59.047 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.670 KST [1] DEBUG:  00000: forked new backend, pid=911 socket=10
+2026-08-25 14:43:59.670 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.670 KST [911] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.670 KST [911] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.670 KST [1] DEBUG:  00000: server process (PID 911) exited with exit code 1
+2026-08-25 14:43:59.670 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.681 KST [1] DEBUG:  00000: forked new backend, pid=912 socket=10
+2026-08-25 14:43:59.681 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.682 KST [912] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.682 KST [912] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.682 KST [1] DEBUG:  00000: server process (PID 912) exited with exit code 1
+2026-08-25 14:43:59.682 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.685 KST [1] DEBUG:  00000: forked new backend, pid=913 socket=10
+2026-08-25 14:43:59.685 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.686 KST [913] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.686 KST [913] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.686 KST [1] DEBUG:  00000: server process (PID 913) exited with exit code 1
+2026-08-25 14:43:59.686 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:43:59.688 KST [1] DEBUG:  00000: forked new backend, pid=914 socket=10
+2026-08-25 14:43:59.688 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:43:59.688 KST [914] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:43:59.688 KST [914] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:43:59.689 KST [1] DEBUG:  00000: server process (PID 914) exited with exit code 1
+2026-08-25 14:43:59.689 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.247 KST [1] DEBUG:  00000: forked new backend, pid=940 socket=10
+2026-08-25 14:44:00.247 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.248 KST [940] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.248 KST [940] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.248 KST [1] DEBUG:  00000: server process (PID 940) exited with exit code 1
+2026-08-25 14:44:00.248 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.251 KST [1] DEBUG:  00000: forked new backend, pid=941 socket=10
+2026-08-25 14:44:00.251 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.253 KST [941] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.253 KST [941] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.253 KST [1] DEBUG:  00000: server process (PID 941) exited with exit code 1
+2026-08-25 14:44:00.253 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.255 KST [1] DEBUG:  00000: forked new backend, pid=942 socket=10
+2026-08-25 14:44:00.255 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.256 KST [942] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.256 KST [942] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.256 KST [1] DEBUG:  00000: server process (PID 942) exited with exit code 1
+2026-08-25 14:44:00.256 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.259 KST [1] DEBUG:  00000: forked new backend, pid=943 socket=10
+2026-08-25 14:44:00.259 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.260 KST [943] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.260 KST [943] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.260 KST [1] DEBUG:  00000: server process (PID 943) exited with exit code 1
+2026-08-25 14:44:00.260 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.786 KST [967] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.786 KST [967] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.786 KST [1] DEBUG:  00000: forked new backend, pid=967 socket=10
+2026-08-25 14:44:00.786 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.787 KST [1] DEBUG:  00000: server process (PID 967) exited with exit code 1
+2026-08-25 14:44:00.787 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.793 KST [1] DEBUG:  00000: forked new backend, pid=968 socket=10
+2026-08-25 14:44:00.793 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.794 KST [968] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.794 KST [968] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.794 KST [1] DEBUG:  00000: server process (PID 968) exited with exit code 1
+2026-08-25 14:44:00.794 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.800 KST [1] DEBUG:  00000: forked new backend, pid=969 socket=10
+2026-08-25 14:44:00.800 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.800 KST [969] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.800 KST [969] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.801 KST [1] DEBUG:  00000: forked new backend, pid=970 socket=10
+2026-08-25 14:44:00.801 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:00.801 KST [1] DEBUG:  00000: server process (PID 969) exited with exit code 1
+2026-08-25 14:44:00.801 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:00.802 KST [970] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:00.802 KST [970] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:00.802 KST [1] DEBUG:  00000: server process (PID 970) exited with exit code 1
+2026-08-25 14:44:00.802 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.460 KST [1] DEBUG:  00000: forked new backend, pid=994 socket=10
+2026-08-25 14:44:01.460 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.460 KST [994] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.460 KST [994] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.461 KST [1] DEBUG:  00000: server process (PID 994) exited with exit code 1
+2026-08-25 14:44:01.461 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.471 KST [1] DEBUG:  00000: forked new backend, pid=995 socket=10
+2026-08-25 14:44:01.471 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.471 KST [995] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.471 KST [995] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.472 KST [1] DEBUG:  00000: server process (PID 995) exited with exit code 1
+2026-08-25 14:44:01.472 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.474 KST [1] DEBUG:  00000: forked new backend, pid=996 socket=10
+2026-08-25 14:44:01.474 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.474 KST [996] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.474 KST [996] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.475 KST [1] DEBUG:  00000: server process (PID 996) exited with exit code 1
+2026-08-25 14:44:01.475 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.478 KST [1] DEBUG:  00000: forked new backend, pid=997 socket=10
+2026-08-25 14:44:01.478 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.478 KST [997] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.478 KST [997] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.479 KST [1] DEBUG:  00000: server process (PID 997) exited with exit code 1
+2026-08-25 14:44:01.479 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.900 KST [1] DEBUG:  00000: forked new backend, pid=1021 socket=10
+2026-08-25 14:44:01.900 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.901 KST [1021] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.901 KST [1021] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.902 KST [1] DEBUG:  00000: server process (PID 1021) exited with exit code 1
+2026-08-25 14:44:01.902 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.907 KST [1] DEBUG:  00000: forked new backend, pid=1022 socket=10
+2026-08-25 14:44:01.907 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.907 KST [1022] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.907 KST [1022] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.908 KST [1] DEBUG:  00000: server process (PID 1022) exited with exit code 1
+2026-08-25 14:44:01.908 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.917 KST [1] DEBUG:  00000: forked new backend, pid=1023 socket=10
+2026-08-25 14:44:01.917 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.917 KST [1023] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.917 KST [1023] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.917 KST [1] DEBUG:  00000: server process (PID 1023) exited with exit code 1
+2026-08-25 14:44:01.917 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:01.920 KST [1] DEBUG:  00000: forked new backend, pid=1024 socket=10
+2026-08-25 14:44:01.920 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:01.921 KST [1024] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:01.921 KST [1024] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:01.921 KST [1] DEBUG:  00000: server process (PID 1024) exited with exit code 1
+2026-08-25 14:44:01.921 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:02.682 KST [1] DEBUG:  00000: forked new backend, pid=1048 socket=10
+2026-08-25 14:44:02.682 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:02.682 KST [1048] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:02.682 KST [1048] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:02.683 KST [1] DEBUG:  00000: server process (PID 1048) exited with exit code 1
+2026-08-25 14:44:02.683 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:02.690 KST [1] DEBUG:  00000: forked new backend, pid=1049 socket=10
+2026-08-25 14:44:02.690 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:02.690 KST [1049] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:02.690 KST [1049] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:02.691 KST [1] DEBUG:  00000: server process (PID 1049) exited with exit code 1
+2026-08-25 14:44:02.691 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:02.694 KST [1] DEBUG:  00000: forked new backend, pid=1050 socket=10
+2026-08-25 14:44:02.694 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:02.695 KST [1050] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:02.695 KST [1050] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:02.696 KST [1] DEBUG:  00000: server process (PID 1050) exited with exit code 1
+2026-08-25 14:44:02.696 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:02.697 KST [1] DEBUG:  00000: forked new backend, pid=1051 socket=10
+2026-08-25 14:44:02.697 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:02.697 KST [1051] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:02.697 KST [1051] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:02.698 KST [1] DEBUG:  00000: server process (PID 1051) exited with exit code 1
+2026-08-25 14:44:02.698 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.017 KST [1] DEBUG:  00000: forked new backend, pid=1074 socket=10
+2026-08-25 14:44:03.017 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.018 KST [1074] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.018 KST [1074] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.019 KST [1] DEBUG:  00000: server process (PID 1074) exited with exit code 1
+2026-08-25 14:44:03.019 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.020 KST [1] DEBUG:  00000: forked new backend, pid=1075 socket=10
+2026-08-25 14:44:03.020 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.021 KST [1075] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.021 KST [1075] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.021 KST [1] DEBUG:  00000: server process (PID 1075) exited with exit code 1
+2026-08-25 14:44:03.021 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.026 KST [1] DEBUG:  00000: forked new backend, pid=1076 socket=10
+2026-08-25 14:44:03.026 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.027 KST [1076] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.027 KST [1076] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.027 KST [1] DEBUG:  00000: server process (PID 1076) exited with exit code 1
+2026-08-25 14:44:03.027 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.032 KST [1] DEBUG:  00000: forked new backend, pid=1077 socket=10
+2026-08-25 14:44:03.032 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.033 KST [1077] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.033 KST [1077] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.034 KST [1] DEBUG:  00000: server process (PID 1077) exited with exit code 1
+2026-08-25 14:44:03.034 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.895 KST [1] DEBUG:  00000: forked new backend, pid=1100 socket=10
+2026-08-25 14:44:03.895 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.897 KST [1100] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.897 KST [1100] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.897 KST [1] DEBUG:  00000: forked new backend, pid=1101 socket=10
+2026-08-25 14:44:03.897 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.898 KST [1101] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.898 KST [1101] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.898 KST [1] DEBUG:  00000: server process (PID 1100) exited with exit code 1
+2026-08-25 14:44:03.898 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.898 KST [1] DEBUG:  00000: server process (PID 1101) exited with exit code 1
+2026-08-25 14:44:03.898 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.908 KST [1] DEBUG:  00000: forked new backend, pid=1102 socket=10
+2026-08-25 14:44:03.908 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.908 KST [1102] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.908 KST [1102] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.909 KST [1] DEBUG:  00000: forked new backend, pid=1103 socket=10
+2026-08-25 14:44:03.909 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:03.909 KST [1103] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:03.909 KST [1103] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:03.909 KST [1] DEBUG:  00000: server process (PID 1103) exited with exit code 1
+2026-08-25 14:44:03.909 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:03.910 KST [1] DEBUG:  00000: server process (PID 1102) exited with exit code 1
+2026-08-25 14:44:03.910 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:04.144 KST [1] DEBUG:  00000: forked new backend, pid=1127 socket=10
+2026-08-25 14:44:04.144 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:04.145 KST [1127] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:04.145 KST [1127] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:04.146 KST [1] DEBUG:  00000: server process (PID 1127) exited with exit code 1
+2026-08-25 14:44:04.146 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:04.151 KST [1] DEBUG:  00000: forked new backend, pid=1128 socket=10
+2026-08-25 14:44:04.151 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:04.151 KST [1128] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:04.151 KST [1128] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:04.152 KST [1] DEBUG:  00000: server process (PID 1128) exited with exit code 1
+2026-08-25 14:44:04.152 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:04.158 KST [1] DEBUG:  00000: forked new backend, pid=1129 socket=10
+2026-08-25 14:44:04.158 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:04.159 KST [1129] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:04.159 KST [1129] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:04.160 KST [1] DEBUG:  00000: server process (PID 1129) exited with exit code 1
+2026-08-25 14:44:04.160 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:04.164 KST [1] DEBUG:  00000: forked new backend, pid=1130 socket=10
+2026-08-25 14:44:04.164 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:04.164 KST [1130] FATAL:  57P03: the database system is in recovery mode
+2026-08-25 14:44:04.164 KST [1130] LOCATION:  ProcessStartupPacket, postmaster.c:2273
+2026-08-25 14:44:04.164 KST [1] DEBUG:  00000: server process (PID 1130) exited with exit code 1
+2026-08-25 14:44:04.164 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:04.196 KST [1] DEBUG:  00000: postmaster received signal 15
+2026-08-25 14:44:04.196 KST [1] LOCATION:  pmdie, postmaster.c:2706
+2026-08-25 14:44:04.196 KST [1] LOG:  00000: received smart shutdown request
+2026-08-25 14:44:04.196 KST [1] LOCATION:  pmdie, postmaster.c:2722
+2026-08-25 14:44:05.113 KST [1] DEBUG:  00000: forked new backend, pid=1154 socket=10
+2026-08-25 14:44:05.113 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.113 KST [1154] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.113 KST [1154] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.113 KST [1] DEBUG:  00000: server process (PID 1154) exited with exit code 1
+2026-08-25 14:44:05.113 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.119 KST [1] DEBUG:  00000: forked new backend, pid=1155 socket=10
+2026-08-25 14:44:05.119 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.119 KST [1155] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.119 KST [1155] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.120 KST [1] DEBUG:  00000: server process (PID 1155) exited with exit code 1
+2026-08-25 14:44:05.120 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.121 KST [1] DEBUG:  00000: forked new backend, pid=1156 socket=10
+2026-08-25 14:44:05.121 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.122 KST [1156] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.122 KST [1156] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.122 KST [1] DEBUG:  00000: server process (PID 1156) exited with exit code 1
+2026-08-25 14:44:05.122 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.124 KST [1] DEBUG:  00000: forked new backend, pid=1157 socket=10
+2026-08-25 14:44:05.124 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.126 KST [1157] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.126 KST [1157] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.127 KST [1] DEBUG:  00000: server process (PID 1157) exited with exit code 1
+2026-08-25 14:44:05.127 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.252 KST [1] DEBUG:  00000: forked new backend, pid=1180 socket=10
+2026-08-25 14:44:05.252 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.252 KST [1180] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.252 KST [1180] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.253 KST [1] DEBUG:  00000: server process (PID 1180) exited with exit code 1
+2026-08-25 14:44:05.253 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.261 KST [1] DEBUG:  00000: forked new backend, pid=1181 socket=10
+2026-08-25 14:44:05.261 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.261 KST [1181] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.261 KST [1181] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.261 KST [1] DEBUG:  00000: server process (PID 1181) exited with exit code 1
+2026-08-25 14:44:05.261 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.263 KST [1] DEBUG:  00000: forked new backend, pid=1182 socket=10
+2026-08-25 14:44:05.263 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.264 KST [1182] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.264 KST [1182] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.266 KST [1] DEBUG:  00000: server process (PID 1182) exited with exit code 1
+2026-08-25 14:44:05.266 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:05.272 KST [1] DEBUG:  00000: forked new backend, pid=1183 socket=10
+2026-08-25 14:44:05.272 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:05.272 KST [1183] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:05.272 KST [1183] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:05.273 KST [1] DEBUG:  00000: server process (PID 1183) exited with exit code 1
+2026-08-25 14:44:05.273 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.345 KST [1] DEBUG:  00000: forked new backend, pid=1202 socket=10
+2026-08-25 14:44:06.345 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.347 KST [1202] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.347 KST [1202] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.348 KST [1] DEBUG:  00000: server process (PID 1202) exited with exit code 1
+2026-08-25 14:44:06.348 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.382 KST [1] DEBUG:  00000: forked new backend, pid=1221 socket=10
+2026-08-25 14:44:06.382 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.382 KST [1] DEBUG:  00000: forked new backend, pid=1222 socket=10
+2026-08-25 14:44:06.382 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.383 KST [1221] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.383 KST [1221] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.384 KST [1] DEBUG:  00000: server process (PID 1221) exited with exit code 1
+2026-08-25 14:44:06.384 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.385 KST [1222] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.385 KST [1222] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.386 KST [1] DEBUG:  00000: server process (PID 1222) exited with exit code 1
+2026-08-25 14:44:06.386 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.409 KST [1] DEBUG:  00000: forked new backend, pid=1232 socket=10
+2026-08-25 14:44:06.409 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.409 KST [1232] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.409 KST [1232] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.411 KST [1] DEBUG:  00000: forked new backend, pid=1233 socket=10
+2026-08-25 14:44:06.411 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.411 KST [1] DEBUG:  00000: server process (PID 1232) exited with exit code 1
+2026-08-25 14:44:06.411 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.411 KST [1233] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.411 KST [1233] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.411 KST [1] DEBUG:  00000: server process (PID 1233) exited with exit code 1
+2026-08-25 14:44:06.411 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.420 KST [1] DEBUG:  00000: forked new backend, pid=1234 socket=10
+2026-08-25 14:44:06.420 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.420 KST [1234] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.420 KST [1234] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.421 KST [1] DEBUG:  00000: server process (PID 1234) exited with exit code 1
+2026-08-25 14:44:06.421 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.426 KST [1] DEBUG:  00000: forked new backend, pid=1235 socket=10
+2026-08-25 14:44:06.426 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.426 KST [1235] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.426 KST [1235] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.427 KST [1] DEBUG:  00000: server process (PID 1235) exited with exit code 1
+2026-08-25 14:44:06.427 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:06.431 KST [1] DEBUG:  00000: forked new backend, pid=1236 socket=10
+2026-08-25 14:44:06.431 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:06.431 KST [1236] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:06.431 KST [1236] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:06.431 KST [1] DEBUG:  00000: server process (PID 1236) exited with exit code 1
+2026-08-25 14:44:06.431 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.530 KST [1] DEBUG:  00000: forked new backend, pid=1244 socket=10
+2026-08-25 14:44:07.530 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.531 KST [1244] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.531 KST [1244] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.534 KST [1] DEBUG:  00000: server process (PID 1244) exited with exit code 1
+2026-08-25 14:44:07.534 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.586 KST [1] DEBUG:  00000: forked new backend, pid=1285 socket=10
+2026-08-25 14:44:07.586 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.587 KST [1285] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.587 KST [1285] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.588 KST [1] DEBUG:  00000: server process (PID 1285) exited with exit code 1
+2026-08-25 14:44:07.588 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.592 KST [1] DEBUG:  00000: forked new backend, pid=1286 socket=10
+2026-08-25 14:44:07.592 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.592 KST [1286] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.592 KST [1286] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.593 KST [1] DEBUG:  00000: server process (PID 1286) exited with exit code 1
+2026-08-25 14:44:07.593 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.613 KST [1] DEBUG:  00000: forked new backend, pid=1287 socket=10
+2026-08-25 14:44:07.613 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.615 KST [1] DEBUG:  00000: forked new backend, pid=1288 socket=10
+2026-08-25 14:44:07.615 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.615 KST [1288] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.615 KST [1288] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.615 KST [1287] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.615 KST [1287] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.617 KST [1] DEBUG:  00000: server process (PID 1287) exited with exit code 1
+2026-08-25 14:44:07.617 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.617 KST [1] DEBUG:  00000: server process (PID 1288) exited with exit code 1
+2026-08-25 14:44:07.617 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.619 KST [1] DEBUG:  00000: forked new backend, pid=1289 socket=10
+2026-08-25 14:44:07.619 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.619 KST [1289] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.619 KST [1289] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.621 KST [1] DEBUG:  00000: server process (PID 1289) exited with exit code 1
+2026-08-25 14:44:07.621 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.622 KST [1290] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.622 KST [1290] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.624 KST [1] DEBUG:  00000: forked new backend, pid=1290 socket=10
+2026-08-25 14:44:07.624 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.624 KST [1] DEBUG:  00000: server process (PID 1290) exited with exit code 1
+2026-08-25 14:44:07.624 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:07.629 KST [1] DEBUG:  00000: forked new backend, pid=1291 socket=10
+2026-08-25 14:44:07.629 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:07.629 KST [1291] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:07.629 KST [1291] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:07.630 KST [1] DEBUG:  00000: server process (PID 1291) exited with exit code 1
+2026-08-25 14:44:07.630 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.678 KST [1] DEBUG:  00000: forked new backend, pid=1304 socket=10
+2026-08-25 14:44:08.678 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.678 KST [1304] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.678 KST [1304] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.679 KST [1] DEBUG:  00000: server process (PID 1304) exited with exit code 1
+2026-08-25 14:44:08.679 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.700 KST [1] DEBUG:  00000: forked new backend, pid=1317 socket=10
+2026-08-25 14:44:08.700 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.701 KST [1317] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.701 KST [1317] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.701 KST [1] DEBUG:  00000: server process (PID 1317) exited with exit code 1
+2026-08-25 14:44:08.701 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.717 KST [1] DEBUG:  00000: forked new backend, pid=1318 socket=10
+2026-08-25 14:44:08.717 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.717 KST [1318] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.717 KST [1318] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.718 KST [1] DEBUG:  00000: server process (PID 1318) exited with exit code 1
+2026-08-25 14:44:08.718 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.723 KST [1] DEBUG:  00000: forked new backend, pid=1319 socket=10
+2026-08-25 14:44:08.723 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.723 KST [1319] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.723 KST [1319] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.724 KST [1] DEBUG:  00000: server process (PID 1319) exited with exit code 1
+2026-08-25 14:44:08.724 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.790 KST [1346] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.790 KST [1346] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.790 KST [1] DEBUG:  00000: forked new backend, pid=1346 socket=10
+2026-08-25 14:44:08.790 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.791 KST [1] DEBUG:  00000: server process (PID 1346) exited with exit code 1
+2026-08-25 14:44:08.791 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.810 KST [1] DEBUG:  00000: forked new backend, pid=1347 socket=10
+2026-08-25 14:44:08.810 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.810 KST [1347] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.810 KST [1347] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.811 KST [1] DEBUG:  00000: server process (PID 1347) exited with exit code 1
+2026-08-25 14:44:08.811 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.815 KST [1] DEBUG:  00000: forked new backend, pid=1348 socket=10
+2026-08-25 14:44:08.815 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.815 KST [1348] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.815 KST [1348] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.815 KST [1] DEBUG:  00000: server process (PID 1348) exited with exit code 1
+2026-08-25 14:44:08.815 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:08.819 KST [1] DEBUG:  00000: forked new backend, pid=1349 socket=10
+2026-08-25 14:44:08.819 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:08.819 KST [1349] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:08.819 KST [1349] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:08.820 KST [1] DEBUG:  00000: server process (PID 1349) exited with exit code 1
+2026-08-25 14:44:08.820 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:09.801 KST [1] DEBUG:  00000: forked new backend, pid=1372 socket=10
+2026-08-25 14:44:09.801 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:09.801 KST [1372] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:09.801 KST [1372] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:09.803 KST [1] DEBUG:  00000: server process (PID 1372) exited with exit code 1
+2026-08-25 14:44:09.803 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:09.823 KST [1] DEBUG:  00000: forked new backend, pid=1373 socket=10
+2026-08-25 14:44:09.823 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:09.823 KST [1373] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:09.823 KST [1373] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:09.824 KST [1] DEBUG:  00000: forked new backend, pid=1374 socket=10
+2026-08-25 14:44:09.824 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:09.824 KST [1] DEBUG:  00000: server process (PID 1373) exited with exit code 1
+2026-08-25 14:44:09.824 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:09.825 KST [1] DEBUG:  00000: forked new backend, pid=1375 socket=10
+2026-08-25 14:44:09.825 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:09.825 KST [1375] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:09.825 KST [1375] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:09.826 KST [1374] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:09.826 KST [1374] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:09.826 KST [1] DEBUG:  00000: server process (PID 1375) exited with exit code 1
+2026-08-25 14:44:09.826 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:09.826 KST [1] DEBUG:  00000: server process (PID 1374) exited with exit code 1
+2026-08-25 14:44:09.826 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.004 KST [1] DEBUG:  00000: forked new backend, pid=1402 socket=10
+2026-08-25 14:44:10.004 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.004 KST [1402] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.004 KST [1402] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.004 KST [1] DEBUG:  00000: server process (PID 1402) exited with exit code 1
+2026-08-25 14:44:10.004 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.019 KST [1] DEBUG:  00000: forked new backend, pid=1403 socket=10
+2026-08-25 14:44:10.019 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.019 KST [1403] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.019 KST [1403] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.019 KST [1] DEBUG:  00000: server process (PID 1403) exited with exit code 1
+2026-08-25 14:44:10.019 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.026 KST [1] DEBUG:  00000: forked new backend, pid=1404 socket=10
+2026-08-25 14:44:10.026 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.027 KST [1] DEBUG:  00000: forked new backend, pid=1405 socket=10
+2026-08-25 14:44:10.027 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.027 KST [1404] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.027 KST [1404] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.027 KST [1] DEBUG:  00000: server process (PID 1404) exited with exit code 1
+2026-08-25 14:44:10.027 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.027 KST [1405] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.027 KST [1405] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.028 KST [1] DEBUG:  00000: server process (PID 1405) exited with exit code 1
+2026-08-25 14:44:10.028 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.912 KST [1] DEBUG:  00000: forked new backend, pid=1428 socket=10
+2026-08-25 14:44:10.912 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.912 KST [1428] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.912 KST [1428] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.913 KST [1] DEBUG:  00000: server process (PID 1428) exited with exit code 1
+2026-08-25 14:44:10.913 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.930 KST [1] DEBUG:  00000: forked new backend, pid=1429 socket=10
+2026-08-25 14:44:10.930 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.931 KST [1429] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.931 KST [1429] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.932 KST [1] DEBUG:  00000: server process (PID 1429) exited with exit code 1
+2026-08-25 14:44:10.932 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.935 KST [1] DEBUG:  00000: forked new backend, pid=1430 socket=10
+2026-08-25 14:44:10.935 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.935 KST [1430] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.935 KST [1430] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.937 KST [1] DEBUG:  00000: server process (PID 1430) exited with exit code 1
+2026-08-25 14:44:10.937 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:10.941 KST [1] DEBUG:  00000: forked new backend, pid=1431 socket=10
+2026-08-25 14:44:10.941 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:10.941 KST [1431] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:10.941 KST [1431] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:10.941 KST [1] DEBUG:  00000: server process (PID 1431) exited with exit code 1
+2026-08-25 14:44:10.941 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:11.224 KST [1] DEBUG:  00000: forked new backend, pid=1457 socket=10
+2026-08-25 14:44:11.224 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:11.225 KST [1457] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:11.225 KST [1457] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:11.226 KST [1] DEBUG:  00000: server process (PID 1457) exited with exit code 1
+2026-08-25 14:44:11.226 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:11.227 KST [1] DEBUG:  00000: forked new backend, pid=1458 socket=10
+2026-08-25 14:44:11.227 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:11.227 KST [1458] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:11.227 KST [1458] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:11.228 KST [1] DEBUG:  00000: server process (PID 1458) exited with exit code 1
+2026-08-25 14:44:11.228 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:11.236 KST [1] DEBUG:  00000: forked new backend, pid=1459 socket=10
+2026-08-25 14:44:11.236 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:11.236 KST [1459] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:11.236 KST [1459] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:11.236 KST [1] DEBUG:  00000: server process (PID 1459) exited with exit code 1
+2026-08-25 14:44:11.236 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:11.242 KST [1] DEBUG:  00000: forked new backend, pid=1460 socket=10
+2026-08-25 14:44:11.242 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:11.243 KST [1460] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:11.243 KST [1460] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:11.243 KST [1] DEBUG:  00000: server process (PID 1460) exited with exit code 1
+2026-08-25 14:44:11.243 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.027 KST [1] DEBUG:  00000: forked new backend, pid=1483 socket=10
+2026-08-25 14:44:12.027 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.028 KST [1483] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.028 KST [1483] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.029 KST [1] DEBUG:  00000: server process (PID 1483) exited with exit code 1
+2026-08-25 14:44:12.029 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.045 KST [1] DEBUG:  00000: forked new backend, pid=1484 socket=10
+2026-08-25 14:44:12.045 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.046 KST [1484] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.046 KST [1484] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.047 KST [1] DEBUG:  00000: server process (PID 1484) exited with exit code 1
+2026-08-25 14:44:12.047 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.049 KST [1] DEBUG:  00000: forked new backend, pid=1485 socket=10
+2026-08-25 14:44:12.049 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.049 KST [1485] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.049 KST [1485] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.051 KST [1] DEBUG:  00000: server process (PID 1485) exited with exit code 1
+2026-08-25 14:44:12.051 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.051 KST [1] DEBUG:  00000: forked new backend, pid=1486 socket=10
+2026-08-25 14:44:12.051 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.052 KST [1486] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.052 KST [1486] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.052 KST [1] DEBUG:  00000: server process (PID 1486) exited with exit code 1
+2026-08-25 14:44:12.052 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.450 KST [1] DEBUG:  00000: forked new backend, pid=1511 socket=10
+2026-08-25 14:44:12.450 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.451 KST [1511] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.451 KST [1511] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.452 KST [1] DEBUG:  00000: server process (PID 1511) exited with exit code 1
+2026-08-25 14:44:12.452 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.455 KST [1] DEBUG:  00000: forked new backend, pid=1512 socket=10
+2026-08-25 14:44:12.455 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.456 KST [1512] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.456 KST [1512] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.457 KST [1] DEBUG:  00000: server process (PID 1512) exited with exit code 1
+2026-08-25 14:44:12.457 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.466 KST [1] DEBUG:  00000: forked new backend, pid=1513 socket=10
+2026-08-25 14:44:12.466 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.466 KST [1513] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.466 KST [1513] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.467 KST [1] DEBUG:  00000: server process (PID 1513) exited with exit code 1
+2026-08-25 14:44:12.467 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:12.478 KST [1] DEBUG:  00000: forked new backend, pid=1514 socket=10
+2026-08-25 14:44:12.478 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:12.478 KST [1514] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:12.478 KST [1514] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:12.479 KST [1] DEBUG:  00000: server process (PID 1514) exited with exit code 1
+2026-08-25 14:44:12.479 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.159 KST [1] DEBUG:  00000: forked new backend, pid=1539 socket=10
+2026-08-25 14:44:13.159 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.160 KST [1539] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.160 KST [1539] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.161 KST [1] DEBUG:  00000: server process (PID 1539) exited with exit code 1
+2026-08-25 14:44:13.161 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.165 KST [1] DEBUG:  00000: forked new backend, pid=1540 socket=10
+2026-08-25 14:44:13.165 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.166 KST [1540] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.166 KST [1540] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.167 KST [1] DEBUG:  00000: server process (PID 1540) exited with exit code 1
+2026-08-25 14:44:13.167 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.174 KST [1] DEBUG:  00000: forked new backend, pid=1541 socket=10
+2026-08-25 14:44:13.174 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.174 KST [1541] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.174 KST [1541] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.174 KST [1] DEBUG:  00000: server process (PID 1541) exited with exit code 1
+2026-08-25 14:44:13.174 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.176 KST [1] DEBUG:  00000: forked new backend, pid=1542 socket=10
+2026-08-25 14:44:13.176 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.177 KST [1542] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.177 KST [1542] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.177 KST [1] DEBUG:  00000: server process (PID 1542) exited with exit code 1
+2026-08-25 14:44:13.177 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.679 KST [1] DEBUG:  00000: forked new backend, pid=1566 socket=10
+2026-08-25 14:44:13.679 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.680 KST [1566] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.680 KST [1566] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.680 KST [1] DEBUG:  00000: server process (PID 1566) exited with exit code 1
+2026-08-25 14:44:13.680 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.689 KST [1] DEBUG:  00000: forked new backend, pid=1567 socket=10
+2026-08-25 14:44:13.689 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.689 KST [1567] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.689 KST [1567] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.689 KST [1] DEBUG:  00000: server process (PID 1567) exited with exit code 1
+2026-08-25 14:44:13.689 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.691 KST [1] DEBUG:  00000: forked new backend, pid=1568 socket=10
+2026-08-25 14:44:13.691 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.692 KST [1568] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.692 KST [1568] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.692 KST [1] DEBUG:  00000: server process (PID 1568) exited with exit code 1
+2026-08-25 14:44:13.692 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
+2026-08-25 14:44:13.703 KST [1] DEBUG:  00000: forked new backend, pid=1569 socket=10
+2026-08-25 14:44:13.703 KST [1] LOCATION:  BackendStartup, postmaster.c:4148
+2026-08-25 14:44:13.704 KST [1569] FATAL:  57P03: the database system is shutting down
+2026-08-25 14:44:13.704 KST [1569] LOCATION:  ProcessStartupPacket, postmaster.c:2268
+2026-08-25 14:44:13.704 KST [1] DEBUG:  00000: server process (PID 1569) exited with exit code 1
+2026-08-25 14:44:13.704 KST [1] LOCATION:  LogChildExit, postmaster.c:3657
