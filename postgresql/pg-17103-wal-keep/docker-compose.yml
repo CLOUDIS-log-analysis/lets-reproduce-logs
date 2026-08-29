@@ -1,0 +1,18 @@
+services:
+  primary:
+    image: postgres:13.3
+    container_name: primary
+    tmpfs:
+      - /wal_disk:size=300M,uid=999,gid=999
+    volumes:
+      - ./primary_entrypoint.sh:/usr/local/bin/primary_entrypoint.sh:ro
+      - ./logs:/var/log/postgresql
+    entrypoint: ["/usr/local/bin/primary_entrypoint.sh"]
+  replica:
+    image: postgres:13.3
+    container_name: replica
+    depends_on:
+      - primary
+    volumes:
+      - ./replica_entrypoint.sh:/usr/local/bin/replica_entrypoint.sh:ro
+    entrypoint: ["/usr/local/bin/replica_entrypoint.sh"] 

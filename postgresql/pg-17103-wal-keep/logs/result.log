@@ -1,0 +1,641 @@
+2026-08-28 06:44:33.276 UTC [31] LOG:  00000: starting PostgreSQL 13.3 (Debian 13.3-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2026-08-28 06:44:33.276 UTC [31] LOCATION:  PostmasterMain, postmaster.c:1125
+2026-08-28 06:44:33.276 UTC [31] LOG:  00000: listening on IPv4 address "0.0.0.0", port 5432
+2026-08-28 06:44:33.276 UTC [31] LOCATION:  StreamServerPort, pqcomm.c:588
+2026-08-28 06:44:33.276 UTC [31] LOG:  00000: listening on IPv6 address "::", port 5432
+2026-08-28 06:44:33.276 UTC [31] LOCATION:  StreamServerPort, pqcomm.c:588
+2026-08-28 06:44:33.285 UTC [31] LOG:  00000: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-08-28 06:44:33.285 UTC [31] LOCATION:  StreamServerPort, pqcomm.c:582
+2026-08-28 06:44:33.298 UTC [34] LOG:  00000: database system was shut down at 2026-08-28 06:44:32 UTC
+2026-08-28 06:44:33.298 UTC [34] LOCATION:  StartupXLOG, xlog.c:6347
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: checkpoint record is at 0/15C6700
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6659
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: redo record is at 0/15C6700; shutdown true
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6737
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: next transaction ID: 485; next OID: 13396
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6741
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6744
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: oldest unfrozen transaction ID: 478, in database 1
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6747
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6750
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupXLOG, xlog.c:6754
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: transaction ID wrap limit is 2147484125, limited by database with OID 1
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  SetTransactionIdLimit, varsup.c:410
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  SetMultiXactIdLimit, multixact.c:2273
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: starting up replication slots
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupReplicationSlots, slot.c:1289
+2026-08-28 06:44:33.299 UTC [34] DEBUG:  00000: starting up replication origin progress state
+2026-08-28 06:44:33.299 UTC [34] LOCATION:  StartupReplicationOrigin, origin.c:694
+2026-08-28 06:44:33.300 UTC [34] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-08-28 06:44:33.300 UTC [34] LOCATION:  SetMultiXactIdLimit, multixact.c:2273
+2026-08-28 06:44:33.300 UTC [34] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-08-28 06:44:33.300 UTC [34] LOCATION:  SetOffsetVacuumLimit, multixact.c:2636
+2026-08-28 06:44:33.311 UTC [35] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-08-28 06:44:33.311 UTC [35] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1301
+2026-08-28 06:44:33.314 UTC [31] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-08-28 06:44:33.314 UTC [31] LOCATION:  do_start_bgworker, postmaster.c:5828
+2026-08-28 06:44:33.314 UTC [38] DEBUG:  00000: autovacuum launcher started
+2026-08-28 06:44:33.314 UTC [38] LOCATION:  AutoVacLauncherMain, autovacuum.c:442
+2026-08-28 06:44:33.315 UTC [31] LOG:  00000: database system is ready to accept connections
+2026-08-28 06:44:33.315 UTC [31] LOCATION:  reaper, postmaster.c:3044
+2026-08-28 06:44:33.316 UTC [39] DEBUG:  00000: received inquiry for database 0
+2026-08-28 06:44:33.316 UTC [39] LOCATION:  pgstat_recv_inquiry, pgstat.c:5872
+2026-08-28 06:44:33.316 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-08-28 06:44:33.316 UTC [39] LOCATION:  pgstat_write_statsfiles, pgstat.c:4879
+2026-08-28 06:44:33.317 UTC [40] DEBUG:  00000: logical replication launcher started
+2026-08-28 06:44:33.317 UTC [40] LOCATION:  ApplyLauncherMain, launcher.c:951
+2026-08-28 06:44:37.695 UTC [31] DEBUG:  00000: forked new backend, pid=41 socket=10
+2026-08-28 06:44:37.695 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:37.700 UTC [41] DEBUG:  00000: received replication command: SHOW data_directory_mode
+2026-08-28 06:44:37.700 UTC [41] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.700 UTC [41] DEBUG:  00000: received replication command: SHOW wal_segment_size
+2026-08-28 06:44:37.700 UTC [41] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.700 UTC [41] DEBUG:  00000: received replication command: IDENTIFY_SYSTEM
+2026-08-28 06:44:37.700 UTC [41] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.700 UTC [41] DEBUG:  00000: received replication command: BASE_BACKUP LABEL 'pg_basebackup base backup' PROGRESS   NOWAIT    MANIFEST 'yes' 
+2026-08-28 06:44:37.700 UTC [41] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.714 UTC [35] LOG:  00000: checkpoints are occurring too frequently (4 seconds apart)
+2026-08-28 06:44:37.714 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:37.714 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:37.727 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:37.727 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:37.737 UTC [35] DEBUG:  00000: snapshot of 0+0 running transaction ids (lsn 0/2000060 oldest xid 485 latest complete 484 next xid 485)
+2026-08-28 06:44:37.737 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:37.737 UTC [35] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:37.737 UTC [35] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:37.757 UTC [35] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:37.757 UTC [35] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:37.762 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:37.762 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:37.762 UTC [35] DEBUG:  00000: recycled write-ahead log file "000000010000000000000001"
+2026-08-28 06:44:37.762 UTC [35] LOCATION:  RemoveXlogFile, xlog.c:4188
+2026-08-28 06:44:37.762 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:37.762 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:37.762 UTC [41] DEBUG:  00000: contents of directory "pg_stat_tmp" excluded from backup
+2026-08-28 06:44:37.762 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_replslot" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_dynshmem" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_snapshots" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_subtrans" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: file "postmaster.pid" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1286
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_notify" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: contents of directory "pg_serial" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.763 UTC [41] DEBUG:  00000: file "postmaster.opts" excluded from backup
+2026-08-28 06:44:37.763 UTC [41] LOCATION:  sendDir, basebackup.c:1286
+2026-08-28 06:44:37.776 UTC [41] DEBUG:  00000: contents of directory "pg_stat_tmp" excluded from backup
+2026-08-28 06:44:37.776 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.780 UTC [31] DEBUG:  00000: forked new backend, pid=42 socket=10
+2026-08-28 06:44:37.780 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:37.785 UTC [42] DEBUG:  00000: received replication command: SHOW data_directory_mode
+2026-08-28 06:44:37.785 UTC [42] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.785 UTC [42] DEBUG:  00000: received replication command: CREATE_REPLICATION_SLOT "bug_test_slot" PHYSICAL RESERVE_WAL
+2026-08-28 06:44:37.785 UTC [42] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.812 UTC [42] DEBUG:  00000: received replication command: IDENTIFY_SYSTEM
+2026-08-28 06:44:37.812 UTC [42] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.812 UTC [42] DEBUG:  00000: received replication command: START_REPLICATION SLOT "bug_test_slot" 0/2000000 TIMELINE 1
+2026-08-28 06:44:37.812 UTC [42] LOCATION:  exec_replication_command, walsender.c:1571
+2026-08-28 06:44:37.812 UTC [42] DEBUG:  00000: "pg_basebackup" has now caught up with upstream server
+2026-08-28 06:44:37.812 UTC [42] LOCATION:  WalSndLoop, walsender.c:2310
+2026-08-28 06:44:37.812 UTC [42] DEBUG:  00000: write 0/2000000 flush 0/2000000 apply 0/0 reply_time 2026-08-28 06:44:37.812706+00
+2026-08-28 06:44:37.812 UTC [42] LOCATION:  ProcessStandbyReplyMessage, walsender.c:1895
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: contents of directory "pg_replslot" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: contents of directory "pg_dynshmem" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: contents of directory "pg_snapshots" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: contents of directory "pg_subtrans" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: file "postmaster.pid" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1286
+2026-08-28 06:44:37.816 UTC [41] DEBUG:  00000: contents of directory "pg_notify" excluded from backup
+2026-08-28 06:44:37.816 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.817 UTC [41] DEBUG:  00000: contents of directory "pg_serial" excluded from backup
+2026-08-28 06:44:37.817 UTC [41] LOCATION:  sendDir, basebackup.c:1360
+2026-08-28 06:44:37.817 UTC [41] DEBUG:  00000: file "postmaster.opts" excluded from backup
+2026-08-28 06:44:37.817 UTC [41] LOCATION:  sendDir, basebackup.c:1286
+2026-08-28 06:44:37.897 UTC [41] DEBUG:  00000: removing WAL backup history file "000000010000000000000002.00000028.backup"
+2026-08-28 06:44:37.897 UTC [41] LOCATION:  CleanupBackupHistory, xlog.c:4306
+2026-08-28 06:44:37.898 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:37.898 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:37.898 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:37.905 UTC [31] DEBUG:  00000: server process (PID 41) exited with exit code 0
+2026-08-28 06:44:37.905 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:37.907 UTC [31] DEBUG:  00000: server process (PID 42) exited with exit code 0
+2026-08-28 06:44:37.907 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:38.003 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:38.003 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:38.023 UTC [35] DEBUG:  00000: snapshot of 0+0 running transaction ids (lsn 0/3000060 oldest xid 485 latest complete 484 next xid 485)
+2026-08-28 06:44:38.023 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:38.027 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:38.027 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:38.027 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:38.027 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:40.269 UTC [31] DEBUG:  00000: forked new backend, pid=49 socket=10
+2026-08-28 06:44:40.269 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:40.284 UTC [49] DEBUG:  42P01: relation "pgbench_accounts" does not exist
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  RangeVarGetRelidExtended, namespace.c:434
+2026-08-28 06:44:40.284 UTC [49] NOTICE:  00000: table "pgbench_accounts" does not exist, skipping
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1220
+2026-08-28 06:44:40.284 UTC [49] DEBUG:  42P01: relation "pgbench_branches" does not exist
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  RangeVarGetRelidExtended, namespace.c:434
+2026-08-28 06:44:40.284 UTC [49] NOTICE:  00000: table "pgbench_branches" does not exist, skipping
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1220
+2026-08-28 06:44:40.284 UTC [49] DEBUG:  42P01: relation "pgbench_history" does not exist
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  RangeVarGetRelidExtended, namespace.c:434
+2026-08-28 06:44:40.284 UTC [49] NOTICE:  00000: table "pgbench_history" does not exist, skipping
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1220
+2026-08-28 06:44:40.284 UTC [49] DEBUG:  42P01: relation "pgbench_tellers" does not exist
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  RangeVarGetRelidExtended, namespace.c:434
+2026-08-28 06:44:40.284 UTC [49] NOTICE:  00000: table "pgbench_tellers" does not exist, skipping
+2026-08-28 06:44:40.284 UTC [49] LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1220
+2026-08-28 06:44:40.417 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:40.417 UTC [49] CONTEXT:  writing block 624 of relation base/13395/16396
+	COPY pgbench_accounts, line 163000
+2026-08-28 06:44:40.417 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:40.418 UTC [35] LOG:  00000: checkpoints are occurring too frequently (3 seconds apart)
+2026-08-28 06:44:40.418 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:40.418 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:40.426 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:40.426 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:40.430 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:40.430 UTC [49] CONTEXT:  writing block 624 of relation base/13395/16396
+	COPY pgbench_accounts, line 163000
+2026-08-28 06:44:40.430 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:40.569 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:40.569 UTC [49] CONTEXT:  COPY pgbench_accounts, line 351000
+2026-08-28 06:44:40.569 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:40.582 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:40.582 UTC [49] CONTEXT:  COPY pgbench_accounts, line 351000
+2026-08-28 06:44:40.582 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:40.671 UTC [35] DEBUG:  00000: snapshot of 1+0 running transaction ids (lsn 0/60BB2A0 oldest xid 489 latest complete 488 next xid 490)
+2026-08-28 06:44:40.671 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:40.673 UTC [35] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:40.673 UTC [35] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:40.692 UTC [35] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:40.692 UTC [35] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:40.696 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:40.696 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:40.696 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:40.696 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:40.696 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:40.696 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:40.696 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:40.706 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:40.706 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:40.815 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:40.815 UTC [49] CONTEXT:  COPY pgbench_accounts, line 664000
+2026-08-28 06:44:40.815 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:40.827 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:40.827 UTC [49] CONTEXT:  COPY pgbench_accounts, line 664000
+2026-08-28 06:44:40.827 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:40.943 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:40.943 UTC [49] CONTEXT:  COPY pgbench_accounts, line 820000
+2026-08-28 06:44:40.943 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:40.958 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:40.958 UTC [49] CONTEXT:  COPY pgbench_accounts, line 820000
+2026-08-28 06:44:40.958 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:40.986 UTC [35] DEBUG:  00000: snapshot of 1+0 running transaction ids (lsn 0/87FF930 oldest xid 489 latest complete 488 next xid 490)
+2026-08-28 06:44:40.986 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:40.991 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:40.991 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:40.992 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:40.992 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:40.993 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:40.993 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:40.993 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:41.004 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:41.004 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:41.066 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:41.066 UTC [49] CONTEXT:  COPY pgbench_accounts, line 977000
+2026-08-28 06:44:41.066 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:41.081 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:41.081 UTC [49] CONTEXT:  COPY pgbench_accounts, line 977000
+2026-08-28 06:44:41.081 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:41.104 UTC [39] DEBUG:  00000: received inquiry for database 13395
+2026-08-28 06:44:41.104 UTC [39] LOCATION:  pgstat_recv_inquiry, pgstat.c:5872
+2026-08-28 06:44:41.104 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-08-28 06:44:41.104 UTC [39] LOCATION:  pgstat_write_statsfiles, pgstat.c:4879
+2026-08-28 06:44:41.104 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/db_13395.stat"
+2026-08-28 06:44:41.104 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:41.105 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/db_0.stat"
+2026-08-28 06:44:41.105 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:41.115 UTC [49] DEBUG:  00000: vacuuming "public.pgbench_branches"
+2026-08-28 06:44:41.115 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.116 UTC [49] DEBUG:  00000: "pgbench_branches": found 0 removable, 10 nonremovable row versions in 1 out of 1 pages
+2026-08-28 06:44:41.116 UTC [49] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 490
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s.
+2026-08-28 06:44:41.116 UTC [49] CONTEXT:  while scanning relation "public.pgbench_branches"
+2026-08-28 06:44:41.116 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.117 UTC [49] DEBUG:  00000: analyzing "public.pgbench_branches"
+2026-08-28 06:44:41.117 UTC [49] LOCATION:  do_analyze_rel, analyze.c:336
+2026-08-28 06:44:41.118 UTC [49] DEBUG:  00000: "pgbench_branches": scanned 1 of 1 pages, containing 10 live rows and 0 dead rows; 10 rows in sample, 10 estimated total rows
+2026-08-28 06:44:41.118 UTC [49] LOCATION:  acquire_sample_rows, analyze.c:1185
+2026-08-28 06:44:41.121 UTC [49] DEBUG:  00000: vacuuming "public.pgbench_tellers"
+2026-08-28 06:44:41.121 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.122 UTC [49] DEBUG:  00000: "pgbench_tellers": found 0 removable, 100 nonremovable row versions in 1 out of 1 pages
+2026-08-28 06:44:41.122 UTC [49] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 491
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s.
+2026-08-28 06:44:41.122 UTC [49] CONTEXT:  while scanning relation "public.pgbench_tellers"
+2026-08-28 06:44:41.122 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.123 UTC [49] DEBUG:  00000: analyzing "public.pgbench_tellers"
+2026-08-28 06:44:41.123 UTC [49] LOCATION:  do_analyze_rel, analyze.c:336
+2026-08-28 06:44:41.123 UTC [49] DEBUG:  00000: "pgbench_tellers": scanned 1 of 1 pages, containing 100 live rows and 0 dead rows; 100 rows in sample, 100 estimated total rows
+2026-08-28 06:44:41.123 UTC [49] LOCATION:  acquire_sample_rows, analyze.c:1185
+2026-08-28 06:44:41.124 UTC [49] DEBUG:  00000: vacuuming "public.pgbench_accounts"
+2026-08-28 06:44:41.124 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.234 UTC [35] DEBUG:  00000: snapshot of 0+0 running transaction ids (lsn 0/972D698 oldest xid 492 latest complete 491 next xid 492)
+2026-08-28 06:44:41.234 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:41.238 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:41.238 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:41.238 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:41.238 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:41.241 UTC [35] LOG:  00000: checkpoints are occurring too frequently (1 second apart)
+2026-08-28 06:44:41.241 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:41.241 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:41.257 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:41.257 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:41.271 UTC [49] DEBUG:  00000: "pgbench_accounts": found 0 removable, 1000000 nonremovable row versions in 16394 out of 16394 pages
+2026-08-28 06:44:41.271 UTC [49] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 492
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.09 s, system: 0.05 s, elapsed: 0.14 s.
+2026-08-28 06:44:41.271 UTC [49] CONTEXT:  while scanning relation "public.pgbench_accounts"
+2026-08-28 06:44:41.271 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.271 UTC [49] DEBUG:  00000: analyzing "public.pgbench_accounts"
+2026-08-28 06:44:41.271 UTC [49] LOCATION:  do_analyze_rel, analyze.c:336
+2026-08-28 06:44:41.352 UTC [49] DEBUG:  00000: "pgbench_accounts": scanned 16394 of 16394 pages, containing 1000000 live rows and 0 dead rows; 30000 rows in sample, 1000000 estimated total rows
+2026-08-28 06:44:41.352 UTC [49] LOCATION:  acquire_sample_rows, analyze.c:1185
+2026-08-28 06:44:41.367 UTC [49] DEBUG:  00000: vacuuming "public.pgbench_history"
+2026-08-28 06:44:41.367 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.368 UTC [49] DEBUG:  00000: "pgbench_history": found 0 removable, 0 nonremovable row versions in 0 out of 0 pages
+2026-08-28 06:44:41.368 UTC [49] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 493
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s.
+2026-08-28 06:44:41.368 UTC [49] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.368 UTC [49] DEBUG:  00000: analyzing "public.pgbench_history"
+2026-08-28 06:44:41.368 UTC [49] LOCATION:  do_analyze_rel, analyze.c:336
+2026-08-28 06:44:41.368 UTC [49] DEBUG:  00000: "pgbench_history": scanned 0 of 0 pages, containing 0 live rows and 0 dead rows; 0 rows in sample, 0 estimated total rows
+2026-08-28 06:44:41.368 UTC [49] LOCATION:  acquire_sample_rows, analyze.c:1185
+2026-08-28 06:44:41.368 UTC [49] DEBUG:  00000: ALTER TABLE / ADD PRIMARY KEY will create implicit index "pgbench_branches_pkey" for table "pgbench_branches"
+2026-08-28 06:44:41.368 UTC [49] LOCATION:  DefineIndex, indexcmds.c:1059
+2026-08-28 06:44:41.369 UTC [49] DEBUG:  00000: building index "pgbench_branches_pkey" on table "pgbench_branches" serially
+2026-08-28 06:44:41.369 UTC [49] LOCATION:  index_build, index.c:2920
+2026-08-28 06:44:41.369 UTC [49] DEBUG:  00000: index "pgbench_branches_pkey" can safely use deduplication
+2026-08-28 06:44:41.369 UTC [49] LOCATION:  _bt_allequalimage, nbtutils.c:2743
+2026-08-28 06:44:41.379 UTC [49] DEBUG:  00000: ALTER TABLE / ADD PRIMARY KEY will create implicit index "pgbench_tellers_pkey" for table "pgbench_tellers"
+2026-08-28 06:44:41.379 UTC [49] LOCATION:  DefineIndex, indexcmds.c:1059
+2026-08-28 06:44:41.379 UTC [49] DEBUG:  00000: building index "pgbench_tellers_pkey" on table "pgbench_tellers" serially
+2026-08-28 06:44:41.379 UTC [49] LOCATION:  index_build, index.c:2920
+2026-08-28 06:44:41.380 UTC [49] DEBUG:  00000: index "pgbench_tellers_pkey" can safely use deduplication
+2026-08-28 06:44:41.380 UTC [49] LOCATION:  _bt_allequalimage, nbtutils.c:2743
+2026-08-28 06:44:41.385 UTC [49] DEBUG:  00000: ALTER TABLE / ADD PRIMARY KEY will create implicit index "pgbench_accounts_pkey" for table "pgbench_accounts"
+2026-08-28 06:44:41.385 UTC [49] LOCATION:  DefineIndex, indexcmds.c:1059
+2026-08-28 06:44:41.386 UTC [49] DEBUG:  00000: building index "pgbench_accounts_pkey" on table "pgbench_accounts" with request for 1 parallel worker
+2026-08-28 06:44:41.386 UTC [49] LOCATION:  index_build, index.c:2928
+2026-08-28 06:44:41.387 UTC [31] DEBUG:  00000: registering background worker "parallel worker for PID 49"
+2026-08-28 06:44:41.387 UTC [31] LOCATION:  BackgroundWorkerStateChange, bgworker.c:406
+2026-08-28 06:44:41.387 UTC [31] DEBUG:  00000: starting background worker process "parallel worker for PID 49"
+2026-08-28 06:44:41.387 UTC [31] LOCATION:  do_start_bgworker, postmaster.c:5828
+2026-08-28 06:44:41.554 UTC [31] DEBUG:  00000: unregistering background worker "parallel worker for PID 49"
+2026-08-28 06:44:41.554 UTC [31] LOCATION:  ForgetBackgroundWorker, bgworker.c:438
+2026-08-28 06:44:41.554 UTC [31] DEBUG:  00000: background worker "parallel worker" (PID 50) exited with exit code 0
+2026-08-28 06:44:41.554 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:41.563 UTC [49] DEBUG:  00000: index "pgbench_accounts_pkey" can safely use deduplication
+2026-08-28 06:44:41.563 UTC [49] LOCATION:  _bt_allequalimage, nbtutils.c:2743
+2026-08-28 06:44:41.621 UTC [49] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:41.621 UTC [49] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:41.630 UTC [49] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:41.630 UTC [49] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:41.760 UTC [31] DEBUG:  00000: server process (PID 49) exited with exit code 0
+2026-08-28 06:44:41.760 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:41.893 UTC [31] DEBUG:  00000: forked new backend, pid=57 socket=10
+2026-08-28 06:44:41.893 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:41.907 UTC [39] DEBUG:  00000: received inquiry for database 13395
+2026-08-28 06:44:41.907 UTC [39] LOCATION:  pgstat_recv_inquiry, pgstat.c:5872
+2026-08-28 06:44:41.907 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-08-28 06:44:41.907 UTC [39] LOCATION:  pgstat_write_statsfiles, pgstat.c:4879
+2026-08-28 06:44:41.907 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/db_13395.stat"
+2026-08-28 06:44:41.907 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:41.907 UTC [39] DEBUG:  00000: writing stats file "pg_stat_tmp/db_0.stat"
+2026-08-28 06:44:41.907 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:41.918 UTC [57] DEBUG:  00000: vacuuming "public.pgbench_branches"
+2026-08-28 06:44:41.918 UTC [57] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.918 UTC [57] DEBUG:  00000: "pgbench_branches": found 0 removable, 10 nonremovable row versions in 1 out of 1 pages
+2026-08-28 06:44:41.918 UTC [57] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 496
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s.
+2026-08-28 06:44:41.918 UTC [57] CONTEXT:  while scanning relation "public.pgbench_branches"
+2026-08-28 06:44:41.918 UTC [57] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.919 UTC [57] DEBUG:  00000: vacuuming "public.pgbench_tellers"
+2026-08-28 06:44:41.919 UTC [57] LOCATION:  lazy_scan_heap, vacuumlazy.c:802
+2026-08-28 06:44:41.919 UTC [57] DEBUG:  00000: "pgbench_tellers": found 0 removable, 100 nonremovable row versions in 1 out of 1 pages
+2026-08-28 06:44:41.919 UTC [57] DETAIL:  0 dead row versions cannot be removed yet, oldest xmin: 496
+	There were 0 unused item identifiers.
+	Skipped 0 pages due to buffer pins, 0 frozen pages.
+	0 pages are entirely empty.
+	CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s.
+2026-08-28 06:44:41.919 UTC [57] CONTEXT:  while scanning relation "public.pgbench_tellers"
+2026-08-28 06:44:41.919 UTC [57] LOCATION:  lazy_scan_heap, vacuumlazy.c:1759
+2026-08-28 06:44:41.923 UTC [31] DEBUG:  00000: forked new backend, pid=58 socket=10
+2026-08-28 06:44:41.923 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:41.926 UTC [31] DEBUG:  00000: server process (PID 57) exited with exit code 0
+2026-08-28 06:44:41.926 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:41.930 UTC [31] DEBUG:  00000: forked new backend, pid=59 socket=10
+2026-08-28 06:44:41.930 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:41.938 UTC [31] DEBUG:  00000: forked new backend, pid=60 socket=10
+2026-08-28 06:44:41.938 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:41.945 UTC [31] DEBUG:  00000: forked new backend, pid=61 socket=10
+2026-08-28 06:44:41.945 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:41.953 UTC [31] DEBUG:  00000: forked new backend, pid=62 socket=10
+2026-08-28 06:44:41.953 UTC [31] LOCATION:  BackendStartup, postmaster.c:4232
+2026-08-28 06:44:42.043 UTC [35] DEBUG:  00000: snapshot of 2+0 running transaction ids (lsn 0/AE97D50 oldest xid 925 latest complete 924 next xid 927)
+2026-08-28 06:44:42.043 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:42.046 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:42.046 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:42.046 UTC [35] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:42.046 UTC [35] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:42.071 UTC [35] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:42.071 UTC [35] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:42.071 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:42.071 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:42.071 UTC [35] LOG:  00000: checkpoints are occurring too frequently (1 second apart)
+2026-08-28 06:44:42.071 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:42.071 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:42.075 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:42.075 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:42.240 UTC [62] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:42.240 UTC [62] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:42.248 UTC [62] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:42.248 UTC [62] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:42.279 UTC [35] DEBUG:  00000: snapshot of 5+0 running transaction ids (lsn 0/C2D3340 oldest xid 2517 latest complete 2516 next xid 2522)
+2026-08-28 06:44:42.279 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:42.282 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:42.282 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:42.282 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:42.282 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:42.282 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:42.282 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:42.282 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:42.290 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:42.290 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:42.426 UTC [58] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:42.426 UTC [58] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:42.434 UTC [58] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:42.434 UTC [58] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:42.539 UTC [35] DEBUG:  00000: snapshot of 2+0 running transaction ids (lsn 0/D636F98 oldest xid 4001 latest complete 4000 next xid 4003)
+2026-08-28 06:44:42.539 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:42.543 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:42.543 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:42.543 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:42.543 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:42.543 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:42.543 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:42.543 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:42.546 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:42.546 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:42.659 UTC [58] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:42.659 UTC [58] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:42.669 UTC [58] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:42.669 UTC [58] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:42.792 UTC [35] DEBUG:  00000: snapshot of 4+0 running transaction ids (lsn 0/E98D9D0 oldest xid 5560 latest complete 5559 next xid 5564)
+2026-08-28 06:44:42.792 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:42.795 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:42.795 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:42.795 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:42.795 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:42.796 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:42.796 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:42.796 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:42.802 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:42.802 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:42.869 UTC [62] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:42.869 UTC [62] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:42.882 UTC [62] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:42.882 UTC [62] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:43.095 UTC [35] DEBUG:  00000: snapshot of 3+0 running transaction ids (lsn 0/FFDFA08 oldest xid 7453 latest complete 7452 next xid 7456)
+2026-08-28 06:44:43.095 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:43.097 UTC [60] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:43.097 UTC [60] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:43.100 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:43.100 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:43.100 UTC [35] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:43.100 UTC [35] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:43.113 UTC [35] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:43.113 UTC [35] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:43.113 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:43.113 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:43.113 UTC [35] LOG:  00000: checkpoints are occurring too frequently (1 second apart)
+2026-08-28 06:44:43.113 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:43.113 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:43.115 UTC [60] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:43.115 UTC [60] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:43.129 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:43.129 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:43.387 UTC [35] DEBUG:  00000: snapshot of 4+0 running transaction ids (lsn 0/11553E20 oldest xid 9286 latest complete 9285 next xid 9290)
+2026-08-28 06:44:43.387 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:43.391 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:43.391 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:43.391 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:43.391 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:43.391 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:43.391 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:43.391 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:43.399 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:43.399 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:43.506 UTC [61] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:43.506 UTC [61] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:43.521 UTC [61] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:43.521 UTC [61] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:43.677 UTC [35] DEBUG:  00000: snapshot of 3+0 running transaction ids (lsn 0/12821550 oldest xid 10936 latest complete 10935 next xid 10939)
+2026-08-28 06:44:43.677 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:43.680 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:43.680 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:43.680 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:43.680 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:43.681 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:43.681 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:43.681 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:43.698 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:43.698 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:43.783 UTC [59] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:43.783 UTC [59] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:43.798 UTC [59] DEBUG:  00000: done creating and filling new WAL file
+2026-08-28 06:44:43.798 UTC [59] LOCATION:  XLogFileInit, xlog.c:3419
+2026-08-28 06:44:43.906 UTC [35] DEBUG:  00000: snapshot of 5+0 running transaction ids (lsn 0/1377F640 oldest xid 12320 latest complete 12319 next xid 12325)
+2026-08-28 06:44:43.906 UTC [35] LOCATION:  LogCurrentRunningXacts, standby.c:1124
+2026-08-28 06:44:43.910 UTC [35] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:43.910 UTC [35] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:43.910 UTC [35] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-08-28 06:44:43.910 UTC [35] LOCATION:  SlruScanDirectory, slru.c:1569
+2026-08-28 06:44:43.910 UTC [35] LOG:  00000: checkpoints are occurring too frequently (0 seconds apart)
+2026-08-28 06:44:43.910 UTC [35] HINT:  Consider increasing the configuration parameter "max_wal_size".
+2026-08-28 06:44:43.910 UTC [35] LOCATION:  CheckpointerMain, checkpointer.c:422
+2026-08-28 06:44:43.915 UTC [35] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:43.915 UTC [35] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:44.005 UTC [58] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:44.005 UTC [58] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:44.015 UTC [58] PANIC:  53100: could not write to file "pg_wal/xlogtemp.58": No space left on device
+2026-08-28 06:44:44.015 UTC [58] LOCATION:  XLogFileInit, xlog.c:3356
+2026-08-28 06:44:44.015 UTC [58] STATEMENT:  END;
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: server process (PID 58) was terminated by signal 6: Aborted
+2026-08-28 06:44:44.019 UTC [31] DETAIL:  Failed process was running: END;
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  LogChildExit, postmaster.c:3736
+2026-08-28 06:44:44.019 UTC [31] LOG:  00000: server process (PID 58) was terminated by signal 6: Aborted
+2026-08-28 06:44:44.019 UTC [31] DETAIL:  Failed process was running: END;
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  LogChildExit, postmaster.c:3736
+2026-08-28 06:44:44.019 UTC [31] LOG:  00000: terminating any other active server processes
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3457
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 40
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3502
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 62
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3554
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 61
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3554
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 60
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3554
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 59
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3554
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 36
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3584
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 35
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3596
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 37
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3608
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 38
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3632
+2026-08-28 06:44:44.019 UTC [31] DEBUG:  00000: sending SIGQUIT to process 39
+2026-08-28 06:44:44.019 UTC [31] LOCATION:  HandleChildCrash, postmaster.c:3662
+2026-08-28 06:44:44.019 UTC [59] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-28 06:44:44.019 UTC [59] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-28 06:44:44.019 UTC [59] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-28 06:44:44.019 UTC [59] LOCATION:  quickdie, postgres.c:2802
+2026-08-28 06:44:44.019 UTC [60] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-28 06:44:44.019 UTC [60] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-28 06:44:44.019 UTC [60] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-28 06:44:44.019 UTC [60] LOCATION:  quickdie, postgres.c:2802
+2026-08-28 06:44:44.019 UTC [39] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-08-28 06:44:44.019 UTC [39] LOCATION:  pgstat_write_statsfiles, pgstat.c:4879
+2026-08-28 06:44:44.020 UTC [39] DEBUG:  00000: writing stats file "pg_stat/db_13395.stat"
+2026-08-28 06:44:44.020 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:44.020 UTC [61] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-28 06:44:44.020 UTC [61] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-28 06:44:44.020 UTC [61] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-28 06:44:44.020 UTC [61] LOCATION:  quickdie, postgres.c:2802
+2026-08-28 06:44:44.021 UTC [62] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-28 06:44:44.021 UTC [62] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-28 06:44:44.021 UTC [62] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-28 06:44:44.021 UTC [62] CONTEXT:  while updating tuple (0,172) in relation "pgbench_branches"
+2026-08-28 06:44:44.021 UTC [62] LOCATION:  quickdie, postgres.c:2802
+2026-08-28 06:44:44.020 UTC [39] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_13395.stat"
+2026-08-28 06:44:44.020 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5123
+2026-08-28 06:44:44.022 UTC [39] DEBUG:  00000: writing stats file "pg_stat/db_0.stat"
+2026-08-28 06:44:44.022 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5042
+2026-08-28 06:44:44.022 UTC [39] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_0.stat"
+2026-08-28 06:44:44.022 UTC [39] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5123
+2026-08-28 06:44:44.025 UTC [38] WARNING:  57P02: terminating connection because of crash of another server process
+2026-08-28 06:44:44.025 UTC [38] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-08-28 06:44:44.025 UTC [38] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-08-28 06:44:44.025 UTC [38] LOCATION:  quickdie, postgres.c:2802
+2026-08-28 06:44:44.026 UTC [31] DEBUG:  00000: server process (PID 59) exited with exit code 2
+2026-08-28 06:44:44.026 UTC [31] DETAIL:  Failed process was running: END;
+2026-08-28 06:44:44.026 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:44.026 UTC [31] DEBUG:  00000: server process (PID 61) exited with exit code 2
+2026-08-28 06:44:44.026 UTC [31] DETAIL:  Failed process was running: END;
+2026-08-28 06:44:44.026 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:44.027 UTC [31] DEBUG:  00000: server process (PID 62) exited with exit code 2
+2026-08-28 06:44:44.027 UTC [31] DETAIL:  Failed process was running: UPDATE pgbench_branches SET bbalance = bbalance + 16 WHERE bid = 5;
+2026-08-28 06:44:44.027 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:44.029 UTC [31] DEBUG:  00000: server process (PID 60) exited with exit code 2
+2026-08-28 06:44:44.029 UTC [31] DETAIL:  Failed process was running: END;
+2026-08-28 06:44:44.029 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:44.029 UTC [31] LOG:  00000: all server processes terminated; reinitializing
+2026-08-28 06:44:44.029 UTC [31] LOCATION:  PostmasterStateMachine, postmaster.c:4000
+2026-08-28 06:44:44.029 UTC [31] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1564733692
+2026-08-28 06:44:44.029 UTC [31] LOCATION:  dsm_postmaster_shutdown, dsm.c:364
+2026-08-28 06:44:44.045 UTC [31] DEBUG:  00000: mmap(150994944) with MAP_HUGETLB failed, huge pages disabled: Cannot allocate memory
+2026-08-28 06:44:44.045 UTC [31] LOCATION:  CreateAnonymousSegment, pg_shmem.c:558
+2026-08-28 06:44:44.094 UTC [31] DEBUG:  00000: dynamic shared memory system will support 674 segments
+2026-08-28 06:44:44.094 UTC [31] LOCATION:  dsm_postmaster_startup, dsm.c:161
+2026-08-28 06:44:44.094 UTC [31] DEBUG:  00000: created dynamic shared memory control segment 1146654446 (16192 bytes)
+2026-08-28 06:44:44.094 UTC [31] LOCATION:  dsm_postmaster_startup, dsm.c:186
+2026-08-28 06:44:44.096 UTC [63] LOG:  00000: database system was interrupted; last known up at 2026-08-28 06:44:43 UTC
+2026-08-28 06:44:44.096 UTC [63] LOCATION:  StartupXLOG, xlog.c:6381
+2026-08-28 06:44:44.096 UTC [63] DEBUG:  00000: removing all temporary WAL segments
+2026-08-28 06:44:44.096 UTC [63] LOCATION:  RemoveTempXlogFiles, xlog.c:4000
+2026-08-28 06:44:44.186 UTC [63] DEBUG:  00000: checkpoint record is at 0/1377F690
+2026-08-28 06:44:44.186 UTC [63] LOCATION:  StartupXLOG, xlog.c:6659
+2026-08-28 06:44:44.186 UTC [63] DEBUG:  00000: redo record is at 0/12854410; shutdown false
+2026-08-28 06:44:44.186 UTC [63] LOCATION:  StartupXLOG, xlog.c:6737
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: next transaction ID: 10962; next OID: 24576
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupXLOG, xlog.c:6741
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupXLOG, xlog.c:6744
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: oldest unfrozen transaction ID: 478, in database 1
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupXLOG, xlog.c:6747
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupXLOG, xlog.c:6750
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupXLOG, xlog.c:6754
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: transaction ID wrap limit is 2147484125, limited by database with OID 1
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  SetTransactionIdLimit, varsup.c:410
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  SetMultiXactIdLimit, multixact.c:2273
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: starting up replication slots
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  StartupReplicationSlots, slot.c:1289
+2026-08-28 06:44:44.187 UTC [63] DEBUG:  00000: restoring replication slot from "pg_replslot/bug_test_slot/state"
+2026-08-28 06:44:44.187 UTC [63] LOCATION:  RestoreSlotFromDisk, slot.c:1582
+2026-08-28 06:44:44.194 UTC [63] DEBUG:  00000: starting up replication origin progress state
+2026-08-28 06:44:44.194 UTC [63] LOCATION:  StartupReplicationOrigin, origin.c:694
+2026-08-28 06:44:44.194 UTC [63] LOG:  00000: database system was not properly shut down; automatic recovery in progress
+2026-08-28 06:44:44.194 UTC [63] LOCATION:  StartupXLOG, xlog.c:6897
+2026-08-28 06:44:44.198 UTC [63] DEBUG:  00000: resetting unlogged relations: cleanup 1 init 0
+2026-08-28 06:44:44.198 UTC [63] LOCATION:  ResetUnloggedRelations, reinit.c:57
+2026-08-28 06:44:44.199 UTC [63] LOG:  00000: redo starts at 0/12854410
+2026-08-28 06:44:44.199 UTC [63] LOCATION:  StartupXLOG, xlog.c:7173
+2026-08-28 06:44:44.242 UTC [63] DEBUG:  58P01: could not open file "pg_wal/000000010000000000000014": No such file or directory
+2026-08-28 06:44:44.242 UTC [63] LOCATION:  XLogFileReadAnyTLI, xlog.c:3844
+2026-08-28 06:44:44.242 UTC [63] LOG:  00000: redo done at 0/13FFF488
+2026-08-28 06:44:44.242 UTC [63] LOCATION:  StartupXLOG, xlog.c:7435
+2026-08-28 06:44:44.242 UTC [63] DEBUG:  00000: resetting unlogged relations: cleanup 0 init 1
+2026-08-28 06:44:44.242 UTC [63] LOCATION:  ResetUnloggedRelations, reinit.c:57
+2026-08-28 06:44:44.256 UTC [63] DEBUG:  00000: performing replication slot checkpoint
+2026-08-28 06:44:44.256 UTC [63] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-08-28 06:44:44.441 UTC [63] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000001
+2026-08-28 06:44:44.441 UTC [63] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-08-28 06:44:44.442 UTC [63] DEBUG:  00000: creating and filling new WAL file
+2026-08-28 06:44:44.442 UTC [63] LOCATION:  XLogFileInit, xlog.c:3289
+2026-08-28 06:44:44.462 UTC [63] FATAL:  53100: could not write to file "pg_wal/xlogtemp.63": No space left on device
+2026-08-28 06:44:44.462 UTC [63] LOCATION:  XLogFileInit, xlog.c:3356
+2026-08-28 06:44:44.467 UTC [31] LOG:  00000: startup process (PID 63) exited with exit code 1
+2026-08-28 06:44:44.467 UTC [31] LOCATION:  LogChildExit, postmaster.c:3714
+2026-08-28 06:44:44.467 UTC [31] LOG:  00000: aborting startup due to startup process failure
+2026-08-28 06:44:44.467 UTC [31] LOCATION:  reaper, postmaster.c:2969
+2026-08-28 06:44:44.467 UTC [31] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1146654446
+2026-08-28 06:44:44.467 UTC [31] LOCATION:  dsm_postmaster_shutdown, dsm.c:364
+2026-08-28 06:44:44.483 UTC [31] LOG:  00000: database system is shut down
+2026-08-28 06:44:44.483 UTC [31] LOCATION:  UnlinkLockFiles, miscinit.c:928
+2026-08-28 06:44:44.487 UTC [33] DEBUG:  00000: logger shutting down
+2026-08-28 06:44:44.487 UTC [33] LOCATION:  SysLoggerMain, syslogger.c:522
