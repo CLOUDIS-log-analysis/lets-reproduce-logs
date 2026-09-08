@@ -1,0 +1,34 @@
+services:
+  mongodb:
+    image: mongo:8.0.23
+    container_name: server-123440-mongodb
+    restart: "no"
+
+    ports:
+      - "27017:27017"
+
+    command:
+      - mongod
+      - --bind_ip_all
+      - --dbpath
+      - /data/db
+      - --logpath
+      - /var/log/mongodb/mongod.log
+      - --logappend
+      - --setParameter
+      - logLevel=5
+
+    volumes:
+      - ./data:/data/db
+      - ./logs:/var/log/mongodb
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh --quiet --eval \"quit(db.adminCommand({ ping: 1 }).ok ? 0 : 1)\""
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s

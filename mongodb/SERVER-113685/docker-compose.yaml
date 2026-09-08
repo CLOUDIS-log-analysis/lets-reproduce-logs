@@ -1,0 +1,19 @@
+services:
+  mongo:
+    image: mongo:8.0.17-noble
+    container_name: server-113685
+    command:
+      - mongod
+      - --bind_ip_all
+      - --dbpath
+      - /data/db
+      - --logpath
+      - /var/log/mongodb/mongod.log
+      - --logappend
+      - --setParameter
+      - logLevel=5
+    volumes:
+      - ./data:/data/db
+      - ./logs:/var/log/mongodb
+      - ./repro.js:/repro/repro.js:ro
+    restart: "no"

@@ -1,0 +1,54 @@
+services:
+  primary:
+    image: mongo:8.2.6-noble
+    container_name: server-112273-primary
+    hostname: primary
+    restart: "no"
+    command:
+      - mongod
+      - --replSet
+      - rs0
+      - --bind_ip_all
+      - --oplogSize
+      - "128"
+      - --setParameter
+      - enableTestCommands=1
+      - --setParameter
+      - logLevel=5
+      - --logpath
+      - /logs/mongod.log
+      - --logappend
+    volumes:
+      - ./data/primary:/data/db
+      - ./logs/primary:/logs
+    networks:
+      - server112273
+
+  secondary:
+    image: mongo:8.2.6-noble
+    container_name: server-112273-secondary
+    hostname: secondary
+    restart: "no"
+    command:
+      - mongod
+      - --replSet
+      - rs0
+      - --bind_ip_all
+      - --oplogSize
+      - "128"
+      - --setParameter
+      - enableTestCommands=1
+      - --setParameter
+      - logLevel=5
+      - --logpath
+      - /logs/mongod.log
+      - --logappend
+    volumes:
+      - ./data/secondary:/data/db
+      - ./logs/secondary:/logs
+    networks:
+      - server112273
+
+networks:
+  server112273:
+    name: server-112273-network
