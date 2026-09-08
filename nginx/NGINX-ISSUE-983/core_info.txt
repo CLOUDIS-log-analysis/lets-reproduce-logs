@@ -1,0 +1,52 @@
+           PID: 4793 (nginx)
+           UID: 1000 (asdf)
+           GID: 1000 (asdf)
+        Signal: 11 (SEGV)
+     Timestamp: Tue 2026-09-08 08:22:38 UTC (7min ago)
+  Command Line: $'nginx: worker process'
+    Executable: /home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx
+ Control Group: /system.slice/ssh.service
+          Unit: ssh.service
+         Slice: system.slice
+       Boot ID: d95c9481e5144691ae004d612fb65dcf
+    Machine ID: 65b2382f586646d6b474261f7735d6d1
+      Hostname: instance1
+       Storage: /var/lib/systemd/coredump/core.nginx.1000.d95c9481e5144691ae004d612fb65dcf.4793.1788855758000000.zst (present)
+     Disk Size: 58.8K
+       Message: Process 4793 (nginx) of user 1000 dumped core.
+                
+                Found module /home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx with build-id: 1f6187398586dc20ccf064f5d0ce7b88682f2f21
+                Found module linux-vdso.so.1 with build-id: 72df3c3da7ead790dd820d76e4e614842742b186
+                Found module ld-linux-x86-64.so.2 with build-id: 63cab9adbb271847e9c8d0baa6305bb80d6ada2e
+                Found module libc.so.6 with build-id: 22ca0a83a4004122e30a69b597be96e134068616
+                Found module libz.so.1 with build-id: 30840b79ac329ecbf1dec0bb60180eed256d319f
+                Found module libpcre2-8.so.0 with build-id: 184a841c55fb7fe5e3873fcda8368c71016cd54c
+                Found module libcrypt.so.1 with build-id: 8f3f100ca1e8ff066713aa1e719ce71b46db0296
+                Stack trace of thread 4793:
+                #0  0x00007f3cdf28e84d __memcpy_avx_unaligned_erms (libc.so.6 + 0x1a084d)
+                #1  0x0000565350ce34ae n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x264ae)
+                #2  0x0000565350ce250a n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x2550a)
+                #3  0x0000565350cda878 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x1d878)
+                #4  0x0000565350d9c2af n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0xdf2af)
+                #5  0x0000565350d56a72 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x99a72)
+                #6  0x0000565350d565da n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x995da)
+                #7  0x0000565350d4950c n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x8c50c)
+                #8  0x0000565350d9a662 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0xdd662)
+                #9  0x0000565350d2ed70 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x71d70)
+                #10 0x0000565350d2dc03 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x70c03)
+                #11 0x0000565350d2db6c n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x70b6c)
+                #12 0x0000565350d3dc01 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x80c01)
+                #13 0x0000565350d3c5db n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x7f5db)
+                #14 0x0000565350d3b917 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x7e917)
+                #15 0x0000565350d3afab n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x7dfab)
+                #16 0x0000565350d26b6b n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x69b6b)
+                #17 0x0000565350d12ec7 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x55ec7)
+                #18 0x0000565350d23e8e n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x66e8e)
+                #19 0x0000565350d20356 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x63356)
+                #20 0x0000565350d22bed n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x65bed)
+                #21 0x0000565350d2225c n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x6525c)
+                #22 0x0000565350cd7b65 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x1ab65)
+                #23 0x00007f3cdf117d90 __libc_start_call_main (libc.so.6 + 0x29d90)
+                #24 0x00007f3cdf117e40 __libc_start_main_impl (libc.so.6 + 0x29e40)
+                #25 0x0000565350cd73a5 n/a (/home/asdf/nginx-issue-983-hostvm/nginx-1.29.1-compile/sbin/nginx + 0x1a3a5)
+
