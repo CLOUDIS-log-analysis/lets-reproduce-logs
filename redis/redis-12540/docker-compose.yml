@@ -1,0 +1,43 @@
+services:
+  redis-target:
+    image: redis:7.2.0
+    container_name: redis-target
+    command: >
+      redis-server
+      --io-threads 4
+      --io-threads-do-reads yes
+      --tls-port 6379
+      --port 0
+      --tls-cert-file /certs/server.crt
+      --tls-key-file /certs/server.key
+      --tls-auth-clients no
+      --loglevel debug
+      --logfile /var/log/redis/output.log
+    volumes:
+      - ./certs:/certs
+      - ./logs:/var/log/redis
+    ports:
+      - "6379:6379"
+
+  traffic-generator:
+    image: redislabs/memtier_benchmark:latest
+    container_name: redis-benchmark
+    depends_on:
+      - redis-target
+    command: >
+      memtier_benchmark
+      -s redis-target
+      -p 6379
+      --test-time=300
+      -c 10
+      -t 10
+      --pipeline=1000
+      --tls
+      --tls-skip-verify
+
+  attacker:
+    image: ubuntu:22.04
+    container_name: redis-attacker
+    command: tail -f /dev/null
+    depends_on:
+      - redis-target

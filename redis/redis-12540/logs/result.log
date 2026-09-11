@@ -1,0 +1,527 @@
+1:C 11 Sep 2026 02:39:34.697 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+1:C 11 Sep 2026 02:39:34.698 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 11 Sep 2026 02:39:34.698 * Redis version=7.2.0, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 11 Sep 2026 02:39:34.698 * Configuration loaded
+1:M 11 Sep 2026 02:39:34.698 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+1:M 11 Sep 2026 02:39:34.698 * monotonic clock: POSIX clock_gettime
+1:M 11 Sep 2026 02:39:34.700 * Running mode=standalone, port=6379.
+1:M 11 Sep 2026 02:39:34.708 * Server initialized
+1:M 11 Sep 2026 02:39:34.708 . The AOF directory appendonlydir doesn't exist
+1:M 11 Sep 2026 02:39:34.708 * Ready to accept connections tls
+1:M 11 Sep 2026 02:39:34.708 . 0 clients connected (0 replicas), 866640 bytes in use
+1:M 11 Sep 2026 02:39:34.913 - Accepted 172.19.0.4:53528
+1:M 11 Sep 2026 02:39:34.914 - Accepted 172.19.0.4:53532
+1:M 11 Sep 2026 02:39:34.914 - Accepted 172.19.0.4:53540
+1:M 11 Sep 2026 02:39:34.915 - Accepted 172.19.0.4:53552
+1:M 11 Sep 2026 02:39:34.915 - Accepted 172.19.0.4:53554
+1:M 11 Sep 2026 02:39:34.915 - Accepted 172.19.0.4:53568
+1:M 11 Sep 2026 02:39:34.916 - Accepted 172.19.0.4:53570
+1:M 11 Sep 2026 02:39:34.916 - Accepted 172.19.0.4:53582
+1:M 11 Sep 2026 02:39:34.917 - Accepted 172.19.0.4:53584
+1:M 11 Sep 2026 02:39:34.917 - Accepted 172.19.0.4:53600
+1:M 11 Sep 2026 02:39:34.919 - Accepted 172.19.0.4:53606
+1:M 11 Sep 2026 02:39:34.920 - Accepted 172.19.0.4:53620
+1:M 11 Sep 2026 02:39:34.920 - Accepted 172.19.0.4:53624
+1:M 11 Sep 2026 02:39:34.921 - Accepted 172.19.0.4:53638
+1:M 11 Sep 2026 02:39:34.921 - Accepted 172.19.0.4:53654
+1:M 11 Sep 2026 02:39:34.922 - Accepted 172.19.0.4:53670
+1:M 11 Sep 2026 02:39:34.922 - Accepted 172.19.0.4:53678
+1:M 11 Sep 2026 02:39:34.923 - Accepted 172.19.0.4:53688
+1:M 11 Sep 2026 02:39:34.923 - Accepted 172.19.0.4:53702
+1:M 11 Sep 2026 02:39:34.923 - Accepted 172.19.0.4:53706
+1:M 11 Sep 2026 02:39:34.925 - Accepted 172.19.0.4:53714
+1:M 11 Sep 2026 02:39:34.926 - Accepted 172.19.0.4:53722
+1:M 11 Sep 2026 02:39:34.926 - Accepted 172.19.0.4:53736
+1:M 11 Sep 2026 02:39:34.926 - Accepted 172.19.0.4:53738
+1:M 11 Sep 2026 02:39:34.927 - Accepted 172.19.0.4:53750
+1:M 11 Sep 2026 02:39:34.927 - Accepted 172.19.0.4:53766
+1:M 11 Sep 2026 02:39:34.927 - Accepted 172.19.0.4:53782
+1:M 11 Sep 2026 02:39:34.927 - Accepted 172.19.0.4:53786
+1:M 11 Sep 2026 02:39:34.928 - Accepted 172.19.0.4:53796
+1:M 11 Sep 2026 02:39:34.928 - Accepted 172.19.0.4:53802
+1:M 11 Sep 2026 02:39:34.930 - Accepted 172.19.0.4:53806
+1:M 11 Sep 2026 02:39:34.930 - Accepted 172.19.0.4:53820
+1:M 11 Sep 2026 02:39:34.930 - Accepted 172.19.0.4:53822
+1:M 11 Sep 2026 02:39:34.931 - Accepted 172.19.0.4:53832
+1:M 11 Sep 2026 02:39:34.931 - Accepted 172.19.0.4:53848
+1:M 11 Sep 2026 02:39:34.931 - Accepted 172.19.0.4:53858
+1:M 11 Sep 2026 02:39:34.932 - Accepted 172.19.0.4:53872
+1:M 11 Sep 2026 02:39:34.932 - Accepted 172.19.0.4:53880
+1:M 11 Sep 2026 02:39:34.932 - Accepted 172.19.0.4:53894
+1:M 11 Sep 2026 02:39:34.933 - Accepted 172.19.0.4:53902
+1:M 11 Sep 2026 02:39:34.934 - Accepted 172.19.0.4:53914
+1:M 11 Sep 2026 02:39:34.935 - Accepted 172.19.0.4:53930
+1:M 11 Sep 2026 02:39:34.935 - Accepted 172.19.0.4:53944
+1:M 11 Sep 2026 02:39:34.935 - Accepted 172.19.0.4:53960
+1:M 11 Sep 2026 02:39:34.936 - Accepted 172.19.0.4:53964
+1:M 11 Sep 2026 02:39:34.936 - Accepted 172.19.0.4:53966
+1:M 11 Sep 2026 02:39:34.936 - Accepted 172.19.0.4:53982
+1:M 11 Sep 2026 02:39:34.937 - Accepted 172.19.0.4:53984
+1:M 11 Sep 2026 02:39:34.937 - Accepted 172.19.0.4:53996
+1:M 11 Sep 2026 02:39:34.937 - Accepted 172.19.0.4:54008
+1:M 11 Sep 2026 02:39:34.939 - Accepted 172.19.0.4:54016
+1:M 11 Sep 2026 02:39:34.939 - Accepted 172.19.0.4:54024
+1:M 11 Sep 2026 02:39:34.939 - Accepted 172.19.0.4:54032
+1:M 11 Sep 2026 02:39:34.940 - Accepted 172.19.0.4:54048
+1:M 11 Sep 2026 02:39:34.940 - Accepted 172.19.0.4:54056
+1:M 11 Sep 2026 02:39:34.945 - Accepted 172.19.0.4:54070
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54082
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54088
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54094
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54102
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54108
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54124
+1:M 11 Sep 2026 02:39:34.946 - Accepted 172.19.0.4:54130
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54134
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54138
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54142
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54158
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54166
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54176
+1:M 11 Sep 2026 02:39:34.947 - Accepted 172.19.0.4:54184
+1:M 11 Sep 2026 02:39:34.948 - Accepted 172.19.0.4:54188
+1:M 11 Sep 2026 02:39:34.948 - Accepted 172.19.0.4:54194
+1:M 11 Sep 2026 02:39:34.948 - Accepted 172.19.0.4:54196
+1:M 11 Sep 2026 02:39:34.948 - Accepted 172.19.0.4:54206
+1:M 11 Sep 2026 02:39:34.948 - Accepted 172.19.0.4:54214
+1:M 11 Sep 2026 02:39:34.949 - Accepted 172.19.0.4:54218
+1:M 11 Sep 2026 02:39:34.949 - Accepted 172.19.0.4:54222
+1:M 11 Sep 2026 02:39:34.949 - Accepted 172.19.0.4:54228
+1:M 11 Sep 2026 02:39:34.949 - Accepted 172.19.0.4:54240
+1:M 11 Sep 2026 02:39:34.950 - Accepted 172.19.0.4:54244
+1:M 11 Sep 2026 02:39:34.951 - Accepted 172.19.0.4:54248
+1:M 11 Sep 2026 02:39:34.952 - Accepted 172.19.0.4:54256
+1:M 11 Sep 2026 02:39:34.952 - Accepted 172.19.0.4:54270
+1:M 11 Sep 2026 02:39:34.952 - Accepted 172.19.0.4:54280
+1:M 11 Sep 2026 02:39:34.952 - Accepted 172.19.0.4:54290
+1:M 11 Sep 2026 02:39:34.953 - Accepted 172.19.0.4:54298
+1:M 11 Sep 2026 02:39:34.953 - Accepted 172.19.0.4:54300
+1:M 11 Sep 2026 02:39:34.953 - Accepted 172.19.0.4:54312
+1:M 11 Sep 2026 02:39:34.953 - Accepted 172.19.0.4:54314
+1:M 11 Sep 2026 02:39:34.954 - Accepted 172.19.0.4:54326
+1:M 11 Sep 2026 02:39:34.956 - Accepted 172.19.0.4:54332
+1:M 11 Sep 2026 02:39:34.956 - Accepted 172.19.0.4:54346
+1:M 11 Sep 2026 02:39:34.956 - Accepted 172.19.0.4:54350
+1:M 11 Sep 2026 02:39:34.956 - Accepted 172.19.0.4:54364
+1:M 11 Sep 2026 02:39:34.957 - Accepted 172.19.0.4:54374
+1:M 11 Sep 2026 02:39:34.957 - Accepted 172.19.0.4:54376
+1:M 11 Sep 2026 02:39:34.957 - Accepted 172.19.0.4:54388
+1:M 11 Sep 2026 02:39:34.957 - Accepted 172.19.0.4:54390
+1:M 11 Sep 2026 02:39:34.958 - Accepted 172.19.0.4:54402
+1:M 11 Sep 2026 02:39:34.958 - Accepted 172.19.0.4:54414
+1:M 11 Sep 2026 02:39:39.906 - DB 0: 2154 keys (0 volatile) in 4096 slots HT.
+1:M 11 Sep 2026 02:39:39.906 . 100 clients connected (0 replicas), 3460000 bytes in use
+1:M 11 Sep 2026 02:39:45.307 - DB 0: 3126 keys (0 volatile) in 4096 slots HT.
+1:M 11 Sep 2026 02:39:45.307 . 100 clients connected (0 replicas), 3560392 bytes in use
+1:M 11 Sep 2026 02:39:48.547 - Accepted 172.19.0.3:39238
+1:M 11 Sep 2026 02:39:48.634 - Reading from client: error:00000000:lib(0)::reason(0)
+1:M 11 Sep 2026 02:39:48.634 - Reading from client: error:00000000:lib(0)::reason(0)
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+1:M 11 Sep 2026 02:39:48.636 # === ASSERTION FAILED ===
+1:M 11 Sep 2026 02:39:48.636 # ==> networking.c:1575 'ln != NULL' is not true
+
+------ STACK TRACE ------
+
+Backtrace:
+redis-server *:6379(freeClient+0x5b8)[0x64e96a820ea8]
+redis-server *:6379(+0xbd5f7)[0x64e96a8245f7]
+redis-server *:6379(beforeSleep+0x5a)[0x64e96a7f937a]
+redis-server *:6379(aeMain+0x2e)[0x64e96a7f434e]
+redis-server *:6379(main+0x3af)[0x64e96a7e964f]
+/lib/x86_64-linux-gnu/libc.so.6(+0x271ca)[0x7c5f077b01ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7c5f077b0285]
+redis-server *:6379(_start+0x21)[0x64e96a7e9e51]
+
+------ INFO OUTPUT ------
+# Server
+redis_version:7.2.0
+redis_git_sha1:00000000
+redis_git_dirty:0
+redis_build_id:7f39debc4ae51812
+redis_mode:standalone
+os:Linux 6.8.0-136-generic x86_64
+arch_bits:64
+monotonic_clock:POSIX clock_gettime
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:12.2.0
+process_id:1
+process_supervised:no
+run_id:0aca767a0915468fd5aaed654ee8f3aa2ef834c5
+tcp_port:6379
+server_time_usec:1789094388636098
+uptime_in_seconds:14
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:10709492
+executable:/data/redis-server
+config_file:
+io_threads_active:1
+listener2:name=tls,bind=*,bind=-::*,port=6379
+
+# Clients
+connected_clients:100
+cluster_connections:0
+maxclients:10000
+client_recent_max_input_buffer:20480
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+clients_in_timeout_table:0
+total_blocking_keys:0
+total_blocking_keys_on_nokey:0
+
+# Memory
+used_memory:3748040
+used_memory_human:3.57M
+used_memory_rss:18587648
+used_memory_rss_human:17.73M
+used_memory_peak:4820352
+used_memory_peak_human:4.60M
+used_memory_peak_perc:77.75%
+used_memory_overhead:3341672
+used_memory_startup:866496
+used_memory_dataset:406368
+used_memory_dataset_perc:14.10%
+allocator_allocated:3878480
+allocator_active:4317184
+allocator_resident:7651328
+total_system_memory:4105379840
+total_system_memory_human:3.82G
+used_memory_lua:31744
+used_memory_vm_eval:31744
+used_memory_lua_human:31.00K
+used_memory_scripts_eval:0
+number_of_cached_scripts:0
+number_of_functions:0
+number_of_libraries:0
+used_memory_vm_functions:32768
+used_memory_vm_total:64512
+used_memory_vm_total_human:63.00K
+used_memory_functions:184
+used_memory_scripts:184
+used_memory_scripts_human:184B
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.11
+allocator_frag_bytes:438704
+allocator_rss_ratio:1.77
+allocator_rss_bytes:3334144
+rss_overhead_ratio:2.43
+rss_overhead_bytes:10936320
+mem_fragmentation_ratio:5.02
+mem_fragmentation_bytes:14884184
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_total_replication_buffers:0
+mem_clients_slaves:0
+mem_clients_normal:2240000
+mem_cluster_links:0
+mem_aof_buffer:0
+mem_allocator:jemalloc-5.3.0
+active_defrag_running:0
+lazyfree_pending_objects:0
+lazyfreed_objects:0
+
+# Persistence
+loading:0
+async_loading:0
+current_cow_peak:0
+current_cow_size:0
+current_cow_size_age:0
+current_fork_perc:0.00
+current_save_keys_processed:0
+current_save_keys_total:0
+rdb_changes_since_last_save:423389
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1789094374
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_saves:0
+rdb_last_cow_size:0
+rdb_last_load_keys_expired:0
+rdb_last_load_keys_loaded:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_rewrites:0
+aof_rewrites_consecutive_failures:0
+aof_last_write_status:ok
+aof_last_cow_size:0
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+
+# Stats
+total_connections_received:101
+total_commands_processed:4656984
+instantaneous_ops_per_sec:401764
+total_net_input_bytes:179016524
+total_net_output_bytes:23303590
+total_net_repl_input_bytes:0
+total_net_repl_output_bytes:0
+instantaneous_input_kbps:15079.52
+instantaneous_output_kbps:1967.86
+instantaneous_input_repl_kbps:0.00
+instantaneous_output_repl_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:0
+evicted_keys:0
+evicted_clients:0
+total_eviction_exceeded_time:0
+current_eviction_exceeded_time:0
+keyspace_hits:800
+keyspace_misses:4232795
+pubsub_channels:0
+pubsub_patterns:0
+pubsubshard_channels:0
+latest_fork_usec:0
+total_forks:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:0
+dump_payload_sanitizations:0
+total_reads_processed:341423
+total_writes_processed:341316
+io_threaded_reads_processed:341300
+io_threaded_writes_processed:341316
+reply_buffer_shrinks:100
+reply_buffer_expands:0
+eventloop_cycles:3492
+eventloop_duration_sum:13589394
+eventloop_duration_cmd_sum:508300
+instantaneous_eventloop_cycles_per_sec:309
+instantaneous_eventloop_duration_usec:3470
+acl_access_denied_auth:0
+acl_access_denied_cmd:0
+acl_access_denied_key:0
+acl_access_denied_channel:0
+
+# Replication
+role:master
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:715ffb0f69607522448f5fe40938fc36699129e9
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:4.499035
+used_cpu_user:30.187668
+used_cpu_sys_children:0.010639
+used_cpu_user_children:0.002598
+used_cpu_sys_main_thread:1.235511
+used_cpu_user_main_thread:7.845813
+
+# Modules
+
+# Commandstats
+cmdstat_get:calls=4233595,usec=411710,usec_per_call=0.10,rejected_calls=0,failed_calls=0
+cmdstat_set:calls=423389,usec=96590,usec_per_call=0.23,rejected_calls=0,failed_calls=0
+
+# Errorstats
+
+# Latencystats
+latency_percentiles_usec_get:p50=0.001,p99=1.003,p99.9=1.003
+latency_percentiles_usec_set:p50=0.001,p99=1.003,p99.9=3.007
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=4235,expires=1,avg_ttl=0
+
+------ CLIENT LIST OUTPUT ------
+id=93 addr=172.19.0.4:54332 laddr=172.19.0.2:6379 fd=98 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=94 addr=172.19.0.4:54346 laddr=172.19.0.2:6379 fd=99 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=95 addr=172.19.0.4:54350 laddr=172.19.0.2:6379 fd=100 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=96 addr=172.19.0.4:54364 laddr=172.19.0.2:6379 fd=101 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=97 addr=172.19.0.4:54374 laddr=172.19.0.2:6379 fd=102 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=98 addr=172.19.0.4:54376 laddr=172.19.0.2:6379 fd=103 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=99 addr=172.19.0.4:54388 laddr=172.19.0.2:6379 fd=104 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=100 addr=172.19.0.4:54390 laddr=172.19.0.2:6379 fd=105 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=101 addr=172.19.0.4:54402 laddr=172.19.0.2:6379 fd=106 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=102 addr=172.19.0.4:54414 laddr=172.19.0.2:6379 fd=107 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=3 addr=172.19.0.4:53528 laddr=172.19.0.2:6379 fd=8 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=4 addr=172.19.0.4:53532 laddr=172.19.0.2:6379 fd=9 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=5 addr=172.19.0.4:53540 laddr=172.19.0.2:6379 fd=10 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=6 addr=172.19.0.4:53552 laddr=172.19.0.2:6379 fd=11 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=7 addr=172.19.0.4:53554 laddr=172.19.0.2:6379 fd=12 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=8 addr=172.19.0.4:53568 laddr=172.19.0.2:6379 fd=13 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=9 addr=172.19.0.4:53570 laddr=172.19.0.2:6379 fd=14 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=10 addr=172.19.0.4:53582 laddr=172.19.0.2:6379 fd=15 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=11 addr=172.19.0.4:53584 laddr=172.19.0.2:6379 fd=16 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=12 addr=172.19.0.4:53600 laddr=172.19.0.2:6379 fd=17 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=13 addr=172.19.0.4:53606 laddr=172.19.0.2:6379 fd=18 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=14 addr=172.19.0.4:53620 laddr=172.19.0.2:6379 fd=19 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=15 addr=172.19.0.4:53624 laddr=172.19.0.2:6379 fd=20 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=16 addr=172.19.0.4:53638 laddr=172.19.0.2:6379 fd=21 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=17 addr=172.19.0.4:53654 laddr=172.19.0.2:6379 fd=22 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=18 addr=172.19.0.4:53670 laddr=172.19.0.2:6379 fd=23 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=19 addr=172.19.0.4:53678 laddr=172.19.0.2:6379 fd=24 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=20 addr=172.19.0.4:53688 laddr=172.19.0.2:6379 fd=25 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=21 addr=172.19.0.4:53702 laddr=172.19.0.2:6379 fd=26 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=22 addr=172.19.0.4:53706 laddr=172.19.0.2:6379 fd=27 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=23 addr=172.19.0.4:53714 laddr=172.19.0.2:6379 fd=28 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=24 addr=172.19.0.4:53722 laddr=172.19.0.2:6379 fd=29 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=25 addr=172.19.0.4:53736 laddr=172.19.0.2:6379 fd=30 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=26 addr=172.19.0.4:53738 laddr=172.19.0.2:6379 fd=31 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=27 addr=172.19.0.4:53750 laddr=172.19.0.2:6379 fd=32 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=28 addr=172.19.0.4:53766 laddr=172.19.0.2:6379 fd=33 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=29 addr=172.19.0.4:53782 laddr=172.19.0.2:6379 fd=34 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=30 addr=172.19.0.4:53786 laddr=172.19.0.2:6379 fd=35 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=31 addr=172.19.0.4:53796 laddr=172.19.0.2:6379 fd=36 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=32 addr=172.19.0.4:53802 laddr=172.19.0.2:6379 fd=37 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=33 addr=172.19.0.4:53806 laddr=172.19.0.2:6379 fd=38 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=34 addr=172.19.0.4:53820 laddr=172.19.0.2:6379 fd=39 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=35 addr=172.19.0.4:53822 laddr=172.19.0.2:6379 fd=40 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=36 addr=172.19.0.4:53832 laddr=172.19.0.2:6379 fd=41 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=37 addr=172.19.0.4:53848 laddr=172.19.0.2:6379 fd=42 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=38 addr=172.19.0.4:53858 laddr=172.19.0.2:6379 fd=43 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=39 addr=172.19.0.4:53872 laddr=172.19.0.2:6379 fd=44 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=40 addr=172.19.0.4:53880 laddr=172.19.0.2:6379 fd=45 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=41 addr=172.19.0.4:53894 laddr=172.19.0.2:6379 fd=46 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=42 addr=172.19.0.4:53902 laddr=172.19.0.2:6379 fd=47 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=43 addr=172.19.0.4:53914 laddr=172.19.0.2:6379 fd=48 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=44 addr=172.19.0.4:53930 laddr=172.19.0.2:6379 fd=49 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=45 addr=172.19.0.4:53944 laddr=172.19.0.2:6379 fd=50 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=46 addr=172.19.0.4:53960 laddr=172.19.0.2:6379 fd=51 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=47 addr=172.19.0.4:53964 laddr=172.19.0.2:6379 fd=52 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=48 addr=172.19.0.4:53966 laddr=172.19.0.2:6379 fd=53 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=49 addr=172.19.0.4:53982 laddr=172.19.0.2:6379 fd=54 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=50 addr=172.19.0.4:53984 laddr=172.19.0.2:6379 fd=55 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=51 addr=172.19.0.4:53996 laddr=172.19.0.2:6379 fd=56 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=52 addr=172.19.0.4:54008 laddr=172.19.0.2:6379 fd=57 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=53 addr=172.19.0.4:54016 laddr=172.19.0.2:6379 fd=58 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=54 addr=172.19.0.4:54024 laddr=172.19.0.2:6379 fd=59 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=55 addr=172.19.0.4:54032 laddr=172.19.0.2:6379 fd=60 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=56 addr=172.19.0.4:54048 laddr=172.19.0.2:6379 fd=61 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=57 addr=172.19.0.4:54056 laddr=172.19.0.2:6379 fd=62 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=58 addr=172.19.0.4:54070 laddr=172.19.0.2:6379 fd=63 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=59 addr=172.19.0.4:54082 laddr=172.19.0.2:6379 fd=64 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=60 addr=172.19.0.4:54088 laddr=172.19.0.2:6379 fd=65 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=61 addr=172.19.0.4:54094 laddr=172.19.0.2:6379 fd=66 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=62 addr=172.19.0.4:54102 laddr=172.19.0.2:6379 fd=67 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=63 addr=172.19.0.4:54108 laddr=172.19.0.2:6379 fd=68 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=5 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=64 addr=172.19.0.4:54124 laddr=172.19.0.2:6379 fd=69 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=65 addr=172.19.0.4:54130 laddr=172.19.0.2:6379 fd=70 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=66 addr=172.19.0.4:54134 laddr=172.19.0.2:6379 fd=71 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=67 addr=172.19.0.4:54138 laddr=172.19.0.2:6379 fd=72 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=68 addr=172.19.0.4:54142 laddr=172.19.0.2:6379 fd=73 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=69 addr=172.19.0.4:54158 laddr=172.19.0.2:6379 fd=74 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=70 addr=172.19.0.4:54166 laddr=172.19.0.2:6379 fd=75 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=71 addr=172.19.0.4:54176 laddr=172.19.0.2:6379 fd=76 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=72 addr=172.19.0.4:54184 laddr=172.19.0.2:6379 fd=77 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=73 addr=172.19.0.4:54188 laddr=172.19.0.2:6379 fd=78 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=74 addr=172.19.0.4:54194 laddr=172.19.0.2:6379 fd=79 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=75 addr=172.19.0.4:54196 laddr=172.19.0.2:6379 fd=80 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=76 addr=172.19.0.4:54206 laddr=172.19.0.2:6379 fd=81 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=77 addr=172.19.0.4:54214 laddr=172.19.0.2:6379 fd=82 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=78 addr=172.19.0.4:54218 laddr=172.19.0.2:6379 fd=83 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=79 addr=172.19.0.4:54222 laddr=172.19.0.2:6379 fd=84 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=80 addr=172.19.0.4:54228 laddr=172.19.0.2:6379 fd=85 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=81 addr=172.19.0.4:54240 laddr=172.19.0.2:6379 fd=86 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=82 addr=172.19.0.4:54244 laddr=172.19.0.2:6379 fd=87 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=83 addr=172.19.0.4:54248 laddr=172.19.0.2:6379 fd=88 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=84 addr=172.19.0.4:54256 laddr=172.19.0.2:6379 fd=89 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=85 addr=172.19.0.4:54270 laddr=172.19.0.2:6379 fd=90 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=86 addr=172.19.0.4:54280 laddr=172.19.0.2:6379 fd=91 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=87 addr=172.19.0.4:54290 laddr=172.19.0.2:6379 fd=92 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=88 addr=172.19.0.4:54298 laddr=172.19.0.2:6379 fd=93 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=89 addr=172.19.0.4:54300 laddr=172.19.0.2:6379 fd=94 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=90 addr=172.19.0.4:54312 laddr=172.19.0.2:6379 fd=95 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=91 addr=172.19.0.4:54314 laddr=172.19.0.2:6379 fd=96 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+id=92 addr=172.19.0.4:54326 laddr=172.19.0.2:6379 fd=97 name= age=14 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 qbuf=0 qbuf-free=20474 argv-mem=0 multi-mem=0 rbs=1024 rbp=149 obl=115 oll=0 omem=0 tot-mem=22400 events=r cmd=get user=default redir=-1 resp=2 lib-name= lib-ver=
+
+------ MODULES INFO OUTPUT ------
+
+------ CONFIG DEBUG OUTPUT ------
+lazyfree-lazy-server-del no
+repl-diskless-sync yes
+repl-diskless-load disabled
+proto-max-bulk-len 512mb
+slave-read-only yes
+lazyfree-lazy-user-flush no
+replica-read-only yes
+lazyfree-lazy-user-del no
+io-threads-do-reads yes
+list-compress-depth 0
+io-threads 4
+lazyfree-lazy-eviction no
+activedefrag no
+client-query-buffer-limit 1gb
+sanitize-dump-payload no
+lazyfree-lazy-expire no
+
+------ FAST MEMORY TEST ------
+1:M 11 Sep 2026 02:39:48.638 # Bio worker thread #0 terminated
+1:M 11 Sep 2026 02:39:48.638 # Bio worker thread #1 terminated
+1:M 11 Sep 2026 02:39:48.638 # Bio worker thread #2 terminated
+1:M 11 Sep 2026 02:39:48.638 # IO thread(tid:136747553900224) terminated
+1:M 11 Sep 2026 02:39:48.638 # IO thread(tid:136747545507520) terminated
+1:M 11 Sep 2026 02:39:48.638 # IO thread(tid:136747537114816) terminated
+*** Preparing to test memory region 64e96aad1000 (2273280 bytes)
+*** Preparing to test memory region 64e996a7d000 (7929856 bytes)
+*** Preparing to test memory region 7c5eec000000 (135168 bytes)
+*** Preparing to test memory region 7c5ef0000000 (135168 bytes)
+*** Preparing to test memory region 7c5ef4000000 (135168 bytes)
+*** Preparing to test memory region 7c5efc000000 (135168 bytes)
+*** Preparing to test memory region 7c5f00a00000 (6291456 bytes)
+*** Preparing to test memory region 7c5f01200000 (8388608 bytes)
+*** Preparing to test memory region 7c5f01a00000 (2097152 bytes)
+*** Preparing to test memory region 7c5f01dff000 (8388608 bytes)
+*** Preparing to test memory region 7c5f02600000 (8388608 bytes)
+*** Preparing to test memory region 7c5f02e00000 (4194304 bytes)
+*** Preparing to test memory region 7c5f03379000 (2621440 bytes)
+*** Preparing to test memory region 7c5f035fa000 (8388608 bytes)
+*** Preparing to test memory region 7c5f03dfb000 (8388608 bytes)
+*** Preparing to test memory region 7c5f045fc000 (8388608 bytes)
+*** Preparing to test memory region 7c5f04dfd000 (8388608 bytes)
+*** Preparing to test memory region 7c5f055fe000 (8388608 bytes)
+*** Preparing to test memory region 7c5f06e00000 (8388608 bytes)
+*** Preparing to test memory region 7c5f07784000 (20480 bytes)
+*** Preparing to test memory region 7c5f0795d000 (53248 bytes)
+*** Preparing to test memory region 7c5f07de8000 (12288 bytes)
+*** Preparing to test memory region 7c5f07f75000 (8192 bytes)
+.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/redis/redis/issues
+
+  If a Redis module was involved, please open in the module's repo instead.
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+
+  Some other issues could be detected by redis-server --check-system
