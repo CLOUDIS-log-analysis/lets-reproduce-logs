@@ -19,4 +19,4 @@ sudo docker compose up -d
 sudo docker compose down
 
 # Check
-asssertion failed로 종료되며 로그에 bug report 기록됨
+asssertion failed로 종료되며 output.log 로그에 bug report 기록됨

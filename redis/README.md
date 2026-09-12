@@ -4,4 +4,10 @@
 
 #4356(OOM killed): Fragmentation으로 논리적 maxmemory와 실제 물리 메모리 괴리
 
+----------------------------------------------------------------
+#11778: Writable Replica의 AOF 큐 초기화 누락으로 Assertion
+
+#12540: Double freeClient() when io-threads-do-reads and TLS are enabled
+
+
 
