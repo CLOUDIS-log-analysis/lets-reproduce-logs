@@ -10,12 +10,11 @@ sudo chmod 777 log
 
 sudo chmod +x trigger.sh
 
-docker compose up -d
+sudo docker compose up -d
 
 ./trigger.sh
 
-
-docker compose down
+sudo docker compose down
 
 # Check
 설정한 만료시간 3초 후 assertion failed로 종료되며 로그에 bug report 기록됨
