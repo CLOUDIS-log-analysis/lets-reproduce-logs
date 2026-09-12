@@ -17,4 +17,4 @@ sudo docker compose up -d
 sudo docker compose down
 
 # Check
-설정한 만료시간 3초 후 assertion failed로 종료되며 로그에 bug report 기록됨
+설정한 만료시간 3초 후 assertion failed로 종료되며 output.log로그에 bug report 기록됨
