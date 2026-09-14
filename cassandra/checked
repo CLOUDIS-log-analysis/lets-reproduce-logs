@@ -1,5 +1,16 @@
+CASSANDRA-21578: 재현불가
 CASSANDRA-21290
 CASSANDRA-21491: not reproducible
 CASSANDRA-19668: sigsegv, not reproducible
 CASSANDRA-16939: out of memory 상황에서의 동작
+CASSANDRA-15556: not reproducible
 CASSANDRA-14773: int overflow, test는 제공되었으나 실제 버그발생 시나리오는 제공되지 않음
+
+
+검색어: crash, resolved, repro*
+총 61개의 이슈
+CASSANDRA-21152: 테스트 유닛 실패, 크래시가 아님
+CASSANDRA-21115: 크래시가 아님
+CASSANDRA-20787: 재현완료
+ 
+
