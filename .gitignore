@@ -5,3 +5,4 @@ apache-cassandra-*
 .DS_Store
 *.qcow2
 *.tar*
+uftrace.data*
