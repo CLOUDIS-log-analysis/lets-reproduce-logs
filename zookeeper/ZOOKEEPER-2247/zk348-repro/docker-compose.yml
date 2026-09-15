@@ -1,0 +1,61 @@
+services:
+  zk1:
+    image: zk348:local
+    hostname: zk1
+    restart: "no"
+
+    environment:
+      ZOO_MY_ID: "1"
+
+    volumes:
+      - ./logs/app/zk1:/logs
+      - ./logs/data/zk1:/data
+      - ./logs/datalog/zk1:/datalog
+
+    ports:
+      - "2181:2181"
+
+    networks:
+      - zknet
+
+  zk2:
+    image: zk348:local
+    hostname: zk2
+    restart: "no"
+
+    environment:
+      ZOO_MY_ID: "2"
+
+    volumes:
+      - ./logs/app/zk2:/logs
+      - ./logs/data/zk2:/data
+      - ./logs/datalog/zk2:/datalog
+
+    ports:
+      - "2182:2181"
+
+    networks:
+      - zknet
+
+  zk3:
+    image: zk348:local
+    hostname: zk3
+    restart: "no"
+
+    environment:
+      ZOO_MY_ID: "3"
+
+    volumes:
+      - ./logs/app/zk3:/logs
+      - ./logs/data/zk3:/data
+      - /mnt/zk-txn:/datalog
+
+    ports:
+      - "2183:2181"
+
+    networks:
+      - zknet
+
+networks:
+  zknet:
+    driver: bridge

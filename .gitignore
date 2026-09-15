@@ -1,3 +1,4 @@
+# 기본
 .direnv
 target
 apache-cassandra-*
@@ -6,3 +7,15 @@ apache-cassandra-*
 *.qcow2
 *.tar*
 uftrace.data*
+
+# 젯브레인 계열 IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# visual studio code
+.vscode/
+
+#

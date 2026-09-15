@@ -1,0 +1,13 @@
+services:
+  pg-target:
+    image: postgres:13.1
+    container_name: pg-16801
+    privileged: true
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ulimits:
+      core: -1
+    command: ["postgres", "-c", "logging_collector=on", "-c", "log_directory=/var/log/postgresql", "-c", "log_filename=output.log", "-c", "log_min_messages=debug2", "-c", "log_error_verbosity=verbose"]
+    volumes:
+      - ./logs:/var/log/postgresql
+      - ./coredump:/var/lib/postgresql/data
