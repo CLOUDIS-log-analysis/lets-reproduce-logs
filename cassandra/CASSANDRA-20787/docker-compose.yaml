@@ -1,0 +1,14 @@
+services:
+  cassandra:
+    image: cassandra:4.1.1
+    container_name: CASSANDRA-20787
+    restart: "no"
+    volumes:
+      - ./cassandra.yaml:/opt/cassandra/conf/cassandra.yaml:rw
+      - ./logback.xml:/etc/cassandra/logback.xml:rw
+      - ./logs:/var/log/cassandra:rw
+
+    command:
+      - sh
+      - -c
+      - "rm -rf /opt/cassandra/data/data && cassandra -fR"

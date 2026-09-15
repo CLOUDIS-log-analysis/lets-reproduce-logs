@@ -1,0 +1,21 @@
+services:
+  cassandra:
+    image: oscerd/cassandra:cassandra-2.2.8
+    container_name: CASSANDRA-12618
+    restart: "no"
+    ports:
+      - "9042:9042"
+    volumes:
+      - ./logback.xml:/etc/cassandra/logback.xml:rw
+      - ./logs:/opt/cassandra/logs:rw
+      - ./setup.cql:/data/setup.cql:rw
+      - ./cassandra-env.sh:/opt/cassandra/conf/cassandra-env.sh:rw
+
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    # command:
+    #   - sh
+    #   - -c
+    #   - "rm -rf /opt/cassandra/data/data && cassandra -fR"

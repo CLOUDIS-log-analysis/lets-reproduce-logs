@@ -17,7 +17,6 @@ wal_level = replica
 max_slot_wal_keep_size = 280MB
 checkpoint_timeout = 5min
 max_wal_size=32MB
-log_error_verbosity = verbose
 logging_collector = on
 log_directory = '/var/log/postgresql'
 log_filename = 'postgresql.log'
