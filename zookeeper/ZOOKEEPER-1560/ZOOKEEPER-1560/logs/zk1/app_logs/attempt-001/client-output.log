@@ -1,0 +1,32 @@
+ZOOKEEPER_1560 sasl_setup=standalone_fallback
+ZOOKEEPER_1560 client_start connect=127.0.0.1:12182 payload_bytes=500000 fault_injection=enabled
+10 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:host.name=shkim-zookeeper
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.6.0-119
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Azul Systems, Inc.
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.home=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=target/zookeeper-1560-reproduction-jar-with-dependencies.jar
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64/server:/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64:/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=/tmp
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.name=Linux
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.8.0-139-generic
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.name=shkim
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.home=/home/shkim
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.dir=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=127.0.0.1:12182 sessionTimeout=10000 watcher=org.apache.zookeeper.Reproduce@32c3601b
+34 [main-SendThread(localhost:12182)] WARN org.apache.zookeeper.ClientCnxn - SASL configuration failed: javax.security.auth.login.LoginException: Client cannot SASL-authenticate because the specified JAAS configuration section 'ZooKeeper1560NoSasl' could not be found. Will continue connection to Zookeeper server without SASL authentication, if Zookeeper server allows it.
+37 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Opening socket connection to server localhost/127.0.0.1:12182
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+47 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Socket connection established to localhost/127.0.0.1:12182, initiating session
+104 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Session establishment complete on server localhost/127.0.0.1:12182, sessionid = 0xffa0a80f13070000, negotiated timeout = 10000
+ZOOKEEPER_1560 connected
+ZOOKEEPER_1560 readiness_control=passed
+ZOOKEEPER_1560 large_create=started path=/large payload_bytes=500000
+6830 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 6670ms for sessionid 0xffa0a80f13070000, closing socket connection and attempting reconnect
+8806 [main-SendThread(localhost:12182)] WARN org.apache.zookeeper.ClientCnxn - SASL configuration failed: javax.security.auth.login.LoginException: Client cannot SASL-authenticate because the specified JAAS configuration section 'ZooKeeper1560NoSasl' could not be found. Will continue connection to Zookeeper server without SASL authentication, if Zookeeper server allows it.
+8807 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Opening socket connection to server localhost/127.0.0.1:12182
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+8808 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Socket connection established to localhost/127.0.0.1:12182, initiating session
+8815 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Session establishment complete on server localhost/127.0.0.1:12182, sessionid = 0xffa0a80f13070000, negotiated timeout = 10000

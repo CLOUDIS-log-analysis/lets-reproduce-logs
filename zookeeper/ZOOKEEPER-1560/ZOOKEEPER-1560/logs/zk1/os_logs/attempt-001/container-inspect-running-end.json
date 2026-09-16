@@ -1,0 +1,270 @@
+[
+    {
+        "Id": "6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7",
+        "Created": "2026-09-16T02:32:34.327994333Z",
+        "Path": "/usr/local/bin/docker-entrypoint.sh",
+        "Args": [
+            "/opt/zookeeper/bin/zkServer.sh",
+            "start-foreground",
+            "/opt/zookeeper/conf/zoo.cfg"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 196997,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-16T02:32:34.471678374Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:115b9707c1d3ccc3e947a1e8ebb6da50255a4d45b66ebe1d84e5b4e2311cb421",
+        "ResolvConfPath": "/var/lib/docker/containers/6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7/hostname",
+        "HostsPath": "/var/lib/docker/containers/6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7/hosts",
+        "LogPath": "/var/lib/docker/containers/6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7/6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7-json.log",
+        "Name": "/zookeeper1560-attempt-001",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bridge",
+            "PortBindings": {
+                "2181/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "12182"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001",
+                    "Target": "/data"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001",
+                    "Target": "/data/txnlog"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001",
+                    "Target": "/logs"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001",
+                "Destination": "/data",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001",
+                "Destination": "/logs",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001",
+                "Destination": "/data/txnlog",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "6e7430ce5f92",
+            "Domainname": "",
+            "User": "1000:988",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "2181/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "SERVER_JVMFLAGS=-Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp",
+                "JMXDISABLE=true",
+                "ZOO_LOG_DIR=/logs",
+                "ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE",
+                "PATH=/opt/java/bin:/opt/zookeeper/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java",
+                "ZK_HOME=/opt/zookeeper",
+                "ZOOCFGDIR=/opt/zookeeper/conf"
+            ],
+            "Cmd": [
+                "/opt/zookeeper/bin/zkServer.sh",
+                "start-foreground",
+                "/opt/zookeeper/conf/zoo.cfg"
+            ],
+            "Image": "zookeeper-1560:3.4.4-jdk6",
+            "Volumes": null,
+            "WorkingDir": "/opt/zookeeper",
+            "Entrypoint": [
+                "/usr/local/bin/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.project": "zookeeper-1560",
+                "com.docker.compose.service": "zookeeper",
+                "com.docker.compose.version": "5.5.1"
+            },
+            "StopTimeout": 10
+        },
+        "NetworkSettings": {
+            "SandboxID": "158055c2918c6c4846b9e7c891150c3273a17b1b8cc1168c0b3c3bd5551d4dad",
+            "SandboxKey": "/var/run/docker/netns/158055c2918c",
+            "Ports": {
+                "2181/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "12182"
+                    }
+                ]
+            },
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "744b2db1a6a6d3735f98152a881702c81805048e02e4eed47d965bf4b342204e",
+                    "EndpointID": "7901cf0b56b60897c1c257571c03f5550ab95a9cacd032423c12588743a85589",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "MacAddress": "22:e6:95:8e:72:b9",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:5b1bb0ffc8840e3625b69308bd2d2152db65a8c3026affd52f9867282715980f",
+            "size": 1431,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

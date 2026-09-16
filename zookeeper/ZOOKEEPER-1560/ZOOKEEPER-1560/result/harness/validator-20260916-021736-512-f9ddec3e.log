@@ -1,0 +1,57 @@
+ Image zookeeper-1560:3.4.4-jdk6 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 631B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.51kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 33B
+#4 transferring context: 234B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171
+#6 resolve docker.io/library/debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171 0.1s done
+#6 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 358B done
+#5 DONE 0.0s
+
+#7 [4/6] COPY --chmod=0644 config/zoo.cfg config/log4j.properties /opt/zookeeper/conf/
+#7 CACHED
+
+#8 [5/6] COPY --chmod=0755 scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#8 CACHED
+
+#9 [2/6] COPY dist/zookeeper-3.4.4.tar.gz dist/zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz dist/SHA256SUMS /tmp/dist/
+#9 CACHED
+
+#10 [3/6] RUN set -eux;     cd /tmp/dist;     sha256sum -c SHA256SUMS;     tar -xzf "zookeeper-3.4.4.tar.gz" -C /opt;     tar -xzf "zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz" -C /opt;     ln -s /opt/zookeeper-3.4.4 /opt/zookeeper;     ln -s /opt/zulu6.22.0.3-jdk6.0.119-linux_x64 /opt/java;     groupadd --gid 1000 zookeeper;     useradd --uid 1000 --gid 1000 --home-dir /opt/zookeeper --shell /usr/sbin/nologin zookeeper;     install -d -o zookeeper -g zookeeper -m 0755 /data /logs /result;     rm -rf /tmp/dist
+#10 CACHED
+
+#11 [6/6] WORKDIR /opt/zookeeper
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:5b1bb0ffc8840e3625b69308bd2d2152db65a8c3026affd52f9867282715980f done
+#12 exporting config sha256:bc40947e7a965b447e61b2a67dec41274df6338d2c85db3a5708a529280c16d2 done
+#12 exporting attestation manifest sha256:7add7a35e258083b7678b9797c7a46e5925a745eab56904cc113e645fdc761f0
+#12 exporting attestation manifest sha256:7add7a35e258083b7678b9797c7a46e5925a745eab56904cc113e645fdc761f0 0.0s done
+#12 exporting manifest list sha256:115b9707c1d3ccc3e947a1e8ebb6da50255a4d45b66ebe1d84e5b4e2311cb421 0.0s done
+#12 naming to docker.io/library/zookeeper-1560:3.4.4-jdk6 done
+#12 unpacking to docker.io/library/zookeeper-1560:3.4.4-jdk6 0.0s done
+#12 DONE 0.2s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image zookeeper-1560:3.4.4-jdk6 Built 

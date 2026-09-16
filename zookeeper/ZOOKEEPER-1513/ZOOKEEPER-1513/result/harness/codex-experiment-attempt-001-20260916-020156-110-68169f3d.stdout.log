@@ -1,0 +1,12 @@
+Experiment `attempt-001` completed successfully.
+
+- Workload exit: `0`
+- Restart exit: `1`
+- Observed `Unreasonable length = 1048583` during transaction replay
+- `Verify` exit: `0`, with `reproduced=true`
+- Result: [attempt-001.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/attempt-001.properties)
+- Evidence: [logs/zk1](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1)
+- All five required evidence categories were populated.
+- All attempt files are host-readable and directories host-traversable.
+- Attempt artifacts were made read-only.
+- No `attempt-002` artifacts were created.

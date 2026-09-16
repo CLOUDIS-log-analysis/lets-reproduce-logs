@@ -1,0 +1,1295 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a7f6-f1c4-7c70-aa06-aee82d03918d
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1513.
+Current Harness stage: FINALIZE.
+Jira XML source: 1513.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Read README.md, repro.properties, every completed result/attempt-NNN.properties file, and the preserved logs needed for interpretation.
+
+Required work for this stage:
+- Summarize all completed attempts.
+- Record the overall SUCCESS / FAILURE / INCONCLUSIVE conclusion and the key observations.
+- Create result/summary.md if it does not already exist.
+- Do not alter individual attempt result files or experiment logs.
+
+Do NOT run new experiment attempts.
+
+codex
+I’ll inspect the repository state, completed attempt records, and preserved logs, then create `result/summary.md` only if it is absent. I will not run experiments or modify attempt artifacts.
+exec
+/bin/bash -lc "pwd && rg --files -g 'README.md' -g 'repro.properties' -g 'result/**' -g 'logs/**' -g '"'!result/summary.md'"' | sort && if [ -e result/summary.md ]; then stat -c 'SUMMARY_EXISTS mode=%a size=%s path=%n' result/summary.md; else echo SUMMARY_ABSENT; fi" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+README.md
+logs/baseline-20260916-020020/zookeeper.log
+logs/environment-smoke/zookeeper.log
+logs/zk1/app_logs/attempt-001/clean-stop.log
+logs/zk1/app_logs/attempt-001/initial-compose.log
+logs/zk1/app_logs/attempt-001/initial-container.log
+logs/zk1/app_logs/attempt-001/initial-readiness.log
+logs/zk1/app_logs/attempt-001/post-write-readiness.log
+logs/zk1/app_logs/attempt-001/reproduce.exit.txt
+logs/zk1/app_logs/attempt-001/reproduce.stderr.log
+logs/zk1/app_logs/attempt-001/reproduce.stdout.log
+logs/zk1/app_logs/attempt-001/restart-container.log
+logs/zk1/app_logs/attempt-001/restart.exit.txt
+logs/zk1/app_logs/attempt-001/verify.exit.txt
+logs/zk1/app_logs/attempt-001/verify.stderr.log
+logs/zk1/app_logs/attempt-001/verify.stdout.log
+logs/zk1/app_logs/attempt-001/write-evidence.properties
+logs/zk1/app_logs/attempt-001/zookeeper.log
+logs/zk1/jvm_logs/attempt-001/java-version.txt
+logs/zk1/jvm_logs/attempt-001/jcmd-list.txt
+logs/zk1/jvm_logs/attempt-001/vm-flags.txt
+logs/zk1/jvm_logs/attempt-001/vm-system-properties.txt
+logs/zk1/os_logs/attempt-001/evidence-inventory.txt
+logs/zk1/os_logs/attempt-001/host-and-resource.txt
+logs/zk1/os_logs/attempt-001/initial-container-inspect.txt
+logs/zk1/os_logs/attempt-001/initial-processes.txt
+logs/zk1/os_logs/attempt-001/restart-container-state.txt
+logs/zk1/snapshot_data/attempt-001/SHA256SUMS
+logs/zk1/snapshot_data/attempt-001/snapshot.0
+logs/zk1/txn_logs/attempt-001/SHA256SUMS
+logs/zk1/txn_logs/attempt-001/log.1
+repro.properties
+result/attempt-001.properties
+result/harness/codex-baseline-20260916-015941-511-dcff8607.stderr.log
+result/harness/codex-baseline-20260916-015941-511-dcff8607.stdout.log
+result/harness/codex-environment-20260916-014633-210-5302691c.stderr.log
+result/harness/codex-environment-20260916-014633-210-5302691c.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stderr.log
+result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stdout.log
+result/harness/codex-finalize-20260916-020613-415-28d78e85.stderr.log
+result/harness/codex-finalize-20260916-020613-415-28d78e85.stdout.log
+result/harness/codex-implementation-20260916-015310-986-59251618.stderr.log
+result/harness/codex-implementation-20260916-015310-986-59251618.stdout.log
+result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+result/harness/validator-20260916-015308-734-10e6c3dc.log
+result/harness/validator-20260916-015308-935-c37e9e66.log
+result/harness/validator-20260916-015939-629-5b7dcf8b.log
+result/harness/validator-20260916-020155-617-49c7fce4.log
+result/harness/validator-20260916-020155-849-f1c6e88b.log
+SUMMARY_ABSENT
+
+exec
+/bin/bash -lc "sed -n '1,240p' README.md
+sed -n '1,240p' repro.properties
+for f in result/attempt-[0-9][0-9][0-9].properties; do
+  [ -f \""'$f" ] || continue
+  echo "===== $f ====="
+  sed -n '"'1,240p' \""'$f"
+done' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+# ZOOKEEPER-1513 reproduction specification
+
+## Bug summary
+
+ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
+persisted transaction containing that data is slightly larger because it also
+contains transaction metadata. On a later server start, transaction-log replay
+applies the same limit to the complete serialized transaction and aborts while
+loading the database.
+
+The Jira report records the concrete failure as:
+
+```text
+java.io.IOException: Unreasonable length = 1048583
+    at org.apache.jute.BinaryInputArchive.readBuffer(...)
+    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
+    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
+    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
+```
+
+`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
+`jute.maxbuffer` value. The Jira description attributes those extra bytes to
+fields in `SetDataTxn`, in addition to the client data that was checked when it
+was accepted.
+
+## Target and resources
+
+- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
+- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
+  change was committed to 3.4.6 and trunk.
+- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
+  the Jira record does not identify a JDK-specific condition.
+- Topology: **one server**. The defect is in local transaction persistence and
+  startup replay, so leader election or a multi-node interaction is not needed
+  to exercise it.
+- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
+  client driver.
+- Attempts: **3**. The report describes a deterministic size-boundary failure,
+  not a flaky, timing-sensitive, or concurrent behavior.
+
+## Reproduction procedure
+
+The later implementation stage should automate the following sequence without
+changing `jute.maxbuffer` from its default value:
+
+1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
+   wait until it accepts client connections.
+2. Create a znode with a small initial value.
+3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
+   assert that the operation succeeds. Use deterministic bytes so the input is
+   identical in every attempt.
+4. Stop the server cleanly after the successful write, preserving its data and
+   transaction log.
+5. Start the same server again against that directory and capture its complete
+   startup output and process exit status.
+6. Retain evidence that the write was acknowledged before the restart and that
+   the restart subsequently failed during database loading.
+
+The test must not synthesize or corrupt a transaction log: the point is to show
+that an ordinary client operation accepted by the affected server creates an
+on-disk record that the same server cannot later read.
+
+## Result oracle
+
+An attempt reproduces the bug only when all of these conditions hold:
+
+- the 1 MiB `setData` operation succeeds before shutdown;
+- restart using the resulting data directory fails to become ready (or exits);
+- startup output contains `Unreasonable length = 1048583`; and
+- the failure path is database restoration/transaction-log replay, evidenced by
+  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
+  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
+
+A rejection of the original client write is not this bug. A restart failure
+without the size exception is also not sufficient. Reproducing the stated
+failure in each of the three independent clean attempts is the success
+criterion.
+
+## Rationale and control
+
+This boundary is taken directly from the Jira report: accepted client data plus
+seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
+Restart is essential because the observed exception occurs while loading the
+database from disk, not while handling the live request.
+
+If a fixed-version control is added in a later stage, the same write and restart
+sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
+configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
+only as a workaround and must not be used in the primary reproduction.
+
+## Evidence source
+
+This specification is based solely on `1513.xml`: the issue description,
+affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
+comment confirming the commit to 3.4.6 and trunk.
+zookeeper.version=3.3.4
+jdk.version=8
+node.count=1
+cpu.count=2
+memory=2g
+attempt.count=3
+===== result/attempt-001.properties =====
+result=SUCCESS
+attempt=attempt-001
+node=zk1
+workload.exit=0
+restart.exit=1
+verify.exit=0
+reproduced=true
+evidence.root=logs/zk1
+verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+
+codex
+There is one completed attempt (`attempt-001`), and it is marked successful. I’m now validating that record against the preserved write, restart, and verification evidence before deciding the overall conclusion; the configured three-attempt criterion also needs to be reflected accurately.
+exec
+/bin/bash -lc "for f in \\
+  logs/zk1/app_logs/attempt-001/write-evidence.properties \\
+  logs/zk1/app_logs/attempt-001/reproduce.exit.txt \\
+  logs/zk1/app_logs/attempt-001/reproduce.stdout.log \\
+  logs/zk1/app_logs/attempt-001/reproduce.stderr.log \\
+  logs/zk1/app_logs/attempt-001/clean-stop.log \\
+  logs/zk1/app_logs/attempt-001/restart.exit.txt \\
+  logs/zk1/app_logs/attempt-001/restart-container.log \\
+  logs/zk1/app_logs/attempt-001/post-write-readiness.log \\
+  logs/zk1/app_logs/attempt-001/verify.exit.txt \\
+  logs/zk1/app_logs/attempt-001/verify.stdout.log \\
+  logs/zk1/app_logs/attempt-001/verify.stderr.log \\
+  logs/zk1/os_logs/attempt-001/evidence-inventory.txt \\
+  logs/zk1/os_logs/attempt-001/restart-container-state.txt; do
+  echo \"===== "'$f ====="
+  sed -n '"'1,260p' \""'$f"
+done
+
+echo '"'===== key signatures in preserved attempt logs ====='
+rg -n -i '1048583|Unreasonable length|BinaryInputArchive|Util\\.readTxnBytes|FileTxnLog|ZKDatabase\\.loadDataBase|SETDATA_OK|WRITE_ACKNOWLEDGED|ready|exited|exit' logs/zk1/app_logs/attempt-001 logs/zk1/os_logs/attempt-001 | head -n 300" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+===== logs/zk1/app_logs/attempt-001/write-evidence.properties =====
+write.acknowledged=true
+write.path=/zookeeper-1513
+write.payload.bytes=1048524
+write.payload.sha256=85020037e0f1d3e86e8bb6a0cb4ec59205e3cfa316ef9495d6540b56e27ab3bb
+write.transaction.bytes=1048583
+write.version=1
+write.mzxid=3
+===== logs/zk1/app_logs/attempt-001/reproduce.exit.txt =====
+workload_exit=0
+===== logs/zk1/app_logs/attempt-001/reproduce.stdout.log =====
+ACKNOWLEDGED path=/zookeeper-1513 bytes=1048524 version=1 mzxid=3
+Evidence: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1/app_logs/attempt-001/write-evidence.properties
+===== logs/zk1/app_logs/attempt-001/reproduce.stderr.log =====
+log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+===== logs/zk1/app_logs/attempt-001/clean-stop.log =====
+ Container zookeeper-1513-zookeeper-1 Stopping 
+ Container zookeeper-1513-zookeeper-1 Stopped 
+===== logs/zk1/app_logs/attempt-001/restart.exit.txt =====
+restart_exit=1
+===== logs/zk1/app_logs/attempt-001/restart-container.log =====
+JMX enabled by default
+Using config:/etc/zookeeper/zoo.cfg
+Using config: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,597 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,599 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:05:01,607 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,607 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:host.name=1d789fc90370
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+2026-09-16 02:05:01,649 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:05:01,670 - INFO  [main:FileSnap@82] - Reading snapshot /var/lib/zookeeper/version-2/snapshot.0
+2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+java.io.IOException: Unreasonable length = 1048583
+	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:155)
+	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+	at org.apache.zookeeper.server.ZooKeeperServer.loadData(ZooKeeperServer.java:239)
+	at org.apache.zookeeper.server.ZooKeeperServer.startdata(ZooKeeperServer.java:366)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.startup(NIOServerCnxn.java:160)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:110)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.initializeAndRun(ZooKeeperServerMain.java:85)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.main(ZooKeeperServerMain.java:51)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:108)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76)
+===== logs/zk1/app_logs/attempt-001/post-write-readiness.log =====
+post_write_readiness=imok
+===== logs/zk1/app_logs/attempt-001/verify.exit.txt =====
+verify_exit=0
+===== logs/zk1/app_logs/attempt-001/verify.stdout.log =====
+write.acknowledged=true
+write.payload.size.matches=true
+write.payload.digest.matches=true
+write.transaction.size.matches=true
+restart.failed=true
+restart.exact.length.seen=true
+restart.replay.path.seen=true
+reproduced=true
+===== logs/zk1/app_logs/attempt-001/verify.stderr.log =====
+===== logs/zk1/os_logs/attempt-001/evidence-inventory.txt =====
+captured_at=2026-09-16T02:06:02Z
+data/attempt-001
+data/attempt-001/version-2
+data/attempt-001/version-2/log.1
+data/attempt-001/version-2/snapshot.0
+logs/zk1/app_logs/attempt-001
+logs/zk1/app_logs/attempt-001/clean-stop.log
+logs/zk1/app_logs/attempt-001/initial-compose.log
+logs/zk1/app_logs/attempt-001/initial-container.log
+logs/zk1/app_logs/attempt-001/initial-readiness.log
+logs/zk1/app_logs/attempt-001/post-write-readiness.log
+logs/zk1/app_logs/attempt-001/reproduce.exit.txt
+logs/zk1/app_logs/attempt-001/reproduce.stderr.log
+logs/zk1/app_logs/attempt-001/reproduce.stdout.log
+logs/zk1/app_logs/attempt-001/restart-container.log
+logs/zk1/app_logs/attempt-001/restart.exit.txt
+logs/zk1/app_logs/attempt-001/verify.exit.txt
+logs/zk1/app_logs/attempt-001/verify.stderr.log
+logs/zk1/app_logs/attempt-001/verify.stdout.log
+logs/zk1/app_logs/attempt-001/write-evidence.properties
+logs/zk1/app_logs/attempt-001/zookeeper.log
+logs/zk1/jvm_logs/attempt-001
+logs/zk1/jvm_logs/attempt-001/java-version.txt
+logs/zk1/jvm_logs/attempt-001/jcmd-list.txt
+logs/zk1/jvm_logs/attempt-001/vm-flags.txt
+logs/zk1/jvm_logs/attempt-001/vm-system-properties.txt
+logs/zk1/os_logs/attempt-001
+logs/zk1/os_logs/attempt-001/evidence-inventory.txt
+logs/zk1/os_logs/attempt-001/host-and-resource.txt
+logs/zk1/os_logs/attempt-001/initial-container-inspect.txt
+logs/zk1/os_logs/attempt-001/initial-processes.txt
+logs/zk1/os_logs/attempt-001/restart-container-state.txt
+logs/zk1/snapshot_data/attempt-001
+logs/zk1/snapshot_data/attempt-001/SHA256SUMS
+logs/zk1/snapshot_data/attempt-001/snapshot.0
+logs/zk1/txn_logs/attempt-001
+logs/zk1/txn_logs/attempt-001/SHA256SUMS
+logs/zk1/txn_logs/attempt-001/log.1
+===== logs/zk1/os_logs/attempt-001/restart-container-state.txt =====
+running=false status=exited exit=1 oomKilled=false restartCount=0 started=2026-09-16T02:05:00.856494677Z finished=2026-09-16T02:05:02.018839205Z
+===== key signatures in preserved attempt logs =====
+logs/zk1/os_logs/attempt-001/restart-container-state.txt:1:running=false status=exited exit=1 oomKilled=false restartCount=0 started=2026-09-16T02:05:00.856494677Z finished=2026-09-16T02:05:02.018839205Z
+logs/zk1/os_logs/attempt-001/evidence-inventory.txt:12:logs/zk1/app_logs/attempt-001/reproduce.exit.txt
+logs/zk1/os_logs/attempt-001/evidence-inventory.txt:16:logs/zk1/app_logs/attempt-001/restart.exit.txt
+logs/zk1/os_logs/attempt-001/evidence-inventory.txt:17:logs/zk1/app_logs/attempt-001/verify.exit.txt
+logs/zk1/app_logs/attempt-001/restart-container.log:28:2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+logs/zk1/app_logs/attempt-001/restart-container.log:29:java.io.IOException: Unreasonable length = 1048583
+logs/zk1/app_logs/attempt-001/restart-container.log:30:	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+logs/zk1/app_logs/attempt-001/restart-container.log:31:	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+logs/zk1/app_logs/attempt-001/restart-container.log:32:	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+logs/zk1/app_logs/attempt-001/restart-container.log:34:	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+logs/zk1/app_logs/attempt-001/restart.exit.txt:1:restart_exit=1
+logs/zk1/app_logs/attempt-001/verify.exit.txt:1:verify_exit=0
+logs/zk1/os_logs/attempt-001/initial-container-inspect.txt:1:running=true status=running exit=0 oomKilled=false restartCount=0
+logs/zk1/app_logs/attempt-001/reproduce.exit.txt:1:workload_exit=0
+logs/zk1/app_logs/attempt-001/write-evidence.properties:5:write.transaction.bytes=1048583
+logs/zk1/app_logs/attempt-001/initial-container.log:33:2026-09-16 02:04:19,311 - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+logs/zk1/app_logs/attempt-001/zookeeper.log:30:2026-09-16 02:04:19,311 - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+logs/zk1/app_logs/attempt-001/zookeeper.log:61:2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+logs/zk1/app_logs/attempt-001/zookeeper.log:62:java.io.IOException: Unreasonable length = 1048583
+logs/zk1/app_logs/attempt-001/zookeeper.log:63:	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+logs/zk1/app_logs/attempt-001/zookeeper.log:64:	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+logs/zk1/app_logs/attempt-001/zookeeper.log:65:	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+logs/zk1/app_logs/attempt-001/zookeeper.log:67:	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+
+exec
+/bin/bash -lc "rg --files -g '"'!logs/**'"' -g '"'!result/**'"' | sort
+rg -n '1048524|1048576|1048583|attempt.count|result=|reproduced|payload' -g '"'!logs/**'"' -g '"'!result/**'"' ." in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+1513.xml
+Dockerfile
+ENVIRONMENT.md
+README.md
+compose.yml
+data/attempt-001/version-2/log.1
+data/attempt-001/version-2/snapshot.0
+data/baseline-20260916-020020/version-2/log.1
+data/baseline-20260916-020020/version-2/snapshot.0
+data/environment-smoke/version-2/snapshot.0
+dist/zookeeper-3.3.4.tar.gz
+dist/zookeeper-3.3.4.tar.gz.sha1
+docker-entrypoint.sh
+log4j.properties
+pom.xml
+repro.properties
+src/main/java/FaultInjection.java
+src/main/java/Reproduce.java
+src/main/java/Verify.java
+status.properties
+target/classes/FaultInjection.class
+target/classes/Reproduce$1.class
+target/classes/Reproduce.class
+target/classes/Verify.class
+target/maven-archiver/pom.properties
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/original-zookeeper-1513-reproducer.jar
+target/zookeeper-1513-reproducer-1.0-SNAPSHOT.jar
+target/zookeeper-1513-reproducer.jar
+zoo.cfg
+./repro.properties:6:attempt.count=3
+./1513.xml:10:java.io.IOException: Unreasonable length = 1048583 
+./1513.xml:29:Caused by: java.io.IOException: Unreasonable length = 1048583 
+./status.properties:4:last.result=SUCCESS
+./README.md:14:java.io.IOException: Unreasonable length = 1048583
+./README.md:69:- startup output contains `Unreasonable length = 1048583`; and
+./src/main/java/Verify.java:13:            "Unreasonable length = 1048583";
+./src/main/java/Verify.java:32:            boolean reproduced = verify(Paths.get(args[0]), Paths.get(args[1]),
+./src/main/java/Verify.java:34:            System.exit(reproduced ? 0 : 1);
+./src/main/java/Verify.java:53:        boolean payloadSizeMatches = pathPresent
+./src/main/java/Verify.java:55:                .equals(evidence.get("write.payload.bytes"));
+./src/main/java/Verify.java:56:        boolean payloadDigestMatches = pathPresent
+./src/main/java/Verify.java:58:                .equals(evidence.get("write.payload.sha256"));
+./src/main/java/Verify.java:69:        boolean reproduced = writeAcknowledged && payloadSizeMatches
+./src/main/java/Verify.java:70:                && payloadDigestMatches && transactionSizeMatches
+./src/main/java/Verify.java:74:        System.out.println("write.payload.size.matches=" + payloadSizeMatches);
+./src/main/java/Verify.java:75:        System.out.println("write.payload.digest.matches=" + payloadDigestMatches);
+./src/main/java/Verify.java:81:        System.out.println("reproduced=" + reproduced);
+./src/main/java/Verify.java:82:        return reproduced;
+./src/main/java/Reproduce.java:85:            byte[] payload = FaultInjection.deterministicPayload(znode);
+./src/main/java/Reproduce.java:86:            Stat acknowledged = FaultInjection.inject(client, znode, payload);
+./src/main/java/Reproduce.java:91:            evidence.put("write.payload.bytes", Integer.toString(payload.length));
+./src/main/java/Reproduce.java:92:            evidence.put("write.payload.sha256", FaultInjection.sha256(payload));
+./src/main/java/Reproduce.java:100:                    + " bytes=" + payload.length
+./src/main/java/FaultInjection.java:12: * reproduced only when ZooKeeper itself accepts an ordinary client write and
+./src/main/java/FaultInjection.java:34:        byte[] payload = new byte[expectedPayloadSize(path)];
+./src/main/java/FaultInjection.java:35:        for (int i = 0; i < payload.length; i++) {
+./src/main/java/FaultInjection.java:36:            payload[i] = (byte) ((i * 31 + 17) & 0xff);
+./src/main/java/FaultInjection.java:38:        return payload;
+./src/main/java/FaultInjection.java:43:        int payloadSize = EXPECTED_TRANSACTION_SIZE - TXN_HEADER_SIZE
+./src/main/java/FaultInjection.java:45:        if (payloadSize < 0) {
+./src/main/java/FaultInjection.java:48:        return payloadSize;
+./src/main/java/FaultInjection.java:55:    public static Stat inject(ZooKeeper client, String path, byte[] payload)
+./src/main/java/FaultInjection.java:58:        if (payload.length != expectedSize) {
+./src/main/java/FaultInjection.java:60:                    "Fault payload must be exactly " + expectedSize
+./src/main/java/FaultInjection.java:61:                            + " bytes, but was " + payload.length);
+./src/main/java/FaultInjection.java:63:        return client.setData(path, payload, -1);
+./src/main/java/FaultInjection.java:66:    public static String sha256(byte[] payload) {
+./src/main/java/FaultInjection.java:69:            byte[] hash = digest.digest(payload);
+
+exec
+/bin/bash -lc "sed -n '1,260p' 1513.xml
+sed -n '1,220p' ENVIRONMENT.md
+sed -n '1,180p' src/main/java/FaultInjection.java
+sed -n '1,180p' src/main/java/Verify.java
+for f in result/harness/codex-implementation-*.stdout.log result/harness/codex-experiment-attempt-001-*.stdout.log; do
+  echo \"===== "'$f ====="
+  sed -n '"'1,260p' \""'$f"
+done' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+            <title>[ZOOKEEPER-1513] &quot;Unreasonable length&quot; exception while starting a server.</title>
+                <link>https://issues.apache.org/jira/browse/ZOOKEEPER-1513</link>
+                <project id="12310801" key="ZOOKEEPER">ZooKeeper</project>
+                    <description>&lt;p&gt;The server is allowing a client to set data larger than the server can then later read:&lt;/p&gt;
+
+&lt;div class=&quot;preformatted panel&quot; style=&quot;border-width: 1px;&quot;&gt;&lt;div class=&quot;preformattedContent panelContent&quot;&gt;
+&lt;pre&gt;2012-07-18 14:28:12,555 - FATAL [main:QuorumPeer@400] - Unable to load database on disk 
+java.io.IOException: Unreasonable length = 1048583 
+at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100) 
+at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:529) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.&amp;lt;init&amp;gt;(FileTxnLog.java:504) 
+at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:341) 
+at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:131) 
+at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222) 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.runFromConfig(QuorumPeerMain.java:143) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:103) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76) 
+2012-07-18 14:28:12,555 - FATAL [main:QuorumPeerMain@87] - Unexpected exception, exiting abnormally 
+java.lang.RuntimeException: Unable to run quorum server 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:401) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.runFromConfig(QuorumPeerMain.java:143) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:103) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76) 
+Caused by: java.io.IOException: Unreasonable length = 1048583 
+at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100) 
+at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:529) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.&amp;lt;init&amp;gt;(FileTxnLog.java:504) 
+at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:341) 
+at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:131) 
+at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222) 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398) 
+... 3 more
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice the size is 0x100007 - 7 bytes beyond.&lt;/p&gt;
+
+&lt;p&gt;The SetDataTxn contains the client data + a couple extra fields. On ingest the server is applying the jute.maxbuffer size to the data (expected) but not handling the fact that the data plus these extra fields may exceed the jute.maxbuffer check when reading from disk.&lt;/p&gt;
+
+&lt;p&gt;Workaround was simple here: set the jute.maxbuffer size a bit higher (and fix the mis-behaving client, expectation was not that the data would grow this large).&lt;/p&gt;</description>
+                <environment></environment>
+        <key id="12599557">ZOOKEEPER-1513</key>
+            <summary>&quot;Unreasonable length&quot; exception while starting a server.</summary>
+                <type id="1" iconUrl="https://issues.apache.org/jira/secure/viewavatar?size=xsmall&amp;avatarId=21133&amp;avatarType=issuetype">Bug</type>
+                                            <priority id="3" iconUrl="https://issues.apache.org/jira/images/icons/priorities/major.svg">Major</priority>
+                        <status id="6" iconUrl="https://issues.apache.org/jira/images/icons/statuses/closed.png" description="The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.">Closed</status>
+                    <statusCategory id="3" key="done" colorName="green"/>
+                                    <resolution id="1">Fixed</resolution>
+                                        <assignee username="skye">Skye Wanderman-Milne</assignee>
+                                    <reporter username="phunt">Patrick D. Hunt</reporter>
+                        <labels>
+                    </labels>
+                <created>Fri, 20 Jul 2012 00:38:33 +0000</created>
+                <updated>Thu, 13 Mar 2014 18:16:53 +0000</updated>
+                            <resolved>Wed, 12 Dec 2012 06:52:29 +0000</resolved>
+                                    <version>3.3.4</version>
+                                    <fixVersion>3.4.6</fixVersion>
+                    <fixVersion>3.5.0</fixVersion>
+                                    <component>server</component>
+                        <due></due>
+                            <votes>0</votes>
+                                    <watches>10</watches>
+                                                                                                                <comments>
+                            <comment id="13444686" author="mahadev" created="Thu, 30 Aug 2012 05:18:46 +0000"  >&lt;p&gt;Moving it out since a workaround exists. If someone wants to provide a patch for a 3.4 branch, it would be great.&lt;/p&gt;</comment>
+                            <comment id="13474627" author="skye" created="Thu, 11 Oct 2012 23:37:37 +0000"  >&lt;p&gt;see review board: &lt;a href=&quot;https://reviews.apache.org/r/7557/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://reviews.apache.org/r/7557/&lt;/a&gt;&lt;/p&gt;</comment>
+                            <comment id="13474660" author="hadoopqa" created="Fri, 12 Oct 2012 00:13:00 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12548824/ZOOKEEPER-1513.patch&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12548824/ZOOKEEPER-1513.patch&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    -1 tests included.  The patch doesn&apos;t appear to include any new or modified tests.&lt;br/&gt;
+                        Please justify why no new tests are needed for this patch.&lt;br/&gt;
+                        Also please list what manual steps were performed to verify this patch.&lt;/p&gt;
+
+&lt;p&gt;    +1 javadoc.  The javadoc tool did not generate any warning messages.&lt;/p&gt;
+
+&lt;p&gt;    +1 javac.  The applied patch does not increase the total number of javac compiler warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 findbugs.  The patch does not introduce any new Findbugs (version 1.3.9) warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 release audit.  The applied patch does not increase the total number of release audit warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 core tests.  The patch passed core unit tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 contrib tests.  The patch passed contrib unit tests.&lt;/p&gt;
+
+&lt;p&gt;Test results: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//testReport/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//testReport/&lt;/a&gt;&lt;br/&gt;
+Findbugs warnings: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&lt;/a&gt;&lt;br/&gt;
+Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13478037" author="skye" created="Wed, 17 Oct 2012 17:07:00 +0000"  >&lt;p&gt;simpler patch (includes suggestions from &lt;a href=&quot;https://reviews.apache.org/r/7603/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://reviews.apache.org/r/7603/&lt;/a&gt;)&lt;/p&gt;</comment>
+                            <comment id="13478046" author="hadoopqa" created="Wed, 17 Oct 2012 17:13:59 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12549534/ZOOKEEPER-1513_2012.10.17.patch&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12549534/ZOOKEEPER-1513_2012.10.17.patch&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    +1 tests included.  The patch appears to include 21 new or modified tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 javadoc.  The javadoc tool did not generate any warning messages.&lt;/p&gt;
+
+&lt;p&gt;    +1 javac.  The applied patch does not increase the total number of javac compiler warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 findbugs.  The patch does not introduce any new Findbugs (version 1.3.9) warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 release audit.  The applied patch does not increase the total number of release audit warnings.&lt;/p&gt;
+
+&lt;p&gt;    -1 core tests.  The patch failed core unit tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 contrib tests.  The patch passed contrib unit tests.&lt;/p&gt;
+
+&lt;p&gt;Test results: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//testReport/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//testReport/&lt;/a&gt;&lt;br/&gt;
+Findbugs warnings: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&lt;/a&gt;&lt;br/&gt;
+Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13478471" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"  >&lt;p&gt;The core tests fail because I created new binary files (log and snapshot files), which cannot be added with a patch. The files are in the .tar.gz. I also updated an incorrect comment in the patch and refreshed the binary files listed in the patch, thus the new patch file.&lt;/p&gt;</comment>
+                            <comment id="13478475" author="hadoopqa" created="Wed, 17 Oct 2012 22:52:23 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12549598/ZOOKEEPER-1513_2012.10.17_take2.tar.gz&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12549598/ZOOKEEPER-1513_2012.10.17_take2.tar.gz&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    -1 tests included.  The patch doesn&apos;t appear to include any new or modified tests.&lt;br/&gt;
+                        Please justify why no new tests are needed for this patch.&lt;br/&gt;
+                        Also please list what manual steps were performed to verify this patch.&lt;/p&gt;
+
+&lt;p&gt;    -1 patch.  The patch command could not apply the patch.&lt;/p&gt;
+
+&lt;p&gt;Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1237//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1237//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13529675" author="phunt" created="Wed, 12 Dec 2012 06:52:29 +0000"  >&lt;p&gt;Committed to 3.4.6 and trunk. Thanks Skye!&lt;/p&gt;</comment>
+                            <comment id="13529834" author="hudson" created="Wed, 12 Dec 2012 11:05:17 +0000"  >&lt;p&gt;Integrated in ZooKeeper-trunk #1770 (See &lt;a href=&quot;https://builds.apache.org/job/ZooKeeper-trunk/1770/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/ZooKeeper-trunk/1770/&lt;/a&gt;)&lt;br/&gt;
+    &lt;a href=&quot;https://issues.apache.org/jira/browse/ZOOKEEPER-1513&quot; title=&quot;&amp;quot;Unreasonable length&amp;quot; exception while starting a server.&quot; class=&quot;issue-link&quot; data-issue-key=&quot;ZOOKEEPER-1513&quot;&gt;&lt;del&gt;ZOOKEEPER-1513&lt;/del&gt;&lt;/a&gt;. &quot;Unreasonable length&quot; exception while starting a server (Skye W-M via phunt) (Revision 1420538)&lt;/p&gt;
+
+&lt;p&gt;     Result = SUCCESS&lt;br/&gt;
+phunt : &lt;a href=&quot;http://svn.apache.org/viewcvs.cgi/?root=Apache-SVN&amp;amp;view=rev&amp;amp;rev=1420538&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;http://svn.apache.org/viewcvs.cgi/?root=Apache-SVN&amp;amp;view=rev&amp;amp;rev=1420538&lt;/a&gt;&lt;br/&gt;
+Files : &lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;/zookeeper/trunk/CHANGES.txt&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/build.xml&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/main/org/apache/jute/BinaryInputArchive.java&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/snapshot.2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/org/apache/zookeeper/test/BufferSizeTest.java&lt;/li&gt;
+&lt;/ul&gt;
+</comment>
+                            <comment id="13933692" author="fpj" created="Thu, 13 Mar 2014 18:16:53 +0000"  >&lt;p&gt;Closing issues after releasing 3.4.6.&lt;/p&gt;</comment>
+                    </comments>
+                    <attachments>
+                            <attachment id="12548824" name="ZOOKEEPER-1513.patch" size="11147" author="skye" created="Thu, 11 Oct 2012 23:37:37 +0000"/>
+                            <attachment id="12549534" name="ZOOKEEPER-1513_2012.10.17.patch" size="9824" author="skye" created="Wed, 17 Oct 2012 17:07:00 +0000"/>
+                            <attachment id="12549597" name="ZOOKEEPER-1513_2012.10.17_take2.patch" size="9843" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"/>
+                            <attachment id="12549598" name="ZOOKEEPER-1513_2012.10.17_take2.tar.gz" size="1545" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"/>
+                    </attachments>
+                <subtasks>
+                    </subtasks>
+                <customfields>
+                                                                            <customfield id="customfield_12310310" key="com.atlassian.jira.toolkit:attachments">
+                        <customfieldname>Attachment count</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>4.0</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <customfield id="customfield_12314020" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+                        <customfieldname>Development</customfieldname>
+                        <customfieldvalues>
+                            
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                        <customfield id="customfield_12313422" key="com.atlassian.jirafisheyeplugin:jobcheckbox">
+                        <customfieldname>Enable Automatic Patch Review</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue><![CDATA[false]]></customfieldvalue>
+
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <customfield id="customfield_12310420" key="com.pyxis.greenhopper.jira:gh-global-rank">
+                        <customfieldname>Global Rank</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>242193</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                <customfield id="customfield_12310191" key="com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes">
+                        <customfieldname>Hadoop Flags</customfieldname>
+                        <customfieldvalues>
+                                <customfieldvalue key="10343"><![CDATA[Reviewed]]></customfieldvalue>
+    
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                        <customfield id="customfield_12312521" key="com.atlassian.jira.toolkit:LastCommentDate">
+                        <customfieldname>Last public comment date</customfieldname>
+                        <customfieldvalues>
+                            12 years, 28 weeks, 1 day ago
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                <customfield id="customfield_12311820" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+                        <customfieldname>Rank</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>0|i02jdj:</customfieldvalue>
+
+                        </customfieldvalues>
+                    </customfield>
+                                                                <customfield id="customfield_12310920" key="com.pyxis.greenhopper.jira:gh-global-rank">
+                        <customfieldname>Rank (Obsolete)</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>12740</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </customfields>
+    </item>
+# Environment notes
+
+## Distribution provenance
+
+`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
+release archive downloaded from:
+
+`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
+
+Its published SHA-1 is stored alongside it in
+`dist/zookeeper-3.3.4.tar.gz.sha1`:
+
+`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
+
+Verify it with:
+
+```sh
+(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
+```
+
+The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
+`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
+`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
+bundle version is 3.3.4, and the release archive's changelog identifies the
+release as 3.3.4. Do not replace the verified release archive to alter the
+banner.
+
+## Build and mounts
+
+The image contains the full Temurin JDK 8 and runs as a non-root user. The
+defaults match the Harness host used to prepare this directory. On another
+host, export its account IDs for both build and run:
+
+```sh
+export ZK_UID="$(id -u)"
+export ZK_GID="$(id -g)"
+docker compose -f compose.yml build
+```
+
+Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
+`data/` and `logs/` are writable by the non-root service account. `result/` is
+mounted read-only; result capture is a host-side Harness responsibility. The
+entrypoint fixes the process umask at `022`, so container-created regular files
+are host-readable and directories are host-traversable.
+
+Each later attempt must use new, never-reused directories by setting
+`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
+captured an attempt, remove write permission from that attempt's log/result
+files and their containing attempt directories. Never start a container with a
+protected attempt directory as its writable log or data path.
+
+`logs/environment-smoke/` is the protected output of the environment-only
+startup check. It is not an experiment attempt and must not be reused.
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * The explicit boundary operation that creates the problematic transaction.
+ *
+ * <p>Do not replace this with a prebuilt transaction log. ZOOKEEPER-1513 is
+ * reproduced only when ZooKeeper itself accepts an ordinary client write and
+ * persists the transaction that it later cannot replay.</p>
+ */
+public final class FaultInjection {
+    public static final String DEFAULT_ZNODE = "/zookeeper-1513";
+    public static final int EXPECTED_TRANSACTION_SIZE = 1_048_583;
+
+    // ZooKeeper 3.3.4's binary transaction consists of a 32-byte TxnHeader,
+    // then the SetDataTxn path (4-byte length + UTF-8 bytes), data (4-byte
+    // length + bytes), and version (4 bytes).
+    private static final int TXN_HEADER_SIZE = 32;
+    private static final int SET_DATA_FIXED_SIZE = 12;
+
+    private FaultInjection() {
+    }
+
+    /**
+     * Build deterministic data whose persisted transaction is exactly the
+     * 1,048,583-byte record reported by ZOOKEEPER-1513. The data itself stays
+     * below 3.3.4's 0xfffff readBuffer limit, so the live request is accepted.
+     */
+    public static byte[] deterministicPayload(String path) {
+        byte[] payload = new byte[expectedPayloadSize(path)];
+        for (int i = 0; i < payload.length; i++) {
+            payload[i] = (byte) ((i * 31 + 17) & 0xff);
+        }
+        return payload;
+    }
+
+    public static int expectedPayloadSize(String path) {
+        int pathBytes = path.getBytes(StandardCharsets.UTF_8).length;
+        int payloadSize = EXPECTED_TRANSACTION_SIZE - TXN_HEADER_SIZE
+                - SET_DATA_FIXED_SIZE - pathBytes;
+        if (payloadSize < 0) {
+            throw new IllegalArgumentException("znode path is too long: " + path);
+        }
+        return payloadSize;
+    }
+
+    /**
+     * Submit the boundary-sized setData request and return only after the
+     * server acknowledges it.
+     */
+    public static Stat inject(ZooKeeper client, String path, byte[] payload)
+            throws Exception {
+        int expectedSize = expectedPayloadSize(path);
+        if (payload.length != expectedSize) {
+            throw new IllegalArgumentException(
+                    "Fault payload must be exactly " + expectedSize
+                            + " bytes, but was " + payload.length);
+        }
+        return client.setData(path, payload, -1);
+    }
+
+    public static String sha256(byte[] payload) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(payload);
+            StringBuilder value = new StringBuilder(hash.length * 2);
+            for (byte octet : hash) {
+                value.append(String.format("%02x", octet & 0xff));
+            }
+            return value.toString();
+        } catch (NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException("SHA-256 is unavailable", impossible);
+        }
+    }
+}
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/** Evaluates the explicit ZOOKEEPER-1513 result oracle. */
+public final class Verify {
+    private static final String EXPECTED_LENGTH =
+            "Unreasonable length = 1048583";
+    private static final String[] REPLAY_FRAMES = {
+        "BinaryInputArchive.readBuffer",
+        "Util.readTxnBytes",
+        "FileTxnLog",
+        "ZKDatabase.loadDataBase"
+    };
+
+    private Verify() {
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            usage();
+            System.exit(2);
+        }
+
+        try {
+            int restartExitCode = Integer.parseInt(args[2]);
+            boolean reproduced = verify(Paths.get(args[0]), Paths.get(args[1]),
+                    restartExitCode);
+            System.exit(reproduced ? 0 : 1);
+        } catch (Exception failure) {
+            System.err.println("Verification error: " + failure);
+            System.exit(2);
+        }
+    }
+
+    static boolean verify(Path writeEvidence, Path restartOutput,
+            int restartExitCode) throws IOException {
+        Map<String, String> evidence = readSimpleProperties(writeEvidence);
+        String output = new String(Files.readAllBytes(restartOutput),
+                StandardCharsets.UTF_8);
+
+        String path = evidence.get("write.path");
+        boolean pathPresent = path != null;
+        byte[] expectedPayload = pathPresent
+                ? FaultInjection.deterministicPayload(path) : new byte[0];
+        boolean writeAcknowledged = "true".equals(
+                evidence.get("write.acknowledged"));
+        boolean payloadSizeMatches = pathPresent
+                && Integer.toString(expectedPayload.length)
+                .equals(evidence.get("write.payload.bytes"));
+        boolean payloadDigestMatches = pathPresent
+                && FaultInjection.sha256(expectedPayload)
+                .equals(evidence.get("write.payload.sha256"));
+        boolean transactionSizeMatches = Integer.toString(
+                FaultInjection.EXPECTED_TRANSACTION_SIZE)
+                .equals(evidence.get("write.transaction.bytes"));
+        boolean restartFailed = restartExitCode != 0;
+        boolean exactLengthSeen = output.contains(EXPECTED_LENGTH);
+        boolean replayPathSeen = true;
+        for (String frame : REPLAY_FRAMES) {
+            replayPathSeen &= output.contains(frame);
+        }
+
+        boolean reproduced = writeAcknowledged && payloadSizeMatches
+                && payloadDigestMatches && transactionSizeMatches
+                && restartFailed && exactLengthSeen && replayPathSeen;
+
+        System.out.println("write.acknowledged=" + writeAcknowledged);
+        System.out.println("write.payload.size.matches=" + payloadSizeMatches);
+        System.out.println("write.payload.digest.matches=" + payloadDigestMatches);
+        System.out.println("write.transaction.size.matches="
+                + transactionSizeMatches);
+        System.out.println("restart.failed=" + restartFailed);
+        System.out.println("restart.exact.length.seen=" + exactLengthSeen);
+        System.out.println("restart.replay.path.seen=" + replayPathSeen);
+        System.out.println("reproduced=" + reproduced);
+        return reproduced;
+    }
+
+    private static Map<String, String> readSimpleProperties(Path file)
+            throws IOException {
+        Map<String, String> values = new LinkedHashMap<String, String>();
+        BufferedReader reader = Files.newBufferedReader(file,
+                StandardCharsets.UTF_8);
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isEmpty() || line.startsWith("#")) {
+                    continue;
+                }
+                int separator = line.indexOf('=');
+                if (separator <= 0) {
+                    throw new IOException("Malformed evidence line: " + line);
+                }
+                values.put(line.substring(0, separator),
+                        line.substring(separator + 1));
+            }
+        } finally {
+            reader.close();
+        }
+        return values;
+    }
+
+    private static void usage() {
+        System.err.println("Usage: java -cp zookeeper-1513-reproducer.jar Verify "
+                + "<write-evidence.properties> <restart-output.log> "
+                + "<restart-exit-code>");
+    }
+}
+===== result/harness/codex-implementation-20260916-015310-986-59251618.stdout.log =====
+Implemented the Maven reproduction project:
+
+- [pom.xml](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/pom.xml) builds a Java 8 shaded jar with ZooKeeper 3.3.4.
+- [FaultInjection.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/FaultInjection.java:15) explicitly constructs and submits the deterministic boundary payload.
+- [Reproduce.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/Reproduce.java:26) creates the znode, performs the acknowledged write, and creates evidence without overwriting existing files.
+- [Verify.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/Verify.java:11) checks write evidence, restart failure, exact length, and replay stack frames.
+
+Validation completed:
+
+- `mvn -B -ntp clean package`: **BUILD SUCCESS**
+- Produced `target/zookeeper-1513-reproducer.jar`
+- Confirmed Java 8 execution.
+- Confirmed with ZooKeeper’s serializer that the default-path payload is 1,048,524 bytes and produces exactly the reported 1,048,583-byte transaction. This corrects README’s impossible 1 MiB assumption: 3.3.4 rejects a 1,048,576-byte payload because its actual default cap is 1,048,575.
+- No experiment attempts were run.
+- `logs/`, `result/`, and `status.properties` were not modified.
+===== result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stdout.log =====
+Experiment `attempt-001` completed successfully.
+
+- Workload exit: `0`
+- Restart exit: `1`
+- Observed `Unreasonable length = 1048583` during transaction replay
+- `Verify` exit: `0`, with `reproduced=true`
+- Result: [attempt-001.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/attempt-001.properties)
+- Evidence: [logs/zk1](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1)
+- All five required evidence categories were populated.
+- All attempt files are host-readable and directories host-traversable.
+- Attempt artifacts were made read-only.
+- No `attempt-002` artifacts were created.
+
+codex
+The preserved evidence matches the Jira failure exactly: the acknowledged deterministic write produced a 1,048,583-byte transaction, and the same data directory then exited with code 1 during replay with the expected exception and stack frames. I’ll record an overall `SUCCESS`, while explicitly noting that only one of the configured maximum three attempts was completed, so multi-run repeatability was not evaluated.
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/summary.md
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..332d7816f37ab793d376dbacb8e52c526fbe2c42
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,51 @@
++# ZOOKEEPER-1513 reproduction summary
++
++## Overall conclusion
++
++**SUCCESS** — the one completed experiment reproduced ZOOKEEPER-1513 with the
++exact failure signature reported in `1513.xml`. An ordinary client write was
++acknowledged and persisted, but the same ZooKeeper server then failed while
++replaying that transaction after a clean stop and restart.
++
++## Completed attempts
++
++| Attempt | Result | Workload | Restart | Verification | Observation |
++| --- | --- | ---: | ---: | ---: | --- |
++| `attempt-001` | **SUCCESS** | exit 0 | exit 1 | exit 0 | `reproduced=true`; restart failed with `Unreasonable length = 1048583` in transaction-log replay |
++
++No `attempt-002` or `attempt-003` result file exists, so there are no other
++completed attempts to summarize. Although `repro.properties` permits three
++attempts, repeatability across three independent runs was not evaluated.
++
++## Key observations
++
++- ZooKeeper acknowledged `setData` on `/zookeeper-1513` with a deterministic
++  1,048,524-byte payload (`workload_exit=0`, version 1, `mzxid=3`). The
++  persisted serialized transaction was exactly 1,048,583 bytes.
++- The server remained responsive after the write (`post_write_readiness=imok`)
++  and was then stopped cleanly.
++- Restarting against the preserved data exited with status 1. The container
++  was not OOM-killed.
++- Startup failed while restoring the database with
++  `java.io.IOException: Unreasonable length = 1048583`. The preserved stack
++  includes `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`, `FileTxnLog`,
++  and `ZKDatabase.loadDataBase`, matching the Jira replay path.
++- The verifier confirmed the acknowledged write, deterministic payload size
++  and digest, serialized transaction size, failed restart, exact exception,
++  and replay stack; it exited 0 with `reproduced=true`.
++- The payload is slightly below 1 MiB because ZooKeeper 3.3.4's live buffer
++  limit applies to the client buffer, while transaction metadata and the znode
++  path bring the serialized transaction to the Jira-reported 1,048,583-byte
++  boundary.
++
++## Preserved evidence
++
++- Attempt result: `result/attempt-001.properties`
++- Write evidence: `logs/zk1/app_logs/attempt-001/write-evidence.properties`
++- Workload output: `logs/zk1/app_logs/attempt-001/reproduce.stdout.log`
++- Restart output: `logs/zk1/app_logs/attempt-001/restart-container.log`
++- Restart state: `logs/zk1/os_logs/attempt-001/restart-container-state.txt`
++- Verification output: `logs/zk1/app_logs/attempt-001/verify.stdout.log`
++- Preserved transaction log and snapshot:
++  `logs/zk1/txn_logs/attempt-001/` and
++  `logs/zk1/snapshot_data/attempt-001/`
+
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..332d7816f37ab793d376dbacb8e52c526fbe2c42
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,51 @@
++# ZOOKEEPER-1513 reproduction summary
++
++## Overall conclusion
++
++**SUCCESS** — the one completed experiment reproduced ZOOKEEPER-1513 with the
++exact failure signature reported in `1513.xml`. An ordinary client write was
++acknowledged and persisted, but the same ZooKeeper server then failed while
++replaying that transaction after a clean stop and restart.
++
++## Completed attempts
++
++| Attempt | Result | Workload | Restart | Verification | Observation |
++| --- | --- | ---: | ---: | ---: | --- |
++| `attempt-001` | **SUCCESS** | exit 0 | exit 1 | exit 0 | `reproduced=true`; restart failed with `Unreasonable length = 1048583` in transaction-log replay |
++
++No `attempt-002` or `attempt-003` result file exists, so there are no other
++completed attempts to summarize. Although `repro.properties` permits three
++attempts, repeatability across three independent runs was not evaluated.
++
++## Key observations
++
++- ZooKeeper acknowledged `setData` on `/zookeeper-1513` with a deterministic
++  1,048,524-byte payload (`workload_exit=0`, version 1, `mzxid=3`). The
++  persisted serialized transaction was exactly 1,048,583 bytes.
++- The server remained responsive after the write (`post_write_readiness=imok`)
++  and was then stopped cleanly.
++- Restarting against the preserved data exited with status 1. The container
++  was not OOM-killed.
++- Startup failed while restoring the database with
++  `java.io.IOException: Unreasonable length = 1048583`. The preserved stack
++  includes `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`, `FileTxnLog`,
++  and `ZKDatabase.loadDataBase`, matching the Jira replay path.
++- The verifier confirmed the acknowledged write, deterministic payload size
++  and digest, serialized transaction size, failed restart, exact exception,
++  and replay stack; it exited 0 with `reproduced=true`.
++- The payload is slightly below 1 MiB because ZooKeeper 3.3.4's live buffer
++  limit applies to the client buffer, while transaction metadata and the znode
++  path bring the serialized transaction to the Jira-reported 1,048,583-byte
++  boundary.
++
++## Preserved evidence
++
++- Attempt result: `result/attempt-001.properties`
++- Write evidence: `logs/zk1/app_logs/attempt-001/write-evidence.properties`
++- Workload output: `logs/zk1/app_logs/attempt-001/reproduce.stdout.log`
++- Restart output: `logs/zk1/app_logs/attempt-001/restart-container.log`
++- Restart state: `logs/zk1/os_logs/attempt-001/restart-container-state.txt`
++- Verification output: `logs/zk1/app_logs/attempt-001/verify.stdout.log`
++- Preserved transaction log and snapshot:
++  `logs/zk1/txn_logs/attempt-001/` and
++  `logs/zk1/snapshot_data/attempt-001/`
+
+exec
+/bin/bash -lc 'test -f result/summary.md && test -r result/summary.md
+summary_check=$?
+printf '"'summary_check_exit=%s\\n' \""'$summary_check"
+stat -c '"'mode=%a owner=%U group=%G size=%s path=%n' result/summary.md
+sed -n '1,260p' result/summary.md
+printf 'completed_attempt_files=%s\\n' \""'$(find result -maxdepth 1 -type f -name '"'attempt-[0-9][0-9][0-9].properties' | wc -l)\"
+find result -maxdepth 1 -type f -name 'attempt-[0-9][0-9][0-9].properties' -printf '%f\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+summary_check_exit=0
+mode=664 owner=shkim group=docker size=2602 path=result/summary.md
+# ZOOKEEPER-1513 reproduction summary
+
+## Overall conclusion
+
+**SUCCESS** — the one completed experiment reproduced ZOOKEEPER-1513 with the
+exact failure signature reported in `1513.xml`. An ordinary client write was
+acknowledged and persisted, but the same ZooKeeper server then failed while
+replaying that transaction after a clean stop and restart.
+
+## Completed attempts
+
+| Attempt | Result | Workload | Restart | Verification | Observation |
+| --- | --- | ---: | ---: | ---: | --- |
+| `attempt-001` | **SUCCESS** | exit 0 | exit 1 | exit 0 | `reproduced=true`; restart failed with `Unreasonable length = 1048583` in transaction-log replay |
+
+No `attempt-002` or `attempt-003` result file exists, so there are no other
+completed attempts to summarize. Although `repro.properties` permits three
+attempts, repeatability across three independent runs was not evaluated.
+
+## Key observations
+
+- ZooKeeper acknowledged `setData` on `/zookeeper-1513` with a deterministic
+  1,048,524-byte payload (`workload_exit=0`, version 1, `mzxid=3`). The
+  persisted serialized transaction was exactly 1,048,583 bytes.
+- The server remained responsive after the write (`post_write_readiness=imok`)
+  and was then stopped cleanly.
+- Restarting against the preserved data exited with status 1. The container
+  was not OOM-killed.
+- Startup failed while restoring the database with
+  `java.io.IOException: Unreasonable length = 1048583`. The preserved stack
+  includes `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`, `FileTxnLog`,
+  and `ZKDatabase.loadDataBase`, matching the Jira replay path.
+- The verifier confirmed the acknowledged write, deterministic payload size
+  and digest, serialized transaction size, failed restart, exact exception,
+  and replay stack; it exited 0 with `reproduced=true`.
+- The payload is slightly below 1 MiB because ZooKeeper 3.3.4's live buffer
+  limit applies to the client buffer, while transaction metadata and the znode
+  path bring the serialized transaction to the Jira-reported 1,048,583-byte
+  boundary.
+
+## Preserved evidence
+
+- Attempt result: `result/attempt-001.properties`
+- Write evidence: `logs/zk1/app_logs/attempt-001/write-evidence.properties`
+- Workload output: `logs/zk1/app_logs/attempt-001/reproduce.stdout.log`
+- Restart output: `logs/zk1/app_logs/attempt-001/restart-container.log`
+- Restart state: `logs/zk1/os_logs/attempt-001/restart-container-state.txt`
+- Verification output: `logs/zk1/app_logs/attempt-001/verify.stdout.log`
+- Preserved transaction log and snapshot:
+  `logs/zk1/txn_logs/attempt-001/` and
+  `logs/zk1/snapshot_data/attempt-001/`
+completed_attempt_files=1
+attempt-001.properties
+
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..332d7816f37ab793d376dbacb8e52c526fbe2c42
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,51 @@
++# ZOOKEEPER-1513 reproduction summary
++
++## Overall conclusion
++
++**SUCCESS** — the one completed experiment reproduced ZOOKEEPER-1513 with the
++exact failure signature reported in `1513.xml`. An ordinary client write was
++acknowledged and persisted, but the same ZooKeeper server then failed while
++replaying that transaction after a clean stop and restart.
++
++## Completed attempts
++
++| Attempt | Result | Workload | Restart | Verification | Observation |
++| --- | --- | ---: | ---: | ---: | --- |
++| `attempt-001` | **SUCCESS** | exit 0 | exit 1 | exit 0 | `reproduced=true`; restart failed with `Unreasonable length = 1048583` in transaction-log replay |
++
++No `attempt-002` or `attempt-003` result file exists, so there are no other
++completed attempts to summarize. Although `repro.properties` permits three
++attempts, repeatability across three independent runs was not evaluated.
++
++## Key observations
++
++- ZooKeeper acknowledged `setData` on `/zookeeper-1513` with a deterministic
++  1,048,524-byte payload (`workload_exit=0`, version 1, `mzxid=3`). The
++  persisted serialized transaction was exactly 1,048,583 bytes.
++- The server remained responsive after the write (`post_write_readiness=imok`)
++  and was then stopped cleanly.
++- Restarting against the preserved data exited with status 1. The container
++  was not OOM-killed.
++- Startup failed while restoring the database with
++  `java.io.IOException: Unreasonable length = 1048583`. The preserved stack
++  includes `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`, `FileTxnLog`,
++  and `ZKDatabase.loadDataBase`, matching the Jira replay path.
++- The verifier confirmed the acknowledged write, deterministic payload size
++  and digest, serialized transaction size, failed restart, exact exception,
++  and replay stack; it exited 0 with `reproduced=true`.
++- The payload is slightly below 1 MiB because ZooKeeper 3.3.4's live buffer
++  limit applies to the client buffer, while transaction metadata and the znode
++  path bring the serialized transaction to the Jira-reported 1,048,583-byte
++  boundary.
++
++## Preserved evidence
++
++- Attempt result: `result/attempt-001.properties`
++- Write evidence: `logs/zk1/app_logs/attempt-001/write-evidence.properties`
++- Workload output: `logs/zk1/app_logs/attempt-001/reproduce.stdout.log`
++- Restart output: `logs/zk1/app_logs/attempt-001/restart-container.log`
++- Restart state: `logs/zk1/os_logs/attempt-001/restart-container-state.txt`
++- Verification output: `logs/zk1/app_logs/attempt-001/verify.stdout.log`
++- Preserved transaction log and snapshot:
++  `logs/zk1/txn_logs/attempt-001/` and
++  `logs/zk1/snapshot_data/attempt-001/`
+
+codex
+Created [result/summary.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/summary.md).
+
+Overall conclusion: **SUCCESS**. `attempt-001` reproduced the exact `Unreasonable length = 1048583` replay failure. The summary notes that only one of three configured attempts was completed, so multi-run repeatability was not evaluated.
+
+No experiments were run, and existing logs and attempt results were not altered.
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..332d7816f37ab793d376dbacb8e52c526fbe2c42
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,51 @@
++# ZOOKEEPER-1513 reproduction summary
++
++## Overall conclusion
++
++**SUCCESS** — the one completed experiment reproduced ZOOKEEPER-1513 with the
++exact failure signature reported in `1513.xml`. An ordinary client write was
++acknowledged and persisted, but the same ZooKeeper server then failed while
++replaying that transaction after a clean stop and restart.
++
++## Completed attempts
++
++| Attempt | Result | Workload | Restart | Verification | Observation |
++| --- | --- | ---: | ---: | ---: | --- |
++| `attempt-001` | **SUCCESS** | exit 0 | exit 1 | exit 0 | `reproduced=true`; restart failed with `Unreasonable length = 1048583` in transaction-log replay |
++
++No `attempt-002` or `attempt-003` result file exists, so there are no other
++completed attempts to summarize. Although `repro.properties` permits three
++attempts, repeatability across three independent runs was not evaluated.
++
++## Key observations
++
++- ZooKeeper acknowledged `setData` on `/zookeeper-1513` with a deterministic
++  1,048,524-byte payload (`workload_exit=0`, version 1, `mzxid=3`). The
++  persisted serialized transaction was exactly 1,048,583 bytes.
++- The server remained responsive after the write (`post_write_readiness=imok`)
++  and was then stopped cleanly.
++- Restarting against the preserved data exited with status 1. The container
++  was not OOM-killed.
++- Startup failed while restoring the database with
++  `java.io.IOException: Unreasonable length = 1048583`. The preserved stack
++  includes `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`, `FileTxnLog`,
++  and `ZKDatabase.loadDataBase`, matching the Jira replay path.
++- The verifier confirmed the acknowledged write, deterministic payload size
++  and digest, serialized transaction size, failed restart, exact exception,
++  and replay stack; it exited 0 with `reproduced=true`.
++- The payload is slightly below 1 MiB because ZooKeeper 3.3.4's live buffer
++  limit applies to the client buffer, while transaction metadata and the znode
++  path bring the serialized transaction to the Jira-reported 1,048,583-byte
++  boundary.
++
++## Preserved evidence
++
++- Attempt result: `result/attempt-001.properties`
++- Write evidence: `logs/zk1/app_logs/attempt-001/write-evidence.properties`
++- Workload output: `logs/zk1/app_logs/attempt-001/reproduce.stdout.log`
++- Restart output: `logs/zk1/app_logs/attempt-001/restart-container.log`
++- Restart state: `logs/zk1/os_logs/attempt-001/restart-container-state.txt`
++- Verification output: `logs/zk1/app_logs/attempt-001/verify.stdout.log`
++- Preserved transaction log and snapshot:
++  `logs/zk1/txn_logs/attempt-001/` and
++  `logs/zk1/snapshot_data/attempt-001/`
+
+tokens used
+32,526

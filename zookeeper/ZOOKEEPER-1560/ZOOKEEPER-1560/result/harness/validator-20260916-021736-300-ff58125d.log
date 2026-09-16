@@ -1,0 +1,48 @@
+name: zookeeper-1560
+services:
+  zookeeper:
+    build:
+      context: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+      dockerfile: Dockerfile
+    cpus: 1
+    environment:
+      JMXDISABLE: "true"
+      SERVER_JVMFLAGS: -Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp
+      ZOO_LOG_DIR: /logs
+      ZOO_LOG4J_PROP: INFO,CONSOLE,ROLLINGFILE
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - /opt/zookeeper/bin/zkServer.sh status /opt/zookeeper/conf/zoo.cfg >/dev/null
+          2>&1
+      timeout: 5s
+      interval: 2s
+      retries: 15
+      start_period: 5s
+    image: zookeeper-1560:3.4.4-jdk6
+    init: true
+    mem_limit: "1073741824"
+    networks:
+      default: null
+    platform: linux/amd64
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 2181
+        published: "2181"
+        protocol: tcp
+    stop_grace_period: 10s
+    user: 1000:1000
+    volumes:
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/data
+        target: /data
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs
+        target: /logs
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result
+        target: /result
+networks:
+  default:
+    name: zookeeper-1560_default

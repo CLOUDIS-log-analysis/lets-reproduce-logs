@@ -1,0 +1,4 @@
+running=true status=running exit=0 oomKilled=false restartCount=0
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result -> /result rw=false
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data/attempt-001 -> /var/lib/zookeeper rw=true
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1/app_logs/attempt-001 -> /var/log/zookeeper rw=true

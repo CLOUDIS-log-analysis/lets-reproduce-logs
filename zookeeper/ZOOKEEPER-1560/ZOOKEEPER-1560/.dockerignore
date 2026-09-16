@@ -1,0 +1,11 @@
+*
+!.dockerignore
+!Dockerfile
+!config/
+!config/**
+!scripts/
+!scripts/docker-entrypoint.sh
+!dist/
+!dist/SHA256SUMS
+!dist/zookeeper-3.4.4.tar.gz
+!dist/zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz

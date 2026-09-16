@@ -1,0 +1,33 @@
+services:
+  zookeeper:
+    build:
+      context: .
+      args:
+        ZK_UID: "${ZK_UID:-1000}"
+        ZK_GID: "${ZK_GID:-988}"
+    image: zookeeper-1513:3.3.4-jdk8
+    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
+    read_only: true
+    init: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
+    volumes:
+      - type: bind
+        source: ${ZK_DATA_DIR:-./data}
+        target: /var/lib/zookeeper
+      - type: bind
+        source: ${ZK_LOG_DIR:-./logs}
+        target: /var/log/zookeeper
+      - type: bind
+        source: ${ZK_RESULT_DIR:-./result}
+        target: /result
+        read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
+    stop_grace_period: 20s
+    cpus: 2.0
+    mem_limit: 2g

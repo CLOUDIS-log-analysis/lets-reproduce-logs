@@ -1,0 +1,415 @@
+2011-05-18 22:42:21,690 2334 [pool-1-thread-2] INFO org.apache.zookeeper.server.NIOServerCnxn  - binding to port 0.0.0.0/0.0.0.0:2888
+
+>>>> Starting QuorumPeer #1 <<<<
+
+2011-05-18 22:42:21,894 2538 [pool-1-thread-2] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - tickTime set to 3000
+2011-05-18 22:42:21,894 2538 [pool-1-thread-2] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - initLimit set to 5
+2011-05-18 22:42:22,029 2673 [pool-1-thread-2] INFO org.apache.zookeeper.server.persistence.FileSnap  - Reading snapshot /var/cloudnet/data/zookeeper/version-2/snapshot.6000002e5
+2011-05-18 22:42:23,214 3858 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input stream /var/cloudnet/data/zookeeper/version-2/log.400000001
+2011-05-18 22:42:23,214 3858 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input archive /var/cloudnet/data/zookeeper/version-2/log.400000001
+2011-05-18 22:42:23,624 4268 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - EOF excepton java.io.EOFException: Failed to read
+2011-05-18 22:42:23,624 4268 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input stream /var/cloudnet/data/zookeeper/version-2/log.6000002e6
+2011-05-18 22:42:23,625 4269 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input archive /var/cloudnet/data/zookeeper/version-2/log.6000002e6
+2011-05-18 22:42:24,646 5290 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,646 5290 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,646 5290 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,646 5290 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,646 5290 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000038 for session 0x4130053849d70001
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,647 5291 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000039 for session 0x4c30053849db0000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000041 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,648 5292 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000044 for session 0x4130053849d70000
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,649 5293 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000046 for session 0x4130053849d70002
+2011-05-18 22:42:24,907 5551 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:24,909 5553 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,085 8729 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,085 8729 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000051 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000052 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000051 for session 0xe83005384a490001
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,086 8730 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000053 for session 0x4c30053849db0002
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000040 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,087 8731 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000045 for session 0xe83005384a490000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000052 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000052 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000051 for session 0x4c30053849db0001
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,127 8771 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000059 for session 0x9a3005393f890000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-switch_manager/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/dht/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-persistence_server/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/cassandra/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-lock_haver_cassandra_booting/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/connection-cluster/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-api_provider/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-dht_node/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zkrsm/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/zk_live_members/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-mgmt_cluster/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,128 8772 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.DataTree  - Deleting ephemeral node /election/role-cluster-logical_manager/nominee0000000054 for session 0xf330053849dd0000
+2011-05-18 22:42:28,152 8796 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - EOF excepton java.io.EOFException: Failed to read
+2011-05-18 22:42:28,161 8805 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Accepted socket connection from /50.0.0.1:33442
+2011-05-18 22:42:28,163 8807 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] WARN org.apache.zookeeper.server.NIOServerCnxn  - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2011-05-18 22:42:28,163 8807 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.NIOServerCnxn  - IOException stack trace
+java.io.IOException: ZooKeeperServer not running
+	at org.apache.zookeeper.server.NIOServerCnxn.readLength(NIOServerCnxn.java:1333)
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:514)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.run(NIOServerCnxn.java:262)
+2011-05-18 22:42:28,164 8808 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Closed socket connection for client /50.0.0.1:33442 (no session established for client)
+2011-05-18 22:42:28,164 8808 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Accepted socket connection from /50.0.0.1:33456
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] WARN org.apache.zookeeper.server.NIOServerCnxn  - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.NIOServerCnxn  - IOException stack trace
+java.io.IOException: ZooKeeperServer not running
+	at org.apache.zookeeper.server.NIOServerCnxn.readLength(NIOServerCnxn.java:1333)
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:514)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.run(NIOServerCnxn.java:262)
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Closed socket connection for client /50.0.0.1:33456 (no session established for client)
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Accepted socket connection from /50.0.0.1:33461
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] WARN org.apache.zookeeper.server.NIOServerCnxn  - Exception causing close of session 0x0 due to java.io.IOException: ZooKeeperServer not running
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.NIOServerCnxn  - IOException stack trace
+java.io.IOException: ZooKeeperServer not running
+	at org.apache.zookeeper.server.NIOServerCnxn.readLength(NIOServerCnxn.java:1333)
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:514)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.run(NIOServerCnxn.java:262)
+2011-05-18 22:42:28,165 8809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - Closed socket connection for client /50.0.0.1:33461 (no session established for client)
+2011-05-18 22:42:28,164 8808 [Thread-3] INFO org.apache.zookeeper.server.quorum.QuorumCnxManager  - My election bind port: 3888
+2011-05-18 22:42:28,171 8815 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.QuorumPeer  - Starting quorum peer
+2011-05-18 22:42:28,221 8865 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - LOOKING
+2011-05-18 22:42:28,221 8865 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.QuorumPeer  - Initializing leader election protocol...
+2011-05-18 22:42:28,222 8866 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - New election. My id =  154, Proposed zxid = 25769822113
+2011-05-18 22:42:28,223 8867 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Opening channel to server 65
+2011-05-18 22:42:28,225 8869 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Address of remote peer: 65
+2011-05-18 22:42:28,226 8870 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Opening channel to server 232
+2011-05-18 22:42:28,224 8868 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 154 (n.leader), 25769822113 (n.zxid), 1 (n.round), LOOKING (n.state), 154 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,232 8876 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request /50.0.0.5:55807
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 65 (n.leader), 25769822113 (n.zxid), 1 (n.round), LOOKING (n.state), 65 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LOOKING (n.state), 65 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,235 8879 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 154, proposed id: 154, zxid: 25769822113, proposed zxid: 25769822113
+2011-05-18 22:42:28,235 8879 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Adding vote: From = 154, Proposed leader = 154, Porposed zxid = 25769822113, Proposed epoch = 1
+2011-05-18 22:42:28,235 8879 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,236 8880 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), FOLLOWING (n.state), 65 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,236 8880 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 65, proposed id: 154, zxid: 25769822113, proposed zxid: 25769822113
+2011-05-18 22:42:28,236 8880 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Adding vote: From = 65, Proposed leader = 65, Porposed zxid = 25769822113, Proposed epoch = 1
+2011-05-18 22:42:28,236 8880 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 154, zxid: 25769822122, proposed zxid: 25769822113
+2011-05-18 22:42:28,236 8880 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Updating proposal
+2011-05-18 22:42:28,236 8880 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Adding vote: From = 65, Proposed leader = 232, Porposed zxid = 25769822122, Proposed epoch = 1
+2011-05-18 22:42:28,231 8875 [WorkerSender Thread] INFO org.apache.zookeeper.server.quorum.QuorumCnxManager  - Have smaller server identifier, so dropping the connection: (232, 154)
+2011-05-18 22:42:28,236 8880 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Opening channel to server 76
+2011-05-18 22:42:28,235 8879 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request: 154
+2011-05-18 22:42:28,236 8880 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Address of remote peer: 232
+2011-05-18 22:42:28,237 8881 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Address of remote peer: 76
+2011-05-18 22:42:28,243 8887 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Opening channel to server 243
+2011-05-18 22:42:28,244 8888 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,244 8888 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LOOKING (n.state), 232 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,244 8888 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,244 8888 [WorkerSender Thread] INFO org.apache.zookeeper.server.quorum.QuorumCnxManager  - Have smaller server identifier, so dropping the connection: (243, 154)
+2011-05-18 22:42:28,244 8888 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Adding vote: From = 232, Proposed leader = 232, Porposed zxid = 25769822122, Proposed epoch = 1
+2011-05-18 22:42:28,244 8888 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - There is a connection already for server 65
+2011-05-18 22:42:28,244 8888 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - There is a connection already for server 232
+2011-05-18 22:42:28,244 8888 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - There is a connection already for server 76
+2011-05-18 22:42:28,244 8888 [WorkerSender Thread] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Opening channel to server 243
+2011-05-18 22:42:28,244 8888 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,244 8888 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LOOKING (n.state), 154 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,245 8889 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,245 8889 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LEADING (n.state), 232 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,245 8889 [WorkerSender Thread] INFO org.apache.zookeeper.server.quorum.QuorumCnxManager  - Have smaller server identifier, so dropping the connection: (243, 154)
+2011-05-18 22:42:28,245 8889 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,245 8889 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Adding vote: From = 154, Proposed leader = 232, Porposed zxid = 25769822122, Proposed epoch = 1
+2011-05-18 22:42:28,245 8889 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,245 8889 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,269 8913 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), FOLLOWING (n.state), 65 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,269 8913 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,269 8913 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,269 8913 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LEADING (n.state), 232 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,270 8914 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 76 (n.leader), 25769822103 (n.zxid), 1 (n.round), LOOKING (n.state), 76 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,272 8916 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 76, proposed id: 232, zxid: 25769822103, proposed zxid: 25769822122
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 65 (n.leader), 25769822113 (n.zxid), 1 (n.round), LOOKING (n.state), 76 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,272 8916 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 65, proposed id: 232, zxid: 25769822113, proposed zxid: 25769822122
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LOOKING (n.state), 76 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,272 8916 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,272 8916 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), FOLLOWING (n.state), 76 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,273 8917 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,273 8917 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,273 8917 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), FOLLOWING (n.state), 76 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,273 8917 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,319 8963 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request /50.0.0.2:39066
+2011-05-18 22:42:28,319 8963 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request: 154
+2011-05-18 22:42:28,319 8963 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Address of remote peer: 243
+2011-05-18 22:42:28,325 8969 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request /50.0.0.2:39067
+2011-05-18 22:42:28,325 8969 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection request: 154
+2011-05-18 22:42:28,325 8969 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Address of remote peer: 243
+2011-05-18 22:42:28,325 8969 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,325 8969 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,326 8970 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 243 (n.leader), 25769822113 (n.zxid), 1 (n.round), LOOKING (n.state), 243 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,326 8970 [Thread-12] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:1961)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2038)
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:342)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:622)
+2011-05-18 22:42:28,326 8970 [Thread-3] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Removing entry from senderWorkerMap sid=243
+2011-05-18 22:42:28,326 8970 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 243, proposed id: 232, zxid: 25769822113, proposed zxid: 25769822122
+2011-05-18 22:42:28,326 8970 [Thread-13] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupting SendWorker
+2011-05-18 22:42:28,327 8971 [Thread-12] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,327 8971 [Thread-13] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,327 8971 [Thread-12] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Send worker leaving thread
+2011-05-18 22:42:28,328 8972 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,328 8972 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), LOOKING (n.state), 243 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,328 8972 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,328 8972 [WorkerReceiver Thread] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Receive new notification message. My id = 154
+2011-05-18 22:42:28,328 8972 [WorkerReceiver Thread] INFO org.apache.zookeeper.server.quorum.FastLeaderElection  - Notification: 232 (n.leader), 25769822122 (n.zxid), 1 (n.round), FOLLOWING (n.state), 243 (n.sid), LOOKING (my state)
+2011-05-18 22:42:28,328 8972 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - id: 232, proposed id: 232, zxid: 25769822122, proposed zxid: 25769822122
+2011-05-18 22:42:28,528 9172 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - I'm a participant: 154
+2011-05-18 22:42:28,529 9173 [QuorumPeer:/0.0.0.0:2888] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - About to leave FLE instance: Leader= 232, Zxid = 25769822122, My id = 154, My state = FOLLOWING
+2011-05-18 22:42:28,529 9173 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - FOLLOWING
+2011-05-18 22:42:28,533 9177 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.Learner  - TCP NoDelay set to: true
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:zookeeper.version=3.3.3--1, built on 04/15/2011 22:03 GMT
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:host.name=172.18.5.65
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.version=1.6.0_22
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.vendor=Sun Microsystems Inc.
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.home=/usr/lib/jvm/java-6-sun-1.6.0.22/jre
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.class.path=java/bootstrap/bootstrap.jar
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.library.path=/usr/lib/jvm/java-6-sun-1.6.0.22/jre/lib/amd64/server:/usr/lib/jvm/java-6-sun-1.6.0.22/jre/lib/amd64:/usr/lib/jvm/java-6-sun-1.6.0.22/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.io.tmpdir=/tmp
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:java.compiler=<NA>
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:os.name=Linux
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:os.arch=amd64
+2011-05-18 22:42:28,541 9185 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:os.version=2.6.32-5-amd64
+2011-05-18 22:42:28,542 9186 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:user.name=root
+2011-05-18 22:42:28,542 9186 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:user.home=/root
+2011-05-18 22:42:28,542 9186 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Server environment:user.dir=/usr/libexec/onix/bin
+2011-05-18 22:42:28,543 9187 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.ZooKeeperServer  - Created server with tickTime 3000 minSessionTimeout 6000 maxSessionTimeout 60000 datadir /var/cloudnet/data/zookeeper/version-2 snapdir /var/cloudnet/data/zookeeper/version-2
+2011-05-18 22:42:28,550 9194 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.Learner  - Getting a snapshot from leader
+2011-05-18 22:42:28,887 9531 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.Learner  - Setting leader epoch 7
+2011-05-18 22:42:28,887 9531 [QuorumPeer:/0.0.0.0:2888] WARN org.apache.zookeeper.server.quorum.Learner  - Got zxid 0x700000001 expected 0x1
+2011-05-18 22:42:28,887 9531 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.persistence.FileTxnSnapLog  - Snapshotting: 700000000
+
+>>>> Shutting down QuorumPeer #1 <<<<
+
+2011-05-18 22:42:28,919 9563 [pool-1-thread-2] INFO org.apache.zookeeper.server.quorum.Learner  - shutdown called
+java.lang.Exception: shutdown Follower
+	at org.apache.zookeeper.server.quorum.Follower.shutdown(Follower.java:165)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.shutdown(QuorumPeer.java:690)
+...
+2011-05-18 22:42:28,920 9564 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2888] INFO org.apache.zookeeper.server.NIOServerCnxn  - NIOServerCnxn factory exited run method
+2011-05-18 22:42:28,920 9564 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Shutting down connection manager
+2011-05-18 22:42:28,920 9564 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting listener
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Trying to close listener: sun.nio.ch.ServerSocketChannelImpl[/0.0.0.0:3888]
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Closing listener: 154
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting sender: Thread[Thread-14,5,main]
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Removing entry from senderWorkerMap sid=243
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting sender: Thread[Thread-6,5,main]
+2011-05-18 22:42:28,921 9565 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,921 9565 [Thread-3] ERROR org.apache.zookeeper.server.quorum.QuorumCnxManager  - Exception while listening
+java.nio.channels.AsynchronousCloseException
+	at java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:185)
+	at sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:152)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$Listener.run(QuorumCnxManager.java:478)
+2011-05-18 22:42:28,922 9566 [Thread-3] INFO org.apache.zookeeper.server.quorum.QuorumCnxManager  - Leaving listener
+2011-05-18 22:42:28,922 9566 [Thread-14] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:1961)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2038)
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:342)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:622)
+2011-05-18 22:42:28,922 9566 [Thread-14] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,922 9566 [Thread-14] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Send worker leaving thread
+2011-05-18 22:42:28,922 9566 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Removing entry from senderWorkerMap sid=65
+2011-05-18 22:42:28,922 9566 [Thread-6] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:1961)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2038)
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:342)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:622)
+2011-05-18 22:42:28,924 9568 [Thread-6] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,924 9568 [Thread-6] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Send worker leaving thread
+2011-05-18 22:42:28,925 9569 [Thread-15] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection broken for id 243, my id = 154, error = java.nio.channels.AsynchronousCloseException
+2011-05-18 22:42:28,925 9569 [Thread-15] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupting SendWorker
+2011-05-18 22:42:28,925 9569 [Thread-15] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,922 9566 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting sender: Thread[Thread-8,5,main]
+2011-05-18 22:42:28,925 9569 [Thread-7] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection broken for id 65, my id = 154, error = java.nio.channels.AsynchronousCloseException
+2011-05-18 22:42:28,925 9569 [Thread-7] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupting SendWorker
+2011-05-18 22:42:28,925 9569 [Thread-7] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,926 9570 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,926 9570 [Thread-8] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:1961)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2038)
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:342)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:622)
+2011-05-18 22:42:28,926 9570 [Thread-9] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection broken for id 232, my id = 154, error = java.nio.channels.AsynchronousCloseException
+2011-05-18 22:42:28,926 9570 [Thread-9] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupting SendWorker
+2011-05-18 22:42:28,928 9572 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Removing entry from senderWorkerMap sid=232
+2011-05-18 22:42:28,928 9572 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting sender: Thread[Thread-10,5,main]
+2011-05-18 22:42:28,928 9572 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,928 9572 [Thread-9] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,928 9572 [Thread-8] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,928 9572 [Thread-8] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Send worker leaving thread
+2011-05-18 22:42:28,928 9572 [Thread-11] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Connection broken for id 76, my id = 154, error = java.nio.channels.AsynchronousCloseException
+2011-05-18 22:42:28,928 9572 [Thread-11] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupting SendWorker
+2011-05-18 22:42:28,930 9574 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Removing entry from senderWorkerMap sid=76
+2011-05-18 22:42:28,930 9574 [Thread-11] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,930 9574 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Shutting down messenger
+2011-05-18 22:42:28,930 9574 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - FLE is down
+2011-05-18 22:42:28,931 9575 [Thread-10] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Interrupted while waiting for message on queue
+java.lang.InterruptedException
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.reportInterruptAfterWait(AbstractQueuedSynchronizer.java:1961)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2038)
+	at java.util.concurrent.ArrayBlockingQueue.poll(ArrayBlockingQueue.java:342)
+	at org.apache.zookeeper.server.quorum.QuorumCnxManager$SendWorker.run(QuorumCnxManager.java:622)
+2011-05-18 22:42:28,931 9575 [Thread-10] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Calling finish
+2011-05-18 22:42:28,931 9575 [Thread-10] WARN org.apache.zookeeper.server.quorum.QuorumCnxManager  - Send worker leaving thread
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Shutting down connection manager
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Halting listener
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Trying to close listener: sun.nio.ch.ServerSocketChannelImpl[closed]
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.QuorumCnxManager  - Closing listener: 154
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - Shutting down messenger
+2011-05-18 22:42:29,430 10074 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.quorum.FastLeaderElection  - FLE is down
+2011-05-18 22:42:29,431 10075 [pool-1-thread-2] INFO org.apache.zookeeper.server.NIOServerCnxn  - binding to port 0.0.0.0/0.0.0.0:2888
+
+>>>> Starting QuorumPeer #2 <<<<
+
+2011-05-18 22:42:29,432 10076 [pool-1-thread-2] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - tickTime set to 3000
+2011-05-18 22:42:29,432 10076 [pool-1-thread-2] INFO org.apache.zookeeper.server.quorum.QuorumPeer  - initLimit set to 5
+2011-05-18 22:42:29,433 10077 [pool-1-thread-2] INFO org.apache.zookeeper.server.persistence.FileSnap  - Reading snapshot /var/cloudnet/data/zookeeper/version-2/snapshot.700000000
+2011-05-18 22:42:29,444 10088 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.quorum.Learner  - shutdown called
+java.lang.Exception: shutdown Follower
+	at org.apache.zookeeper.server.quorum.Follower.shutdown(Follower.java:165)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.run(QuorumPeer.java:649)
+2011-05-18 22:42:29,444 10088 [QuorumPeer:/0.0.0.0:2888] INFO org.apache.zookeeper.server.FinalRequestProcessor  - shutdown of request processor complete
+2011-05-18 22:42:29,444 10088 [CommitProcessor:154] INFO org.apache.zookeeper.server.quorum.CommitProcessor  - CommitProcessor exited loop!
+2011-05-18 22:42:29,447 10091 [FollowerRequestProcessor:154] INFO org.apache.zookeeper.server.quorum.FollowerRequestProcessor  - FollowerRequestProcessor exited loop!
+2011-05-18 22:42:29,448 10092 [SyncThread:154] INFO org.apache.zookeeper.server.persistence.FileTxnLog  - Creating new log file: log.700000001
+2011-05-18 22:42:29,542 10186 [SyncThread:154] INFO org.apache.zookeeper.server.SyncRequestProcessor  - SyncRequestProcessor exited!
+2011-05-18 22:42:29,545 10189 [QuorumPeer:/0.0.0.0:2888] WARN org.apache.zookeeper.server.quorum.QuorumPeer  - QuorumPeer main thread exited
+2011-05-18 22:42:29,708 10352 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input stream /var/cloudnet/data/zookeeper/version-2/log.6000002e6
+2011-05-18 22:42:29,709 10353 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input archive /var/cloudnet/data/zookeeper/version-2/log.6000002e6
+2011-05-18 22:42:29,822 10466 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - EOF excepton java.io.EOFException: Failed to read
+2011-05-18 22:42:29,823 10467 [pool-1-thread-2] DEBUG org.apache.zookeeper.server.persistence.FileTxnLog  - Created new input stream /var/cloudnet/data/zookeeper/version-2/log.700000001
+2011-05-18 22:42:29,823 10467 [pool-1-thread-2] FATAL org.apache.zookeeper.server.quorum.QuorumPeer  - Unable to load database on disk
+java.io.IOException: Transaction log: /var/cloudnet/data/zookeeper/version-2/log.700000001 has invalid magic number 0 != 1514884167
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.inStreamCreated(FileTxnLog.java:510)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.createInputArchive(FileTxnLog.java:527)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.goToNextLog(FileTxnLog.java:493)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:576)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:479)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.<init>(FileTxnLog.java:454)
+	at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:325)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:126)
+	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398)
+...
+2011-05-18 22:42:29,823 10467 [pool-1-thread-2] ERROR com.nicira.onix.zookeeper.Zookeeper  - Unexpected exception
+java.lang.RuntimeException: Unable to run quorum server 
+	at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:401)
+	at com.nicira.onix.zookeeper.Zookeeper.StartZookeeper(Zookeeper.java:198)
+	at com.nicira.onix.zookeeper.Zookeeper.RestartZookeeper(Zookeeper.java:277)
+	at com.nicira.onix.zookeeper.ZKRPCService.setServers(ZKRPC.java:83)
+	at com.nicira.onix.zookeeper.Zkrpc$ZKRPCService.callMethod(Zkrpc.java:8198)
+	at com.nicira.onix.rpc.RPC$10.run(RPC.java:534)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:662)
+Caused by: java.io.IOException: Transaction log: /var/cloudnet/data/zookeeper/version-2/log.700000001 has invalid magic number 0 != 1514884167
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.inStreamCreated(FileTxnLog.java:510)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.createInputArchive(FileTxnLog.java:527)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.goToNextLog(FileTxnLog.java:493)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:576)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:479)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.<init>(FileTxnLog.java:454)
+	at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:325)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:126)
+	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+	at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398)
+	... 8 more

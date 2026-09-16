@@ -1,0 +1,6 @@
+Completed the SPEC stage:
+
+- [README.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/README.md) — reproduction procedure, oracle, and Jira-supported rationale.
+- [repro.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/repro.properties) — all six required keys, with `attempt.count=3`.
+
+Validation passed with exit status 0. No Docker environment, reproduction code, or experiment attempts were created or run. Existing Harness artifacts were preserved.
