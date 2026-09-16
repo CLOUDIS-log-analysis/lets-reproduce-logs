@@ -6,7 +6,7 @@ haproxy에 http3 요청을 넣으면 segmentation fault로 인해 크래시 되�
 
 http3의 QUIC 기반 연결을 진행 중 ssl_tlsext_ticket_key_cb() 함수 안에서 QUIC이 아닌 일반 연결용 구조체를 사용, 이를 이용해서 구한 ref 포인터가 NULL이기 때문에 null pointer dereferncing이 일어남 
 
-```
+```c
 	struct connection *conn;
 	int head;
 	int i;
@@ -22,7 +22,7 @@ http3의 QUIC 기반 연결을 진행 중 ssl_tlsext_ticket_key_cb() 함수 안�
 
 조건문을 통해 QUIC 전용 로직을 따로 만듦
 
-```
+```c
 static int ssl_tlsext_ticket_key_cb(SSL *s, unsigned char key_name[16], unsigned char *iv, EVP_CIPHER_CTX *ectx, MAC_CTX *hctx, int enc)
 {
 -	struct tls_keys_ref *ref;
