@@ -1,0 +1,16 @@
+Implemented the ZOOKEEPER-1560 Maven reproduction project.
+
+- Added [pom.xml](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/pom.xml) with ZooKeeper 3.4.4 and pinned JDK 6 compilation.
+- Added [Reproduce.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/src/main/java/org/apache/zookeeper/Reproduce.java).
+- Added explicit, opt-in socket fault injection in [FaultInjection.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/src/main/java/org/apache/zookeeper/FaultInjection.java).
+- Added offline oracle classification in [Verify.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/src/main/java/org/apache/zookeeper/Verify.java).
+- Documented build and invocation in [README.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/README.md).
+
+Validation:
+
+- `mvn clean package` exited successfully.
+- All three classes are Java 6 class-file version 50.
+- Runnable jar: [zookeeper-1560-reproduction-jar-with-dependencies.jar](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/zookeeper-1560-reproduction-jar-with-dependencies.jar)
+- Verified `Verify` starts under the pinned Java 6 runtime.
+
+No experiment attempts were run, and `logs/`, `result/`, and `status.properties` were not modified.

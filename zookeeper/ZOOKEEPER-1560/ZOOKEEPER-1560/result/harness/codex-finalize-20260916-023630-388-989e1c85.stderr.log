@@ -1,0 +1,1206 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a812-ab4f-7cd2-8da1-35ab1c383149
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1560.
+Current Harness stage: FINALIZE.
+Jira XML source: 1560.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Read README.md, repro.properties, every completed result/attempt-NNN.properties file, and the preserved logs needed for interpretation.
+
+Required work for this stage:
+- Summarize all completed attempts.
+- Record the overall SUCCESS / FAILURE / INCONCLUSIVE conclusion and the key observations.
+- Create result/summary.md if it does not already exist.
+- Do not alter individual attempt result files or experiment logs.
+
+Do NOT run new experiment attempts.
+
+codex
+I’ll inspect the stage metadata, all completed attempt records, and only the preserved logs needed to interpret them. I’ll then create `result/summary.md` only if it is absent, without running experiments or changing existing results.
+exec
+/bin/bash -lc "pwd && rg --files -g 'README.md' -g 'repro.properties' -g 'result/**' -g 'logs/**' -g '"'!result/summary.md'"' | sort && if [ -e result/summary.md ]; then stat -c 'SUMMARY_EXISTS mode=%a size=%s path=%n' result/summary.md; else echo SUMMARY_ABSENT; fi" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+README.md
+logs/zk1/app_logs/attempt-001/client-output.log
+logs/zk1/app_logs/attempt-001/container-console-final.log
+logs/zk1/app_logs/attempt-001/container-console-startup.log
+logs/zk1/app_logs/attempt-001/verify-output.log
+logs/zk1/app_logs/attempt-001/zookeeper.log
+logs/zk1/jvm_logs/attempt-001/client-pid.txt
+logs/zk1/jvm_logs/attempt-001/java-version.txt
+logs/zk1/jvm_logs/attempt-001/thread-dump.log
+logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+logs/zk1/os_logs/attempt-001/client-execution.txt
+logs/zk1/os_logs/attempt-001/container-id.txt
+logs/zk1/os_logs/attempt-001/container-inspect-running-end.json
+logs/zk1/os_logs/attempt-001/container-inspect-start.json
+logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+logs/zk1/os_logs/attempt-001/container-stats-end.txt
+logs/zk1/os_logs/attempt-001/container-stats-start.txt
+logs/zk1/os_logs/attempt-001/container-stop.txt
+logs/zk1/os_logs/attempt-001/docker-run-status.txt
+logs/zk1/os_logs/attempt-001/environment.txt
+logs/zk1/os_logs/attempt-001/evidence-manifest.sha256
+logs/zk1/os_logs/attempt-001/final-capture-status.txt
+logs/zk1/os_logs/attempt-001/permissions-before-protection.txt
+logs/zk1/os_logs/attempt-001/protection-remediation-status.txt
+logs/zk1/os_logs/attempt-001/protection-remediation.txt
+logs/zk1/os_logs/attempt-001/server-readiness.txt
+logs/zk1/os_logs/attempt-001/verifier-status.txt
+logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+logs/zk1/txn_logs/attempt-001/version-2/log.1
+logs/zookeeper.log
+repro.properties
+result/attempt-001.properties
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+result/harness/codex-finalize-20260916-023630-388-989e1c85.stderr.log
+result/harness/codex-finalize-20260916-023630-388-989e1c85.stdout.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+result/harness/validator-20260916-021736-300-ff58125d.log
+result/harness/validator-20260916-021736-512-f9ddec3e.log
+result/harness/validator-20260916-022311-257-35ed03eb.log
+result/harness/validator-20260916-023052-233-987afca3.log
+result/harness/validator-20260916-023052-452-26d5a225.log
+SUMMARY_ABSENT
+
+exec
+/bin/bash -lc "sed -n '1,240p' README.md
+sed -n '1,240p' repro.properties
+for f in result/attempt-*.properties; do printf '\\n===== %s =====\\n' \""'$f"; sed -n '"'1,240p' \""'$f"; done
+for f in logs/zk1/os_logs/attempt-001/docker-run-status.txt logs/zk1/os_logs/attempt-001/server-readiness.txt logs/zk1/os_logs/attempt-001/client-execution.txt logs/zk1/os_logs/attempt-001/verifier-status.txt logs/zk1/os_logs/attempt-001/final-capture-status.txt logs/zk1/app_logs/attempt-001/client-output.log logs/zk1/app_logs/attempt-001/verify-output.log; do printf '"'\\n===== %s =====\\n' \""'$f"; sed -n '"'1,260p' \""'$f"; done' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+# ZOOKEEPER-1560 reproduction specification
+
+## Objective
+
+Reproduce the ZooKeeper 3.4.4 Java client hang reported as
+ZOOKEEPER-1560, "Zookeeper client hangs on creation of large nodes." The
+experiment must exercise the unmodified 3.4.4 client and server. It must not
+apply the eventual fix or substitute an artificial implementation of the
+client write path.
+
+The primary operation is a synchronous `ZooKeeper.create` of `/large` with a
+500,000-byte payload. The Jira description calls this "0.5M of data," and a
+later failure log reports an original packet limit of 500,074 bytes, which is
+consistent with that payload plus protocol framing.
+
+## Jira evidence and defect model
+
+The specification is based only on `1560.xml`:
+
+- Affected versions are 3.4.4 and 3.5.0; the listed fixed versions are 3.4.5
+  and 3.5.0. Version 3.4.4 is therefore the concrete released vulnerable
+  target.
+- The reporter says a Java-client create containing 0.5M of data waits
+  indefinitely for the server response.
+- The captured thread dump places the caller in `Object.wait`, reached through
+  `ClientCnxn.submitRequest`, while executing `ZooKeeper.create` from
+  `ClientTest.testLargeNodeData`.
+- The reported defect is in `ClientCnxnSocketNIO.doIO`. A nonblocking
+  `SocketChannel.write` may consume only part of a packet. The faulty path
+  removes that packet from `outgoingQueue` too early, recreates its byte
+  buffer on a later pass, and assigns another xid. The server consequently
+  does not receive one coherent request for which the waiting client can
+  complete.
+- The accepted change keeps a partially written packet at the head of the
+  queue, creates its buffer and xid only once, and removes it only after the
+  buffer is drained. The Jira records the production change as revision
+  1404260 and the missing large-node test as revision 1404288.
+
+This is a client transport bug, not a quorum or failover bug. One server is
+enough to expose it.
+
+## Environment contract
+
+The later BUILD stage should provision, but this SPEC stage does not create:
+
+- Apache ZooKeeper 3.4.4 for both server and Java client.
+- JDK 6. The Jira does not state a JDK version, but discussion links the Java
+  6 `SocketChannel.write` documentation and its stack traces are from the
+  Java-6-era codebase, making JDK 6 the closest evidence-backed baseline.
+- One standalone ZooKeeper server on loopback/container networking.
+- One CPU and 1 GiB of memory. These are sufficient for a standalone server
+  and keep the I/O conditions modest; the test must not fail because of an
+  imposed memory limit.
+- Three independent attempts, each starting with clean server data and a new
+  client process.
+
+All future container processes that write through host bind mounts must use
+`umask 022` (or matching explicit modes) so host Harness can traverse and read
+their artifacts.
+
+## Reproduction procedure
+
+For each attempt:
+
+1. Start a fresh standalone ZooKeeper 3.4.4 server and wait until it accepts a
+   client connection. Preserve its logs.
+2. Start an unmodified ZooKeeper 3.4.4 Java client and wait for the connected
+   state.
+3. As a readiness control, synchronously create and then delete a small znode.
+   If that operation fails, classify the attempt as an environment failure,
+   not a reproduction.
+4. Construct a deterministic byte array of exactly 500,000 bytes and call the
+   synchronous create API for `/large` with open ACLs and persistent create
+   mode. Use a fresh server data directory so the path cannot already exist.
+5. Apply a 30-second wall-clock deadline to the client process. If the create
+   is still pending at the deadline, capture a Java thread dump before
+   terminating the process and preserve both client and server logs.
+6. Record the process exit status, elapsed time, create result or exception,
+   and whether the expected waiting stack was present. Do not infer success
+   merely from the server-side existence or absence of `/large`.
+
+No server restart, quorum, concurrent application request, source patch, or
+fault-injection code is part of the primary reproduction. The packet is large
+enough that an ordinary nonblocking socket may need multiple writes, which is
+the condition described in the Jira.
+
+## Oracle
+
+An attempt **reproduces the bug** when all of the following hold:
+
+1. The small-node readiness control completed successfully.
+2. The 500,000-byte synchronous create did not return within 30 seconds.
+3. A thread dump captured at the deadline shows the calling thread waiting in
+   the synchronous request path, including `ClientCnxn.submitRequest` and
+   `ZooKeeper.create`, matching the Jira evidence.
+
+An attempt is a **non-reproduction** when the large create returns successfully
+inside the deadline. A concrete ZooKeeper exception, JVM crash, server startup
+failure, failed readiness control, or resource-limit termination is an
+**environment/test failure** and must remain distinct from the hang oracle.
+
+The issue is considered reproduced if at least one of the three valid attempts
+meets the bug oracle. Report all three outcomes; do not discard successful
+creates. Three attempts are appropriate because partial-write scheduling can
+vary, while the Jira presents the 500,000-byte test as a direct reproduction
+rather than a rare stress race.
+
+## Optional confirmation (not the primary oracle)
+
+After the vulnerable-version experiment is complete, the same scenario may be
+run against the listed fixed version, ZooKeeper 3.4.5, as an A/B confirmation.
+That comparison must be reported separately and must not replace the required
+3.4.4 result. On the fixed version the create is expected to return normally
+within the deadline.
+
+## Prepared environment
+
+The environment stage supplies the official ZooKeeper 3.4.4 release archive,
+a pinned Zulu OpenJDK 6u119 archive, `Dockerfile`, `compose.yml`, and the
+ZooKeeper 3.4.4 Log4j 1.x/server configuration. Archive hashes are recorded in
+`dist/SHA256SUMS` and are checked again inside the image build.
+
+Build the image from this directory with:
+
+```sh
+docker compose -f compose.yml build
+```
+
+Compose defaults to host UID/GID 1000. A host using different IDs should set
+`HOST_UID` and `HOST_GID`. `ZK_DATA_DIR`, `ZK_LOG_DIR`, and `ZK_RESULT_DIR`
+select the host bind-mount directories and should point at new, unique attempt
+directories when experiments are eventually run. The non-root entrypoint sets
+umask 022 and refuses mounts that are not readable, writable, and traversable.
+
+After an attempt has fully stopped and its output has been captured, invoke
+`scripts/protect-artifacts.sh` separately on its directory beneath `logs/` and
+on its file or directory beneath `result/`. It makes regular files read-only
+and directories readable/traversable but non-writable. It refuses paths
+outside those two trees and refuses symbolic links.
+
+This environment stage does not add reproduction/fault-injection Java source
+and does not start the server or run an experiment.
+
+## Implementation project
+
+The Maven project compiles the reproduction classes with the pinned JDK 6
+archive and packages their ZooKeeper 3.4.4 dependencies into
+`target/zookeeper-1560-reproduction-jar-with-dependencies.jar`. Build it with:
+
+```sh
+mvn clean package
+```
+
+The primary client invocation is:
+
+```sh
+java -jar target/zookeeper-1560-reproduction-jar-with-dependencies.jar \
+  --connect 127.0.0.1:2181
+```
+
+When the caller has not supplied an explicit JAAS or ZooKeeper SASL client
+configuration, the launcher names an absent login context so that ZooKeeper
+3.4.4 takes its built-in non-SASL fallback. This avoids the unrelated
+ZOOKEEPER-1455-era behavior that can defer even the one-byte readiness request;
+it does not alter or replace the 3.4.4 NIO write path under test.
+
+The experiment driver must enforce the specified 30-second deadline and save a
+thread dump before terminating a blocked client. `Reproduce` emits stable
+`ZOOKEEPER_1560` markers for classification. `Verify` consumes the combined
+client output and the captured dump without contacting ZooKeeper:
+
+```sh
+java -cp target/zookeeper-1560-reproduction-jar-with-dependencies.jar \
+  org.apache.zookeeper.Verify client-output.log thread-dump.log
+```
+
+It exits 0 for a reproduced hang, 1 when the large create returned, and 2 for
+invalid or incomplete evidence.
+
+For an explicit diagnostic that makes partial nonblocking writes more likely,
+pass `--inject-small-send-buffer`. This selects `FaultInjection`, which only
+constrains the socket send buffer; it does not replace or patch ZooKeeper
+3.4.4's `ClientCnxnSocketNIO.doIO`. The primary experiment leaves this option
+disabled, as required by the oracle above.
+zookeeper.version=3.4.4
+jdk.version=6
+node.count=1
+cpu.count=1
+memory=1g
+attempt.count=3
+
+===== result/attempt-001.properties =====
+result=SUCCESS
+attempt=attempt-001
+node=zk1
+zookeeper_version=3.4.4
+fault_injection=socket_send_buffer
+requested_send_buffer_bytes=1024
+actual_send_buffer_bytes=2304
+readiness_control=passed
+large_create_payload_bytes=500000
+large_create_timed_out=true
+deadline_seconds=30
+expected_waiting_stack=true
+verify_exit=0
+verifier_outcome=REPRODUCED
+client_exit=143
+evidence_root=logs/zk1
+
+===== logs/zk1/os_logs/attempt-001/docker-run-status.txt =====
+docker_run_exit=0
+
+===== logs/zk1/os_logs/attempt-001/server-readiness.txt =====
+server_ready=true probe=tcp attempt=1 utc=2026-09-16T02:32:47Z
+
+===== logs/zk1/os_logs/attempt-001/client-execution.txt =====
+client_pid=197186
+large_create_started=1
+timed_out=true
+jstack_exit=0
+client_exit=143
+total_elapsed_ms=31146
+large_create_observed_elapsed_ms=30794
+finished_utc=2026-09-16T02:33:52Z
+
+===== logs/zk1/os_logs/attempt-001/verifier-status.txt =====
+verify_exit=0
+
+===== logs/zk1/os_logs/attempt-001/final-capture-status.txt =====
+stop_exit=0 logs_exit=0 inspect_exit=0 java_version_exit=0
+
+===== logs/zk1/app_logs/attempt-001/client-output.log =====
+ZOOKEEPER_1560 sasl_setup=standalone_fallback
+ZOOKEEPER_1560 client_start connect=127.0.0.1:12182 payload_bytes=500000 fault_injection=enabled
+10 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:host.name=shkim-zookeeper
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.6.0-119
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Azul Systems, Inc.
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.home=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=target/zookeeper-1560-reproduction-jar-with-dependencies.jar
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64/server:/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64:/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=/tmp
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.name=Linux
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.8.0-139-generic
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.name=shkim
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.home=/home/shkim
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Client environment:user.dir=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+11 [main] INFO org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=127.0.0.1:12182 sessionTimeout=10000 watcher=org.apache.zookeeper.Reproduce@32c3601b
+34 [main-SendThread(localhost:12182)] WARN org.apache.zookeeper.ClientCnxn - SASL configuration failed: javax.security.auth.login.LoginException: Client cannot SASL-authenticate because the specified JAAS configuration section 'ZooKeeper1560NoSasl' could not be found. Will continue connection to Zookeeper server without SASL authentication, if Zookeeper server allows it.
+37 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Opening socket connection to server localhost/127.0.0.1:12182
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+47 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Socket connection established to localhost/127.0.0.1:12182, initiating session
+104 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Session establishment complete on server localhost/127.0.0.1:12182, sessionid = 0xffa0a80f13070000, negotiated timeout = 10000
+ZOOKEEPER_1560 connected
+ZOOKEEPER_1560 readiness_control=passed
+ZOOKEEPER_1560 large_create=started path=/large payload_bytes=500000
+6830 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Client session timed out, have not heard from server in 6670ms for sessionid 0xffa0a80f13070000, closing socket connection and attempting reconnect
+8806 [main-SendThread(localhost:12182)] WARN org.apache.zookeeper.ClientCnxn - SASL configuration failed: javax.security.auth.login.LoginException: Client cannot SASL-authenticate because the specified JAAS configuration section 'ZooKeeper1560NoSasl' could not be found. Will continue connection to Zookeeper server without SASL authentication, if Zookeeper server allows it.
+8807 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Opening socket connection to server localhost/127.0.0.1:12182
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+8808 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Socket connection established to localhost/127.0.0.1:12182, initiating session
+8815 [main-SendThread(localhost:12182)] INFO org.apache.zookeeper.ClientCnxn - Session establishment complete on server localhost/127.0.0.1:12182, sessionid = 0xffa0a80f13070000, negotiated timeout = 10000
+
+===== logs/zk1/app_logs/attempt-001/verify-output.log =====
+REPRODUCED reason=timed_out_with_expected_waiting_stack
+
+codex
+There is one completed attempt. Its recorded outcome is `SUCCESS`, but it used the documented socket-send-buffer diagnostic (`1024` requested, `2304` actual), so I’m checking the thread dump and server evidence before wording the overall conclusion and its scope.
+exec
+/bin/bash -lc "printf '%s\\n' '===== thread-dump relevant frames ====='
+rg -n -C 7 'ClientCnxn\\.submitRequest|ZooKeeper\\.create|java\\.lang\\.Object\\.wait|Reproduce' logs/zk1/jvm_logs/attempt-001/thread-dump.log
+printf '%s\\n' '===== server/client anomaly evidence ====='
+rg -n -i -C 3 'packet|length|exception|error|warn|session|closing|eof|invalid|large' logs/zk1/app_logs/attempt-001/zookeeper.log logs/zk1/app_logs/attempt-001/container-console-final.log logs/zk1/app_logs/attempt-001/container-console-startup.log | sed -n '1,320p'
+printf '%s\\n' '===== runtime identity and container end ====='
+sed -n '1,160p' logs/zk1/jvm_logs/attempt-001/java-version.txt
+sed -n '1,160p' logs/zk1/os_logs/attempt-001/container-stop.txt
+printf '%s\\n' '===== evidence integrity ====='
+sed -n '1,220p' logs/zk1/os_logs/attempt-001/evidence-manifest.sha256" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+===== thread-dump relevant frames =====
+57-   java.lang.Thread.State: RUNNABLE
+58-
+59-   Locked ownable synchronizers:
+60-	- None
+61-
+62-"Finalizer" daemon prio=10 tid=0x0000789a9c09b000 nid=0x30255 in Object.wait() [0x0000789a984f4000]
+63-   java.lang.Thread.State: WAITING (on object monitor)
+64:	at java.lang.Object.wait(Native Method)
+65-	- waiting on <0x00000007acb64000> (a java.lang.ref.ReferenceQueue$Lock)
+66-	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:133)
+67-	- locked <0x00000007acb64000> (a java.lang.ref.ReferenceQueue$Lock)
+68-	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:149)
+69-	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:189)
+70-
+71-   Locked ownable synchronizers:
+72-	- None
+73-
+74-"Reference Handler" daemon prio=10 tid=0x0000789a9c099000 nid=0x30254 in Object.wait() [0x0000789a985f4000]
+75-   java.lang.Thread.State: WAITING (on object monitor)
+76:	at java.lang.Object.wait(Native Method)
+77-	- waiting on <0x00000007acb63d88> (a java.lang.ref.Reference$Lock)
+78:	at java.lang.Object.wait(Object.java:502)
+79-	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:133)
+80-	- locked <0x00000007acb63d88> (a java.lang.ref.Reference$Lock)
+81-
+82-   Locked ownable synchronizers:
+83-	- None
+84-
+85-"main" prio=10 tid=0x0000789a9c009000 nid=0x30247 in Object.wait() [0x0000789aa47fe000]
+86-   java.lang.Thread.State: WAITING (on object monitor)
+87:	at java.lang.Object.wait(Native Method)
+88-	- waiting on <0x00000007acd7c8d0> (a org.apache.zookeeper.ClientCnxn$Packet)
+89:	at java.lang.Object.wait(Object.java:502)
+90:	at org.apache.zookeeper.ClientCnxn.submitRequest(ClientCnxn.java:1309)
+91-	- locked <0x00000007acd7c8d0> (a org.apache.zookeeper.ClientCnxn$Packet)
+92:	at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:776)
+93:	at org.apache.zookeeper.Reproduce.run(Reproduce.java:126)
+94:	at org.apache.zookeeper.Reproduce.main(Reproduce.java:161)
+95-
+96-   Locked ownable synchronizers:
+97-	- None
+98-
+99-"VM Thread" prio=10 tid=0x0000789a9c090000 nid=0x30253 runnable 
+100-
+101-"GC task thread#0 (ParallelGC)" prio=10 tid=0x0000789a9c018800 nid=0x3024a runnable 
+===== server/client anomaly evidence =====
+logs/zk1/app_logs/attempt-001/container-console-startup.log-4-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+logs/zk1/app_logs/attempt-001/container-console-startup.log-5-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+logs/zk1/app_logs/attempt-001/container-console-startup.log-6-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+logs/zk1/app_logs/attempt-001/container-console-startup.log:7:2026-09-16 02:32:35,047 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+logs/zk1/app_logs/attempt-001/container-console-startup.log-8-2026-09-16 02:32:35,144 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+logs/zk1/app_logs/attempt-001/container-console-startup.log-9-2026-09-16 02:32:35,145 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+logs/zk1/app_logs/attempt-001/container-console-startup.log-10-2026-09-16 02:32:35,154 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+--
+logs/zk1/app_logs/attempt-001/container-console-startup.log-23-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/opt/zookeeper
+logs/zk1/app_logs/attempt-001/container-console-startup.log-24-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/opt/zookeeper-3.4.4
+logs/zk1/app_logs/attempt-001/container-console-startup.log-25-2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@726] - tickTime set to 2000
+logs/zk1/app_logs/attempt-001/container-console-startup.log:26:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@735] - minSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/container-console-startup.log:27:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@744] - maxSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/container-console-startup.log-28-2026-09-16 02:32:35,235 [myid:] - INFO  [main:NIOServerCnxnFactory@94] - binding to port 0.0.0.0/0.0.0.0:2181
+logs/zk1/app_logs/attempt-001/container-console-startup.log-29-2026-09-16 02:32:35,328 [myid:] - INFO  [main:FileTxnSnapLog@240] - Snapshotting: 0x0 to /data/version-2/snapshot.0
+logs/zk1/app_logs/attempt-001/container-console-startup.log-30-2026-09-16 02:32:47,385 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:54596
+logs/zk1/app_logs/attempt-001/container-console-startup.log:31:2026-09-16 02:32:47,396 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/container-console-startup.log:32:EndOfStreamException: Unable to read additional data from client sessionid 0x0, likely client has closed socket
+logs/zk1/app_logs/attempt-001/container-console-startup.log-33-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/container-console-startup.log-34-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/container-console-startup.log-35-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/container-console-startup.log:36:2026-09-16 02:32:47,398 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:54596 (no session established for client)
+--
+logs/zk1/app_logs/attempt-001/zookeeper.log-2-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+logs/zk1/app_logs/attempt-001/zookeeper.log-3-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+logs/zk1/app_logs/attempt-001/zookeeper.log-4-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+logs/zk1/app_logs/attempt-001/zookeeper.log:5:2026-09-16 02:32:35,047 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+logs/zk1/app_logs/attempt-001/zookeeper.log-6-2026-09-16 02:32:35,144 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+logs/zk1/app_logs/attempt-001/zookeeper.log-7-2026-09-16 02:32:35,145 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+logs/zk1/app_logs/attempt-001/zookeeper.log-8-2026-09-16 02:32:35,154 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+--
+logs/zk1/app_logs/attempt-001/zookeeper.log-21-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/opt/zookeeper
+logs/zk1/app_logs/attempt-001/zookeeper.log-22-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/opt/zookeeper-3.4.4
+logs/zk1/app_logs/attempt-001/zookeeper.log-23-2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@726] - tickTime set to 2000
+logs/zk1/app_logs/attempt-001/zookeeper.log:24:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@735] - minSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/zookeeper.log:25:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@744] - maxSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/zookeeper.log-26-2026-09-16 02:32:35,235 [myid:] - INFO  [main:NIOServerCnxnFactory@94] - binding to port 0.0.0.0/0.0.0.0:2181
+logs/zk1/app_logs/attempt-001/zookeeper.log-27-2026-09-16 02:32:35,328 [myid:] - INFO  [main:FileTxnSnapLog@240] - Snapshotting: 0x0 to /data/version-2/snapshot.0
+logs/zk1/app_logs/attempt-001/zookeeper.log-28-2026-09-16 02:32:47,385 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:54596
+logs/zk1/app_logs/attempt-001/zookeeper.log:29:2026-09-16 02:32:47,396 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/zookeeper.log:30:EndOfStreamException: Unable to read additional data from client sessionid 0x0, likely client has closed socket
+logs/zk1/app_logs/attempt-001/zookeeper.log-31-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/zookeeper.log-32-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/zookeeper.log-33-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/zookeeper.log:34:2026-09-16 02:32:47,398 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:54596 (no session established for client)
+logs/zk1/app_logs/attempt-001/zookeeper.log-35-2026-09-16 02:33:21,823 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/zookeeper.log:36:2026-09-16 02:33:21,831 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/zookeeper.log-37-2026-09-16 02:33:21,836 [myid:] - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+logs/zk1/app_logs/attempt-001/zookeeper.log:38:2026-09-16 02:33:21,873 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a80f13070000 with negotiated timeout 10000 for client /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/zookeeper.log:39:2026-09-16 02:33:28,608 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/zookeeper.log:40:EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a80f13070000, likely client has closed socket
+logs/zk1/app_logs/attempt-001/zookeeper.log-41-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/zookeeper.log-42-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/zookeeper.log-43-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/zookeeper.log:44:2026-09-16 02:33:28,611 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:52314 which had sessionid 0xffa0a80f13070000
+logs/zk1/app_logs/attempt-001/zookeeper.log-45-2026-09-16 02:33:30,585 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/zookeeper.log:46:2026-09-16 02:33:30,587 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@832] - Client attempting to renew session 0xffa0a80f13070000 at /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/zookeeper.log:47:2026-09-16 02:33:30,590 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@595] - Established session 0xffa0a80f13070000 with negotiated timeout 10000 for client /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/zookeeper.log:48:2026-09-16 02:33:52,841 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/zookeeper.log:49:EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a80f13070000, likely client has closed socket
+logs/zk1/app_logs/attempt-001/zookeeper.log-50-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/zookeeper.log-51-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/zookeeper.log-52-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/zookeeper.log:53:2026-09-16 02:33:52,844 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:54196 which had sessionid 0xffa0a80f13070000
+logs/zk1/app_logs/attempt-001/zookeeper.log:54:2026-09-16 02:34:02,001 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a80f13070000, timeout of 10000ms exceeded
+logs/zk1/app_logs/attempt-001/zookeeper.log:55:2026-09-16 02:34:02,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a80f13070000
+--
+logs/zk1/app_logs/attempt-001/container-console-final.log-4-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+logs/zk1/app_logs/attempt-001/container-console-final.log-5-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+logs/zk1/app_logs/attempt-001/container-console-final.log-6-2026-09-16 02:32:35,046 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+logs/zk1/app_logs/attempt-001/container-console-final.log:7:2026-09-16 02:32:35,047 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+logs/zk1/app_logs/attempt-001/container-console-final.log-8-2026-09-16 02:32:35,144 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+logs/zk1/app_logs/attempt-001/container-console-final.log-9-2026-09-16 02:32:35,145 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+logs/zk1/app_logs/attempt-001/container-console-final.log-10-2026-09-16 02:32:35,154 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+--
+logs/zk1/app_logs/attempt-001/container-console-final.log-23-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/opt/zookeeper
+logs/zk1/app_logs/attempt-001/container-console-final.log-24-2026-09-16 02:32:35,158 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/opt/zookeeper-3.4.4
+logs/zk1/app_logs/attempt-001/container-console-final.log-25-2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@726] - tickTime set to 2000
+logs/zk1/app_logs/attempt-001/container-console-final.log:26:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@735] - minSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/container-console-final.log:27:2026-09-16 02:32:35,163 [myid:] - INFO  [main:ZooKeeperServer@744] - maxSessionTimeout set to -1
+logs/zk1/app_logs/attempt-001/container-console-final.log-28-2026-09-16 02:32:35,235 [myid:] - INFO  [main:NIOServerCnxnFactory@94] - binding to port 0.0.0.0/0.0.0.0:2181
+logs/zk1/app_logs/attempt-001/container-console-final.log-29-2026-09-16 02:32:35,328 [myid:] - INFO  [main:FileTxnSnapLog@240] - Snapshotting: 0x0 to /data/version-2/snapshot.0
+logs/zk1/app_logs/attempt-001/container-console-final.log-30-2026-09-16 02:32:47,385 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:54596
+logs/zk1/app_logs/attempt-001/container-console-final.log:31:2026-09-16 02:32:47,396 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/container-console-final.log:32:EndOfStreamException: Unable to read additional data from client sessionid 0x0, likely client has closed socket
+logs/zk1/app_logs/attempt-001/container-console-final.log-33-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/container-console-final.log-34-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/container-console-final.log-35-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/container-console-final.log:36:2026-09-16 02:32:47,398 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:54596 (no session established for client)
+logs/zk1/app_logs/attempt-001/container-console-final.log-37-2026-09-16 02:33:21,823 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/container-console-final.log:38:2026-09-16 02:33:21,831 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/container-console-final.log-39-2026-09-16 02:33:21,836 [myid:] - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+logs/zk1/app_logs/attempt-001/container-console-final.log:40:2026-09-16 02:33:21,873 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a80f13070000 with negotiated timeout 10000 for client /172.17.0.1:52314
+logs/zk1/app_logs/attempt-001/container-console-final.log:41:2026-09-16 02:33:28,608 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/container-console-final.log:42:EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a80f13070000, likely client has closed socket
+logs/zk1/app_logs/attempt-001/container-console-final.log-43-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/container-console-final.log-44-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/container-console-final.log-45-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/container-console-final.log:46:2026-09-16 02:33:28,611 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:52314 which had sessionid 0xffa0a80f13070000
+logs/zk1/app_logs/attempt-001/container-console-final.log-47-2026-09-16 02:33:30,585 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/container-console-final.log:48:2026-09-16 02:33:30,587 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@832] - Client attempting to renew session 0xffa0a80f13070000 at /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/container-console-final.log:49:2026-09-16 02:33:30,590 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@595] - Established session 0xffa0a80f13070000 with negotiated timeout 10000 for client /172.17.0.1:54196
+logs/zk1/app_logs/attempt-001/container-console-final.log:50:2026-09-16 02:33:52,841 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+logs/zk1/app_logs/attempt-001/container-console-final.log:51:EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a80f13070000, likely client has closed socket
+logs/zk1/app_logs/attempt-001/container-console-final.log-52-	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+logs/zk1/app_logs/attempt-001/container-console-final.log-53-	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+logs/zk1/app_logs/attempt-001/container-console-final.log-54-	at java.lang.Thread.run(Thread.java:704)
+logs/zk1/app_logs/attempt-001/container-console-final.log:55:2026-09-16 02:33:52,844 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.17.0.1:54196 which had sessionid 0xffa0a80f13070000
+logs/zk1/app_logs/attempt-001/container-console-final.log:56:2026-09-16 02:34:02,001 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a80f13070000, timeout of 10000ms exceeded
+logs/zk1/app_logs/attempt-001/container-console-final.log:57:2026-09-16 02:34:02,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a80f13070000
+===== runtime identity and container end =====
+openjdk version "1.6.0-119"
+OpenJDK Runtime Environment (Zulu 6.22.0.3-linux64) (build 1.6.0-119-b119)
+OpenJDK 64-Bit Server VM (Zulu 6.22.0.3-linux64) (build 23.77-b119, mixed mode)
+zookeeper1560-attempt-001
+===== evidence integrity =====
+0075b182f069b0312168c33e46de2763453c507f2224c06c277a89c9f1b24950  logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+03d593217bee0ad2863bfeb11dcee1c8f6a25a4cb961cde6f8edb9f910f84230  logs/zk1/app_logs/attempt-001/zookeeper.log
+0ea573d49a6938433e5de1d5331817119f34c8127341fae240b25966171f1d24  logs/zk1/os_logs/attempt-001/final-capture-status.txt
+138e3fb894fc33cf6c064b09424a365f3049da8c5a79d42ddcba41a1fff688ca  logs/zk1/os_logs/attempt-001/environment.txt
+3a4349ebe90a1dda8f4391518259d010f0f93d6461b6e0fc6de720c97c2e5673  logs/zk1/os_logs/attempt-001/client-execution.txt
+407b52603b817a5761a2200f1f0f71a50870469782914133d0f613d6698f761c  logs/zk1/app_logs/attempt-001/container-console-final.log
+42e90826f80dff68c5b05b6d119a5c244da2452d19fb465a87b48ed06be0cd30  logs/zk1/os_logs/attempt-001/server-readiness.txt
+4ee2258bd9f7fedd93cca708f0fc1f822f6b7458df0c03254d245c6d9e3cb4c0  logs/zk1/app_logs/attempt-001/client-output.log
+5a31ca2ae5e4f86ee316be1a4113623022665a05e368b9d3205c3a8dd3d2534d  logs/zk1/os_logs/attempt-001/verifier-status.txt
+7f695b53d4b98fb28bcbd36def54bdf1c9ac9df8116068bd82749a5701bfaf06  logs/zk1/os_logs/attempt-001/container-stop.txt
+8582cdb59cff62be1c1ae000eb5e057ae8b628e569b4ece3377f73587c9e1a8e  logs/zk1/jvm_logs/attempt-001/java-version.txt
+9122d3296071bb9789194d6999c352fffabe4ad610414e7dd8a1aae5359af845  logs/zk1/os_logs/attempt-001/container-inspect-running-end.json
+9122d3296071bb9789194d6999c352fffabe4ad610414e7dd8a1aae5359af845  logs/zk1/os_logs/attempt-001/container-inspect-start.json
+9be9b10a7664ae22b3d1594cd95165161bd6f58d891d9bf79516975b403178c6  logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+9c3ace271084824cd8cf2683be4ed3eab0fdb245d95a95cd5d1eec94037f60c6  logs/zk1/os_logs/attempt-001/permissions-before-protection.txt
+a56acd028b046b9d1ca7a2d8c70858f8d0cbade09f01c87cdf3378f47dab1639  logs/zk1/os_logs/attempt-001/container-stats-end.txt
+a58332bcb66ffd75f832438c8f05651c5395640c262fd05b11e846ead3ecef69  logs/zk1/os_logs/attempt-001/container-stats-start.txt
+aa90b98ea28cd537bae378016e171332f54fb4ee9235f0bb46ca2431905ed0e2  logs/zk1/app_logs/attempt-001/container-console-startup.log
+ba2118165c2eab4655a57d7b0940d687718826af9aec876b294d33acdeb6d6e6  logs/zk1/jvm_logs/attempt-001/client-pid.txt
+c07afb68b61f52cb2482b0391c835d79b665629180a1ea256570e5c9c38fbc27  logs/zk1/jvm_logs/attempt-001/thread-dump.log
+ca56bcedaf1819e01256e2d06088a9429ef87bbe7eaf5207294c24b3661b7f3c  logs/zk1/app_logs/attempt-001/verify-output.log
+cc56694ceb489229643cd02842100b0dbf01768a35f5be120cb28334bd193a9c  logs/zk1/os_logs/attempt-001/container-id.txt
+cd33569c6fee304cdf8faa5cc6183733764cd1fc805110d12011489d72f27439  logs/zk1/os_logs/attempt-001/docker-run-status.txt
+d6d9f8895d6e8388d60e1a1d6efe2727a6ea782ec4cd4d7fcbaff20d1e9b0d6f  logs/zk1/txn_logs/attempt-001/version-2/log.1
+f2d6764fe894b6311a6600e82e0e4e7c068c314dbf2983250ba34212f01165d2  logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+
+exec
+/bin/bash -lc "printf '%s\\n' '===== experiment harness stdout ====='
+sed -n '1,280p' result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+printf '%s\\n' '===== experiment harness stderr ====='
+sed -n '1,200p' result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+printf '%s\\n' '===== current finalize prior stdout/stderr ====='
+sed -n '1,240p' result/harness/codex-finalize-20260916-023630-388-989e1c85.stdout.log
+sed -n '1,160p' result/harness/codex-finalize-20260916-023630-388-989e1c85.stderr.log
+printf '%s\\n' '===== result directory metadata ====='
+find result -maxdepth 2 -printf '%M %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+===== experiment harness stdout =====
+Completed exactly one experiment: `attempt-001`.
+
+- Result: `SUCCESS` — issue reproduced.
+- Injected send buffer: requested 1024 bytes, actual 2304 bytes.
+- Large create remained blocked beyond 30 seconds.
+- `Verify.java` exited `0` with the expected waiting stack.
+- All five evidence categories are protected (`0555` directories, `0444` files), host-readable, and traversable.
+- Server container is stopped.
+- Progress: 1 of 3 required attempts completed.
+
+Artifacts:
+
+- [Result properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/attempt-001.properties)
+- [Application logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001)
+- [JVM evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/jvm_logs/attempt-001)
+- [Transaction logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001)
+- [Snapshot data](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001)
+- [OS/container evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/os_logs/attempt-001)
+===== experiment harness stderr =====
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a80d-8430-7082-bb22-88f065fac8e2
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1560.
+Current Harness stage: EXPERIMENT.
+Jira XML source: 1560.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Perform exactly ONE experiment attempt: attempt-001.
+Harness requires 3 completed attempts in total for this issue.
+
+Before doing anything, verify that this attempt identifier is unused for experiment artifacts.
+If protected artifacts for attempt-001 already exist, do not alter them; stop and report the conflict.
+
+Required work for this attempt:
+- Run the implemented reproduction workload and fault injection for this single attempt.
+- Preserve per-node observation data under the explicit log categories:
+  app_logs, txn_logs, snapshot_data, jvm_logs, os_logs.
+- Use the exact path logs/zkN/<category>/attempt-001 for every node/category; never reuse an older attempt directory.
+- Confirm all newly captured attempt directories are host-traversable and all regular
+  evidence files are host-readable before completing the attempt.
+- Run the issue-specific Verify.java logic or equivalent deterministic verification prepared by this reproduction.
+- Create result/attempt-001.properties exactly once.
+- The result file must contain result=SUCCESS, result=FAILURE, or result=INCONCLUSIVE.
+- Additional attempt-specific evidence may be added, but existing results must remain untouched.
+
+Do not execute any second attempt in this invocation.
+
+codex
+I’ll first verify that `attempt-001` is completely unused, then inspect the repository’s experiment instructions and run only that attempt. I’ll preserve all existing logs/results and validate permissions plus the verifier’s actual output before writing the one result file.
+exec
+/bin/bash -lc "pwd && rg --files -g '"'!*'"' -g '*' | sed -n '1,240p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+logs/zookeeper.log
+pom.xml
+target/zookeeper-1560-reproduction-jar-with-dependencies.jar
+target/maven-archiver/pom.properties
+target/antrun/build-main.xml
+data/version-2/snapshot.0
+scripts/protect-artifacts.sh
+scripts/docker-entrypoint.sh
+status.properties
+1560.xml
+.dockerignore
+compose.yml
+Dockerfile
+repro.properties
+config/zoo.cfg
+config/log4j.properties
+target/classes/org/apache/zookeeper/FaultInjection.class
+target/classes/org/apache/zookeeper/Verify.class
+target/classes/org/apache/zookeeper/Reproduce.class
+target/zookeeper-1560-reproduction-1.0-SNAPSHOT.jar
+result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+result/harness/validator-20260916-021736-300-ff58125d.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+result/harness/validator-20260916-021736-512-f9ddec3e.log
+result/harness/validator-20260916-023052-452-26d5a225.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+result/harness/validator-20260916-022311-257-35ed03eb.log
+result/harness/validator-20260916-023052-233-987afca3.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+README.md
+data/baseline-retest/txnlog/version-2/log.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/ASSEMBLY_EXCEPTION
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/readme.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/THIRD_PARTY_README
+data/txnlog/version-2/log.1
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/LICENSE
+data/baseline-retest/version-2/snapshot.0
+dist/zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz
+dist/zookeeper-3.4.4.tar.gz
+dist/SHA256SUMS
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/CLASSPATH_EXCEPTION_NOTE
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/MalformedRequestException.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/N2.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/N1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Request.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Dispatcher.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Reply.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Handler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Dispatcher1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/B1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/RequestHandler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Acceptor.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/StringContent.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/ChannelIO.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/BP.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/URLDumper.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/DispatcherN.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/RequestServicer.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Server.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Content.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/AcceptHandler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/BN.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Sendable.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/FileContent.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/ChannelIOSecure.java
+src/main/java/org/apache/zookeeper/FaultInjection.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/Welcome.html
+src/main/java/org/apache/zookeeper/Verify.java
+src/main/java/org/apache/zookeeper/Reproduce.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/DISCLAIMER
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/build.properties
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/netbeans-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/jdk.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/file-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/build.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/linux/jawt_md.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/linux/jni_md.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jni.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jvmti.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/classfile_constants.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jvmticmlr.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jdwpTransport.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jawt.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/idlj.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstatd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/appletviewer.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/wsgen.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmiregistry.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jhat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/manifest.mf
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/truststore
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/index.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/build.properties
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/netbeans-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/jdk.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/file-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/build.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/gui.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/java.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/conc.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/mm.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/extcheck.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/scriptpad.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/apt.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/Main.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/pack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/wsimport.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/policytool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/orbd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jinfo.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jdb.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jar.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/xjc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstack.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jmap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmic.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jrunscript.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/servertool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jsadebugd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/native2ascii.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javadoc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/unpack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javac.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmid.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/serialver.1
+===== current finalize prior stdout/stderr =====
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a812-ab4f-7cd2-8da1-35ab1c383149
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1560.
+Current Harness stage: FINALIZE.
+Jira XML source: 1560.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Read README.md, repro.properties, every completed result/attempt-NNN.properties file, and the preserved logs needed for interpretation.
+
+Required work for this stage:
+- Summarize all completed attempts.
+- Record the overall SUCCESS / FAILURE / INCONCLUSIVE conclusion and the key observations.
+- Create result/summary.md if it does not already exist.
+- Do not alter individual attempt result files or experiment logs.
+
+Do NOT run new experiment attempts.
+
+codex
+I’ll inspect the stage metadata, all completed attempt records, and only the preserved logs needed to interpret them. I’ll then create `result/summary.md` only if it is absent, without running experiments or changing existing results.
+exec
+/bin/bash -lc "pwd && rg --files -g 'README.md' -g 'repro.properties' -g 'result/**' -g 'logs/**' -g '"'!result/summary.md'"' | sort && if [ -e result/summary.md ]; then stat -c 'SUMMARY_EXISTS mode=%a size=%s path=%n' result/summary.md; else echo SUMMARY_ABSENT; fi" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+README.md
+logs/zk1/app_logs/attempt-001/client-output.log
+logs/zk1/app_logs/attempt-001/container-console-final.log
+logs/zk1/app_logs/attempt-001/container-console-startup.log
+logs/zk1/app_logs/attempt-001/verify-output.log
+logs/zk1/app_logs/attempt-001/zookeeper.log
+logs/zk1/jvm_logs/attempt-001/client-pid.txt
+logs/zk1/jvm_logs/attempt-001/java-version.txt
+logs/zk1/jvm_logs/attempt-001/thread-dump.log
+logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+logs/zk1/os_logs/attempt-001/client-execution.txt
+logs/zk1/os_logs/attempt-001/container-id.txt
+logs/zk1/os_logs/attempt-001/container-inspect-running-end.json
+logs/zk1/os_logs/attempt-001/container-inspect-start.json
+logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+logs/zk1/os_logs/attempt-001/container-stats-end.txt
+logs/zk1/os_logs/attempt-001/container-stats-start.txt
+logs/zk1/os_logs/attempt-001/container-stop.txt
+logs/zk1/os_logs/attempt-001/docker-run-status.txt
+logs/zk1/os_logs/attempt-001/environment.txt
+logs/zk1/os_logs/attempt-001/evidence-manifest.sha256
+logs/zk1/os_logs/attempt-001/final-capture-status.txt
+logs/zk1/os_logs/attempt-001/permissions-before-protection.txt
+logs/zk1/os_logs/attempt-001/protection-remediation-status.txt
+logs/zk1/os_logs/attempt-001/protection-remediation.txt
+logs/zk1/os_logs/attempt-001/server-readiness.txt
+logs/zk1/os_logs/attempt-001/verifier-status.txt
+logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+logs/zk1/txn_logs/attempt-001/version-2/log.1
+logs/zookeeper.log
+repro.properties
+result/attempt-001.properties
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+result/harness/codex-finalize-20260916-023630-388-989e1c85.stderr.log
+result/harness/codex-finalize-20260916-023630-388-989e1c85.stdout.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+result/harness/validator-20260916-021736-300-ff58125d.log
+result/harness/validator-20260916-021736-512-f9ddec3e.log
+result/harness/validator-20260916-022311-257-35ed03eb.log
+result/harness/validator-20260916-023052-233-987afca3.log
+result/harness/validator-20260916-023052-452-26d5a225.log
+SUMMARY_ABSENT
+
+exec
+/bin/bash -lc "sed -n '1,240p' README.md
+sed -n '1,240p' repro.properties
+for f in result/attempt-*.properties; do printf '\\n===== %s =====\\n' \""'$f"; sed -n '"'1,240p' \""'$f"; done
+for f in logs/zk1/os_logs/attempt-001/docker-run-status.txt logs/zk1/os_logs/attempt-001/server-readiness.txt logs/zk1/os_logs/attempt-001/client-execution.txt logs/zk1/os_logs/attempt-001/verifier-status.txt logs/zk1/os_logs/attempt-001/final-capture-status.txt logs/zk1/app_logs/attempt-001/client-output.log logs/zk1/app_logs/attempt-001/verify-output.log; do printf '"'\\n===== %s =====\\n' \""'$f"; sed -n '"'1,260p' \""'$f"; done' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+# ZOOKEEPER-1560 reproduction specification
+
+## Objective
+
+Reproduce the ZooKeeper 3.4.4 Java client hang reported as
+ZOOKEEPER-1560, "Zookeeper client hangs on creation of large nodes." The
+experiment must exercise the unmodified 3.4.4 client and server. It must not
+apply the eventual fix or substitute an artificial implementation of the
+client write path.
+
+The primary operation is a synchronous `ZooKeeper.create` of `/large` with a
+500,000-byte payload. The Jira description calls this "0.5M of data," and a
+later failure log reports an original packet limit of 500,074 bytes, which is
+consistent with that payload plus protocol framing.
+
+## Jira evidence and defect model
+
+The specification is based only on `1560.xml`:
+
+- Affected versions are 3.4.4 and 3.5.0; the listed fixed versions are 3.4.5
+  and 3.5.0. Version 3.4.4 is therefore the concrete released vulnerable
+  target.
+- The reporter says a Java-client create containing 0.5M of data waits
+  indefinitely for the server response.
+- The captured thread dump places the caller in `Object.wait`, reached through
+  `ClientCnxn.submitRequest`, while executing `ZooKeeper.create` from
+  `ClientTest.testLargeNodeData`.
+- The reported defect is in `ClientCnxnSocketNIO.doIO`. A nonblocking
+  `SocketChannel.write` may consume only part of a packet. The faulty path
+  removes that packet from `outgoingQueue` too early, recreates its byte
+  buffer on a later pass, and assigns another xid. The server consequently
+  does not receive one coherent request for which the waiting client can
+  complete.
+- The accepted change keeps a partially written packet at the head of the
+  queue, creates its buffer and xid only once, and removes it only after the
+  buffer is drained. The Jira records the production change as revision
+  1404260 and the missing large-node test as revision 1404288.
+
+This is a client transport bug, not a quorum or failover bug. One server is
+enough to expose it.
+
+## Environment contract
+
+The later BUILD stage should provision, but this SPEC stage does not create:
+
+- Apache ZooKeeper 3.4.4 for both server and Java client.
+- JDK 6. The Jira does not state a JDK version, but discussion links the Java
+  6 `SocketChannel.write` documentation and its stack traces are from the
+  Java-6-era codebase, making JDK 6 the closest evidence-backed baseline.
+- One standalone ZooKeeper server on loopback/container networking.
+- One CPU and 1 GiB of memory. These are sufficient for a standalone server
+  and keep the I/O conditions modest; the test must not fail because of an
+  imposed memory limit.
+- Three independent attempts, each starting with clean server data and a new
+===== result directory metadata =====
+-r--r--r-- shkim:docker result/attempt-001.properties
+-rw-rw-r-- shkim:docker result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-finalize-20260916-023630-388-989e1c85.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-finalize-20260916-023630-388-989e1c85.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-021736-300-ff58125d.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-021736-512-f9ddec3e.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-022311-257-35ed03eb.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-023052-233-987afca3.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-023052-452-26d5a225.log
+drwxrwxr-x shkim:docker result
+drwxrwxr-x shkim:docker result/harness
+
+codex
+The preserved evidence satisfies the reproduction oracle for the completed attempt: readiness passed, the 500,000-byte synchronous create exceeded 30 seconds, and the main thread was waiting through `ClientCnxn.submitRequest` and `ZooKeeper.create`; the deterministic verifier returned `0`. I’ll record overall `SUCCESS`, while explicitly noting that only one of the configured three attempts exists and that it used the send-buffer diagnostic.
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/summary.md
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..189b11ddbd3b7439381418044a89663d4e3d18d0
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,40 @@
++# ZOOKEEPER-1560 reproduction summary
++
++## Overall conclusion: SUCCESS
++
++ZOOKEEPER-1560 was reproduced in the one completed attempt. The ZooKeeper
++3.4.4 Java client passed the small-node readiness control, then its synchronous
++creation of `/large` with a 500,000-byte payload remained blocked beyond the
++30-second deadline. The captured thread dump shows the main thread waiting in
++`Object.wait` through `ClientCnxn.submitRequest` and `ZooKeeper.create`, which
++matches the specified Jira oracle. The deterministic verifier returned exit
++code 0 and reported `REPRODUCED reason=timed_out_with_expected_waiting_stack`.
++
++## Completed attempts
++
++| Attempt | Recorded result | Conditions | Observation |
++| --- | --- | --- | --- |
++| `attempt-001` | `SUCCESS` | ZooKeeper 3.4.4, Zulu OpenJDK 6u119, one standalone server; socket send buffer constrained to 1,024 bytes requested and 2,304 bytes actual | Readiness passed; the 500,000-byte create timed out; the thread dump contained the expected synchronous waiting stack; verifier exit 0 (`REPRODUCED`) |
++
++The attempt ran for 31,146 ms in total, with the large create observed for
++30,794 ms. A thread dump was captured successfully before the blocked client
++was terminated; client exit 143 therefore reflects experiment cleanup after
++the deadline, not a JVM crash. The server initially established the session,
++then recorded the client's disconnect and reconnection while the create
++remained unresolved.
++
++## Scope and key observations
++
++- Only `attempt-001` has a completed result. No completed `attempt-002` or
++  `attempt-003` result is present, despite `repro.properties` specifying three
++  attempts.
++- The successful attempt used the documented diagnostic socket-send-buffer
++  constraint to encourage partial nonblocking writes. It demonstrates the bug
++  under that condition; there is no completed primary run with fault injection
++  disabled and no three-attempt repeatability evidence.
++- Both client and server identify themselves as ZooKeeper 3.4.4, and the client
++  ran on Zulu OpenJDK 1.6.0-119.
++- Server readiness, evidence capture, container shutdown, and verification all
++  completed successfully. The preserved attempt record reports
++  `readiness_control=passed`, `large_create_timed_out=true`,
++  `expected_waiting_stack=true`, and `verify_exit=0`.
+
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..189b11ddbd3b7439381418044a89663d4e3d18d0
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,40 @@
++# ZOOKEEPER-1560 reproduction summary
++
++## Overall conclusion: SUCCESS
++
++ZOOKEEPER-1560 was reproduced in the one completed attempt. The ZooKeeper
++3.4.4 Java client passed the small-node readiness control, then its synchronous
++creation of `/large` with a 500,000-byte payload remained blocked beyond the
++30-second deadline. The captured thread dump shows the main thread waiting in
++`Object.wait` through `ClientCnxn.submitRequest` and `ZooKeeper.create`, which
++matches the specified Jira oracle. The deterministic verifier returned exit
++code 0 and reported `REPRODUCED reason=timed_out_with_expected_waiting_stack`.
++
++## Completed attempts
++
++| Attempt | Recorded result | Conditions | Observation |
++| --- | --- | --- | --- |
++| `attempt-001` | `SUCCESS` | ZooKeeper 3.4.4, Zulu OpenJDK 6u119, one standalone server; socket send buffer constrained to 1,024 bytes requested and 2,304 bytes actual | Readiness passed; the 500,000-byte create timed out; the thread dump contained the expected synchronous waiting stack; verifier exit 0 (`REPRODUCED`) |
++
++The attempt ran for 31,146 ms in total, with the large create observed for
++30,794 ms. A thread dump was captured successfully before the blocked client
++was terminated; client exit 143 therefore reflects experiment cleanup after
++the deadline, not a JVM crash. The server initially established the session,
++then recorded the client's disconnect and reconnection while the create
++remained unresolved.
++
++## Scope and key observations
++
++- Only `attempt-001` has a completed result. No completed `attempt-002` or
++  `attempt-003` result is present, despite `repro.properties` specifying three
++  attempts.
++- The successful attempt used the documented diagnostic socket-send-buffer
++  constraint to encourage partial nonblocking writes. It demonstrates the bug
++  under that condition; there is no completed primary run with fault injection
++  disabled and no three-attempt repeatability evidence.
++- Both client and server identify themselves as ZooKeeper 3.4.4, and the client
++  ran on Zulu OpenJDK 1.6.0-119.
++- Server readiness, evidence capture, container shutdown, and verification all
++  completed successfully. The preserved attempt record reports
++  `readiness_control=passed`, `large_create_timed_out=true`,
++  `expected_waiting_stack=true`, and `verify_exit=0`.
+
+exec
+/bin/bash -lc "set -o pipefail
+stat -c 'mode=%a owner=%U:%G size=%s path=%n' result/summary.md
+sed -n '1,260p' result/summary.md
+printf '%s\\n' '===== completed attempt records ====='
+find result -maxdepth 1 -type f -name 'attempt-*.properties' -printf '%f\\n' | sort
+printf '%s\\n' '===== protected evidence remains readable ====='
+sha256sum -c logs/zk1/os_logs/attempt-001/evidence-manifest.sha256" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 85ms:
+logs/zk1/txn_logs/attempt-001/version-2/log.1: OK
+logs/zk1/os_logs/attempt-001/baseline-container-stop.txt: OK
+
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..189b11ddbd3b7439381418044a89663d4e3d18d0
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,40 @@
++# ZOOKEEPER-1560 reproduction summary
++
++## Overall conclusion: SUCCESS
++
++ZOOKEEPER-1560 was reproduced in the one completed attempt. The ZooKeeper
++3.4.4 Java client passed the small-node readiness control, then its synchronous
++creation of `/large` with a 500,000-byte payload remained blocked beyond the
++30-second deadline. The captured thread dump shows the main thread waiting in
++`Object.wait` through `ClientCnxn.submitRequest` and `ZooKeeper.create`, which
++matches the specified Jira oracle. The deterministic verifier returned exit
++code 0 and reported `REPRODUCED reason=timed_out_with_expected_waiting_stack`.
++
++## Completed attempts
++
++| Attempt | Recorded result | Conditions | Observation |
++| --- | --- | --- | --- |
++| `attempt-001` | `SUCCESS` | ZooKeeper 3.4.4, Zulu OpenJDK 6u119, one standalone server; socket send buffer constrained to 1,024 bytes requested and 2,304 bytes actual | Readiness passed; the 500,000-byte create timed out; the thread dump contained the expected synchronous waiting stack; verifier exit 0 (`REPRODUCED`) |
++
++The attempt ran for 31,146 ms in total, with the large create observed for
++30,794 ms. A thread dump was captured successfully before the blocked client
++was terminated; client exit 143 therefore reflects experiment cleanup after
++the deadline, not a JVM crash. The server initially established the session,
++then recorded the client's disconnect and reconnection while the create
++remained unresolved.
++
++## Scope and key observations
++
++- Only `attempt-001` has a completed result. No completed `attempt-002` or
++  `attempt-003` result is present, despite `repro.properties` specifying three
++  attempts.
++- The successful attempt used the documented diagnostic socket-send-buffer
++  constraint to encourage partial nonblocking writes. It demonstrates the bug
++  under that condition; there is no completed primary run with fault injection
++  disabled and no three-attempt repeatability evidence.
++- Both client and server identify themselves as ZooKeeper 3.4.4, and the client
++  ran on Zulu OpenJDK 1.6.0-119.
++- Server readiness, evidence capture, container shutdown, and verification all
++  completed successfully. The preserved attempt record reports
++  `readiness_control=passed`, `large_create_timed_out=true`,
++  `expected_waiting_stack=true`, and `verify_exit=0`.
+
+codex
+Created [result/summary.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/summary.md) with:
+
+- Overall conclusion: **SUCCESS**
+- Summary of the sole completed attempt, `attempt-001`
+- Oracle evidence and verifier result
+- Scope limitation: only 1 of 3 configured attempts completed, using send-buffer fault injection
+
+All preserved evidence passed SHA-256 verification. No experiments were run, and existing logs and attempt results were not altered.
+diff --git a/result/summary.md b/result/summary.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..189b11ddbd3b7439381418044a89663d4e3d18d0
+--- /dev/null
++++ b/result/summary.md
+@@ -0,0 +1,40 @@
++# ZOOKEEPER-1560 reproduction summary
++
++## Overall conclusion: SUCCESS
++
++ZOOKEEPER-1560 was reproduced in the one completed attempt. The ZooKeeper
++3.4.4 Java client passed the small-node readiness control, then its synchronous
++creation of `/large` with a 500,000-byte payload remained blocked beyond the
++30-second deadline. The captured thread dump shows the main thread waiting in
++`Object.wait` through `ClientCnxn.submitRequest` and `ZooKeeper.create`, which
++matches the specified Jira oracle. The deterministic verifier returned exit
++code 0 and reported `REPRODUCED reason=timed_out_with_expected_waiting_stack`.
++
++## Completed attempts
++
++| Attempt | Recorded result | Conditions | Observation |
++| --- | --- | --- | --- |
++| `attempt-001` | `SUCCESS` | ZooKeeper 3.4.4, Zulu OpenJDK 6u119, one standalone server; socket send buffer constrained to 1,024 bytes requested and 2,304 bytes actual | Readiness passed; the 500,000-byte create timed out; the thread dump contained the expected synchronous waiting stack; verifier exit 0 (`REPRODUCED`) |
++
++The attempt ran for 31,146 ms in total, with the large create observed for
++30,794 ms. A thread dump was captured successfully before the blocked client
++was terminated; client exit 143 therefore reflects experiment cleanup after
++the deadline, not a JVM crash. The server initially established the session,
++then recorded the client's disconnect and reconnection while the create
++remained unresolved.
++
++## Scope and key observations
++
++- Only `attempt-001` has a completed result. No completed `attempt-002` or
++  `attempt-003` result is present, despite `repro.properties` specifying three
++  attempts.
++- The successful attempt used the documented diagnostic socket-send-buffer
++  constraint to encourage partial nonblocking writes. It demonstrates the bug
++  under that condition; there is no completed primary run with fault injection
++  disabled and no three-attempt repeatability evidence.
++- Both client and server identify themselves as ZooKeeper 3.4.4, and the client
++  ran on Zulu OpenJDK 1.6.0-119.
++- Server readiness, evidence capture, container shutdown, and verification all
++  completed successfully. The preserved attempt record reports
++  `readiness_control=passed`, `large_create_timed_out=true`,
++  `expected_waiting_stack=true`, and `verify_exit=0`.
+
+tokens used
+32,843

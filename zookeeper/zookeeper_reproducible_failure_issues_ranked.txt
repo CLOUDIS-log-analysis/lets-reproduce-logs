@@ -1,0 +1,47 @@
+ZOOKEEPER-2623, CheckVersion outside of Multi causes NullPointerException, 비정상 CheckVersion 단독 요청 → NullPointerException → CommitProcessor 종료, 서버가 재시작 전까지 사실상 사용 불가
+ZOOKEEPER-2146, BinaryInputArchive readString should check length before allocating memory, 비정상 패킷의 문자열 길이값 → 거대 배열 할당 → OutOfMemoryError → ZooKeeper 서버 크래시
+ZOOKEEPER-1877, Malformed ACL Id can crash server with skipACL=yes, skipACL=yes 상태에서 malformed ACL Id(null) 요청 → 요청 처리 예외 → ZooKeeper 서버 크래시
+ZOOKEEPER-3496, Transaction larger than jute.maxbuffer makes ZooKeeper unavailable, jute.maxbuffer보다 큰 transaction이 로그에 기록됨 → 재시작 시 Unreasonable length → 서버 기동 실패 및 서비스 불가
+ZOOKEEPER-2332, Zookeeper failed to start for empty txn log, 0바이트 transaction log가 남은 상태로 재시작 → EOFException → 데이터베이스 복원 실패 및 서버 기동 실패
+ZOOKEEPER-1448, Node+Quota creation in transaction log can crash leader startup, Quota 생성 transaction을 startup에서 replay → elected leader가 예외로 shutdown → leader 기동 실패
+ZOOKEEPER-1513, "Unreasonable length" exception while starting a server., 서버가 허용한 대형 데이터가 재시작 시 읽기 한계를 초과 → Unreasonable length → Unable to load database on disk
+ZOOKEEPER-1109, Zookeeper service is down when SyncRequestProcessor meets any exception., dataDir 디스크 full → SyncRequestProcessor에서 System.exit(11) 후 shutdown self-join → 종료가 멈추고 클러스터가 unserviceable 상태
+ZOOKEEPER-2247, Zookeeper service becomes unavailable when leader fails to write transaction log, Leader의 transaction log fsync/write I/O 오류 → critical processing thread 종료 → ZooKeeper 서비스 unavailable
+ZOOKEEPER-2172, Cluster crashes when reconfig a new node as a participant, 새 participant를 dynamic reconfig로 추가하는 race → 기존 노드는 client connection 거부, 신규 노드는 join 실패 → 전체 클러스터 다운
+ZOOKEEPER-3829, Zookeeper refuses request after node expansion, 4번째 노드 확장 후 기존 노드 재시작 → CommitProcessor worker pool이 죽은 채 유지 → mntr만 응답하고 일반 요청은 block되는 cluster hang
+ZOOKEEPER-1069, Calling shutdown() on a QuorumPeer too quickly can lead to a corrupt log, QuorumPeer를 FOLLOWING 직후 매우 빠르게 shutdown/restart → transaction log magic 손상 → 다음 startup에서 FATAL Unable to load database
+ZOOKEEPER-2307, ZooKeeper not starting because acceptedEpoch is less than the currentEpoch, acceptedEpoch 기록 중 디스크 read-only/I/O 오류 → 재시작 시 acceptedEpoch < currentEpoch → 해당 서버 기동 실패
+ZOOKEEPER-2033, zookeeper follower fails to start after a restart immediately following a new epoch, 새 epoch 진입 직후 신규 follower를 다시 재시작 → snapshot만 있고 TRUNC할 log가 없어 follower sync/startup 실패
+ZOOKEEPER-4269, acceptedEpoch.tmp rename failure will cause server startup error, acceptedEpoch.tmp → acceptedEpoch rename 중 예외/전원 차단 → epoch 불일치 → 다음 서버 startup 실패
+ZOOKEEPER-3056, Fails to load database with missing snapshot file but valid transaction log file, snapshot 파일은 없고 정상 transaction log만 존재 → database load를 거부 → ZooKeeper 서버 기동 실패
+ZOOKEEPER-4293, Lock Contention in ClientCnxnSocketNetty (possible deadlock), Netty client에 session timeout보다 큰 인위적 network delay → cleanup/connect lock 경합 → SendThread·event loop·application thread deadlock
+ZOOKEEPER-2201, Network issues can cause cluster to hang due to near-deadlock, DataTree serialization 중 상대 연결이 사라짐 → socket write가 장시간 block된 채 DataNode lock 유지 → leader 요청 처리 전체 hang
+ZOOKEEPER-3531, Synchronization on ACLCache cause cluster to hang when network/disk issues happen during datatree serialization, DataTree/ACL cache serialization 중 network 또는 disk stall → ACLCache lock 장기 점유 → 상태 명령은 정상이어도 client 요청은 timeout되는 cluster hang
+ZOOKEEPER-2687, Deadlock while shutting down the Leader server., Leader shutdown 경로의 synchronized lock 순서 문제 → shutdown 중 deadlock → Leader 종료가 영구적으로 멈춤
+ZOOKEEPER-1731, Unsynchronized access to ServerCnxnFactory.connectionBeans results in deadlock, connectionBeans에 대한 비동기/비동기화 접근 경합 → peer가 unresponsive → leader quorum 상실 및 사실상 서비스 중단
+ZOOKEEPER-3769, fast leader election does not end if leader is taken down, 현재 leader를 중단 → 남은 두 노드의 FastLeaderElection이 끝나지 않음 → 새 leader가 없어 서비스 복구 실패
+ZOOKEEPER-3320, Leader election port stop listen when hostname unresolvable for some time, hostname이 일시적으로 resolve되지 않음 → leader-election listener가 종료되고 election port가 더 이상 listen하지 않음 → 클러스터 unavailable
+ZOOKEEPER-3920, Zookeeper clients timeout after leader change due to 0.0.0.0 address when in docker environment, Docker 환경에서 leader 변경 후 0.0.0.0 주소 문제가 발생 → client가 새 session을 만들지 못하고 timeout → failover 후 서비스 장애
+ZOOKEEPER-4708, ZooKeeper 3.6.4 quorum failing due to <unresolved> address, Kubernetes/Minikube DNS가 loopback 또는 unresolved 주소를 반환 → quorum/election port 바인딩 오류 → quorum 형성 및 leader election 실패
+ZOOKEEPER-4316, Leader election fails due to SocketTimeoutException in QuorumCnxManager, Docker overlay network의 SocketTimeoutException → QuorumCnxManager 연결 실패 → leader election 실패 및 클러스터 기동 불능
+ZOOKEEPER-1697, large snapshots can cause continuous quorum failure, 대형 snapshot을 follower가 받는 동안 leader가 follower ACK를 못 받아 shutdown → leader 재선출/실패 반복 → continuous quorum failure
+ZOOKEEPER-3540, Client port unavailable after binding the same client port during reconfig, IPv4/IPv6 서버를 같은 client port로 reconfig → Address already in use → client port가 더 이상 사용 불가
+ZOOKEEPER-4504, ZKUtil#deleteRecursive causing deadlock in HDFS HA functionality, deleteRecursive의 async callback과 호출자 lock이 맞물림 → EventThread와 main thread가 서로 대기 → HDFS HA/ZooKeeper client deadlock
+ZOOKEEPER-5012, NPE in QuorumPeer shutdown under restart, QuorumPeer 초기화 중 zkDb 설정 전에 restart/shutdown race 발생 → QuorumPeer.shutdown()에서 NullPointerException
+ZOOKEEPER-4925, Diff sync introduce hole in stale follower's committedLog which cause data loss in leading, stale follower의 DIFF sync가 committedLog에 hole을 남김 → 해당 follower가 leader가 되면 hole을 다른 노드에 전파 → data loss
+ZOOKEEPER-4785, Txn loss due to race condition in Learner.syncWithLeader() during DIFF sync, DIFF sync에서 follower가 transaction 영속화 전 새 epoch를 ACK한 뒤 crash → 복구 후 highest-epoch leader가 정상 txn까지 truncate → transaction loss
+ZOOKEEPER-3642, Data inconsistency when the leader crashes right after sending SNAP sync, Leader가 learner에게 SNAP을 보낸 직후 NEWLEADER 전에 crash → learner의 snapshot 상태가 올바르게 영속화되지 않음 → 복구 후 data inconsistency
+ZOOKEEPER-2872, Interrupted snapshot sync causes data loss, snapshot sync가 중간에 interrupt/crash되고 snapshot이 durable하게 저장되지 않음 → 이후 복구 과정에서 data loss
+ZOOKEEPER-4712, Follower.shutdown() and Observer.shutdown() do not correctly shutdown the syncProcessor, which may lead to data inconsistency, Follower/Observer shutdown이 syncProcessor를 제대로 종료하지 않음 → pending write와 lastProcessedZxid 순서 race → 재합류 후 data inconsistency 가능
+ZOOKEEPER-3911, Data inconsistency caused by DIFF sync uncommitted log, DIFF sync에서 uncommitted transaction 처리 오류 → leader 변경/재동기화 뒤 노드 간 데이터 불일치
+ZOOKEEPER-3104, Potential data inconsistency due to NEWLEADER packet being sent too early during SNAP sync, SNAP sync 중 NEWLEADER packet이 너무 일찍 전달됨 → snapshot zxid와 실제 적용 txn 범위가 어긋남 → crash/restart 시 data inconsistency
+ZOOKEEPER-1090, Race condition while taking snapshot can lead to not restoring data tree correctly, snapshot 생성 race로 lastProcessedZxid는 앞서가지만 해당 mutation은 snapshot에 빠질 수 있음 → crash 후 restore 시 data tree 불완전 복원
+ZOOKEEPER-2845, Data inconsistency issue due to retain database in leader election, leader election 과정에서 기존 database를 잘못 retain → 새로운 leader/follower 간 상태가 어긋나 data inconsistency
+ZOOKEEPER-2310, Snapshot files must be synced to prevent inconsistency or data loss, snapshot 파일이 디스크에 충분히 sync되지 않은 상태에서 crash/power failure → 손상·누락 snapshot → inconsistency 또는 data loss
+ZOOKEEPER-3356, Request throttling in Netty is not working as expected and could cause direct buffer OOM issue, Netty request throttling/flow-control 문제로 direct buffer 사용량이 폭증 → direct-buffer OutOfMemory 가능
+ZOOKEEPER-1560, Zookeeper client hangs on creation of large nodes, Java client에서 약 0.5MB 대형 znode 생성 → partial socket write 처리 버그 → client가 응답을 기다리며 무기한 hang
+ZOOKEEPER-2251, Add Client side packet response timeout to avoid infinite wait., 일부 packet loss가 발생하지만 DISCONNECTED는 발생하지 않음 → synchronous client request가 ACK를 기다리며 무기한 hang
+ZOOKEEPER-2186, QuorumCnxManager#receiveConnection may crash with random input, QuorumCnxManager에 malformed/random quorum 입력 → 잘못된 길이 처리로 connection-management thread가 crash → 이후 leader election 수렴 실패 가능
+ZOOKEEPER-1152, Exceptions thrown from handleAuthentication can cause buffer corruption issues in NIOServer, AuthenticationProvider.handleAuthentication 예외가 처리되지 않음 → NIOServer read buffer 상태 손상 → 이후 요청 파싱 및 서버 동작 이상
+ZOOKEEPER-4394, Learner.syncWithLeader got NullPointerException, syncWithLeader 중 NEWLEADER/COMMIT packet 순서가 꼬임 → packetsNotCommitted가 비어 있는 상태에서 NullPointerException → follower sync 실패 및 재시도
+ZOOKEEPER-4409, NullPointerException in SendAckRequestProcessor, Learner socket이 null인 shutdown/sync 타이밍에 SendAckRequestProcessor.flush() 실행 → NullPointerException

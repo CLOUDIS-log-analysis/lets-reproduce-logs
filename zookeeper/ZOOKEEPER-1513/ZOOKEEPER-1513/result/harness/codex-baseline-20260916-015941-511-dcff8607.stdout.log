@@ -1,0 +1,10 @@
+Baseline completed successfully.
+
+- ZooKeeper 3.3.4 archive checksum verified.
+- Service `zookeeper-1513-zookeeper-1` remains running and responds `imok`.
+- Used `127.0.0.1:22151` because port 2181 was already occupied.
+- Small create/read/update/read workload passed; no boundary-sized payload was submitted.
+- No fatal errors or target fault signature appeared in [zookeeper.log](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020/zookeeper.log).
+- Host audit found zero unreadable files and zero untraversable directories under `logs/`, `data/`, and `result/`.
+- Existing protected artifacts were preserved.
+- No experiment attempt was created or consumed, and `status.properties` was not modified.

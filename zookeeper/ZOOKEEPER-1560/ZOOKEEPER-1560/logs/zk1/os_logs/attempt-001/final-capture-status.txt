@@ -1,0 +1,1 @@
+stop_exit=0 logs_exit=0 inspect_exit=0 java_version_exit=0

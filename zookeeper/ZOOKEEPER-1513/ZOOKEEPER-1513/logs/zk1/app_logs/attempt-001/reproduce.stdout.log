@@ -1,0 +1,2 @@
+ACKNOWLEDGED path=/zookeeper-1513 bytes=1048524 version=1 mzxid=3
+Evidence: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1/app_logs/attempt-001/write-evidence.properties

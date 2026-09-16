@@ -1,0 +1,4196 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a7e4-ef86-7fb3-8102-9c41f480f78d
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1513.
+Current Harness stage: ENVIRONMENT.
+Jira XML source: 1513.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Read README.md and repro.properties first.
+
+Required work for this stage:
+- Prepare the required ZooKeeper distribution/archive for this issue.
+- Prepare Dockerfile, zoo.cfg, the logging configuration appropriate to that ZooKeeper version, and compose.yml (or a compatible compose filename).
+- Build the Docker image and verify the build command actually succeeds.
+- Keep host-side persistent experiment logs/results immutable after capture while still readable by Harness.
+- Ensure the container entrypoint and service user cannot create root-only files or
+  non-traversable directories in the host-mounted logs/, data/, or result/ trees.
+
+You may directly use required external CLI tools such as curl, tar, docker, and docker compose.
+Do NOT write Reproduce.java, FaultInjection.java, or Verify.java yet.
+Do NOT run actual fault-injection experiments yet.
+
+codex
+I’ll first read the stage instructions and current repository state, then prepare and build only the environment artifacts. I’ll leave experiment sources and runs untouched.
+exec
+/bin/bash -lc "pwd && sed -n '1,240p' README.md && sed -n '1,240p' repro.properties && find . -maxdepth 3 -mindepth 1 -printf '%M %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+# ZOOKEEPER-1513 reproduction specification
+
+## Bug summary
+
+ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
+persisted transaction containing that data is slightly larger because it also
+contains transaction metadata. On a later server start, transaction-log replay
+applies the same limit to the complete serialized transaction and aborts while
+loading the database.
+
+The Jira report records the concrete failure as:
+
+```text
+java.io.IOException: Unreasonable length = 1048583
+    at org.apache.jute.BinaryInputArchive.readBuffer(...)
+    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
+    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
+    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
+```
+
+`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
+`jute.maxbuffer` value. The Jira description attributes those extra bytes to
+fields in `SetDataTxn`, in addition to the client data that was checked when it
+was accepted.
+
+## Target and resources
+
+- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
+- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
+  change was committed to 3.4.6 and trunk.
+- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
+  the Jira record does not identify a JDK-specific condition.
+- Topology: **one server**. The defect is in local transaction persistence and
+  startup replay, so leader election or a multi-node interaction is not needed
+  to exercise it.
+- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
+  client driver.
+- Attempts: **3**. The report describes a deterministic size-boundary failure,
+  not a flaky, timing-sensitive, or concurrent behavior.
+
+## Reproduction procedure
+
+The later implementation stage should automate the following sequence without
+changing `jute.maxbuffer` from its default value:
+
+1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
+   wait until it accepts client connections.
+2. Create a znode with a small initial value.
+3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
+   assert that the operation succeeds. Use deterministic bytes so the input is
+   identical in every attempt.
+4. Stop the server cleanly after the successful write, preserving its data and
+   transaction log.
+5. Start the same server again against that directory and capture its complete
+   startup output and process exit status.
+6. Retain evidence that the write was acknowledged before the restart and that
+   the restart subsequently failed during database loading.
+
+The test must not synthesize or corrupt a transaction log: the point is to show
+that an ordinary client operation accepted by the affected server creates an
+on-disk record that the same server cannot later read.
+
+## Result oracle
+
+An attempt reproduces the bug only when all of these conditions hold:
+
+- the 1 MiB `setData` operation succeeds before shutdown;
+- restart using the resulting data directory fails to become ready (or exits);
+- startup output contains `Unreasonable length = 1048583`; and
+- the failure path is database restoration/transaction-log replay, evidenced by
+  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
+  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
+
+A rejection of the original client write is not this bug. A restart failure
+without the size exception is also not sufficient. Reproducing the stated
+failure in each of the three independent clean attempts is the success
+criterion.
+
+## Rationale and control
+
+This boundary is taken directly from the Jira report: accepted client data plus
+seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
+Restart is essential because the observed exception occurs while loading the
+database from disk, not while handling the live request.
+
+If a fixed-version control is added in a later stage, the same write and restart
+sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
+configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
+only as a workaround and must not be used in the primary reproduction.
+
+## Evidence source
+
+This specification is based solely on `1513.xml`: the issue description,
+affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
+comment confirming the commit to 3.4.6 and trunk.
+zookeeper.version=3.3.4
+jdk.version=8
+node.count=1
+cpu.count=2
+memory=2g
+attempt.count=3
+-rw------- shkim:docker ./status.properties
+-rw-rw-r-- shkim:docker ./README.md
+-rw-rw-r-- shkim:docker ./repro.properties
+-rw-rw-r-- shkim:docker ./result/harness/codex-environment-20260916-014633-210-5302691c.stderr.log
+-rw-rw-r-- shkim:docker ./result/harness/codex-environment-20260916-014633-210-5302691c.stdout.log
+-rw-rw-r-- shkim:docker ./result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+-rw-rw-r-- shkim:docker ./result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+-rw-rw-r-- shkim:shkim ./1513.xml
+drwxrwxr-x shkim:docker ./result
+drwxrwxr-x shkim:docker ./result/harness
+
+codex
+The issue targets ZooKeeper 3.3.4 on JDK 8 with a single persistent server. The directory currently contains no environment files or prior attempt artifacts, so I’m checking the original Jira details and local Docker capabilities before choosing the exact archive and base image.
+exec
+/bin/bash -lc "git status --short 2>/dev/null || true
+rg -n \"attachment|3\\.3\\.4|log4j|jute|maxbuffer|Unreasonable|environment|Docker\" 1513.xml | head -160
+docker version --format 'client={{.Client.Version}} server={{.Server.Version}}' 2>&1
+docker compose version 2>&1" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 90ms:
+Docker Compose version v5.5.1
+
+exec
+/bin/bash -lc "curl -fsSL --retry 3 --connect-timeout 15 https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/ | sed -n '1,220p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 898ms:
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /dist/zookeeper/zookeeper-3.3.4</title>
+ </head>
+ <body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+  <body style="background: #3333; font-family: Montserrat, Sans-Serif;">
+    <div style="padding: 6px; background: #FFF; max-width: 780px; margin: 0 auto; min-height: 500px;  border-radius: 4px; border: 1.25px solid #3333:">
+	    <h1>Apache Archive Distribution Directory</h1>
+      <hr/>
+<p>The directories and files linked below are a historical archive of software released by
+Apache Software Foundation projects. <br/><br/>
+<b style='color: maroon;'>THEY MAY BE UNSUPPORTED AND UNSAFE TO USE</b><br/>
+Current releases can be found on our <a href="http://downloads.apache.org/">download server</a>.</p>
+
+<script> document.title = "Apache Archive Distribution Directory"; </script>
+<pre>
+<pre><img src="/icons/blank.gif" alt="Icon "> <a href="?C=N;O=D">Name</a>                        <a href="?C=M;O=A">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/dist/zookeeper/">Parent Directory</a>                                 -   
+<img src="/icons/compressed.gif" alt="[   ]"> <a href="zookeeper-3.3.4.tar.gz">zookeeper-3.3.4.tar.gz</a>      2011-11-23 22:50   13M  
+<img src="/icons/text.gif" alt="[TXT]"> <a href="zookeeper-3.3.4.tar.gz.asc">zookeeper-3.3.4.tar.gz.asc</a>  2011-11-23 22:50  198   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="zookeeper-3.3.4.tar.gz.md5">zookeeper-3.3.4.tar.gz.md5</a>  2011-11-23 22:50   57   
+<img src="/icons/text.gif" alt="[TXT]"> <a href="zookeeper-3.3.4.tar.gz.sha1">zookeeper-3.3.4.tar.gz.sha1</a> 2011-11-23 22:50   65   
+<hr></pre>
+</body></html>
+
+codex
+The Apache archive exposes the original 3.3.4 release plus its published SHA-1. I’ll vendor that unchanged distribution, verify it against the publisher’s checksum, and base the image on a maintained JDK 8 runtime while running ZooKeeper as a fixed non-root UID/GID.
+exec
+/bin/bash -lc 'set -euo pipefail
+mkdir -p dist
+for item in zookeeper-3.3.4.tar.gz zookeeper-3.3.4.tar.gz.sha1; do
+  if [ -e "dist/$item" ]; then
+    echo "refusing to overwrite existing dist/$item" >&2
+    exit 1
+  fi
+done
+curl -fL --retry 3 --connect-timeout 15 -o dist/zookeeper-3.3.4.tar.gz https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz
+curl -fL --retry 3 --connect-timeout 15 -o dist/zookeeper-3.3.4.tar.gz.sha1 https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz.sha1
+cat dist/zookeeper-3.3.4.tar.gz.sha1
+cd dist
+sha1sum -c zookeeper-3.3.4.tar.gz.sha1
+file zookeeper-3.3.4.tar.gz
+tar -tzf zookeeper-3.3.4.tar.gz | sed -n '"'1,30p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 5336ms:
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 12.9M    0 47942    0     0  31906      0  0:07:04  0:00:01  0:07:03 31897  3 12.9M    3  507k    0     0   212k      0  0:01:02  0:00:02  0:01:00  212k 27 12.9M   27 3632k    0     0  1107k      0  0:00:11  0:00:03  0:00:08 1107k100 12.9M  100 12.9M    0     0  3151k      0  0:00:04  0:00:04 --:--:-- 3151k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    65  100    65    0     0     70      0 --:--:-- --:--:-- --:--:--    70
+cbb259eac2ae5c10956c49db5b2a05e112d645ac  zookeeper-3.3.4.tar.gz
+zookeeper-3.3.4.tar.gz: OK
+zookeeper-3.3.4.tar.gz: gzip compressed data, last modified: Thu Nov 17 06:56:17 2011, from Unix, original size modulo 2^32 33300480
+zookeeper-3.3.4/
+zookeeper-3.3.4/ivysettings.xml
+zookeeper-3.3.4/README.txt
+zookeeper-3.3.4/docs/
+zookeeper-3.3.4/docs/broken-links.xml
+zookeeper-3.3.4/docs/zookeeperQuotas.pdf
+zookeeper-3.3.4/docs/bookkeeperOverview.pdf
+zookeeper-3.3.4/docs/javaExample.html
+zookeeper-3.3.4/docs/api/
+zookeeper-3.3.4/docs/api/stylesheet.css
+zookeeper-3.3.4/docs/api/serialized-form.html
+zookeeper-3.3.4/docs/api/overview-frame.html
+zookeeper-3.3.4/docs/api/resources/
+zookeeper-3.3.4/docs/api/resources/inherit.gif
+zookeeper-3.3.4/docs/api/allclasses-frame.html
+zookeeper-3.3.4/docs/api/help-doc.html
+zookeeper-3.3.4/docs/api/deprecated-list.html
+zookeeper-3.3.4/docs/api/index-all.html
+zookeeper-3.3.4/docs/api/org/
+zookeeper-3.3.4/docs/api/org/apache/
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/KeeperException.MarshallingErrorException.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/AsyncCallback.Children2Callback.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/ZooKeeper.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/KeeperException.SessionExpiredException.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/ZooKeeper.States.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/KeeperException.NoAuthException.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/data/
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/data/StatPersisted.html
+zookeeper-3.3.4/docs/api/org/apache/zookeeper/data/ACL.html
+
+exec
+/bin/bash -lc "tar -tzf dist/zookeeper-3.3.4.tar.gz | rg '("'^|/)(bin/zkServer'"\\.sh|conf/log4j|zookeeper-3\\.3\\.4\\.jar"'$|lib/.*'"\\.jar"'$)'"' | sort
+tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/bin/zkServer.sh | sed -n '1,260p'
+tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/conf/log4j.properties | sed -n '1,220p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 479ms:
+zookeeper-3.3.4/bin/zkServer.sh
+zookeeper-3.3.4/conf/log4j.properties
+zookeeper-3.3.4/contrib/ZooInspector/lib/jtoaster-1.0.4.jar
+zookeeper-3.3.4/dist-maven/zookeeper-3.3.4.jar
+zookeeper-3.3.4/lib/apache-rat-core-0.6.jar
+zookeeper-3.3.4/lib/apache-rat-tasks-0.6.jar
+zookeeper-3.3.4/lib/commons-cli-1.1.jar
+zookeeper-3.3.4/lib/commons-collections-3.2.jar
+zookeeper-3.3.4/lib/commons-lang-2.4.jar
+zookeeper-3.3.4/lib/jline-0.9.94.jar
+zookeeper-3.3.4/lib/log4j-1.2.15.jar
+zookeeper-3.3.4/src/contrib/bookkeeper/conf/log4j.properties
+zookeeper-3.3.4/src/contrib/rest/conf/log4j.properties
+zookeeper-3.3.4/src/contrib/zooinspector/lib/jtoaster-1.0.4.jar
+zookeeper-3.3.4/zookeeper-3.3.4.jar
+#!/bin/sh
+
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# If this scripted is run out of /usr/bin or some other system bin directory
+# it should be linked to and not copied. Things like java jar files are found
+# relative to the canonical path of this script.
+#
+
+# See the following page for extensive details on setting
+# up the JVM to accept JMX remote management:
+# http://java.sun.com/javase/6/docs/technotes/guides/management/agent.html
+# by default we allow local JMX connections
+if [ "x$JMXLOCALONLY" = "x" ]
+then
+    JMXLOCALONLY=false
+fi
+
+if [ "x$JMXDISABLE" = "x" ]
+then
+    echo "JMX enabled by default" >&2
+    # for some reason these two options are necessary on jdk6 on Ubuntu
+    #   accord to the docs they are not necessary, but otw jconsole cannot
+    #   do a local attach
+    ZOOMAIN="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.local.only=$JMXLOCALONLY org.apache.zookeeper.server.quorum.QuorumPeerMain"
+else
+    echo "JMX disabled by user request" >&2
+    ZOOMAIN="org.apache.zookeeper.server.quorum.QuorumPeerMain"
+fi
+
+# Only follow symlinks if readlink supports it
+if readlink -f "$0" > /dev/null 2>&1
+then
+  ZOOBIN=`readlink -f "$0"`
+else
+  ZOOBIN="$0"
+fi
+ZOOBINDIR=`dirname "$ZOOBIN"`
+
+. "$ZOOBINDIR"/zkEnv.sh
+
+if [ "x$SERVER_JVMFLAGS" ]
+then
+    JVMFLAGS="$SERVER_JVMFLAGS $JVMFLAGS"
+fi
+
+if [ "x$2" != "x" ]
+then
+    ZOOCFG="$ZOOCFGDIR/$2"
+fi
+
+# if we give a more complicated path to the config, don't screw around in $ZOOCFGDIR
+if [ "x`dirname $ZOOCFG`" != "x$ZOOCFGDIR" ]
+then
+    ZOOCFG="$2"
+    echo "Using config:$2" >&2
+fi
+
+if $cygwin
+then
+    ZOOCFG=`cygpath -wp "$ZOOCFG"`
+    # cygwin has a "kill" in the shell itself, gets confused
+    KILL=/bin/kill
+else
+    KILL=kill
+fi
+
+echo "Using config: $ZOOCFG" >&2
+
+if [ -z $ZOOPIDFILE ]
+  then ZOOPIDFILE=$(grep dataDir "$ZOOCFG" | sed -e 's/.*=//')/zookeeper_server.pid
+fi
+
+_ZOO_DAEMON_OUT="$ZOO_LOG_DIR/zookeeper.out"
+
+case $1 in
+start)
+    echo  -n "Starting zookeeper ... "
+    if [ -f $ZOOPIDFILE ]; then
+      if kill -0 `cat $ZOOPIDFILE` > /dev/null 2>&1; then
+         echo $command already running as process `cat $ZOOPIDFILE`. 
+         exit 0
+      fi
+    fi
+    nohup $JAVA "-Dzookeeper.log.dir=${ZOO_LOG_DIR}" "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}" \
+    -cp "$CLASSPATH" $JVMFLAGS $ZOOMAIN "$ZOOCFG" > "$_ZOO_DAEMON_OUT" 2>&1 < /dev/null &
+    if [ $? -eq 0 ]
+    then
+      if /bin/echo -n $! > "$ZOOPIDFILE"
+      then
+        sleep 1
+        echo STARTED
+      else
+        echo FAILED TO WRITE PID
+        exit 1
+      fi
+    else
+      echo SERVER DID NOT START
+      exit 1
+    fi
+    ;;
+start-foreground)
+    $JAVA "-Dzookeeper.log.dir=${ZOO_LOG_DIR}" "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}" \
+    -cp "$CLASSPATH" $JVMFLAGS $ZOOMAIN "$ZOOCFG"
+    ;;
+print-cmd)
+    echo "$JAVA -Dzookeeper.log.dir=\"${ZOO_LOG_DIR}\" -Dzookeeper.root.logger=\"${ZOO_LOG4J_PROP}\" -cp \"$CLASSPATH\" $JVMFLAGS $ZOOMAIN \"$ZOOCFG\" > \"$_ZOO_DAEMON_OUT\" 2>&1 < /dev/null"
+    ;;
+stop)
+    echo -n "Stopping zookeeper ... "
+    if [ ! -f "$ZOOPIDFILE" ]
+    then
+      echo "no zookeeper to stop (could not find file $ZOOPIDFILE)"
+    else
+      $KILL -9 $(cat "$ZOOPIDFILE")
+      rm "$ZOOPIDFILE"
+      echo STOPPED
+    fi
+    ;;
+upgrade)
+    shift
+    echo "upgrading the servers to 3.*"
+    $JAVA "-Dzookeeper.log.dir=${ZOO_LOG_DIR}" "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}" \
+    -cp "$CLASSPATH" $JVMFLAGS org.apache.zookeeper.server.upgrade.UpgradeMain ${@}
+    echo "Upgrading ... "
+    ;;
+restart)
+    shift
+    "$0" stop ${@}
+    sleep 3
+    "$0" start ${@}
+    ;;
+status)
+    # -q is necessary on some versions of linux where nc returns too quickly, and no stat result is output
+    STAT=`echo stat | nc -q 1 localhost $(grep "^[[:space:]]*clientPort" "$ZOOCFG" | sed -e 's/.*=//') 2> /dev/null| grep Mode`
+    if [ "x$STAT" = "x" ]
+    then
+        echo "Error contacting service. It is probably not running."
+        exit 1
+    else
+        echo $STAT
+        exit 0
+    fi
+    ;;
+*)
+    echo "Usage: $0 {start|start-foreground|stop|restart|status|upgrade|print-cmd}" >&2
+
+esac
+#
+# ZooKeeper Logging Configuration
+#
+
+# Format is "<default threshold> (, <appender>)+
+
+# DEFAULT: console appender only
+log4j.rootLogger=INFO, CONSOLE
+
+# Example with rolling log file
+#log4j.rootLogger=DEBUG, CONSOLE, ROLLINGFILE
+
+# Example with rolling log file and tracing
+#log4j.rootLogger=TRACE, CONSOLE, ROLLINGFILE, TRACEFILE
+
+#
+# Log INFO level and above messages to the console
+#
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.Threshold=INFO
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+
+#
+# Add ROLLINGFILE to rootLogger to get log file output
+#    Log DEBUG level and above messages to a log file
+log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
+log4j.appender.ROLLINGFILE.Threshold=DEBUG
+log4j.appender.ROLLINGFILE.File=zookeeper.log
+
+# Max log file size of 10MB
+log4j.appender.ROLLINGFILE.MaxFileSize=10MB
+# uncomment the next line to limit number of backup files
+#log4j.appender.ROLLINGFILE.MaxBackupIndex=10
+
+log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+
+
+#
+# Add TRACEFILE to rootLogger to get log file output
+#    Log DEBUG level and above messages to a log file
+log4j.appender.TRACEFILE=org.apache.log4j.FileAppender
+log4j.appender.TRACEFILE.Threshold=TRACE
+log4j.appender.TRACEFILE.File=zookeeper_trace.log
+
+log4j.appender.TRACEFILE.layout=org.apache.log4j.PatternLayout
+### Notice we are including log4j's NDC here (%x)
+log4j.appender.TRACEFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L][%x] - %m%n
+
+exec
+/bin/bash -lc "id
+stat -c '%a %u:%g %n' . dist result result/harness
+find result -maxdepth 2 -type f -printf '%m %u:%g %p\\n' | sort
+docker image inspect eclipse-temurin:8-jre-jammy --format '{{.Id}}' 2>/dev/null || true" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+uid=1000(shkim) gid=988(docker) groups=988(docker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd),1000(shkim)
+775 1000:1000 .
+775 1000:988 dist
+775 1000:988 result
+775 1000:988 result/harness
+664 shkim:docker result/harness/codex-environment-20260916-014633-210-5302691c.stderr.log
+664 shkim:docker result/harness/codex-environment-20260916-014633-210-5302691c.stdout.log
+664 shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+664 shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+
+
+exec
+/bin/bash -lc "tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/bin/zkEnv.sh | sed -n '1,240p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 71ms:
+#!/bin/sh
+
+# Licensed to the Apache Software Foundation (ASF) under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This script should be sourced into other zookeeper
+# scripts to setup the env variables
+
+# We use ZOOCFGDIR if defined,
+# otherwise we use /etc/zookeeper
+# or the conf directory that is
+# a sibling of this script's directory
+if [ "x$ZOOCFGDIR" = "x" ]
+then
+    if [ -d "/etc/zookeeper" ]
+    then
+        ZOOCFGDIR="/etc/zookeeper"
+    else
+        ZOOCFGDIR="$ZOOBINDIR/../conf"
+    fi
+fi
+
+if [ "x$ZOOCFG" = "x" ]
+then
+    ZOOCFG="zoo.cfg"
+fi
+
+ZOOCFG="$ZOOCFGDIR/$ZOOCFG"
+
+if [ -e "$ZOOCFGDIR/java.env" ]
+then
+    . "$ZOOCFGDIR/java.env"
+fi
+
+if [ "x${ZOO_LOG_DIR}" = "x" ]
+then
+    ZOO_LOG_DIR="."
+fi
+
+if [ "x${ZOO_LOG4J_PROP}" = "x" ]
+then
+    ZOO_LOG4J_PROP="INFO,CONSOLE"
+fi
+
+if [ "$JAVA_HOME" != "" ]; then
+  JAVA="$JAVA_HOME/bin/java"
+else
+  JAVA=java
+fi
+
+#add the zoocfg dir to classpath
+CLASSPATH="$ZOOCFGDIR:$CLASSPATH"
+
+for i in "$ZOOBINDIR"/../src/java/lib/*.jar
+do
+    CLASSPATH="$i:$CLASSPATH"
+done
+
+#make it work in the release
+for i in "$ZOOBINDIR"/../lib/*.jar
+do
+    CLASSPATH="$i:$CLASSPATH"
+done
+
+#make it work in the release
+for i in "$ZOOBINDIR"/../zookeeper-*.jar
+do
+    CLASSPATH="$i:$CLASSPATH"
+done
+
+#make it work for developers
+for d in "$ZOOBINDIR"/../build/lib/*.jar
+do
+   CLASSPATH="$d:$CLASSPATH"
+done
+
+#make it work for developers
+CLASSPATH="$ZOOBINDIR/../build/classes:$CLASSPATH"
+
+case "`uname`" in
+    CYGWIN*) cygwin=true ;;
+    *) cygwin=false ;;
+esac
+
+if $cygwin
+then
+    CLASSPATH=`cygpath -wp "$CLASSPATH"`
+fi
+
+#echo "CLASSPATH=$CLASSPATH"
+
+codex
+I’m setting up three safety layers for host mounts: matching the host account’s UID/GID, a fixed `umask 022`, and a read-only `result/` mount. Attempt-specific data/log paths remain configurable so a later stage can capture an attempt once, stop the container, and remove write bits without reusing that artifact.
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/.dockerignore
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/Dockerfile
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/compose.yml
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/docker-entrypoint.sh
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/log4j.properties
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/zoo.cfg
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..483cbaa7c542664324dc1f0db739e7412478859e
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jre-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..483cbaa7c542664324dc1f0db739e7412478859e
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jre-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+exec
+/bin/bash -lc 'set -euo pipefail
+for mount_dir in data logs; do
+  if [ -e "$mount_dir" ]; then
+    echo "refusing to replace existing $mount_dir" >&2
+    exit 1
+  fi
+  mkdir "$mount_dir"
+  chmod 2775 "$mount_dir"
+done
+sha1sum -c dist/zookeeper-3.3.4.tar.gz.sha1 --ignore-missing
+stat -c '"'%a %u:%g %n' Dockerfile docker-entrypoint.sh zoo.cfg log4j.properties compose.yml .dockerignore dist dist/* data logs result
+
+docker compose -f compose.yml config
+
+docker compose -f compose.yml build --pull" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ exited 1 in 0ms:
+sha1sum: dist/zookeeper-3.3.4.tar.gz.sha1: no file was verified
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..483cbaa7c542664324dc1f0db739e7412478859e
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jre-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+The first combined validation stopped before Docker ran because the publisher’s checksum file names the archive relative to `dist/`. The archive itself had already verified successfully there; I’m rerunning the check from that directory, then validating Compose and building. No existing artifacts were overwritten.
+exec
+/bin/bash -lc "set -euo pipefail
+(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
+stat -c '%a %u:%g %n' Dockerfile docker-entrypoint.sh zoo.cfg log4j.properties compose.yml .dockerignore dist dist/* data logs result
+
+docker compose -f compose.yml config
+
+docker compose -f compose.yml build --pull" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..483cbaa7c542664324dc1f0db739e7412478859e
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jre-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+ succeeded in 9615ms:
+name: zookeeper-1513
+services:
+  zookeeper:
+    build:
+      context: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+      dockerfile: Dockerfile
+      args:
+        ZK_GID: "988"
+        ZK_UID: "1000"
+    cap_drop:
+      - ALL
+    cpus: 2
+    image: zookeeper-1513:3.3.4-jdk8
+    init: true
+    mem_limit: "2147483648"
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 2181
+        published: "2181"
+        protocol: tcp
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 20s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
+    user: 1000:988
+    volumes:
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data
+        target: /var/lib/zookeeper
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs
+        target: /var/log/zookeeper
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result
+        target: /result
+        read_only: true
+networks:
+  default:
+    name: zookeeper-1513_default
+ Image zookeeper-1513:3.3.4-jdk8 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 674B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.38kB done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jre-jammy
+#3 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 140B done
+#4 DONE 0.1s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:06641b36281c1ac815c33f3f3528cfea1c6fc41ddc60d261746e4343d19cbe65
+#6 resolve docker.io/library/eclipse-temurin:8-jre-jammy@sha256:06641b36281c1ac815c33f3f3528cfea1c6fc41ddc60d261746e4343d19cbe65 0.1s done
+#6 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 13.55MB 0.2s done
+#5 DONE 0.2s
+
+#7 [2/8] RUN groupadd --gid "988" zookeeper     && useradd --uid "1000" --gid "988"         --home-dir /var/lib/zookeeper --no-create-home         --shell /usr/sbin/nologin zookeeper
+#7 DONE 0.6s
+
+#8 [3/8] COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
+#8 DONE 0.2s
+
+#9 [4/8] RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz"         | sha1sum -c -     && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt     && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper     && rm /tmp/zookeeper-3.3.4.tar.gz     && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result     && chown "1000:988"         /var/lib/zookeeper /var/log/zookeeper /result
+#9 0.419 /tmp/zookeeper-3.3.4.tar.gz: OK
+#9 DONE 0.9s
+
+#10 [5/8] COPY zoo.cfg log4j.properties /etc/zookeeper/
+#10 DONE 0.2s
+
+#11 [6/8] COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#11 DONE 0.1s
+
+#12 [7/8] RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh     && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
+#12 DONE 0.4s
+
+#13 [8/8] WORKDIR /opt/zookeeper
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 2.8s done
+#14 exporting manifest sha256:b1cf1a7de71b9c913ebf04d7fcfd88aa042f174943a5a8f68a0810d1c88815d0 0.0s done
+#14 exporting config sha256:33952be390fcd8a5b4bad5aae7280fa24d0992016c67016df6fa6e25be37cafa 0.1s done
+#14 exporting attestation manifest sha256:e7c8678d786b6dad817541fa90c13f07a9c5d5d7591afc976a3d7b5dc127d8e4 0.0s done
+#14 exporting manifest list sha256:e40cd816e6557141cd3bcf27bc2f6fb5d1b99b59a489f512bc7add869b0a81d0 0.0s done
+#14 naming to docker.io/library/zookeeper-1513:3.3.4-jdk8
+#14 naming to docker.io/library/zookeeper-1513:3.3.4-jdk8 done
+#14 unpacking to docker.io/library/zookeeper-1513:3.3.4-jdk8
+#14 unpacking to docker.io/library/zookeeper-1513:3.3.4-jdk8 1.6s done
+#14 DONE 4.7s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image zookeeper-1513:3.3.4-jdk8 Built 
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..483cbaa7c542664324dc1f0db739e7412478859e
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jre-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+The initial image build succeeded and verified the archive again inside the image. One environment detail needs tightening before runtime validation: the later Java driver will need `javac`, so I’m switching the base from a Java 8 JRE to the full Java 8 JDK specified by `repro.properties`, then rebuilding and smoke-testing the non-root mounts.
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/Dockerfile
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+exec
+/bin/bash -lc "set -euo pipefail
+docker compose -f compose.yml build --pull
+
+docker image inspect zookeeper-1513:3.3.4-jdk8 --format 'user={{.Config.User}} entrypoint={{json .Config.Entrypoint}} cmd={{json .Config.Cmd}} image={{.Id}}'
+
+docker run --rm --entrypoint /bin/sh zookeeper-1513:3.3.4-jdk8 -c 'set -eu; id; printf \"umask=\"; umask; java -version; javac -version; test -r /opt/zookeeper/zookeeper-3.3.4.jar; test "'! -w /etc/zookeeper/zoo.cfg; echo image-check=OK'"'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+ succeeded in 10344ms:
+ Image zookeeper-1513:3.3.4-jdk8 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 674B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.38kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk-jammy
+#3 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 140B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d
+#6 resolve docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d 0.1s done
+#6 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 178B done
+#5 DONE 0.0s
+
+#7 [2/8] RUN groupadd --gid "988" zookeeper     && useradd --uid "1000" --gid "988"         --home-dir /var/lib/zookeeper --no-create-home         --shell /usr/sbin/nologin zookeeper
+#7 DONE 0.6s
+
+#8 [3/8] COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
+#8 DONE 0.2s
+
+#9 [4/8] RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz"         | sha1sum -c -     && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt     && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper     && rm /tmp/zookeeper-3.3.4.tar.gz     && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result     && chown "1000:988"         /var/lib/zookeeper /var/log/zookeeper /result
+#9 0.412 /tmp/zookeeper-3.3.4.tar.gz: OK
+#9 DONE 0.8s
+
+#10 [5/8] COPY zoo.cfg log4j.properties /etc/zookeeper/
+#10 DONE 0.2s
+
+#11 [6/8] COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#11 DONE 0.1s
+
+#12 [7/8] RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh     && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
+#12 DONE 0.5s
+
+#13 [8/8] WORKDIR /opt/zookeeper
+#13 DONE 0.1s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 2.8s done
+#14 exporting manifest sha256:d85777ec25500c32d27426f3edbd63909dda7efdb516c8aa74809f24823eec77 0.0s done
+#14 exporting config sha256:1c4a690358ec0c67751f3b29ba5106c4b3bfad072f6eb2dfa621bedb2d1adb88 0.0s done
+#14 exporting attestation manifest sha256:5a5872c1ab05e589217b5a6a038240a01448a2b47fdcd74bad92dbc29d1cf0e2
+#14 exporting attestation manifest sha256:5a5872c1ab05e589217b5a6a038240a01448a2b47fdcd74bad92dbc29d1cf0e2 0.0s done
+#14 exporting manifest list sha256:7d2548ec198cbf83de74a9ef26f2969cbebee038c273e5e6fce9561eb25f1af5 0.0s done
+#14 naming to docker.io/library/zookeeper-1513:3.3.4-jdk8 done
+#14 unpacking to docker.io/library/zookeeper-1513:3.3.4-jdk8
+#14 unpacking to docker.io/library/zookeeper-1513:3.3.4-jdk8 1.7s done
+#14 DONE 4.8s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image zookeeper-1513:3.3.4-jdk8 Built 
+user=1000:988 entrypoint=["/usr/local/bin/docker-entrypoint.sh"] cmd=["/opt/zookeeper/bin/zkServer.sh","start-foreground","/etc/zookeeper/zoo.cfg"] image=sha256:7d2548ec198cbf83de74a9ef26f2969cbebee038c273e5e6fce9561eb25f1af5
+uid=1000(zookeeper) gid=988(zookeeper) groups=988(zookeeper)
+umask=0022
+openjdk version "1.8.0_502"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_502-b07)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.502-b07, mixed mode)
+javac 1.8.0_502
+image-check=OK
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+The rebuilt image now contains Temurin JDK 8 (`java` and `javac` 1.8.0_502), runs as UID 1000/GID 988, and reports `umask 0022`. I’m doing a clean startup-only smoke test in dedicated `environment-smoke` bind subdirectories; afterward its captured log will be made read-only and won’t be reused.
+exec
+/bin/bash -lc 'set -euo pipefail
+smoke_data=data/environment-smoke
+smoke_logs=logs/environment-smoke
+if [ -e "$smoke_data" ] || [ -e "$smoke_logs" ]; then
+  echo '"'refusing to reuse an existing environment smoke directory' >&2
+  exit 1
+fi
+mkdir \""'$smoke_data" "$smoke_logs"
+chmod 2775 "$smoke_data" "$smoke_logs"
+export ZK_DATA_DIR="./$smoke_data"
+export ZK_LOG_DIR="./$smoke_logs"
+export ZK_CLIENT_PORT=22181
+cleanup() {
+  docker compose -f compose.yml down --remove-orphans >/dev/null 2>&1 || true
+}
+trap cleanup EXIT
+
+docker compose -f compose.yml up -d --no-build
+ready=0
+for try in $(seq 1 30); do
+  if docker compose -f compose.yml exec -T zookeeper bash -c '"'exec 3<>/dev/tcp/127.0.0.1/2181; printf ruok >&3; IFS= read -r -n 4 -t 1 reply <&3; test \""'$reply" = imok'"' 2>/dev/null; then
+    ready=1
+    echo \"readiness=imok attempt="'$try"
+    break
+  fi
+  sleep 1
+done
+if [ "$ready" -ne 1 ]; then
+  docker compose -f compose.yml logs --no-color
+  exit 1
+fi
+
+docker compose -f compose.yml exec -T zookeeper sh -c '"'id; printf \"umask=\"; umask; test -w /var/lib/zookeeper; test -w /var/log/zookeeper; test -r /result; test "'! -w /result; echo mount-check=OK'"'
+docker compose -f compose.yml logs --no-color
+
+docker compose -f compose.yml stop
+trap - EXIT
+docker compose -f compose.yml down --remove-orphans
+
+find \""'$smoke_data" "$smoke_logs" -printf '"'%m %u:%g %p\\n' | sort
+find \""'$smoke_logs" -type f -exec chmod 0444 {} +
+find "$smoke_logs" -type d -exec chmod 0555 {} +
+echo protected-smoke-log=OK
+find "$smoke_logs" -printf '"'%m %u:%g %p\\n' | sort
+find result -maxdepth 2 -printf '%m %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+ succeeded in 4237ms:
+ Network zookeeper-1513_default Creating 
+ Network zookeeper-1513_default Creating 
+ Network zookeeper-1513_default Created 
+ Network zookeeper-1513_default Created 
+ Container zookeeper-1513-zookeeper-1 Creating 
+ Container zookeeper-1513-zookeeper-1 Created 
+ Container zookeeper-1513-zookeeper-1 Starting 
+ Container zookeeper-1513-zookeeper-1 Started 
+readiness=imok attempt=2
+uid=1000(zookeeper) gid=988(zookeeper) groups=988(zookeeper)
+umask=0022
+mount-check=OK
+zookeeper-1  | JMX enabled by default
+zookeeper-1  | Using config:/etc/zookeeper/zoo.cfg
+zookeeper-1  | Using config: /etc/zookeeper/zoo.cfg
+zookeeper-1  | 2026-09-16 01:51:13,739 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+zookeeper-1  | 2026-09-16 01:51:13,741 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+zookeeper-1  | 2026-09-16 01:51:13,749 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+zookeeper-1  | 2026-09-16 01:51:13,749 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+zookeeper-1  | 2026-09-16 01:51:13,752 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:host.name=cde014bdbc35
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+zookeeper-1  | 2026-09-16 01:51:13,753 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+zookeeper-1  | 2026-09-16 01:51:13,754 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+zookeeper-1  | 2026-09-16 01:51:13,758 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+zookeeper-1  | 2026-09-16 01:51:13,758 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+zookeeper-1  | 2026-09-16 01:51:13,759 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+zookeeper-1  | 2026-09-16 01:51:13,790 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+zookeeper-1  | 2026-09-16 01:51:13,805 - INFO  [main:FileTxnSnapLog@254] - Snapshotting: 0
+zookeeper-1  | 2026-09-16 01:51:14,974 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /127.0.0.1:39450
+zookeeper-1  | 2026-09-16 01:51:14,981 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /127.0.0.1:39450
+zookeeper-1  | 2026-09-16 01:51:14,984 - INFO  [Thread-1:NIOServerCnxn@1435] - Closed socket connection for client /127.0.0.1:39450 (no session established for client)
+ Container zookeeper-1513-zookeeper-1 Stopping 
+ Container zookeeper-1513-zookeeper-1 Stopped 
+ Container zookeeper-1513-zookeeper-1 Stopping 
+ Container zookeeper-1513-zookeeper-1 Stopped 
+ Container zookeeper-1513-zookeeper-1 Removing 
+ Container zookeeper-1513-zookeeper-1 Removed 
+ Network zookeeper-1513_default Removing 
+ Network zookeeper-1513_default Removed 
+2755 shkim:docker data/environment-smoke/version-2
+2775 shkim:docker data/environment-smoke
+2775 shkim:docker logs/environment-smoke
+644 shkim:docker data/environment-smoke/version-2/snapshot.0
+644 shkim:docker logs/environment-smoke/zookeeper.log
+protected-smoke-log=OK
+2555 shkim:docker logs/environment-smoke
+444 shkim:docker logs/environment-smoke/zookeeper.log
+664 shkim:docker result/harness/codex-environment-20260916-014633-210-5302691c.stderr.log
+664 shkim:docker result/harness/codex-environment-20260916-014633-210-5302691c.stdout.log
+664 shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+664 shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+775 shkim:docker result
+775 shkim:docker result/harness
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+The server smoke test passed (`ruok` → `imok`), the bind-mounted files were created as the host account with readable modes, and the smoke log is now protected as `0444` inside a non-writable `0555` directory. The official archive emitted an unexpected embedded banner (`3.3.3-1203054`) despite its verified 3.3.4 filename, so I’m checking the archive’s own release metadata before declaring the environment complete.
+exec
+/bin/bash -lc "set -euo pipefail
+printf '%s\\n' 'Archive release files:'
+tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/README.txt | sed -n '1,50p'
+tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/CHANGES.txt | sed -n '1,35p'
+printf '%s\\n' 'JAR manifest and Maven metadata:'
+docker run --rm --entrypoint /bin/sh zookeeper-1513:3.3.4-jdk8 -c 'unzip -p /opt/zookeeper/zookeeper-3.3.4.jar META-INF/MANIFEST.MF; printf \"\\n\"; unzip -p /opt/zookeeper/zookeeper-3.3.4.jar META-INF/maven/org.apache.zookeeper/zookeeper/pom.properties 2>/dev/null || true; printf \"\\nVersionInfo:\\n\"; java -cp /opt/zookeeper/zookeeper-3.3.4.jar org.apache.zookeeper.version.Info'
+printf '%s\\n' 'Image labels/digest:'
+docker image inspect zookeeper-1513:3.3.4-jdk8 --format '{{json .RepoDigests}} {{.Id}} {{.Config.User}}'
+printf '%s\\n' 'Working tree:'
+git status --short 2>/dev/null || true
+find . -maxdepth 3 -mindepth 1 -printf '%m %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ exited 1 in 1172ms:
+For the latest information about ZooKeeper, please visit our website at:
+
+   http://hadoop.apache.org/zookeeper/
+
+and our wiki, at:
+
+   http://wiki.apache.org/hadoop/ZooKeeper
+
+Full documentation for this release can also be found in docs/index.html
+
+---------------------------
+Packaging/release artifacts
+
+The release artifact contains the following jar file at the toplevel:
+
+zookeeper-<version>.jar         - legacy jar file which contains all classes
+                                  and source files. Prior to version 3.3.0 this
+                                  was the only jar file available. It has the 
+                                  benefit of having the source included (for
+                                  debugging purposes) however is also larger as
+                                  a result
+
+The release artifact contains the following jar files in "dist-maven" directory:
+
+zookeeper-<version>.jar         - bin (binary) jar - contains only class (*.class) files
+zookeeper-<version>-sources.jar - contains only src (*.java) files
+zookeeper-<version>-javadoc.jar - contains only javadoc files
+
+These bin/src/javadoc jars were added specifically to support Maven/Ivy which have 
+the ability to pull these down automatically as part of your build process. 
+The content of the legacy jar and the bin+sources jar are the same.
+
+As of version 3.3.0 bin/sources/javadoc jars contained in dist-maven directory
+are deployed to the Apache Maven repository after the release has been accepted
+by Apache:
+  http://people.apache.org/repo/m2-ibiblio-rsync-repository/
+Release 3.3.4 - 2011-11-16
+Backward compatible changes:
+
+BUGFIXES:
+  ZOOKEEPER-1006. QuorumPeer "Address already in use" -- regression in 3.3.3 (phunt via breed)
+
+  ZOOKEEPER-1087. ForceSync VM arguement not working when set to "no" (Nate Putnam via breed)
+
+  ZOOKEEPER-1103. In QuorumTest, use the same "for ( .. try { break }
+  catch { } )" pattern in testFollowersStartAfterLeaders as in
+  testSessionMove. (Eugene Koontz via phunt)
+
+  ZOOKEEPER-1097. Quota is not correctly rehydrated on snapshot reload (camille via henryr)
+
+  ZOOKEEPER-1117. zookeeper 3.3.3 fails to build with gcc >= 4.6.1 on
+  Debian/Ubuntu (James Page via mahadev)
+
+  ZOOKEEPER-1154. Data inconsistency when the node(s) with the highest zxid is not present at the time of leader election. (Vishal Kathuria via camille)
+  
+  ZOOKEEPER-1156. Log truncation truncating log too much - can cause data loss. (Vishal Kathuria via camille)
+ 
+  ZOOKEEPER-961. Watch recovery after disconnection when connection string contains a prefix. 
+  (Matthias Spycher via mahadev)
+  
+  ZOOKEEPER-1160. test timeouts are too small (breed via camille)
+ 
+  ZOOKEEPER-1189. For an invalid snapshot file(less than 10bytes size)
+  RandomAccessFile stream is leaking. (Rakesh R via mahadev)
+
+  ZOOKEEPER-1203. Zookeeper systest is missing Junit Classes
+  (Prashant Gokhale via phunt)
+ 
+  ZOOKEEPER-1206. Sequential node creation does not use always use
+  digits in node name given certain Locales. (Mark Miller via phunt)
+  
+JAR manifest and Maven metadata:
+/bin/sh: 1: unzip: not found
+
+
+VersionInfo:
+Error: Main method not found in class org.apache.zookeeper.version.Info, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+exec
+/bin/bash -lc "set -euo pipefail
+docker run --rm --entrypoint /bin/sh --workdir /tmp zookeeper-1513:3.3.4-jdk8 -c '
+  set -eu
+  jar xf /opt/zookeeper/zookeeper-3.3.4.jar META-INF/MANIFEST.MF
+  sed -n \"1,120p\" META-INF/MANIFEST.MF
+  printf \"Version constants:\\n\"
+  javap -classpath /opt/zookeeper/zookeeper-3.3.4.jar -constants org.apache.zookeeper.version.Info
+  printf \"Version command:\\n\"
+  java -cp /opt/zookeeper/zookeeper-3.3.4.jar org.apache.zookeeper.Version --version
+'
+printf 'archive-sha1=' && sha1sum dist/zookeeper-3.3.4.tar.gz
+printf 'published-sha1=' && awk '{print "'$1}'"' dist/zookeeper-3.3.4.tar.gz.sha1
+printf 'jar-sha256=' && tar -xOzf dist/zookeeper-3.3.4.tar.gz zookeeper-3.3.4/zookeeper-3.3.4.jar | sha256sum" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ exited 1 in 1200ms:
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.6.0_26-b03 (Sun Microsystems Inc.)
+Main-Class: org.apache.zookeeper.server.quorum.QuorumPeer
+Built-By: phunt
+Built-At: 11/17/2011 06:40 GMT
+Built-On: ubuntu
+Implementation-Title: org.apache.zookeeper
+Implementation-Version: 3.3.3-1203054
+Implementation-Vendor: The Apache Software Foundation
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Name: ZooKeeper Bundle
+Bundle-SymbolicName: org.apache.hadoop.zookeeper
+Bundle-ManifestVersion: 2
+Bundle-Version: 3.3.4
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-DocURL: http://hadoop.apache.org/zookeeper
+Import-Package: javax.management,org.apache.log4j,org.osgi.framework;v
+ ersion="[1.4,2.0)",org.osgi.util.tracker;version="[1.1,2.0)"
+Export-Package: org.apache.zookeeper;version="3.3.4",org.apache.zookee
+ per.data;version="3.3.4",org.apache.zookeeper.version;version="3.3.4"
+ ,org.apache.zookeeper.server;version="3.3.4",org.apache.zookeeper.ser
+ ver.quorum;version="3.3.4"
+
+Version constants:
+Compiled from "Info.java"
+public interface org.apache.zookeeper.version.Info {
+  public static final int MAJOR = 3;
+  public static final int MINOR = 3;
+  public static final int MICRO = 4;
+  public static final java.lang.String QUALIFIER;
+  public static final int REVISION = 1203063;
+  public static final java.lang.String BUILD_DATE = "11/17/2011 06:40 GMT";
+  static {};
+}
+Version command:
+Usage:	java -cp ... org.apache.zookeeper.Version [--full | --short | --revision],
+	Prints --full version info if no arg specified.
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+The archive is indeed ZooKeeper 3.3.4: its compiled `Info` constants are 3.3.4 at revision 1203063 and its OSGi/export metadata is 3.3.4. Only the legacy `Implementation-Version` manifest field is stale at 3.3.3, which explains the startup banner. I’m recording that provenance and the mount/protection contract so later stages won’t mistake the banner or reuse protected paths.
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/ENVIRONMENT.md
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/ENVIRONMENT.md b/ENVIRONMENT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..63c86bbede6590843b3dbad6c70daba4f679e919
+--- /dev/null
++++ b/ENVIRONMENT.md
+@@ -0,0 +1,53 @@
++# Environment notes
++
++## Distribution provenance
++
++`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
++release archive downloaded from:
++
++`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
++
++Its published SHA-1 is stored alongside it in
++`dist/zookeeper-3.3.4.tar.gz.sha1`:
++
++`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
++
++Verify it with:
++
++```sh
++(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
++```
++
++The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
++`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
++`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
++bundle version is 3.3.4, and the release archive's changelog identifies the
++release as 3.3.4. Do not replace the verified release archive to alter the
++banner.
++
++## Build and mounts
++
++The image contains the full Temurin JDK 8 and runs as a non-root user. The
++defaults match the Harness host used to prepare this directory. On another
++host, export its account IDs for both build and run:
++
++```sh
++export ZK_UID="$(id -u)"
++export ZK_GID="$(id -g)"
++docker compose -f compose.yml build
++```
++
++Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
++`data/` and `logs/` are writable by the non-root service account. `result/` is
++mounted read-only; result capture is a host-side Harness responsibility. The
++entrypoint fixes the process umask at `022`, so container-created regular files
++are host-readable and directories are host-traversable.
++
++Each later attempt must use new, never-reused directories by setting
++`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
++captured an attempt, remove write permission from that attempt's log/result
++files and their containing attempt directories. Never start a container with a
++protected attempt directory as its writable log or data path.
++
++`logs/environment-smoke/` is the protected output of the environment-only
++startup check. It is not an experiment attempt and must not be reused.
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/ENVIRONMENT.md b/ENVIRONMENT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..63c86bbede6590843b3dbad6c70daba4f679e919
+--- /dev/null
++++ b/ENVIRONMENT.md
+@@ -0,0 +1,53 @@
++# Environment notes
++
++## Distribution provenance
++
++`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
++release archive downloaded from:
++
++`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
++
++Its published SHA-1 is stored alongside it in
++`dist/zookeeper-3.3.4.tar.gz.sha1`:
++
++`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
++
++Verify it with:
++
++```sh
++(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
++```
++
++The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
++`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
++`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
++bundle version is 3.3.4, and the release archive's changelog identifies the
++release as 3.3.4. Do not replace the verified release archive to alter the
++banner.
++
++## Build and mounts
++
++The image contains the full Temurin JDK 8 and runs as a non-root user. The
++defaults match the Harness host used to prepare this directory. On another
++host, export its account IDs for both build and run:
++
++```sh
++export ZK_UID="$(id -u)"
++export ZK_GID="$(id -g)"
++docker compose -f compose.yml build
++```
++
++Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
++`data/` and `logs/` are writable by the non-root service account. `result/` is
++mounted read-only; result capture is a host-side Harness responsibility. The
++entrypoint fixes the process umask at `022`, so container-created regular files
++are host-readable and directories are host-traversable.
++
++Each later attempt must use new, never-reused directories by setting
++`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
++captured an attempt, remove write permission from that attempt's log/result
++files and their containing attempt directories. Never start a container with a
++protected attempt directory as its writable log or data path.
++
++`logs/environment-smoke/` is the protected output of the environment-only
++startup check. It is not an experiment attempt and must not be reused.
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+exec
+/bin/bash -lc "set -euo pipefail
+(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
+docker compose -f compose.yml config --quiet
+docker run --rm --entrypoint /bin/sh zookeeper-1513:3.3.4-jdk8 -c 'java -cp /opt/zookeeper/zookeeper-3.3.4.jar org.apache.zookeeper.Version --full; javac -version; id'
+test "'! -w logs/environment-smoke
+test ! -w logs/environment-smoke/zookeeper.log
+test -r logs/environment-smoke/zookeeper.log
+test -x logs/environment-smoke
+test "$(docker ps --filter label=com.docker.compose.project=zookeeper-1513 --format '"'{{.ID}}' | wc -l)\" -eq 0
+if find . -type f \\( -name Reproduce.java -o -name FaultInjection.java -o -name Verify.java \\) -print -quit | grep -q .; then
+  echo 'forbidden later-stage Java source exists' >&2
+  exit 1
+fi
+printf 'final-image=' && docker image inspect zookeeper-1513:3.3.4-jdk8 --format '{{.Id}} user={{.Config.User}}'
+printf '%s\\n' 'protected-smoke-artifacts:'
+find logs/environment-smoke -printf '%m %u:%g %p\\n' | sort
+printf '%s\\n' 'prepared-files:'
+find . -maxdepth 2 -mindepth 1 -printf '%m %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 1462ms:
+3.3.3-1203054, built on 11/17/2011 05:47 GMT
+javac 1.8.0_502
+uid=1000(zookeeper) gid=988(zookeeper) groups=988(zookeeper)
+final-image=sha256:7d2548ec198cbf83de74a9ef26f2969cbebee038c273e5e6fce9561eb25f1af5 user=1000:988
+protected-smoke-artifacts:
+2555 shkim:docker logs/environment-smoke
+444 shkim:docker logs/environment-smoke/zookeeper.log
+prepared-files:
+2555 shkim:docker ./logs/environment-smoke
+2775 shkim:docker ./data
+2775 shkim:docker ./data/environment-smoke
+2775 shkim:docker ./logs
+600 shkim:docker ./status.properties
+664 shkim:docker ./.dockerignore
+664 shkim:docker ./Dockerfile
+664 shkim:docker ./ENVIRONMENT.md
+664 shkim:docker ./README.md
+664 shkim:docker ./compose.yml
+664 shkim:docker ./dist/zookeeper-3.3.4.tar.gz
+664 shkim:docker ./dist/zookeeper-3.3.4.tar.gz.sha1
+664 shkim:docker ./docker-entrypoint.sh
+664 shkim:docker ./log4j.properties
+664 shkim:docker ./repro.properties
+664 shkim:docker ./zoo.cfg
+664 shkim:shkim ./1513.xml
+775 shkim:docker ./dist
+775 shkim:docker ./result
+775 shkim:docker ./result/harness
+
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/ENVIRONMENT.md b/ENVIRONMENT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..63c86bbede6590843b3dbad6c70daba4f679e919
+--- /dev/null
++++ b/ENVIRONMENT.md
+@@ -0,0 +1,53 @@
++# Environment notes
++
++## Distribution provenance
++
++`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
++release archive downloaded from:
++
++`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
++
++Its published SHA-1 is stored alongside it in
++`dist/zookeeper-3.3.4.tar.gz.sha1`:
++
++`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
++
++Verify it with:
++
++```sh
++(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
++```
++
++The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
++`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
++`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
++bundle version is 3.3.4, and the release archive's changelog identifies the
++release as 3.3.4. Do not replace the verified release archive to alter the
++banner.
++
++## Build and mounts
++
++The image contains the full Temurin JDK 8 and runs as a non-root user. The
++defaults match the Harness host used to prepare this directory. On another
++host, export its account IDs for both build and run:
++
++```sh
++export ZK_UID="$(id -u)"
++export ZK_GID="$(id -g)"
++docker compose -f compose.yml build
++```
++
++Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
++`data/` and `logs/` are writable by the non-root service account. `result/` is
++mounted read-only; result capture is a host-side Harness responsibility. The
++entrypoint fixes the process umask at `022`, so container-created regular files
++are host-readable and directories are host-traversable.
++
++Each later attempt must use new, never-reused directories by setting
++`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
++captured an attempt, remove write permission from that attempt's log/result
++files and their containing attempt directories. Never start a container with a
++protected attempt directory as its writable log or data path.
++
++`logs/environment-smoke/` is the protected output of the environment-only
++startup check. It is not an experiment attempt and must not be reused.
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+codex
+Environment stage completed successfully.
+
+- Downloaded and SHA-1 verified the official ZooKeeper 3.3.4 archive.
+- Added [Dockerfile](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/Dockerfile), [compose.yml](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/compose.yml), [zoo.cfg](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/zoo.cfg), [log4j.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/log4j.properties), and the non-root [entrypoint](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/docker-entrypoint.sh).
+- Built image `zookeeper-1513:3.3.4-jdk8` successfully.
+- Verified Temurin Java/Javac 1.8.0_502 and service UID/GID `1000:988`.
+- Smoke-tested startup; `ruok` returned `imok`.
+- Verified writable data/log mounts and read-only result mount.
+- Protected the captured smoke log as `0444` inside a non-writable, traversable directory.
+- Documented archive provenance, the upstream stale 3.3.3 startup banner, and artifact handling in [ENVIRONMENT.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/ENVIRONMENT.md).
+
+No fault-injection experiments or later-stage Java sources were created. `status.properties` and existing `result/` contents were not modified.
+diff --git a/.dockerignore b/.dockerignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..8ca04c41e23ff8e9e3f8197c6bb4ea0e27796cfe
+--- /dev/null
++++ b/.dockerignore
+@@ -0,0 +1,7 @@
++**
++!Dockerfile
++!docker-entrypoint.sh
++!zoo.cfg
++!log4j.properties
++!dist/
++!dist/zookeeper-3.3.4.tar.gz
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 0000000000000000000000000000000000000000..9a458576fc1d79d0b3c159824364872fe2f2a62d
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,39 @@
++FROM eclipse-temurin:8-jdk-jammy
++
++ARG ZK_UID=1000
++ARG ZK_GID=988
++
++RUN groupadd --gid "${ZK_GID}" zookeeper \
++    && useradd --uid "${ZK_UID}" --gid "${ZK_GID}" \
++        --home-dir /var/lib/zookeeper --no-create-home \
++        --shell /usr/sbin/nologin zookeeper
++
++COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
++
++RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz" \
++        | sha1sum -c - \
++    && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt \
++    && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper \
++    && rm /tmp/zookeeper-3.3.4.tar.gz \
++    && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result \
++    && chown "${ZK_UID}:${ZK_GID}" \
++        /var/lib/zookeeper /var/log/zookeeper /result
++
++COPY zoo.cfg log4j.properties /etc/zookeeper/
++COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
++
++RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
++    && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
++
++ENV ZOOCFGDIR=/etc/zookeeper \
++    ZOO_LOG_DIR=/var/log/zookeeper \
++    ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \
++    SERVER_JVMFLAGS="-Xms256m -Xmx512m"
++
++WORKDIR /opt/zookeeper
++USER ${ZK_UID}:${ZK_GID}
++
++EXPOSE 2181
++
++ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
++CMD ["/opt/zookeeper/bin/zkServer.sh", "start-foreground", "/etc/zookeeper/zoo.cfg"]
+diff --git a/ENVIRONMENT.md b/ENVIRONMENT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..63c86bbede6590843b3dbad6c70daba4f679e919
+--- /dev/null
++++ b/ENVIRONMENT.md
+@@ -0,0 +1,53 @@
++# Environment notes
++
++## Distribution provenance
++
++`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
++release archive downloaded from:
++
++`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
++
++Its published SHA-1 is stored alongside it in
++`dist/zookeeper-3.3.4.tar.gz.sha1`:
++
++`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
++
++Verify it with:
++
++```sh
++(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
++```
++
++The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
++`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
++`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
++bundle version is 3.3.4, and the release archive's changelog identifies the
++release as 3.3.4. Do not replace the verified release archive to alter the
++banner.
++
++## Build and mounts
++
++The image contains the full Temurin JDK 8 and runs as a non-root user. The
++defaults match the Harness host used to prepare this directory. On another
++host, export its account IDs for both build and run:
++
++```sh
++export ZK_UID="$(id -u)"
++export ZK_GID="$(id -g)"
++docker compose -f compose.yml build
++```
++
++Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
++`data/` and `logs/` are writable by the non-root service account. `result/` is
++mounted read-only; result capture is a host-side Harness responsibility. The
++entrypoint fixes the process umask at `022`, so container-created regular files
++are host-readable and directories are host-traversable.
++
++Each later attempt must use new, never-reused directories by setting
++`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
++captured an attempt, remove write permission from that attempt's log/result
++files and their containing attempt directories. Never start a container with a
++protected attempt directory as its writable log or data path.
++
++`logs/environment-smoke/` is the protected output of the environment-only
++startup check. It is not an experiment attempt and must not be reused.
+diff --git a/compose.yml b/compose.yml
+new file mode 100644
+index 0000000000000000000000000000000000000000..56edd320de2fe38e46188d47c3c285bf0d1a3cc2
+--- /dev/null
++++ b/compose.yml
+@@ -0,0 +1,33 @@
++services:
++  zookeeper:
++    build:
++      context: .
++      args:
++        ZK_UID: "${ZK_UID:-1000}"
++        ZK_GID: "${ZK_GID:-988}"
++    image: zookeeper-1513:3.3.4-jdk8
++    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
++    read_only: true
++    init: true
++    cap_drop:
++      - ALL
++    security_opt:
++      - no-new-privileges:true
++    ports:
++      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
++    volumes:
++      - type: bind
++        source: ${ZK_DATA_DIR:-./data}
++        target: /var/lib/zookeeper
++      - type: bind
++        source: ${ZK_LOG_DIR:-./logs}
++        target: /var/log/zookeeper
++      - type: bind
++        source: ${ZK_RESULT_DIR:-./result}
++        target: /result
++        read_only: true
++    tmpfs:
++      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
++    stop_grace_period: 20s
++    cpus: 2.0
++    mem_limit: 2g
+diff --git a/docker-entrypoint.sh b/docker-entrypoint.sh
+new file mode 100644
+index 0000000000000000000000000000000000000000..3e3b53052c1a1d9160214c2ae37e8d93fe84f6a5
+--- /dev/null
++++ b/docker-entrypoint.sh
+@@ -0,0 +1,23 @@
++#!/bin/sh
++set -eu
++
++# Files created in bind mounts must remain readable and directories traversable
++# by the host-side Harness account.
++umask 022
++
++for writable_dir in /var/lib/zookeeper /var/log/zookeeper; do
++    if [ ! -d "${writable_dir}" ]; then
++        mkdir -p "${writable_dir}"
++    fi
++    if [ ! -r "${writable_dir}" ] || [ ! -w "${writable_dir}" ] || [ ! -x "${writable_dir}" ]; then
++        echo "ZooKeeper requires a readable, writable, traversable mount: ${writable_dir}" >&2
++        exit 73
++    fi
++done
++
++if [ -d /result ] && { [ ! -r /result ] || [ ! -x /result ]; }; then
++    echo "The result mount must be readable and traversable: /result" >&2
++    exit 73
++fi
++
++exec "$@"
+diff --git a/log4j.properties b/log4j.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e0cd74ee2fa3902cb1dd7943a929387397d56bc
+--- /dev/null
++++ b/log4j.properties
+@@ -0,0 +1,17 @@
++# ZooKeeper 3.3.4 uses Log4j 1.2. Keep startup/replay evidence both on
++# container stdout and in the host-mounted log directory.
++log4j.rootLogger=${zookeeper.root.logger}
++
++log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
++log4j.appender.CONSOLE.Threshold=INFO
++log4j.appender.CONSOLE.Target=System.err
++log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
++log4j.appender.CONSOLE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
++
++log4j.appender.ROLLINGFILE=org.apache.log4j.RollingFileAppender
++log4j.appender.ROLLINGFILE.Threshold=INFO
++log4j.appender.ROLLINGFILE.File=${zookeeper.log.dir}/zookeeper.log
++log4j.appender.ROLLINGFILE.MaxFileSize=10MB
++log4j.appender.ROLLINGFILE.MaxBackupIndex=10
++log4j.appender.ROLLINGFILE.layout=org.apache.log4j.PatternLayout
++log4j.appender.ROLLINGFILE.layout.ConversionPattern=%d{ISO8601} - %-5p [%t:%C{1}@%L] - %m%n
+diff --git a/zoo.cfg b/zoo.cfg
+new file mode 100644
+index 0000000000000000000000000000000000000000..32acfb3b342184a835dce667d8640c0754acb8ad
+--- /dev/null
++++ b/zoo.cfg
+@@ -0,0 +1,7 @@
++tickTime=2000
++initLimit=10
++syncLimit=5
++dataDir=/var/lib/zookeeper
++dataLogDir=/var/lib/zookeeper
++clientPort=2181
++maxClientCnxns=0
+
+tokens used
+54,924

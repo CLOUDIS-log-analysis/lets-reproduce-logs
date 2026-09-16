@@ -1,0 +1,14 @@
+Baseline stage completed successfully.
+
+- Compose service remains running and healthy on `127.0.0.1:12181`; standalone status returned 0, with zero restarts/OOM events.
+- Port 2181 was occupied, so a free port was used without disturbing the conflicting service.
+- Fixed an unrelated ZooKeeper 3.4.4 SASL gating problem in [Reproduce.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/src/main/java/org/apache/zookeeper/Reproduce.java) and documented it in [README.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/README.md).
+- `mvn clean package` succeeded.
+- Fault-free baseline passed:
+  - readiness control passed
+  - 500,000-byte create returned in 31 ms
+  - client exited 0
+  - `fault_injection=disabled`
+- Host permission audit passed for every directory and regular file under `logs/`, `data/`, and `result/`.
+- No attempt directories or attempt property files were created or consumed.
+- `status.properties` was not modified.

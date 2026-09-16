@@ -1,0 +1,62 @@
+ Image zookeeper-1513:3.3.4-jdk8 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 654B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.38kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk-jammy
+#3 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 140B 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d
+#6 resolve docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d 0.1s done
+#6 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 178B done
+#5 DONE 0.0s
+
+#7 [6/8] COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+#7 CACHED
+
+#8 [7/8] RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh     && chmod 0444 /etc/zookeeper/zoo.cfg /etc/zookeeper/log4j.properties
+#8 CACHED
+
+#9 [3/8] COPY dist/zookeeper-3.3.4.tar.gz /tmp/zookeeper-3.3.4.tar.gz
+#9 CACHED
+
+#10 [5/8] COPY zoo.cfg log4j.properties /etc/zookeeper/
+#10 CACHED
+
+#11 [4/8] RUN echo "cbb259eac2ae5c10956c49db5b2a05e112d645ac  /tmp/zookeeper-3.3.4.tar.gz"         | sha1sum -c -     && tar -xzf /tmp/zookeeper-3.3.4.tar.gz -C /opt     && ln -s /opt/zookeeper-3.3.4 /opt/zookeeper     && rm /tmp/zookeeper-3.3.4.tar.gz     && mkdir -p /etc/zookeeper /var/lib/zookeeper /var/log/zookeeper /result     && chown "1000:988"         /var/lib/zookeeper /var/log/zookeeper /result
+#11 CACHED
+
+#12 [2/8] RUN groupadd --gid "988" zookeeper     && useradd --uid "1000" --gid "988"         --home-dir /var/lib/zookeeper --no-create-home         --shell /usr/sbin/nologin zookeeper
+#12 CACHED
+
+#13 [8/8] WORKDIR /opt/zookeeper
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:d85777ec25500c32d27426f3edbd63909dda7efdb516c8aa74809f24823eec77 done
+#14 exporting config sha256:1c4a690358ec0c67751f3b29ba5106c4b3bfad072f6eb2dfa621bedb2d1adb88 done
+#14 exporting attestation manifest sha256:930642766664f34d7edd3128233ce6f7f6fb90271c33fc9aa5e129008419b534
+#14 exporting attestation manifest sha256:930642766664f34d7edd3128233ce6f7f6fb90271c33fc9aa5e129008419b534 0.0s done
+#14 exporting manifest list sha256:5ac80dd90f5bbad60330f648e5ac04def5269391041af010cc93a06391be9916 0.0s done
+#14 naming to docker.io/library/zookeeper-1513:3.3.4-jdk8 done
+#14 unpacking to docker.io/library/zookeeper-1513:3.3.4-jdk8 0.0s done
+#14 DONE 0.2s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image zookeeper-1513:3.3.4-jdk8 Built 

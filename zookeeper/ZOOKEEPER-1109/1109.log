@@ -1,0 +1,22 @@
+2011-06-21 10:09:59,730 - FATAL [SyncThread:2:SyncRequestProcessor@148] - Severe unrecoverable error, exiting 
+java.io.IOException: No space left on device 
+        at java.io.FileOutputStream.writeBytes(Native Method) 
+        at java.io.FileOutputStream.write(FileOutputStream.java:260) 
+        at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:65) 
+        at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:123) 
+        at org.apache.zookeeper.server.persistence.FileTxnLog.commit(FileTxnLog.java:305) 
+        at org.apache.zookeeper.server.persistence.FileTxnSnapLog.commit(FileTxnSnapLog.java:324) 
+        at org.apache.zookeeper.server.ZKDatabase.commit(ZKDatabase.java:484) 
+        at org.apache.zookeeper.server.SyncRequestProcessor.flush(SyncRequestProcessor.java:158) 
+        at org.apache.zookeeper.server.SyncRequestProcessor.run(SyncRequestProcessor.java:98) 
+2011-06-21 10:09:59,732 - INFO  [Thread-2:QuorumPeer@691] - The Quorum server is going for shutdown 
+2011-06-21 10:09:59,732 - INFO  [Thread-2:Leader@393] - Shutdown called 
+java.lang.Exception: shutdown Leader! reason: quorum Peer shutdown 
+        at org.apache.zookeeper.server.quorum.Leader.shutdown(Leader.java:393) 
+        at org.apache.zookeeper.server.quorum.QuorumPeer.shutdown(QuorumPeer.java:694) 
+        at org.apache.zookeeper.server.quorum.QuorumPeerMain$1.run(QuorumPeerMain.java:126) 
+2011-06-21 10:09:59,733 - INFO  [Thread-6:Leader$LearnerCnxAcceptor@243] - exception while shutting down acceptor: java.net.SocketException: Socket closed 
+2011-06-21 10:09:59,758 - INFO  [ProcessThread:-1:PrepRequestProcessor@120] - PrepRequestProcessor exited loop! 
+2011-06-21 10:09:59,758 - INFO  [CommitProcessor:2:CommitProcessor@150] - CommitProcessor exited loop! 
+2011-06-21 10:09:59,759 - INFO  [Thread-2:FinalRequestProcessor@379] - shutdown of request processor complete 
+2011-06-21 10:10:00,000 - INFO  [SessionTracker:SessionTrackerImpl@165] - SessionTrackerImpl exited loop! 

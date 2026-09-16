@@ -1,0 +1,916 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a7e3-de41-7b13-8f66-f6110fc72814
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1513.
+Current Harness stage: SPEC.
+Jira XML source: 1513.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Read the Jira XML source named above first and perform only specification work.
+
+Required work:
+- Create or complete README.md with the reproduction specification and rationale supported by jira.xml.
+- Create or complete repro.properties.
+- repro.properties must contain these exact workflow keys:
+  zookeeper.version
+  jdk.version
+  node.count
+  cpu.count
+  memory
+  attempt.count
+- Use attempt.count=3 for ordinary issues unless the issue evidence justifies a larger count such as 10 for flaky/race/concurrency behavior.
+
+Do NOT create the Docker environment yet.
+Do NOT write reproduction/fault-injection Java code yet.
+Do NOT run experiment attempts yet.
+
+codex
+I’ll first inspect `1513.xml` and the current directory state, then write only the SPEC-stage artifacts (`README.md` and `repro.properties`).
+exec
+/bin/bash -lc "pwd && rg --files -g '"'!logs/**'"' -g '"'!result/**'"' | sort && find . -maxdepth 2 -type d -print | sort && sed -n '1,240p' 1513.xml" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+1513.xml
+status.properties
+.
+./result
+./result/harness
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+            <title>[ZOOKEEPER-1513] &quot;Unreasonable length&quot; exception while starting a server.</title>
+                <link>https://issues.apache.org/jira/browse/ZOOKEEPER-1513</link>
+                <project id="12310801" key="ZOOKEEPER">ZooKeeper</project>
+                    <description>&lt;p&gt;The server is allowing a client to set data larger than the server can then later read:&lt;/p&gt;
+
+&lt;div class=&quot;preformatted panel&quot; style=&quot;border-width: 1px;&quot;&gt;&lt;div class=&quot;preformattedContent panelContent&quot;&gt;
+&lt;pre&gt;2012-07-18 14:28:12,555 - FATAL [main:QuorumPeer@400] - Unable to load database on disk 
+java.io.IOException: Unreasonable length = 1048583 
+at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100) 
+at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:529) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.&amp;lt;init&amp;gt;(FileTxnLog.java:504) 
+at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:341) 
+at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:131) 
+at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222) 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.runFromConfig(QuorumPeerMain.java:143) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:103) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76) 
+2012-07-18 14:28:12,555 - FATAL [main:QuorumPeerMain@87] - Unexpected exception, exiting abnormally 
+java.lang.RuntimeException: Unable to run quorum server 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:401) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.runFromConfig(QuorumPeerMain.java:143) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:103) 
+at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76) 
+Caused by: java.io.IOException: Unreasonable length = 1048583 
+at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100) 
+at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.init(FileTxnLog.java:529) 
+at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.&amp;lt;init&amp;gt;(FileTxnLog.java:504) 
+at org.apache.zookeeper.server.persistence.FileTxnLog.read(FileTxnLog.java:341) 
+at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:131) 
+at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222) 
+at org.apache.zookeeper.server.quorum.QuorumPeer.start(QuorumPeer.java:398) 
+... 3 more
+&lt;/pre&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice the size is 0x100007 - 7 bytes beyond.&lt;/p&gt;
+
+&lt;p&gt;The SetDataTxn contains the client data + a couple extra fields. On ingest the server is applying the jute.maxbuffer size to the data (expected) but not handling the fact that the data plus these extra fields may exceed the jute.maxbuffer check when reading from disk.&lt;/p&gt;
+
+&lt;p&gt;Workaround was simple here: set the jute.maxbuffer size a bit higher (and fix the mis-behaving client, expectation was not that the data would grow this large).&lt;/p&gt;</description>
+                <environment></environment>
+        <key id="12599557">ZOOKEEPER-1513</key>
+            <summary>&quot;Unreasonable length&quot; exception while starting a server.</summary>
+                <type id="1" iconUrl="https://issues.apache.org/jira/secure/viewavatar?size=xsmall&amp;avatarId=21133&amp;avatarType=issuetype">Bug</type>
+                                            <priority id="3" iconUrl="https://issues.apache.org/jira/images/icons/priorities/major.svg">Major</priority>
+                        <status id="6" iconUrl="https://issues.apache.org/jira/images/icons/statuses/closed.png" description="The issue is considered finished, the resolution is correct. Issues which are not closed can be reopened.">Closed</status>
+                    <statusCategory id="3" key="done" colorName="green"/>
+                                    <resolution id="1">Fixed</resolution>
+                                        <assignee username="skye">Skye Wanderman-Milne</assignee>
+                                    <reporter username="phunt">Patrick D. Hunt</reporter>
+                        <labels>
+                    </labels>
+                <created>Fri, 20 Jul 2012 00:38:33 +0000</created>
+                <updated>Thu, 13 Mar 2014 18:16:53 +0000</updated>
+                            <resolved>Wed, 12 Dec 2012 06:52:29 +0000</resolved>
+                                    <version>3.3.4</version>
+                                    <fixVersion>3.4.6</fixVersion>
+                    <fixVersion>3.5.0</fixVersion>
+                                    <component>server</component>
+                        <due></due>
+                            <votes>0</votes>
+                                    <watches>10</watches>
+                                                                                                                <comments>
+                            <comment id="13444686" author="mahadev" created="Thu, 30 Aug 2012 05:18:46 +0000"  >&lt;p&gt;Moving it out since a workaround exists. If someone wants to provide a patch for a 3.4 branch, it would be great.&lt;/p&gt;</comment>
+                            <comment id="13474627" author="skye" created="Thu, 11 Oct 2012 23:37:37 +0000"  >&lt;p&gt;see review board: &lt;a href=&quot;https://reviews.apache.org/r/7557/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://reviews.apache.org/r/7557/&lt;/a&gt;&lt;/p&gt;</comment>
+                            <comment id="13474660" author="hadoopqa" created="Fri, 12 Oct 2012 00:13:00 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12548824/ZOOKEEPER-1513.patch&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12548824/ZOOKEEPER-1513.patch&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    -1 tests included.  The patch doesn&apos;t appear to include any new or modified tests.&lt;br/&gt;
+                        Please justify why no new tests are needed for this patch.&lt;br/&gt;
+                        Also please list what manual steps were performed to verify this patch.&lt;/p&gt;
+
+&lt;p&gt;    +1 javadoc.  The javadoc tool did not generate any warning messages.&lt;/p&gt;
+
+&lt;p&gt;    +1 javac.  The applied patch does not increase the total number of javac compiler warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 findbugs.  The patch does not introduce any new Findbugs (version 1.3.9) warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 release audit.  The applied patch does not increase the total number of release audit warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 core tests.  The patch passed core unit tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 contrib tests.  The patch passed contrib unit tests.&lt;/p&gt;
+
+&lt;p&gt;Test results: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//testReport/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//testReport/&lt;/a&gt;&lt;br/&gt;
+Findbugs warnings: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&lt;/a&gt;&lt;br/&gt;
+Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1211//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13478037" author="skye" created="Wed, 17 Oct 2012 17:07:00 +0000"  >&lt;p&gt;simpler patch (includes suggestions from &lt;a href=&quot;https://reviews.apache.org/r/7603/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://reviews.apache.org/r/7603/&lt;/a&gt;)&lt;/p&gt;</comment>
+                            <comment id="13478046" author="hadoopqa" created="Wed, 17 Oct 2012 17:13:59 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12549534/ZOOKEEPER-1513_2012.10.17.patch&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12549534/ZOOKEEPER-1513_2012.10.17.patch&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    +1 tests included.  The patch appears to include 21 new or modified tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 javadoc.  The javadoc tool did not generate any warning messages.&lt;/p&gt;
+
+&lt;p&gt;    +1 javac.  The applied patch does not increase the total number of javac compiler warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 findbugs.  The patch does not introduce any new Findbugs (version 1.3.9) warnings.&lt;/p&gt;
+
+&lt;p&gt;    +1 release audit.  The applied patch does not increase the total number of release audit warnings.&lt;/p&gt;
+
+&lt;p&gt;    -1 core tests.  The patch failed core unit tests.&lt;/p&gt;
+
+&lt;p&gt;    +1 contrib tests.  The patch passed contrib unit tests.&lt;/p&gt;
+
+&lt;p&gt;Test results: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//testReport/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//testReport/&lt;/a&gt;&lt;br/&gt;
+Findbugs warnings: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//artifact/trunk/build/test/findbugs/newPatchFindbugsWarnings.html&lt;/a&gt;&lt;br/&gt;
+Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1235//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13478471" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"  >&lt;p&gt;The core tests fail because I created new binary files (log and snapshot files), which cannot be added with a patch. The files are in the .tar.gz. I also updated an incorrect comment in the patch and refreshed the binary files listed in the patch, thus the new patch file.&lt;/p&gt;</comment>
+                            <comment id="13478475" author="hadoopqa" created="Wed, 17 Oct 2012 22:52:23 +0000"  >&lt;p&gt;-1 overall.  Here are the results of testing the latest attachment &lt;br/&gt;
+  &lt;a href=&quot;http://issues.apache.org/jira/secure/attachment/12549598/ZOOKEEPER-1513_2012.10.17_take2.tar.gz&quot; class=&quot;external-link&quot; rel=&quot;nofollow&quot;&gt;http://issues.apache.org/jira/secure/attachment/12549598/ZOOKEEPER-1513_2012.10.17_take2.tar.gz&lt;/a&gt;&lt;br/&gt;
+  against trunk revision 1391526.&lt;/p&gt;
+
+&lt;p&gt;    +1 @author.  The patch does not contain any @author tags.&lt;/p&gt;
+
+&lt;p&gt;    -1 tests included.  The patch doesn&apos;t appear to include any new or modified tests.&lt;br/&gt;
+                        Please justify why no new tests are needed for this patch.&lt;br/&gt;
+                        Also please list what manual steps were performed to verify this patch.&lt;/p&gt;
+
+&lt;p&gt;    -1 patch.  The patch command could not apply the patch.&lt;/p&gt;
+
+&lt;p&gt;Console output: &lt;a href=&quot;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1237//console&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/PreCommit-ZOOKEEPER-Build/1237//console&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This message is automatically generated.&lt;/p&gt;</comment>
+                            <comment id="13529675" author="phunt" created="Wed, 12 Dec 2012 06:52:29 +0000"  >&lt;p&gt;Committed to 3.4.6 and trunk. Thanks Skye!&lt;/p&gt;</comment>
+                            <comment id="13529834" author="hudson" created="Wed, 12 Dec 2012 11:05:17 +0000"  >&lt;p&gt;Integrated in ZooKeeper-trunk #1770 (See &lt;a href=&quot;https://builds.apache.org/job/ZooKeeper-trunk/1770/&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;https://builds.apache.org/job/ZooKeeper-trunk/1770/&lt;/a&gt;)&lt;br/&gt;
+    &lt;a href=&quot;https://issues.apache.org/jira/browse/ZOOKEEPER-1513&quot; title=&quot;&amp;quot;Unreasonable length&amp;quot; exception while starting a server.&quot; class=&quot;issue-link&quot; data-issue-key=&quot;ZOOKEEPER-1513&quot;&gt;&lt;del&gt;ZOOKEEPER-1513&lt;/del&gt;&lt;/a&gt;. &quot;Unreasonable length&quot; exception while starting a server (Skye W-M via phunt) (Revision 1420538)&lt;/p&gt;
+
+&lt;p&gt;     Result = SUCCESS&lt;br/&gt;
+phunt : &lt;a href=&quot;http://svn.apache.org/viewcvs.cgi/?root=Apache-SVN&amp;amp;view=rev&amp;amp;rev=1420538&quot; class=&quot;external-link&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;http://svn.apache.org/viewcvs.cgi/?root=Apache-SVN&amp;amp;view=rev&amp;amp;rev=1420538&lt;/a&gt;&lt;br/&gt;
+Files : &lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;/zookeeper/trunk/CHANGES.txt&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/build.xml&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/main/org/apache/jute/BinaryInputArchive.java&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/create/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/set/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/log.1&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/snapshot.0&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/data/buffersize/snapshot/version-2/snapshot.2&lt;/li&gt;
+	&lt;li&gt;/zookeeper/trunk/src/java/test/org/apache/zookeeper/test/BufferSizeTest.java&lt;/li&gt;
+&lt;/ul&gt;
+</comment>
+                            <comment id="13933692" author="fpj" created="Thu, 13 Mar 2014 18:16:53 +0000"  >&lt;p&gt;Closing issues after releasing 3.4.6.&lt;/p&gt;</comment>
+                    </comments>
+                    <attachments>
+                            <attachment id="12548824" name="ZOOKEEPER-1513.patch" size="11147" author="skye" created="Thu, 11 Oct 2012 23:37:37 +0000"/>
+                            <attachment id="12549534" name="ZOOKEEPER-1513_2012.10.17.patch" size="9824" author="skye" created="Wed, 17 Oct 2012 17:07:00 +0000"/>
+                            <attachment id="12549597" name="ZOOKEEPER-1513_2012.10.17_take2.patch" size="9843" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"/>
+                            <attachment id="12549598" name="ZOOKEEPER-1513_2012.10.17_take2.tar.gz" size="1545" author="skye" created="Wed, 17 Oct 2012 22:44:55 +0000"/>
+                    </attachments>
+                <subtasks>
+                    </subtasks>
+                <customfields>
+                                                                            <customfield id="customfield_12310310" key="com.atlassian.jira.toolkit:attachments">
+                        <customfieldname>Attachment count</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>4.0</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <customfield id="customfield_12314020" key="com.atlassian.jira.plugins.jira-development-integration-plugin:devsummary">
+                        <customfieldname>Development</customfieldname>
+                        <customfieldvalues>
+                            
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                        <customfield id="customfield_12313422" key="com.atlassian.jirafisheyeplugin:jobcheckbox">
+                        <customfieldname>Enable Automatic Patch Review</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue><![CDATA[false]]></customfieldvalue>
+
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <customfield id="customfield_12310420" key="com.pyxis.greenhopper.jira:gh-global-rank">
+                        <customfieldname>Global Rank</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>242193</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                <customfield id="customfield_12310191" key="com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes">
+                        <customfieldname>Hadoop Flags</customfieldname>
+                        <customfieldvalues>
+                                <customfieldvalue key="10343"><![CDATA[Reviewed]]></customfieldvalue>
+    
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                        <customfield id="customfield_12312521" key="com.atlassian.jira.toolkit:LastCommentDate">
+                        <customfieldname>Last public comment date</customfieldname>
+                        <customfieldvalues>
+                            12 years, 28 weeks, 1 day ago
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                <customfield id="customfield_12311820" key="com.pyxis.greenhopper.jira:gh-lexo-rank">
+                        <customfieldname>Rank</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>0|i02jdj:</customfieldvalue>
+
+                        </customfieldvalues>
+                    </customfield>
+                                                                <customfield id="customfield_12310920" key="com.pyxis.greenhopper.jira:gh-global-rank">
+                        <customfieldname>Rank (Obsolete)</customfieldname>
+                        <customfieldvalues>
+                            <customfieldvalue>12740</customfieldvalue>
+                        </customfieldvalues>
+                    </customfield>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </customfields>
+    </item>
+
+codex
+The Jira evidence describes a deterministic persistence/restart boundary bug in affected ZooKeeper 3.3.4: a maximum-size client payload is accepted, but its serialized transaction is seven bytes larger (`1,048,583`) and then rejected during database reload. I’m specifying a single-node restart test and the ordinary three attempts; no race/flakiness evidence supports increasing the count.
+exec
+/bin/bash -lc "ls -la && find result -maxdepth 3 -printf '%M %u:%g %p\\n' | sort && sed -n '1,160p' status.properties" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+total 40
+drwxrwxr-x  3 shkim shkim   4096 Sep 16 01:45 .
+drwxrwxr-x 49 shkim shkim   4096 Sep 15 17:59 ..
+-rw-rw-r--  1 shkim shkim  23277 Sep 15 17:59 1513.xml
+drwxrwxr-x  3 shkim docker  4096 Sep 16 01:45 result
+-rw-------  1 shkim docker   178 Sep 16 01:45 status.properties
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+drwxrwxr-x shkim:docker result
+drwxrwxr-x shkim:docker result/harness
+#ZooKeeper reproduction harness state
+#Wed Sep 16 01:45:23 UTC 2026
+stage=SPEC
+last.result=SUCCESS
+updated.at=2026-09-16T01\:45\:23.241077925Z
+retry.count=0
+last.stage=CANDIDATE
+
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/README.md
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/repro.properties
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..d88b9d3ea7874c4350b0110d08108c8d66a8e694
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,95 @@
++# ZOOKEEPER-1513 reproduction specification
++
++## Bug summary
++
++ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
++persisted transaction containing that data is slightly larger because it also
++contains transaction metadata. On a later server start, transaction-log replay
++applies the same limit to the complete serialized transaction and aborts while
++loading the database.
++
++The Jira report records the concrete failure as:
++
++```text
++java.io.IOException: Unreasonable length = 1048583
++    at org.apache.jute.BinaryInputArchive.readBuffer(...)
++    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
++    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
++    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
++```
++
++`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
++`jute.maxbuffer` value. The Jira description attributes those extra bytes to
++fields in `SetDataTxn`, in addition to the client data that was checked when it
++was accepted.
++
++## Target and resources
++
++- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
++- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
++  change was committed to 3.4.6 and trunk.
++- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
++  the Jira record does not identify a JDK-specific condition.
++- Topology: **one server**. The defect is in local transaction persistence and
++  startup replay, so leader election or a multi-node interaction is not needed
++  to exercise it.
++- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
++  client driver.
++- Attempts: **3**. The report describes a deterministic size-boundary failure,
++  not a flaky, timing-sensitive, or concurrent behavior.
++
++## Reproduction procedure
++
++The later implementation stage should automate the following sequence without
++changing `jute.maxbuffer` from its default value:
++
++1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
++   wait until it accepts client connections.
++2. Create a znode with a small initial value.
++3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
++   assert that the operation succeeds. Use deterministic bytes so the input is
++   identical in every attempt.
++4. Stop the server cleanly after the successful write, preserving its data and
++   transaction log.
++5. Start the same server again against that directory and capture its complete
++   startup output and process exit status.
++6. Retain evidence that the write was acknowledged before the restart and that
++   the restart subsequently failed during database loading.
++
++The test must not synthesize or corrupt a transaction log: the point is to show
++that an ordinary client operation accepted by the affected server creates an
++on-disk record that the same server cannot later read.
++
++## Result oracle
++
++An attempt reproduces the bug only when all of these conditions hold:
++
++- the 1 MiB `setData` operation succeeds before shutdown;
++- restart using the resulting data directory fails to become ready (or exits);
++- startup output contains `Unreasonable length = 1048583`; and
++- the failure path is database restoration/transaction-log replay, evidenced by
++  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
++  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
++
++A rejection of the original client write is not this bug. A restart failure
++without the size exception is also not sufficient. Reproducing the stated
++failure in each of the three independent clean attempts is the success
++criterion.
++
++## Rationale and control
++
++This boundary is taken directly from the Jira report: accepted client data plus
++seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
++Restart is essential because the observed exception occurs while loading the
++database from disk, not while handling the live request.
++
++If a fixed-version control is added in a later stage, the same write and restart
++sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
++configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
++only as a workaround and must not be used in the primary reproduction.
++
++## Evidence source
++
++This specification is based solely on `1513.xml`: the issue description,
++affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
++comment confirming the commit to 3.4.6 and trunk.
+diff --git a/repro.properties b/repro.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d9f10f5a5845d718a55a625768e58fc953af229
+--- /dev/null
++++ b/repro.properties
+@@ -0,0 +1,6 @@
++zookeeper.version=3.3.4
++jdk.version=8
++node.count=1
++cpu.count=2
++memory=2g
++attempt.count=3
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..d88b9d3ea7874c4350b0110d08108c8d66a8e694
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,95 @@
++# ZOOKEEPER-1513 reproduction specification
++
++## Bug summary
++
++ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
++persisted transaction containing that data is slightly larger because it also
++contains transaction metadata. On a later server start, transaction-log replay
++applies the same limit to the complete serialized transaction and aborts while
++loading the database.
++
++The Jira report records the concrete failure as:
++
++```text
++java.io.IOException: Unreasonable length = 1048583
++    at org.apache.jute.BinaryInputArchive.readBuffer(...)
++    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
++    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
++    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
++```
++
++`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
++`jute.maxbuffer` value. The Jira description attributes those extra bytes to
++fields in `SetDataTxn`, in addition to the client data that was checked when it
++was accepted.
++
++## Target and resources
++
++- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
++- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
++  change was committed to 3.4.6 and trunk.
++- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
++  the Jira record does not identify a JDK-specific condition.
++- Topology: **one server**. The defect is in local transaction persistence and
++  startup replay, so leader election or a multi-node interaction is not needed
++  to exercise it.
++- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
++  client driver.
++- Attempts: **3**. The report describes a deterministic size-boundary failure,
++  not a flaky, timing-sensitive, or concurrent behavior.
++
++## Reproduction procedure
++
++The later implementation stage should automate the following sequence without
++changing `jute.maxbuffer` from its default value:
++
++1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
++   wait until it accepts client connections.
++2. Create a znode with a small initial value.
++3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
++   assert that the operation succeeds. Use deterministic bytes so the input is
++   identical in every attempt.
++4. Stop the server cleanly after the successful write, preserving its data and
++   transaction log.
++5. Start the same server again against that directory and capture its complete
++   startup output and process exit status.
++6. Retain evidence that the write was acknowledged before the restart and that
++   the restart subsequently failed during database loading.
++
++The test must not synthesize or corrupt a transaction log: the point is to show
++that an ordinary client operation accepted by the affected server creates an
++on-disk record that the same server cannot later read.
++
++## Result oracle
++
++An attempt reproduces the bug only when all of these conditions hold:
++
++- the 1 MiB `setData` operation succeeds before shutdown;
++- restart using the resulting data directory fails to become ready (or exits);
++- startup output contains `Unreasonable length = 1048583`; and
++- the failure path is database restoration/transaction-log replay, evidenced by
++  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
++  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
++
++A rejection of the original client write is not this bug. A restart failure
++without the size exception is also not sufficient. Reproducing the stated
++failure in each of the three independent clean attempts is the success
++criterion.
++
++## Rationale and control
++
++This boundary is taken directly from the Jira report: accepted client data plus
++seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
++Restart is essential because the observed exception occurs while loading the
++database from disk, not while handling the live request.
++
++If a fixed-version control is added in a later stage, the same write and restart
++sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
++configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
++only as a workaround and must not be used in the primary reproduction.
++
++## Evidence source
++
++This specification is based solely on `1513.xml`: the issue description,
++affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
++comment confirming the commit to 3.4.6 and trunk.
+diff --git a/repro.properties b/repro.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d9f10f5a5845d718a55a625768e58fc953af229
+--- /dev/null
++++ b/repro.properties
+@@ -0,0 +1,6 @@
++zookeeper.version=3.3.4
++jdk.version=8
++node.count=1
++cpu.count=2
++memory=2g
++attempt.count=3
+
+codex
+The two SPEC artifacts are now drafted. I’m validating their contents, permissions, and the exact property-key set while leaving `status.properties`, `logs/`, and `result/` untouched.
+exec
+/bin/bash -lc "set -o pipefail
+sed -n '1,260p' README.md
+printf '%s\\n' '[repro.properties]'
+sed -n '1,80p' repro.properties
+printf '%s\\n' '[validation]'
+expected="'$(mktemp)
+actual=$(mktemp)
+printf '"'%s\\n' attempt.count cpu.count jdk.version memory node.count zookeeper.version | sort > \""'$expected"
+sed -n '"'s/=.*//p' repro.properties | sort > \""'$actual"
+diff -u "$expected" "$actual"
+test "$(wc -l < repro.properties)" -eq 6
+test "$(sed -n '"'s/"'^attempt.count=//p'"' repro.properties)\" = 3
+stat -c '%A %a %U:%G %n' README.md repro.properties status.properties result result/harness
+printf '%s\\n' 'SPEC validation passed'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+# ZOOKEEPER-1513 reproduction specification
+
+## Bug summary
+
+ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
+persisted transaction containing that data is slightly larger because it also
+contains transaction metadata. On a later server start, transaction-log replay
+applies the same limit to the complete serialized transaction and aborts while
+loading the database.
+
+The Jira report records the concrete failure as:
+
+```text
+java.io.IOException: Unreasonable length = 1048583
+    at org.apache.jute.BinaryInputArchive.readBuffer(...)
+    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
+    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
+    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
+```
+
+`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
+`jute.maxbuffer` value. The Jira description attributes those extra bytes to
+fields in `SetDataTxn`, in addition to the client data that was checked when it
+was accepted.
+
+## Target and resources
+
+- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
+- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
+  change was committed to 3.4.6 and trunk.
+- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
+  the Jira record does not identify a JDK-specific condition.
+- Topology: **one server**. The defect is in local transaction persistence and
+  startup replay, so leader election or a multi-node interaction is not needed
+  to exercise it.
+- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
+  client driver.
+- Attempts: **3**. The report describes a deterministic size-boundary failure,
+  not a flaky, timing-sensitive, or concurrent behavior.
+
+## Reproduction procedure
+
+The later implementation stage should automate the following sequence without
+changing `jute.maxbuffer` from its default value:
+
+1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
+   wait until it accepts client connections.
+2. Create a znode with a small initial value.
+3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
+   assert that the operation succeeds. Use deterministic bytes so the input is
+   identical in every attempt.
+4. Stop the server cleanly after the successful write, preserving its data and
+   transaction log.
+5. Start the same server again against that directory and capture its complete
+   startup output and process exit status.
+6. Retain evidence that the write was acknowledged before the restart and that
+   the restart subsequently failed during database loading.
+
+The test must not synthesize or corrupt a transaction log: the point is to show
+that an ordinary client operation accepted by the affected server creates an
+on-disk record that the same server cannot later read.
+
+## Result oracle
+
+An attempt reproduces the bug only when all of these conditions hold:
+
+- the 1 MiB `setData` operation succeeds before shutdown;
+- restart using the resulting data directory fails to become ready (or exits);
+- startup output contains `Unreasonable length = 1048583`; and
+- the failure path is database restoration/transaction-log replay, evidenced by
+  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
+  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
+
+A rejection of the original client write is not this bug. A restart failure
+without the size exception is also not sufficient. Reproducing the stated
+failure in each of the three independent clean attempts is the success
+criterion.
+
+## Rationale and control
+
+This boundary is taken directly from the Jira report: accepted client data plus
+seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
+Restart is essential because the observed exception occurs while loading the
+database from disk, not while handling the live request.
+
+If a fixed-version control is added in a later stage, the same write and restart
+sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
+configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
+only as a workaround and must not be used in the primary reproduction.
+
+## Evidence source
+
+This specification is based solely on `1513.xml`: the issue description,
+affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
+comment confirming the commit to 3.4.6 and trunk.
+[repro.properties]
+zookeeper.version=3.3.4
+jdk.version=8
+node.count=1
+cpu.count=2
+memory=2g
+attempt.count=3
+[validation]
+-rw-rw-r-- 664 shkim:docker README.md
+-rw-rw-r-- 664 shkim:docker repro.properties
+-rw------- 600 shkim:docker status.properties
+drwxrwxr-x 775 shkim:docker result
+drwxrwxr-x 775 shkim:docker result/harness
+SPEC validation passed
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..d88b9d3ea7874c4350b0110d08108c8d66a8e694
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,95 @@
++# ZOOKEEPER-1513 reproduction specification
++
++## Bug summary
++
++ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
++persisted transaction containing that data is slightly larger because it also
++contains transaction metadata. On a later server start, transaction-log replay
++applies the same limit to the complete serialized transaction and aborts while
++loading the database.
++
++The Jira report records the concrete failure as:
++
++```text
++java.io.IOException: Unreasonable length = 1048583
++    at org.apache.jute.BinaryInputArchive.readBuffer(...)
++    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
++    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
++    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
++```
++
++`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
++`jute.maxbuffer` value. The Jira description attributes those extra bytes to
++fields in `SetDataTxn`, in addition to the client data that was checked when it
++was accepted.
++
++## Target and resources
++
++- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
++- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
++  change was committed to 3.4.6 and trunk.
++- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
++  the Jira record does not identify a JDK-specific condition.
++- Topology: **one server**. The defect is in local transaction persistence and
++  startup replay, so leader election or a multi-node interaction is not needed
++  to exercise it.
++- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
++  client driver.
++- Attempts: **3**. The report describes a deterministic size-boundary failure,
++  not a flaky, timing-sensitive, or concurrent behavior.
++
++## Reproduction procedure
++
++The later implementation stage should automate the following sequence without
++changing `jute.maxbuffer` from its default value:
++
++1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
++   wait until it accepts client connections.
++2. Create a znode with a small initial value.
++3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
++   assert that the operation succeeds. Use deterministic bytes so the input is
++   identical in every attempt.
++4. Stop the server cleanly after the successful write, preserving its data and
++   transaction log.
++5. Start the same server again against that directory and capture its complete
++   startup output and process exit status.
++6. Retain evidence that the write was acknowledged before the restart and that
++   the restart subsequently failed during database loading.
++
++The test must not synthesize or corrupt a transaction log: the point is to show
++that an ordinary client operation accepted by the affected server creates an
++on-disk record that the same server cannot later read.
++
++## Result oracle
++
++An attempt reproduces the bug only when all of these conditions hold:
++
++- the 1 MiB `setData` operation succeeds before shutdown;
++- restart using the resulting data directory fails to become ready (or exits);
++- startup output contains `Unreasonable length = 1048583`; and
++- the failure path is database restoration/transaction-log replay, evidenced by
++  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
++  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
++
++A rejection of the original client write is not this bug. A restart failure
++without the size exception is also not sufficient. Reproducing the stated
++failure in each of the three independent clean attempts is the success
++criterion.
++
++## Rationale and control
++
++This boundary is taken directly from the Jira report: accepted client data plus
++seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
++Restart is essential because the observed exception occurs while loading the
++database from disk, not while handling the live request.
++
++If a fixed-version control is added in a later stage, the same write and restart
++sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
++configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
++only as a workaround and must not be used in the primary reproduction.
++
++## Evidence source
++
++This specification is based solely on `1513.xml`: the issue description,
++affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
++comment confirming the commit to 3.4.6 and trunk.
+diff --git a/repro.properties b/repro.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d9f10f5a5845d718a55a625768e58fc953af229
+--- /dev/null
++++ b/repro.properties
+@@ -0,0 +1,6 @@
++zookeeper.version=3.3.4
++jdk.version=8
++node.count=1
++cpu.count=2
++memory=2g
++attempt.count=3
+
+codex
+Completed the SPEC stage:
+
+- [README.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/README.md) — reproduction procedure, oracle, and Jira-supported rationale.
+- [repro.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/repro.properties) — all six required keys, with `attempt.count=3`.
+
+Validation passed with exit status 0. No Docker environment, reproduction code, or experiment attempts were created or run. Existing Harness artifacts were preserved.
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..d88b9d3ea7874c4350b0110d08108c8d66a8e694
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,95 @@
++# ZOOKEEPER-1513 reproduction specification
++
++## Bug summary
++
++ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
++persisted transaction containing that data is slightly larger because it also
++contains transaction metadata. On a later server start, transaction-log replay
++applies the same limit to the complete serialized transaction and aborts while
++loading the database.
++
++The Jira report records the concrete failure as:
++
++```text
++java.io.IOException: Unreasonable length = 1048583
++    at org.apache.jute.BinaryInputArchive.readBuffer(...)
++    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
++    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
++    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
++```
++
++`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
++`jute.maxbuffer` value. The Jira description attributes those extra bytes to
++fields in `SetDataTxn`, in addition to the client data that was checked when it
++was accepted.
++
++## Target and resources
++
++- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
++- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
++  change was committed to 3.4.6 and trunk.
++- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
++  the Jira record does not identify a JDK-specific condition.
++- Topology: **one server**. The defect is in local transaction persistence and
++  startup replay, so leader election or a multi-node interaction is not needed
++  to exercise it.
++- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
++  client driver.
++- Attempts: **3**. The report describes a deterministic size-boundary failure,
++  not a flaky, timing-sensitive, or concurrent behavior.
++
++## Reproduction procedure
++
++The later implementation stage should automate the following sequence without
++changing `jute.maxbuffer` from its default value:
++
++1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
++   wait until it accepts client connections.
++2. Create a znode with a small initial value.
++3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
++   assert that the operation succeeds. Use deterministic bytes so the input is
++   identical in every attempt.
++4. Stop the server cleanly after the successful write, preserving its data and
++   transaction log.
++5. Start the same server again against that directory and capture its complete
++   startup output and process exit status.
++6. Retain evidence that the write was acknowledged before the restart and that
++   the restart subsequently failed during database loading.
++
++The test must not synthesize or corrupt a transaction log: the point is to show
++that an ordinary client operation accepted by the affected server creates an
++on-disk record that the same server cannot later read.
++
++## Result oracle
++
++An attempt reproduces the bug only when all of these conditions hold:
++
++- the 1 MiB `setData` operation succeeds before shutdown;
++- restart using the resulting data directory fails to become ready (or exits);
++- startup output contains `Unreasonable length = 1048583`; and
++- the failure path is database restoration/transaction-log replay, evidenced by
++  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
++  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
++
++A rejection of the original client write is not this bug. A restart failure
++without the size exception is also not sufficient. Reproducing the stated
++failure in each of the three independent clean attempts is the success
++criterion.
++
++## Rationale and control
++
++This boundary is taken directly from the Jira report: accepted client data plus
++seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
++Restart is essential because the observed exception occurs while loading the
++database from disk, not while handling the live request.
++
++If a fixed-version control is added in a later stage, the same write and restart
++sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
++configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
++only as a workaround and must not be used in the primary reproduction.
++
++## Evidence source
++
++This specification is based solely on `1513.xml`: the issue description,
++affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
++comment confirming the commit to 3.4.6 and trunk.
+diff --git a/repro.properties b/repro.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d9f10f5a5845d718a55a625768e58fc953af229
+--- /dev/null
++++ b/repro.properties
+@@ -0,0 +1,6 @@
++zookeeper.version=3.3.4
++jdk.version=8
++node.count=1
++cpu.count=2
++memory=2g
++attempt.count=3
+
+tokens used
+32,874

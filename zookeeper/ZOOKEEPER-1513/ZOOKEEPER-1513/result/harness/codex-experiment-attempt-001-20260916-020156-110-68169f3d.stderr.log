@@ -1,0 +1,1207 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a7f3-04a0-79b3-b9f2-b3b053acf868
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1513.
+Current Harness stage: EXPERIMENT.
+Jira XML source: 1513.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Perform exactly ONE experiment attempt: attempt-001.
+Harness requires 3 completed attempts in total for this issue.
+
+Before doing anything, verify that this attempt identifier is unused for experiment artifacts.
+If protected artifacts for attempt-001 already exist, do not alter them; stop and report the conflict.
+
+Required work for this attempt:
+- Run the implemented reproduction workload and fault injection for this single attempt.
+- Preserve per-node observation data under the explicit log categories:
+  app_logs, txn_logs, snapshot_data, jvm_logs, os_logs.
+- Use the exact path logs/zkN/<category>/attempt-001 for every node/category; never reuse an older attempt directory.
+- Confirm all newly captured attempt directories are host-traversable and all regular
+  evidence files are host-readable before completing the attempt.
+- Run the issue-specific Verify.java logic or equivalent deterministic verification prepared by this reproduction.
+- Create result/attempt-001.properties exactly once.
+- The result file must contain result=SUCCESS, result=FAILURE, or result=INCONCLUSIVE.
+- Additional attempt-specific evidence may be added, but existing results must remain untouched.
+
+Do not execute any second attempt in this invocation.
+
+codex
+I’ll first verify that `attempt-001` is unused across both experiment logs and results. If it is clear, I’ll inspect the reproduction instructions and run exactly that one attempt.
+exec
+/bin/bash -lc "pwd && find . -path './logs/*/attempt-001' -o -path './logs/*/attempt-001/*' -o -path './result/attempt-001.properties' -print" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+
+exec
+/bin/bash -lc "find logs result \\( -type d -o -type f \\) -name '*attempt-001*' -print 2>/dev/null" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stderr.log
+
+codex
+The reserved experiment paths are unused. The only matching items are Harness’s own current-invocation stdout/stderr logs under `result/harness`, not an experiment attempt directory or `result/attempt-001.properties`, so they do not conflict with this attempt. I’m now locating the prepared workload and verifier without changing state.
+exec
+/bin/bash -lc "find . -maxdepth 3 -mindepth 1 -printf '%y %p\\n' | sort && git status --short 2>/dev/null || true && rg -n \"attempt|experiment|Verify|workload|fault|docker|compose\" -S --glob '"'!logs/**'"' --glob '"'!result/**'"' ." in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+d ./data
+d ./data/baseline-20260916-020020
+d ./data/baseline-20260916-020020/version-2
+d ./data/environment-smoke
+d ./data/environment-smoke/version-2
+d ./dist
+d ./logs
+d ./logs/baseline-20260916-020020
+d ./logs/environment-smoke
+d ./result
+d ./result/harness
+d ./src
+d ./src/main
+d ./src/main/java
+d ./target
+d ./target/classes
+d ./target/generated-sources
+d ./target/generated-sources/annotations
+d ./target/maven-archiver
+d ./target/maven-status
+d ./target/maven-status/maven-compiler-plugin
+f ./.dockerignore
+f ./1513.xml
+f ./Dockerfile
+f ./ENVIRONMENT.md
+f ./README.md
+f ./compose.yml
+f ./dist/zookeeper-3.3.4.tar.gz
+f ./dist/zookeeper-3.3.4.tar.gz.sha1
+f ./docker-entrypoint.sh
+f ./log4j.properties
+f ./logs/baseline-20260916-020020/zookeeper.log
+f ./logs/environment-smoke/zookeeper.log
+f ./pom.xml
+f ./repro.properties
+f ./result/harness/codex-baseline-20260916-015941-511-dcff8607.stderr.log
+f ./result/harness/codex-baseline-20260916-015941-511-dcff8607.stdout.log
+f ./result/harness/codex-environment-20260916-014633-210-5302691c.stderr.log
+f ./result/harness/codex-environment-20260916-014633-210-5302691c.stdout.log
+f ./result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stderr.log
+f ./result/harness/codex-experiment-attempt-001-20260916-020156-110-68169f3d.stdout.log
+f ./result/harness/codex-implementation-20260916-015310-986-59251618.stderr.log
+f ./result/harness/codex-implementation-20260916-015310-986-59251618.stdout.log
+f ./result/harness/codex-spec-20260916-014523-242-716786a7.stderr.log
+f ./result/harness/codex-spec-20260916-014523-242-716786a7.stdout.log
+f ./result/harness/validator-20260916-015308-734-10e6c3dc.log
+f ./result/harness/validator-20260916-015308-935-c37e9e66.log
+f ./result/harness/validator-20260916-015939-629-5b7dcf8b.log
+f ./result/harness/validator-20260916-020155-617-49c7fce4.log
+f ./result/harness/validator-20260916-020155-849-f1c6e88b.log
+f ./status.properties
+f ./target/classes/FaultInjection.class
+f ./target/classes/Reproduce$1.class
+f ./target/classes/Reproduce.class
+f ./target/classes/Verify.class
+f ./target/maven-archiver/pom.properties
+f ./target/original-zookeeper-1513-reproducer.jar
+f ./target/zookeeper-1513-reproducer-1.0-SNAPSHOT.jar
+f ./target/zookeeper-1513-reproducer.jar
+f ./zoo.cfg
+./Dockerfile:23:COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+./Dockerfile:25:RUN chmod 0555 /usr/local/bin/docker-entrypoint.sh \
+./Dockerfile:38:ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+./repro.properties:6:attempt.count=3
+./status.properties:6:current.attempt=1
+./ENVIRONMENT.md:15:Verify it with:
+./ENVIRONMENT.md:31:defaults match the Harness host used to prepare this directory. On another
+./ENVIRONMENT.md:37:docker compose -f compose.yml build
+./ENVIRONMENT.md:40:Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
+./ENVIRONMENT.md:46:Each later attempt must use new, never-reused directories by setting
+./ENVIRONMENT.md:48:captured an attempt, remove write permission from that attempt's log/result
+./ENVIRONMENT.md:49:files and their containing attempt directories. Never start a container with a
+./ENVIRONMENT.md:50:protected attempt directory as its writable log or data path.
+./ENVIRONMENT.md:53:startup check. It is not an experiment attempt and must not be reused.
+./src/main/java/Reproduce.java:80:                        "The reproduction znode already exists; use a clean attempt: "
+./src/main/java/Verify.java:11:public final class Verify {
+./src/main/java/Verify.java:21:    private Verify() {
+./src/main/java/Verify.java:110:        System.err.println("Usage: java -cp zookeeper-1513-reproducer.jar Verify "
+./README.md:21:`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
+./README.md:44:changing `jute.maxbuffer` from its default value:
+./README.md:51:   identical in every attempt.
+./README.md:65:An attempt reproduces the bug only when all of these conditions hold:
+./README.md:76:failure in each of the three independent clean attempts is the success
+./target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst:4:Verify.class
+./target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst:1:/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/Verify.java
+
+exec
+/bin/bash -lc "sed -n '1,240p' README.md && sed -n '1,220p' ENVIRONMENT.md && sed -n '1,260p' compose.yml && sed -n '1,260p' src/main/java/Reproduce.java && sed -n '1,240p' src/main/java/FaultInjection.java && sed -n '1,240p' src/main/java/Verify.java" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+# ZOOKEEPER-1513 reproduction specification
+
+## Bug summary
+
+ZooKeeper 3.3.4 accepts client data at the configured Jute buffer limit, but the
+persisted transaction containing that data is slightly larger because it also
+contains transaction metadata. On a later server start, transaction-log replay
+applies the same limit to the complete serialized transaction and aborts while
+loading the database.
+
+The Jira report records the concrete failure as:
+
+```text
+java.io.IOException: Unreasonable length = 1048583
+    at org.apache.jute.BinaryInputArchive.readBuffer(...)
+    at org.apache.zookeeper.server.persistence.Util.readTxnBytes(...)
+    at org.apache.zookeeper.server.persistence.FileTxnLog.read(...)
+    at org.apache.zookeeper.server.ZKDatabase.loadDataBase(...)
+```
+
+`1,048,583` is `0x100007`: seven bytes above the default 1 MiB
+`jute.maxbuffer` value. The Jira description attributes those extra bytes to
+fields in `SetDataTxn`, in addition to the client data that was checked when it
+was accepted.
+
+## Target and resources
+
+- Affected ZooKeeper version: **3.3.4**, the version named by Jira.
+- Fixed-version reference: Jira lists **3.4.6** and **3.5.0** and says the
+  change was committed to 3.4.6 and trunk.
+- Java runtime: **JDK 8**, selected as a practical runtime for the old release;
+  the Jira record does not identify a JDK-specific condition.
+- Topology: **one server**. The defect is in local transaction persistence and
+  startup replay, so leader election or a multi-node interaction is not needed
+  to exercise it.
+- Resources: **2 CPUs and 2 GiB memory**, sufficient for one server and a small
+  client driver.
+- Attempts: **3**. The report describes a deterministic size-boundary failure,
+  not a flaky, timing-sensitive, or concurrent behavior.
+
+## Reproduction procedure
+
+The later implementation stage should automate the following sequence without
+changing `jute.maxbuffer` from its default value:
+
+1. Start a clean ZooKeeper 3.3.4 server with a persistent data directory and
+   wait until it accepts client connections.
+2. Create a znode with a small initial value.
+3. Issue `setData` with a byte array exactly 1 MiB (1,048,576 bytes) long and
+   assert that the operation succeeds. Use deterministic bytes so the input is
+   identical in every attempt.
+4. Stop the server cleanly after the successful write, preserving its data and
+   transaction log.
+5. Start the same server again against that directory and capture its complete
+   startup output and process exit status.
+6. Retain evidence that the write was acknowledged before the restart and that
+   the restart subsequently failed during database loading.
+
+The test must not synthesize or corrupt a transaction log: the point is to show
+that an ordinary client operation accepted by the affected server creates an
+on-disk record that the same server cannot later read.
+
+## Result oracle
+
+An attempt reproduces the bug only when all of these conditions hold:
+
+- the 1 MiB `setData` operation succeeds before shutdown;
+- restart using the resulting data directory fails to become ready (or exits);
+- startup output contains `Unreasonable length = 1048583`; and
+- the failure path is database restoration/transaction-log replay, evidenced by
+  frames such as `BinaryInputArchive.readBuffer`, `Util.readTxnBytes`,
+  `FileTxnLog`, and `ZKDatabase.loadDataBase`.
+
+A rejection of the original client write is not this bug. A restart failure
+without the size exception is also not sufficient. Reproducing the stated
+failure in each of the three independent clean attempts is the success
+criterion.
+
+## Rationale and control
+
+This boundary is taken directly from the Jira report: accepted client data plus
+seven bytes of `SetDataTxn` fields becomes a 1,048,583-byte serialized buffer.
+Restart is essential because the observed exception occurs while loading the
+database from disk, not while handling the live request.
+
+If a fixed-version control is added in a later stage, the same write and restart
+sequence should complete successfully on ZooKeeper 3.4.6 while preserving the
+configured client-data limit. Increasing `jute.maxbuffer` is documented in Jira
+only as a workaround and must not be used in the primary reproduction.
+
+## Evidence source
+
+This specification is based solely on `1513.xml`: the issue description,
+affected version 3.3.4, fix versions 3.4.6/3.5.0, recorded stack trace, and the
+comment confirming the commit to 3.4.6 and trunk.
+# Environment notes
+
+## Distribution provenance
+
+`dist/zookeeper-3.3.4.tar.gz` is the unmodified Apache ZooKeeper 3.3.4
+release archive downloaded from:
+
+`https://archive.apache.org/dist/zookeeper/zookeeper-3.3.4/zookeeper-3.3.4.tar.gz`
+
+Its published SHA-1 is stored alongside it in
+`dist/zookeeper-3.3.4.tar.gz.sha1`:
+
+`cbb259eac2ae5c10956c49db5b2a05e112d645ac`
+
+Verify it with:
+
+```sh
+(cd dist && sha1sum -c zookeeper-3.3.4.tar.gz.sha1)
+```
+
+The official 3.3.4 JAR has a stale `Implementation-Version` manifest value of
+`3.3.3-1203054`, so its startup banner reports 3.3.3. The same JAR's compiled
+`org.apache.zookeeper.version.Info` constants are 3.3.4 revision 1203063, its
+bundle version is 3.3.4, and the release archive's changelog identifies the
+release as 3.3.4. Do not replace the verified release archive to alter the
+banner.
+
+## Build and mounts
+
+The image contains the full Temurin JDK 8 and runs as a non-root user. The
+defaults match the Harness host used to prepare this directory. On another
+host, export its account IDs for both build and run:
+
+```sh
+export ZK_UID="$(id -u)"
+export ZK_GID="$(id -g)"
+docker compose -f compose.yml build
+```
+
+Compose applies a 2-CPU/2-GiB limit and binds only to loopback by default.
+`data/` and `logs/` are writable by the non-root service account. `result/` is
+mounted read-only; result capture is a host-side Harness responsibility. The
+entrypoint fixes the process umask at `022`, so container-created regular files
+are host-readable and directories are host-traversable.
+
+Each later attempt must use new, never-reused directories by setting
+`ZK_DATA_DIR` and `ZK_LOG_DIR`. Once the container has stopped and Harness has
+captured an attempt, remove write permission from that attempt's log/result
+files and their containing attempt directories. Never start a container with a
+protected attempt directory as its writable log or data path.
+
+`logs/environment-smoke/` is the protected output of the environment-only
+startup check. It is not an experiment attempt and must not be reused.
+services:
+  zookeeper:
+    build:
+      context: .
+      args:
+        ZK_UID: "${ZK_UID:-1000}"
+        ZK_GID: "${ZK_GID:-988}"
+    image: zookeeper-1513:3.3.4-jdk8
+    user: "${ZK_UID:-1000}:${ZK_GID:-988}"
+    read_only: true
+    init: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
+    volumes:
+      - type: bind
+        source: ${ZK_DATA_DIR:-./data}
+        target: /var/lib/zookeeper
+      - type: bind
+        source: ${ZK_LOG_DIR:-./logs}
+        target: /var/log/zookeeper
+      - type: bind
+        source: ${ZK_RESULT_DIR:-./result}
+        target: /result
+        read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
+    stop_grace_period: 20s
+    cpus: 2.0
+    mem_limit: 2g
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.ZooDefs;
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * Creates the normal client transaction needed to reproduce ZOOKEEPER-1513.
+ * Server stop/restart is intentionally controlled outside this process so the
+ * same persistent bind mount can be retained for replay.
+ */
+public final class Reproduce {
+    private static final int SESSION_TIMEOUT_MS = 10_000;
+    private static final int CONNECT_TIMEOUT_SECONDS = 20;
+    private static final byte[] INITIAL_DATA =
+            "initial".getBytes(StandardCharsets.UTF_8);
+
+    private Reproduce() {
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 2 || args.length > 3) {
+            usage();
+            System.exit(2);
+        }
+
+        String connectString = args[0];
+        Path evidenceFile = Paths.get(args[1]);
+        String znode = args.length == 3 ? args[2] : FaultInjection.DEFAULT_ZNODE;
+
+        try {
+            reproduce(connectString, znode, evidenceFile);
+        } catch (Exception failure) {
+            System.err.println("Reproduction write failed: " + failure);
+            failure.printStackTrace(System.err);
+            System.exit(1);
+        }
+    }
+
+    static void reproduce(String connectString, String znode, Path evidenceFile)
+            throws Exception {
+        validateZnode(znode);
+        refuseExistingEvidence(evidenceFile);
+
+        final CountDownLatch connected = new CountDownLatch(1);
+        ZooKeeper client = new ZooKeeper(connectString, SESSION_TIMEOUT_MS,
+                new Watcher() {
+                    @Override
+                    public void process(WatchedEvent event) {
+                        if (event.getState() == Event.KeeperState.SyncConnected) {
+                            connected.countDown();
+                        }
+                    }
+                });
+
+        try {
+            if (!connected.await(CONNECT_TIMEOUT_SECONDS, TimeUnit.SECONDS)) {
+                throw new IOException("Timed out connecting to " + connectString);
+            }
+
+            try {
+                client.create(znode, INITIAL_DATA, ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                        CreateMode.PERSISTENT);
+            } catch (KeeperException.NodeExistsException exists) {
+                throw new IllegalStateException(
+                        "The reproduction znode already exists; use a clean attempt: "
+                                + znode,
+                        exists);
+            }
+
+            byte[] payload = FaultInjection.deterministicPayload(znode);
+            Stat acknowledged = FaultInjection.inject(client, znode, payload);
+
+            Map<String, String> evidence = new LinkedHashMap<String, String>();
+            evidence.put("write.acknowledged", "true");
+            evidence.put("write.path", znode);
+            evidence.put("write.payload.bytes", Integer.toString(payload.length));
+            evidence.put("write.payload.sha256", FaultInjection.sha256(payload));
+            evidence.put("write.transaction.bytes", Integer.toString(
+                    FaultInjection.EXPECTED_TRANSACTION_SIZE));
+            evidence.put("write.version", Integer.toString(acknowledged.getVersion()));
+            evidence.put("write.mzxid", Long.toString(acknowledged.getMzxid()));
+            writeEvidenceCreateOnly(evidenceFile, evidence);
+
+            System.out.println("ACKNOWLEDGED path=" + znode
+                    + " bytes=" + payload.length
+                    + " version=" + acknowledged.getVersion()
+                    + " mzxid=" + acknowledged.getMzxid());
+            System.out.println("Evidence: " + evidenceFile.toAbsolutePath());
+        } finally {
+            client.close();
+        }
+    }
+
+    private static void validateZnode(String znode) {
+        if (!znode.startsWith("/") || "/".equals(znode)
+                || znode.endsWith("/")) {
+            throw new IllegalArgumentException(
+                    "znode must be an absolute non-root path: " + znode);
+        }
+    }
+
+    private static void refuseExistingEvidence(Path evidenceFile)
+            throws IOException {
+        if (Files.exists(evidenceFile)) {
+            throw new IOException("Refusing to overwrite evidence: " + evidenceFile);
+        }
+    }
+
+    private static void writeEvidenceCreateOnly(Path evidenceFile,
+            Map<String, String> evidence) throws IOException {
+        Path absolute = evidenceFile.toAbsolutePath();
+        Path parent = absolute.getParent();
+        if (parent != null && !Files.isDirectory(parent)) {
+            throw new IOException("Evidence directory does not exist: " + parent);
+        }
+
+        BufferedWriter writer = Files.newBufferedWriter(absolute,
+                StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW,
+                StandardOpenOption.WRITE);
+        try {
+            for (Map.Entry<String, String> entry : evidence.entrySet()) {
+                writer.write(entry.getKey());
+                writer.write('=');
+                writer.write(entry.getValue());
+                writer.newLine();
+            }
+        } finally {
+            writer.close();
+        }
+    }
+
+    private static void usage() {
+        System.err.println("Usage: java -jar zookeeper-1513-reproducer.jar "
+                + "<connect-string> <new-evidence.properties> [znode]");
+    }
+}
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
+
+/**
+ * The explicit boundary operation that creates the problematic transaction.
+ *
+ * <p>Do not replace this with a prebuilt transaction log. ZOOKEEPER-1513 is
+ * reproduced only when ZooKeeper itself accepts an ordinary client write and
+ * persists the transaction that it later cannot replay.</p>
+ */
+public final class FaultInjection {
+    public static final String DEFAULT_ZNODE = "/zookeeper-1513";
+    public static final int EXPECTED_TRANSACTION_SIZE = 1_048_583;
+
+    // ZooKeeper 3.3.4's binary transaction consists of a 32-byte TxnHeader,
+    // then the SetDataTxn path (4-byte length + UTF-8 bytes), data (4-byte
+    // length + bytes), and version (4 bytes).
+    private static final int TXN_HEADER_SIZE = 32;
+    private static final int SET_DATA_FIXED_SIZE = 12;
+
+    private FaultInjection() {
+    }
+
+    /**
+     * Build deterministic data whose persisted transaction is exactly the
+     * 1,048,583-byte record reported by ZOOKEEPER-1513. The data itself stays
+     * below 3.3.4's 0xfffff readBuffer limit, so the live request is accepted.
+     */
+    public static byte[] deterministicPayload(String path) {
+        byte[] payload = new byte[expectedPayloadSize(path)];
+        for (int i = 0; i < payload.length; i++) {
+            payload[i] = (byte) ((i * 31 + 17) & 0xff);
+        }
+        return payload;
+    }
+
+    public static int expectedPayloadSize(String path) {
+        int pathBytes = path.getBytes(StandardCharsets.UTF_8).length;
+        int payloadSize = EXPECTED_TRANSACTION_SIZE - TXN_HEADER_SIZE
+                - SET_DATA_FIXED_SIZE - pathBytes;
+        if (payloadSize < 0) {
+            throw new IllegalArgumentException("znode path is too long: " + path);
+        }
+        return payloadSize;
+    }
+
+    /**
+     * Submit the boundary-sized setData request and return only after the
+     * server acknowledges it.
+     */
+    public static Stat inject(ZooKeeper client, String path, byte[] payload)
+            throws Exception {
+        int expectedSize = expectedPayloadSize(path);
+        if (payload.length != expectedSize) {
+            throw new IllegalArgumentException(
+                    "Fault payload must be exactly " + expectedSize
+                            + " bytes, but was " + payload.length);
+        }
+        return client.setData(path, payload, -1);
+    }
+
+    public static String sha256(byte[] payload) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(payload);
+            StringBuilder value = new StringBuilder(hash.length * 2);
+            for (byte octet : hash) {
+                value.append(String.format("%02x", octet & 0xff));
+            }
+            return value.toString();
+        } catch (NoSuchAlgorithmException impossible) {
+            throw new IllegalStateException("SHA-256 is unavailable", impossible);
+        }
+    }
+}
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/** Evaluates the explicit ZOOKEEPER-1513 result oracle. */
+public final class Verify {
+    private static final String EXPECTED_LENGTH =
+            "Unreasonable length = 1048583";
+    private static final String[] REPLAY_FRAMES = {
+        "BinaryInputArchive.readBuffer",
+        "Util.readTxnBytes",
+        "FileTxnLog",
+        "ZKDatabase.loadDataBase"
+    };
+
+    private Verify() {
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            usage();
+            System.exit(2);
+        }
+
+        try {
+            int restartExitCode = Integer.parseInt(args[2]);
+            boolean reproduced = verify(Paths.get(args[0]), Paths.get(args[1]),
+                    restartExitCode);
+            System.exit(reproduced ? 0 : 1);
+        } catch (Exception failure) {
+            System.err.println("Verification error: " + failure);
+            System.exit(2);
+        }
+    }
+
+    static boolean verify(Path writeEvidence, Path restartOutput,
+            int restartExitCode) throws IOException {
+        Map<String, String> evidence = readSimpleProperties(writeEvidence);
+        String output = new String(Files.readAllBytes(restartOutput),
+                StandardCharsets.UTF_8);
+
+        String path = evidence.get("write.path");
+        boolean pathPresent = path != null;
+        byte[] expectedPayload = pathPresent
+                ? FaultInjection.deterministicPayload(path) : new byte[0];
+        boolean writeAcknowledged = "true".equals(
+                evidence.get("write.acknowledged"));
+        boolean payloadSizeMatches = pathPresent
+                && Integer.toString(expectedPayload.length)
+                .equals(evidence.get("write.payload.bytes"));
+        boolean payloadDigestMatches = pathPresent
+                && FaultInjection.sha256(expectedPayload)
+                .equals(evidence.get("write.payload.sha256"));
+        boolean transactionSizeMatches = Integer.toString(
+                FaultInjection.EXPECTED_TRANSACTION_SIZE)
+                .equals(evidence.get("write.transaction.bytes"));
+        boolean restartFailed = restartExitCode != 0;
+        boolean exactLengthSeen = output.contains(EXPECTED_LENGTH);
+        boolean replayPathSeen = true;
+        for (String frame : REPLAY_FRAMES) {
+            replayPathSeen &= output.contains(frame);
+        }
+
+        boolean reproduced = writeAcknowledged && payloadSizeMatches
+                && payloadDigestMatches && transactionSizeMatches
+                && restartFailed && exactLengthSeen && replayPathSeen;
+
+        System.out.println("write.acknowledged=" + writeAcknowledged);
+        System.out.println("write.payload.size.matches=" + payloadSizeMatches);
+        System.out.println("write.payload.digest.matches=" + payloadDigestMatches);
+        System.out.println("write.transaction.size.matches="
+                + transactionSizeMatches);
+        System.out.println("restart.failed=" + restartFailed);
+        System.out.println("restart.exact.length.seen=" + exactLengthSeen);
+        System.out.println("restart.replay.path.seen=" + replayPathSeen);
+        System.out.println("reproduced=" + reproduced);
+        return reproduced;
+    }
+
+    private static Map<String, String> readSimpleProperties(Path file)
+            throws IOException {
+        Map<String, String> values = new LinkedHashMap<String, String>();
+        BufferedReader reader = Files.newBufferedReader(file,
+                StandardCharsets.UTF_8);
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isEmpty() || line.startsWith("#")) {
+                    continue;
+                }
+                int separator = line.indexOf('=');
+                if (separator <= 0) {
+                    throw new IOException("Malformed evidence line: " + line);
+                }
+                values.put(line.substring(0, separator),
+                        line.substring(separator + 1));
+            }
+        } finally {
+            reader.close();
+        }
+        return values;
+    }
+
+    private static void usage() {
+        System.err.println("Usage: java -cp zookeeper-1513-reproducer.jar Verify "
+                + "<write-evidence.properties> <restart-output.log> "
+                + "<restart-exit-code>");
+    }
+}
+
+exec
+/bin/bash -lc "sed -n '1,260p' docker-entrypoint.sh && sed -n '1,220p' Dockerfile && sed -n '1,180p' zoo.cfg && sed -n '1,180p' log4j.properties && sed -n '1,260p' pom.xml && sed -n '1,240p' logs/baseline-20260916-020020/zookeeper.log && docker compose -f compose.yml ps -a && docker image inspect zookeeper-1513:3.3.4-jdk8 --format '{{.Id}} {{.Config.User}}'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 224ms:
+NAME                         IMAGE                       COMMAND                  SERVICE     CREATED              STATUS              PORTS
+zookeeper-1513-zookeeper-1   zookeeper-1513:3.3.4-jdk8   "/usr/local/bin/dock…"   zookeeper   About a minute ago   Up About a minute   127.0.0.1:22151->2181/tcp
+sha256:5ac80dd90f5bbad60330f648e5ac04def5269391041af010cc93a06391be9916 1000:988
+
+exec
+/bin/bash -lc "docker inspect zookeeper-1513-zookeeper-1 --format '{{json .Mounts}} {{json .HostConfig.PortBindings}} {{json .Config.Labels}}' && tail -n 100 result/harness/codex-baseline-20260916-015941-511-dcff8607.stdout.log && tail -n 100 result/harness/codex-baseline-20260916-015941-511-dcff8607.stderr.log && find data/baseline-20260916-020020 -maxdepth 3 -printf '%m %u:%g %y %p\\n' | sort && find logs/baseline-20260916-020020 -maxdepth 2 -printf '%m %u:%g %y %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+[{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result","Destination":"/result","Mode":"ro","RW":false,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data/baseline-20260916-020020","Destination":"/var/lib/zookeeper","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020","Destination":"/var/log/zookeeper","Mode":"rw","RW":true,"Propagation":"rprivate"}] {"2181/tcp":[{"HostIp":"127.0.0.1","HostPort":"22151"}]} {"com.docker.compose.config-hash":"49316dd6306d7e06d737f1209fe01082ea5237f69e88e5cdc07d645794124f96","com.docker.compose.container-number":"1","com.docker.compose.depends_on":"","com.docker.compose.image":"sha256:d85777ec25500c32d27426f3edbd63909dda7efdb516c8aa74809f24823eec77","com.docker.compose.oneoff":"False","com.docker.compose.project":"zookeeper-1513","com.docker.compose.project.config_files":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/compose.yml","com.docker.compose.project.working_dir":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513","com.docker.compose.service":"zookeeper","com.docker.compose.version":"5.5.1","org.opencontainers.image.version":"22.04"}
+Baseline completed successfully.
+
+- ZooKeeper 3.3.4 archive checksum verified.
+- Service `zookeeper-1513-zookeeper-1` remains running and responds `imok`.
+- Used `127.0.0.1:22151` because port 2181 was already occupied.
+- Small create/read/update/read workload passed; no boundary-sized payload was submitted.
+- No fatal errors or target fault signature appeared in [zookeeper.log](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020/zookeeper.log).
+- Host audit found zero unreadable files and zero untraversable directories under `logs/`, `data/`, and `result/`.
+- Existing protected artifacts were preserved.
+- No experiment attempt was created or consumed, and `status.properties` was not modified.
+WatchedEvent state:SyncConnected type:None path:null
+[zk: 127.0.0.1:2181(CONNECTED) 1] Created /baseline-20260916-020020
+get /baseline-20260916-020020
+cZxid = 0x2
+baseline-value
+ctime = Wed Sep 16 02:01:19 UTC 2026
+mZxid = 0x2
+mtime = Wed Sep 16 02:01:19 UTC 2026
+pZxid = 0x2
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 14
+numChildren = 0
+[zk: 127.0.0.1:2181(CONNECTED) 2] set /baseline-20260916-020020 baseline-updated
+cZxid = 0x2
+ctime = Wed Sep 16 02:01:19 UTC 2026
+mZxid = 0x3
+mtime = Wed Sep 16 02:01:19 UTC 2026
+pZxid = 0x2
+cversion = 0
+dataVersion = 1
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 16
+numChildren = 0
+[zk: 127.0.0.1:2181(CONNECTED) 3] get /baseline-20260916-020020
+baseline-updated
+cZxid = 0x2
+ctime = Wed Sep 16 02:01:19 UTC 2026
+mZxid = 0x3
+mtime = Wed Sep 16 02:01:19 UTC 2026
+pZxid = 0x2
+cversion = 0
+dataVersion = 1
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 16
+numChildren = 0
+[zk: 127.0.0.1:2181(CONNECTED) 4] quit
+Quitting...
+2026-09-16 02:01:19,188 - INFO  [main:ZooKeeper@544] - Session: 0xffa0a7f1ff580000 closed
+2026-09-16 02:01:19,188 - INFO  [main-EventThread:ClientCnxn$EventThread@521] - EventThread shut down
+running=true status=running exit=0 restartCount=0 oomKilled=false
+post_workload_readiness=imok
+
+codex
+The harmless baseline workload succeeded: a 14-byte value was created and read, updated to 16 bytes, and read back with `dataVersion=1`. The server still answers `imok`, has not restarted, and was not OOM-killed. I’m completing the required host-side permission audit across all `data/`, `logs/`, and `result/` artifacts and a final service/error check.
+exec
+/bin/bash -lc "printf '%s\\n' '--- baseline artifacts ---'
+find data/baseline-20260916-020020 logs/baseline-20260916-020020 -xdev -printf '%y %m %u:%g %s %p\\n' | sort
+printf '%s\\n' '--- unreadable regular files (must be empty) ---'
+find logs data result -xdev -type f "'! -exec test -r '"'{}' \\; -print
+printf '%s\\n' '--- untraversable directories (must be empty) ---'
+find logs data result -xdev -type d "'! -exec test -x '"'{}' \\; -print
+unreadable_count="'$(find logs data result -xdev -type f ! -exec test -r '"'{}' \\; -print | wc -l)
+untraversable_count="'$(find logs data result -xdev -type d ! -exec test -x '"'{}' \\; -print | wc -l)
+printf 'unreadable_regular_files=%s\\nuntraversable_directories=%s\\n' \""'$unreadable_count" "$untraversable_count"
+test "$unreadable_count" -eq 0
+test "$untraversable_count" -eq 0
+printf '"'%s\\n' '--- mount/user verification ---'
+docker inspect zookeeper-1513-zookeeper-1 --format 'user={{.Config.User}} readonlyRootfs={{.HostConfig.ReadonlyRootfs}} nanoCpus={{.HostConfig.NanoCpus}} memory={{.HostConfig.Memory}}{{range .Mounts}}{{printf \"\\n%s -> %s rw=%t\" .Source .Destination .RW}}{{end}}'
+printf '%s\\n' '--- baseline fatal scan ---'
+if rg -n 'FATAL|Unreasonable length|Unexpected exception|OutOfMemoryError' logs/baseline-20260916-020020; then
+  exit 1
+else
+  printf 'no fatal/target-signature errors found\\n'
+fi
+ZK_UID=1000 ZK_GID=988 ZK_CLIENT_PORT=22151 ZK_DATA_DIR=./data/baseline-20260916-020020 ZK_LOG_DIR=./logs/baseline-20260916-020020 ZK_RESULT_DIR=./result docker compose -f compose.yml ps
+response="'$(timeout 2 bash -c '"'exec 3<>/dev/tcp/127.0.0.1/22151; printf ruok >&3; head -c 4 <&3')
+printf 'final_readiness=%s\\n' \""'$response"
+test "$response" = imok' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 467ms:
+unreadable_regular_files=0
+untraversable_directories=0
+--- mount/user verification ---
+user=1000:988 readonlyRootfs=true nanoCpus=2000000000 memory=2147483648
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result -> /result rw=false
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data/baseline-20260916-020020 -> /var/lib/zookeeper rw=true
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020 -> /var/log/zookeeper rw=true
+--- baseline fatal scan ---
+no fatal/target-signature errors found
+NAME                         IMAGE                       COMMAND                  SERVICE     CREATED          STATUS          PORTS
+zookeeper-1513-zookeeper-1   zookeeper-1513:3.3.4-jdk8   "/usr/local/bin/dock…"   zookeeper   54 seconds ago   Up 53 seconds   127.0.0.1:22151->2181/tcp
+final_readiness=imok
+
+codex
+Baseline completed successfully.
+
+- ZooKeeper 3.3.4 archive checksum verified.
+- Service `zookeeper-1513-zookeeper-1` remains running and responds `imok`.
+- Used `127.0.0.1:22151` because port 2181 was already occupied.
+- Small create/read/update/read workload passed; no boundary-sized payload was submitted.
+- No fatal errors or target fault signature appeared in [zookeeper.log](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020/zookeeper.log).
+- Host audit found zero unreadable files and zero untraversable directories under `logs/`, `data/`, and `result/`.
+- Existing protected artifacts were preserved.
+- No experiment attempt was created or consumed, and `status.properties` was not modified.
+tokens used
+32,865
+2755 shkim:docker d data/baseline-20260916-020020/version-2
+2775 shkim:docker d data/baseline-20260916-020020
+644 shkim:docker f data/baseline-20260916-020020/version-2/log.1
+644 shkim:docker f data/baseline-20260916-020020/version-2/snapshot.0
+2775 shkim:docker d logs/baseline-20260916-020020
+644 shkim:docker f logs/baseline-20260916-020020/zookeeper.log
+
+codex
+The prepared reproduction uses one ZooKeeper node and a deterministic transaction whose serialized size is exactly 1,048,583 bytes. I found the prior baseline container still running against protected baseline data; I’ll stop that container cleanly, then recreate the service against fresh `data/attempt-001` storage and the required five `logs/zk1/.../attempt-001` categories. No baseline files will be removed or reused.
+exec
+/bin/bash -lc "id && java -version && ss -ltn '( sport = :22152 )' && ZK_UID=\""'$(id -u)" ZK_GID="$(id -g)" ZK_CLIENT_PORT=22151 ZK_DATA_DIR=./data/baseline-20260916-020020 ZK_LOG_DIR=./logs/baseline-20260916-020020 ZK_RESULT_DIR=./result docker compose -f compose.yml stop && docker inspect zookeeper-1513-zookeeper-1 --format '"'running={{.State.Running}} status={{.State.Status}} exit={{.State.ExitCode}} mounts={{range .Mounts}}{{.Source}}->{{.Destination}};{{end}}'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 701ms:
+ Container zookeeper-1513-zookeeper-1 Stopping 
+ Container zookeeper-1513-zookeeper-1 Stopped 
+running=false status=exited exit=143 mounts=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result->/result;/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data/baseline-20260916-020020->/var/lib/zookeeper;/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/baseline-20260916-020020->/var/log/zookeeper;
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+install -d -m 0755 data/attempt-001
+install -d -m 0755 logs/zk1/app_logs/attempt-001 logs/zk1/txn_logs/attempt-001 logs/zk1/snapshot_data/attempt-001 logs/zk1/jvm_logs/attempt-001 logs/zk1/os_logs/attempt-001
+ZK_UID="$(id -u)" ZK_GID="$(id -g)" ZK_CLIENT_PORT=22152 ZK_DATA_DIR=./data/attempt-001 ZK_LOG_DIR=./logs/zk1/app_logs/attempt-001 ZK_RESULT_DIR=./result docker compose -f compose.yml up -d > logs/zk1/app_logs/attempt-001/initial-compose.log 2>&1
+start_status=$?
+printf '"'compose_start_exit=%s\\n' \""'$start_status"
+find data/attempt-001 logs/zk1 -path '"'*/attempt-001' -printf '%m %u:%g %y %p\\n' | sort
+exit \""'$start_status"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 955ms:
+compose_start_exit=0
+2755 shkim:docker d data/attempt-001
+2755 shkim:docker d logs/zk1/app_logs/attempt-001
+2755 shkim:docker d logs/zk1/jvm_logs/attempt-001
+2755 shkim:docker d logs/zk1/os_logs/attempt-001
+2755 shkim:docker d logs/zk1/snapshot_data/attempt-001
+2755 shkim:docker d logs/zk1/txn_logs/attempt-001
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+ready=false
+for probe in $(seq 1 30); do
+  response=$(timeout 2 bash -c '"'exec 3<>/dev/tcp/127.0.0.1/22152; printf ruok >&3; head -c 4 <&3' 2>/dev/null || true)
+  if [ \""'$response" = imok ]; then
+    printf '"'probe=%s response=%s\\n' \""'$probe" "$response" > logs/zk1/app_logs/attempt-001/initial-readiness.log
+    ready=true
+    break
+  fi
+  sleep 1
+done
+printf '"'initial_ready=%s\\n' \""'$ready"
+test "$ready" = true
+docker inspect zookeeper-1513-zookeeper-1 --format '"'running={{.State.Running}} status={{.State.Status}} exit={{.State.ExitCode}} oomKilled={{.State.OOMKilled}} restartCount={{.RestartCount}}{{range .Mounts}}{{printf \"\\n%s -> %s rw=%t\" .Source .Destination .RW}}{{end}}' > logs/zk1/os_logs/attempt-001/initial-container-inspect.txt
+docker top zookeeper-1513-zookeeper-1 -eo pid,ppid,user,group,lstart,args > logs/zk1/os_logs/attempt-001/initial-processes.txt
+{
+  date -u '+captured_at=%Y-%m-%dT%H:%M:%SZ'
+  uname -a
+  id
+  docker version --format 'docker_client={{.Client.Version}} docker_server={{.Server.Version}}'
+  docker stats --no-stream --format 'name={{.Name}} cpu={{.CPUPerc}} memory={{.MemUsage}} memory_percent={{.MemPerc}} pids={{.PIDs}}' zookeeper-1513-zookeeper-1
+} > logs/zk1/os_logs/attempt-001/host-and-resource.txt
+docker exec zookeeper-1513-zookeeper-1 /opt/java/openjdk/bin/jcmd -l | tee logs/zk1/jvm_logs/attempt-001/jcmd-list.txt" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 1528ms:
+16 org.apache.zookeeper.server.quorum.QuorumPeerMain /etc/zookeeper/zoo.cfg
+34 sun.tools.jcmd.JCmd -l
+
+codex
+The fresh node is ready on `127.0.0.1:22152`, with its persistent storage and log mount both pointing only at `attempt-001`. I’ve recorded the live OS/container state and identified the server JVM; next I’m capturing JVM configuration and submitting the deterministic boundary write.
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+docker exec zookeeper-1513-zookeeper-1 /opt/java/openjdk/bin/jcmd 16 VM.flags > logs/zk1/jvm_logs/attempt-001/vm-flags.txt
+docker exec zookeeper-1513-zookeeper-1 /opt/java/openjdk/bin/jcmd 16 VM.system_properties > logs/zk1/jvm_logs/attempt-001/vm-system-properties.txt
+docker exec zookeeper-1513-zookeeper-1 /opt/java/openjdk/bin/java -version > logs/zk1/jvm_logs/attempt-001/java-version.txt 2>&1
+java -jar target/zookeeper-1513-reproducer.jar 127.0.0.1:22152 logs/zk1/app_logs/attempt-001/write-evidence.properties > logs/zk1/app_logs/attempt-001/reproduce.stdout.log 2> logs/zk1/app_logs/attempt-001/reproduce.stderr.log
+workload_status=$?
+printf '"'workload_exit=%s\\n' \""'$workload_status" | tee logs/zk1/app_logs/attempt-001/reproduce.exit.txt
+sed -n '"'1,80p' logs/zk1/app_logs/attempt-001/reproduce.stdout.log
+sed -n '1,120p' logs/zk1/app_logs/attempt-001/reproduce.stderr.log
+exit \""'$workload_status"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 1619ms:
+workload_exit=0
+ACKNOWLEDGED path=/zookeeper-1513 bytes=1048524 version=1 mzxid=3
+Evidence: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1/app_logs/attempt-001/write-evidence.properties
+log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+post_write=$(timeout 2 bash -c '"'exec 3<>/dev/tcp/127.0.0.1/22152; printf ruok >&3; head -c 4 <&3' 2>/dev/null || true)
+printf 'post_write_readiness=%s\\n' \""'$post_write" > logs/zk1/app_logs/attempt-001/post-write-readiness.log
+test "$post_write" = imok
+ZK_UID="$(id -u)" ZK_GID="$(id -g)" ZK_CLIENT_PORT=22152 ZK_DATA_DIR=./data/attempt-001 ZK_LOG_DIR=./logs/zk1/app_logs/attempt-001 ZK_RESULT_DIR=./result docker compose -f compose.yml stop > logs/zk1/app_logs/attempt-001/clean-stop.log 2>&1
+stop_status=$?
+printf '"'compose_stop_exit=%s\\n' \""'$stop_status"
+test "$stop_status" -eq 0
+docker logs zookeeper-1513-zookeeper-1 > logs/zk1/app_logs/attempt-001/initial-container.log 2>&1
+if find logs/zk1/txn_logs/attempt-001 -mindepth 1 -print -quit | grep -q .; then exit 90; fi
+if find logs/zk1/snapshot_data/attempt-001 -mindepth 1 -print -quit | grep -q .; then exit 91; fi
+find data/attempt-001/version-2 -maxdepth 1 -type f -name '"'log.*' -exec cp -p -- {} logs/zk1/txn_logs/attempt-001/ \\;
+find data/attempt-001/version-2 -maxdepth 1 -type f -name 'snapshot.*' -exec cp -p -- {} logs/zk1/snapshot_data/attempt-001/ \\;
+find logs/zk1/txn_logs/attempt-001 -maxdepth 1 -type f -name 'log.*' -print0 | sort -z | xargs -0 sha256sum > logs/zk1/txn_logs/attempt-001/SHA256SUMS
+find logs/zk1/snapshot_data/attempt-001 -maxdepth 1 -type f -name 'snapshot.*' -print0 | sort -z | xargs -0 sha256sum > logs/zk1/snapshot_data/attempt-001/SHA256SUMS
+printf '%s\\n' '--- persistent data ---'
+find data/attempt-001 -printf '%m %u:%g %y %s %p\\n' | sort
+printf '%s\\n' '--- categorized transaction and snapshot evidence ---'
+find logs/zk1/txn_logs/attempt-001 logs/zk1/snapshot_data/attempt-001 -printf '%m %u:%g %y %s %p\\n' | sort
+docker inspect zookeeper-1513-zookeeper-1 --format 'running={{.State.Running}} status={{.State.Status}} exit={{.State.ExitCode}} oomKilled={{.State.OOMKilled}}'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 928ms:
+compose_stop_exit=0
+--- persistent data ---
+2755 shkim:docker d 4096 data/attempt-001
+2755 shkim:docker d 4096 data/attempt-001/version-2
+644 shkim:docker f 296 data/attempt-001/version-2/snapshot.0
+644 shkim:docker f 67108880 data/attempt-001/version-2/log.1
+--- categorized transaction and snapshot evidence ---
+2755 shkim:docker d 4096 logs/zk1/snapshot_data/attempt-001
+2755 shkim:docker d 4096 logs/zk1/txn_logs/attempt-001
+644 shkim:docker f 102 logs/zk1/txn_logs/attempt-001/SHA256SUMS
+644 shkim:docker f 112 logs/zk1/snapshot_data/attempt-001/SHA256SUMS
+644 shkim:docker f 296 logs/zk1/snapshot_data/attempt-001/snapshot.0
+644 shkim:docker f 67108880 logs/zk1/txn_logs/attempt-001/log.1
+running=false status=exited exit=143 oomKilled=false
+
+codex
+The write was acknowledged, the node remained ready, and the clean stop completed. I preserved the generated `log.1` and `snapshot.0` into their explicit categories with checksums. I’m now restarting the same container against the same persistent attempt data and capturing its real process exit status and complete startup output for the verifier.
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+timeout --signal=TERM --kill-after=5s 45s docker start -a zookeeper-1513-zookeeper-1 > logs/zk1/app_logs/attempt-001/restart-container.log 2>&1
+restart_status=$?
+printf '"'restart_exit=%s\\n' \""'$restart_status" | tee logs/zk1/app_logs/attempt-001/restart.exit.txt
+docker inspect zookeeper-1513-zookeeper-1 --format '"'running={{.State.Running}} status={{.State.Status}} exit={{.State.ExitCode}} oomKilled={{.State.OOMKilled}} restartCount={{.RestartCount}} started={{.State.StartedAt}} finished={{.State.FinishedAt}}' | tee logs/zk1/os_logs/attempt-001/restart-container-state.txt
+printf '%s\\n' '--- target/replay signatures ---'
+rg -n 'Unreasonable length|BinaryInputArchive\\.readBuffer|Util\\.readTxnBytes|FileTxnLog|ZKDatabase\\.loadDataBase|FATAL|Exception' logs/zk1/app_logs/attempt-001/restart-container.log || true
+printf '%s\\n' '--- restart log tail ---'
+tail -n 80 logs/zk1/app_logs/attempt-001/restart-container.log" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 1537ms:
+restart_exit=1
+running=false status=exited exit=1 oomKilled=false restartCount=0 started=2026-09-16T02:05:00.856494677Z finished=2026-09-16T02:05:02.018839205Z
+--- target/replay signatures ---
+28:2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+29:java.io.IOException: Unreasonable length = 1048583
+30:	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+31:	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+32:	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+34:	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+--- restart log tail ---
+JMX enabled by default
+Using config:/etc/zookeeper/zoo.cfg
+Using config: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,597 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,599 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:05:01,607 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,607 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:host.name=1d789fc90370
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+2026-09-16 02:05:01,649 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:05:01,670 - INFO  [main:FileSnap@82] - Reading snapshot /var/lib/zookeeper/version-2/snapshot.0
+2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+java.io.IOException: Unreasonable length = 1048583
+	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:155)
+	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+	at org.apache.zookeeper.server.ZooKeeperServer.loadData(ZooKeeperServer.java:239)
+	at org.apache.zookeeper.server.ZooKeeperServer.startdata(ZooKeeperServer.java:366)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.startup(NIOServerCnxn.java:160)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:110)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.initializeAndRun(ZooKeeperServerMain.java:85)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.main(ZooKeeperServerMain.java:51)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:108)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76)
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+java -cp target/zookeeper-1513-reproducer.jar Verify logs/zk1/app_logs/attempt-001/write-evidence.properties logs/zk1/app_logs/attempt-001/restart-container.log 1 > logs/zk1/app_logs/attempt-001/verify.stdout.log 2> logs/zk1/app_logs/attempt-001/verify.stderr.log
+verify_status=$?
+printf '"'verify_exit=%s\\n' \""'$verify_status" | tee logs/zk1/app_logs/attempt-001/verify.exit.txt
+cat logs/zk1/app_logs/attempt-001/verify.stdout.log
+cat logs/zk1/app_logs/attempt-001/verify.stderr.log
+exit "$verify_status"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 45ms:
+verify_exit=0
+write.acknowledged=true
+write.payload.size.matches=true
+write.payload.digest.matches=true
+write.transaction.size.matches=true
+restart.failed=true
+restart.exact.length.seen=true
+restart.replay.path.seen=true
+reproduced=true
+
+codex
+The restart exited with code 1 and emitted the exact `Unreasonable length = 1048583` replay stack. The prepared `Verify` oracle passed every condition (`reproduced=true`, exit 0). I’ll now create the single attempt result, make the attempt artifacts read-only without impairing traversal, and perform the required host readability/traversability audit.
+exec
+/bin/bash -lc 'test ! -e result/attempt-001.properties && printf '"'result_path_unused=true\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 0ms:
+result_path_unused=true
+
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/attempt-001.properties
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..29505c7bdb009f79631a7572fed46174e71c8926
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,9 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++workload.exit=0
++restart.exit=1
++verify.exit=0
++reproduced=true
++evidence.root=logs/zk1
++verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..29505c7bdb009f79631a7572fed46174e71c8926
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,9 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++workload.exit=0
++restart.exit=1
++verify.exit=0
++reproduced=true
++evidence.root=logs/zk1
++verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+
+exec
+/bin/bash -lc "set -o pipefail
+umask 022
+{
+  printf 'captured_at='; date -u '+%Y-%m-%dT%H:%M:%SZ'
+  find data/attempt-001 logs/zk1 -path '*/attempt-001' -o -path '*/attempt-001/*' | sort
+} > logs/zk1/os_logs/attempt-001/evidence-inventory.txt
+find logs/zk1 -path '*/attempt-001/*' -type f -exec chmod 0444 {} +
+find logs/zk1 -type d -name attempt-001 -exec chmod 0555 {} +
+find data/attempt-001 -type f -exec chmod 0444 {} +
+find data/attempt-001 -type d -exec chmod 0555 {} +
+chmod 0444 result/attempt-001.properties
+unreadable="'$(find data/attempt-001 logs/zk1 result/attempt-001.properties -type f ! -exec test -r {} '"\\; -print | wc -l)
+untraversable="'$(find data/attempt-001 logs/zk1 -type d ! -exec test -x {} '"\\; -print | wc -l)
+writable_attempt_files="'$(find data/attempt-001 logs/zk1 result/attempt-001.properties -type f -exec test -w {} '"\\; -print | wc -l)
+writable_attempt_dirs="'$(find data/attempt-001 logs/zk1 -type d -name attempt-001 -exec test -w {} '"\\; -print | wc -l)
+printf 'unreadable_regular_files=%s\\nuntraversable_directories=%s\\nwritable_attempt_files=%s\\nwritable_attempt_directories=%s\\n' \""'$unreadable" "$untraversable" "$writable_attempt_files" "$writable_attempt_dirs"
+test "$unreadable" -eq 0
+test "$untraversable" -eq 0
+test "$writable_attempt_files" -eq 0
+test "$writable_attempt_dirs" -eq 0
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  category_path="logs/zk1/$category/attempt-001"
+  test -d "$category_path"
+  file_count=$(find "$category_path" -type f | wc -l)
+  printf '"'category=%s files=%s\\n' \""'$category" "$file_count"
+  test "$file_count" -gt 0
+done
+printf '"'%s\\n' '--- result ---'
+cat result/attempt-001.properties
+printf '%s\\n' '--- protected artifact modes ---'
+find data/attempt-001 logs/zk1 result/attempt-001.properties \\( -path '*/attempt-001' -o -path '*/attempt-001/*' -o -path 'result/attempt-001.properties' \\) -printf '%m %u:%g %y %s %p\\n' | sort
+printf '%s\\n' '--- final container state ---'
+docker inspect zookeeper-1513-zookeeper-1 --format 'running={{.State.Running}} status={{.State.Status}} exit={{.State.ExitCode}} oomKilled={{.State.OOMKilled}} restartCount={{.RestartCount}}'
+printf '%s\\n' '--- forbidden second attempt check ---'
+if find logs data result -name '*attempt-002*' -print | grep -q .; then exit 92; else printf 'attempt-002 absent\\n'; fi" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+ succeeded in 385ms:
+unreadable_regular_files=0
+untraversable_directories=0
+writable_attempt_files=0
+writable_attempt_directories=0
+category=app_logs files=15
+category=txn_logs files=2
+category=snapshot_data files=2
+category=jvm_logs files=4
+category=os_logs files=5
+--- result ---
+result=SUCCESS
+attempt=attempt-001
+node=zk1
+workload.exit=0
+restart.exit=1
+verify.exit=0
+reproduced=true
+evidence.root=logs/zk1
+verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+--- protected artifact modes ---
+2555 shkim:docker d 4096 data/attempt-001
+2555 shkim:docker d 4096 data/attempt-001/version-2
+2555 shkim:docker d 4096 logs/zk1/app_logs/attempt-001
+2555 shkim:docker d 4096 logs/zk1/jvm_logs/attempt-001
+2555 shkim:docker d 4096 logs/zk1/os_logs/attempt-001
+2555 shkim:docker d 4096 logs/zk1/snapshot_data/attempt-001
+2555 shkim:docker d 4096 logs/zk1/txn_logs/attempt-001
+444 shkim:docker f 0 logs/zk1/app_logs/attempt-001/verify.stderr.log
+444 shkim:docker f 102 logs/zk1/jvm_logs/attempt-001/jcmd-list.txt
+444 shkim:docker f 102 logs/zk1/txn_logs/attempt-001/SHA256SUMS
+444 shkim:docker f 112 logs/zk1/snapshot_data/attempt-001/SHA256SUMS
+444 shkim:docker f 14 logs/zk1/app_logs/attempt-001/verify.exit.txt
+444 shkim:docker f 145 logs/zk1/os_logs/attempt-001/restart-container-state.txt
+444 shkim:docker f 15 logs/zk1/app_logs/attempt-001/restart.exit.txt
+444 shkim:docker f 152 logs/zk1/jvm_logs/attempt-001/java-version.txt
+444 shkim:docker f 1540 logs/zk1/os_logs/attempt-001/initial-processes.txt
+444 shkim:docker f 16 logs/zk1/app_logs/attempt-001/reproduce.exit.txt
+444 shkim:docker f 1676 logs/zk1/os_logs/attempt-001/evidence-inventory.txt
+444 shkim:docker f 183 logs/zk1/app_logs/attempt-001/reproduce.stdout.log
+444 shkim:docker f 192 logs/zk1/app_logs/attempt-001/initial-compose.log
+444 shkim:docker f 196 result/attempt-001.properties
+444 shkim:docker f 22 logs/zk1/app_logs/attempt-001/initial-readiness.log
+444 shkim:docker f 223 logs/zk1/app_logs/attempt-001/verify.stdout.log
+444 shkim:docker f 224 logs/zk1/app_logs/attempt-001/reproduce.stderr.log
+444 shkim:docker f 227 logs/zk1/app_logs/attempt-001/write-evidence.properties
+444 shkim:docker f 26 logs/zk1/app_logs/attempt-001/post-write-readiness.log
+444 shkim:docker f 276 logs/zk1/jvm_logs/attempt-001/vm-flags.txt
+444 shkim:docker f 2887 logs/zk1/jvm_logs/attempt-001/vm-system-properties.txt
+444 shkim:docker f 296 data/attempt-001/version-2/snapshot.0
+444 shkim:docker f 296 logs/zk1/snapshot_data/attempt-001/snapshot.0
+444 shkim:docker f 353 logs/zk1/os_logs/attempt-001/initial-container-inspect.txt
+444 shkim:docker f 419 logs/zk1/os_logs/attempt-001/host-and-resource.txt
+444 shkim:docker f 4430 logs/zk1/app_logs/attempt-001/restart-container.log
+444 shkim:docker f 4915 logs/zk1/app_logs/attempt-001/initial-container.log
+444 shkim:docker f 67108880 data/attempt-001/version-2/log.1
+444 shkim:docker f 67108880 logs/zk1/txn_logs/attempt-001/log.1
+444 shkim:docker f 9153 logs/zk1/app_logs/attempt-001/zookeeper.log
+444 shkim:docker f 95 logs/zk1/app_logs/attempt-001/clean-stop.log
+--- final container state ---
+running=false status=exited exit=1 oomKilled=false restartCount=0
+--- forbidden second attempt check ---
+attempt-002 absent
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..29505c7bdb009f79631a7572fed46174e71c8926
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,9 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++workload.exit=0
++restart.exit=1
++verify.exit=0
++reproduced=true
++evidence.root=logs/zk1
++verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+
+codex
+Experiment `attempt-001` completed successfully.
+
+- Workload exit: `0`
+- Restart exit: `1`
+- Observed `Unreasonable length = 1048583` during transaction replay
+- `Verify` exit: `0`, with `reproduced=true`
+- Result: [attempt-001.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result/attempt-001.properties)
+- Evidence: [logs/zk1](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs/zk1)
+- All five required evidence categories were populated.
+- All attempt files are host-readable and directories host-traversable.
+- Attempt artifacts were made read-only.
+- No `attempt-002` artifacts were created.
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..29505c7bdb009f79631a7572fed46174e71c8926
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,9 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++workload.exit=0
++restart.exit=1
++verify.exit=0
++reproduced=true
++evidence.root=logs/zk1
++verification.output=logs/zk1/app_logs/attempt-001/verify.stdout.log
+
+tokens used
+44,215

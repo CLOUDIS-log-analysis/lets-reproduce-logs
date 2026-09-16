@@ -1,0 +1,8 @@
+Created [result/summary.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/summary.md) with:
+
+- Overall conclusion: **SUCCESS**
+- Summary of the sole completed attempt, `attempt-001`
+- Oracle evidence and verifier result
+- Scope limitation: only 1 of 3 configured attempts completed, using send-buffer fault injection
+
+All preserved evidence passed SHA-256 verification. No experiments were run, and existing logs and attempt results were not altered.

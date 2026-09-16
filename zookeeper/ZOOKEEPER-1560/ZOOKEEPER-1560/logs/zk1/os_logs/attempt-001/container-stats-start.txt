@@ -1,0 +1,2 @@
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O     PIDS
+6e7430ce5f92   zookeeper1560-attempt-001   0.19%     22.71MiB / 1GiB     2.22%     1.19kB / 374B   0B / 98.3kB   24
