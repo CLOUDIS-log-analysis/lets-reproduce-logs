@@ -4,7 +4,7 @@ haproxy에 http3 요청을 넣으면 segmentation fault로 인해 크래시 되�
 
 # 원인
 
-http3의 QUIC 기반 연결을 진행 중 ssl_tlsext_ticket_key_cb() 함수 안에서 QUIC이 아닌 일반 연결용 구조체를 사용, 이를 이용해서 구한 ref 포인터가 NULL이기 때문에 null pointer dereferncing이 일어남 
+http3의 QUIC 기반 연결을 진행 중 ssl_tlsext_ticket_key_cb() 함수 안에서 QUIC이 아닌 일반 연결용 구조체를 사용, 이를 이용해서 구한 conn 포인터가 NULL이기 때문에 null pointer dereferncing이 일어남 
 
 ```c
 	struct connection *conn;
