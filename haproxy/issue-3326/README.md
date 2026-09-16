@@ -10,6 +10,17 @@ haproxy 설정파일에 존재하지 않는 ip 주소를 입력하면 segmentati
 
 잘못된 함수 sc_conn_process()를 tasklet_wakeup()으로 교체함
 
+```c
+fail:
+		/* let the upper layer know the connection failed */
+		if (sc) {
+-			sc_conn_process(sc);
++			tasklet_wakeup(sc->wait_event.tasklet, TASK_WOKEN_MSG);
+		}
+		else if (conn_reverse_in_preconnect(conn)) {
+			struct listener *l = conn_active_reverse_listener(conn);
+```
+
 수정 커밋: https://github.com/haproxy/haproxy/commit/b7add82f9211e0bc87ed5361220694ffc10c0062
 
 # 로그 연관성
