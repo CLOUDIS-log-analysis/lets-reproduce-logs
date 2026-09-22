@@ -8,8 +8,11 @@ redis를 복제본(slave) 노드 없이 사용하면
 복제 노드의 수를 나타내는 numslaves의 값이 0이됨
 
 MEMORY DOCTOR 명령어를 통해 redis 서버의 메모리 점검을 실시함
+
 getMemoryDoctorReport 함수가 호출됨
+
 만약 redis에 할당된 메모리의 총량을 나타내는 total_allocated 변수의 값이 5MB(1024*1024*5)보다 크거나 같다면
+
 mh->clients_slaves / numslaves 이라는 계산이 실행되고 numslaves는 0이기 때문에 divide by zero로인한 크래시
 
 ```c
