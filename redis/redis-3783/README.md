@@ -4,7 +4,7 @@ redis 메모리의 상태를 분석하는 명령인 MEMORY DOCTOR을 전달하�
 
 # 원인
 
-redis를 복제본(Replica) 노드 없이 사용하면
+redis를 복제본(slave) 노드 없이 사용하면
 복제 노드의 수를 나타내는 numslaves의 값이 0이됨
 
 MEMORY DOCTOR 명령어를 통해 redis 서버의 메모리 점검을 실시함
