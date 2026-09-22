@@ -1,0 +1,5 @@
+captured_at=2026-09-16T02:04:01Z
+Linux shkim-zookeeper 6.8.0-139-generic #139-Ubuntu SMP PREEMPT_DYNAMIC Sat Aug  1 03:52:05 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+uid=1000(shkim) gid=988(docker) groups=988(docker),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),101(lxd),1000(shkim)
+docker_client=29.8.1 docker_server=29.8.1
+name=zookeeper-1513-zookeeper-1 cpu=0.22% memory=34.64MiB / 2GiB memory_percent=1.69% pids=19
