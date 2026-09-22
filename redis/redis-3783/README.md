@@ -1,6 +1,6 @@
 # [redis-3783](https://github.com/redis/redis/issues/3783)
 
-redis 메모리의 상태를 분석하는 명령인 MEMORY DOCTOR을 전달하면 signal 8 (divide by zero)로 인해 크래시되는 이슈
+redis 메모리의 상태를 분석하는 명령인 MEMORY DOCTOR을 전달하면 signal 8 (division-by-zero)로 인해 크래시되는 이슈
 
 # 원인
 
@@ -13,7 +13,7 @@ getMemoryDoctorReport 함수가 호출됨
 
 만약 redis에 할당된 메모리의 총량을 나타내는 total_allocated 변수의 값이 5MB(1024*1024*5)보다 크거나 같다면
 
-mh->clients_slaves / numslaves 이라는 계산이 실행되고 numslaves는 0이기 때문에 divide by zero로인한 크래시
+mh->clients_slaves / numslaves 이라는 계산이 실행되고 numslaves는 0이기 때문에 division-by-zero로인한 크래시
 
 ```c
 /* This implements MEMORY DOCTOR. An human readable analysis of the Redis
