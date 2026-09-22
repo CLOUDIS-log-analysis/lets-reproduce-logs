@@ -1,0 +1,305 @@
+$ coredumpctl debug 21357
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+           PID: 21357 (nginx)
+           UID: 1000 (ksh)
+           GID: 1000 (ksh)
+        Signal: 11 (SEGV)
+     Timestamp: Mon 2026-09-21 02:12:33 KST (1min 16s ago)
+  Command Line: $'nginx: worker process'
+    Executable: /home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx
+ Control Group: /user.slice/user-1000.slice/session-35.scope
+          Unit: session-35.scope
+         Slice: user-1000.slice
+       Session: 35
+     Owner UID: 1000 (ksh)
+       Boot ID: 111e783340fa411599ea593702e68c29
+    Machine ID: 54a669c63fb2364aab6f3d95403f12ed
+      Hostname: ksh-nginx
+       Storage: /var/lib/systemd/coredump/core.nginx.1000.111e783340fa411599ea593702e68c29.21357.1789924353000000.zst (present)
+  Size on Disk: 1.8M
+       Message: Process 21357 (nginx) of user 1000 dumped core.
+                
+                Stack trace of thread 21357:
+                #0  0x0000780431598c4d __memmove_evex_unaligned_erms (libc.so.6 + 0x198c4d)
+                #1  0x000057ddff4d9490 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x26490)
+                #2  0x000057ddff4d84ec n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x254ec)
+                #3  0x000057ddff4d085d n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x1d85d)
+                #4  0x000057ddff592128 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0xdf128)
+                #5  0x000057ddff54c905 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x99905)
+                #6  0x000057ddff54c46d n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x9946d)
+                #7  0x000057ddff53f3e5 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x8c3e5)
+                #8  0x000057ddff5904f5 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0xdd4f5)
+                #9  0x000057ddff524cdd n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x71cdd)
+                #10 0x000057ddff523b73 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x70b73)
+                #11 0x000057ddff523adc n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x70adc)
+                #12 0x000057ddff533b1a n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x80b1a)
+                #13 0x000057ddff532500 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x7f500)
+                #14 0x000057ddff531876 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x7e876)
+                #15 0x000057ddff530f1f n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x7df1f)
+                #16 0x000057ddff51cac9 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x69ac9)
+                #17 0x000057ddff508e34 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x55e34)
+                #18 0x000057ddff519dec n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x66dec)
+                #19 0x000057ddff5162b3 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x632b3)
+                #20 0x000057ddff518b47 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x65b47)
+                #21 0x000057ddff5181b6 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x651b6)
+                #22 0x000057ddff4cdb62 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x1ab62)
+                #23 0x000078043142a1ca __libc_start_call_main (libc.so.6 + 0x2a1ca)
+                #24 0x000078043142a28b __libc_start_main_impl (libc.so.6 + 0x2a28b)
+                #25 0x000057ddff4cd3a5 n/a (/home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx + 0x1a3a5)
+                ELF object binary architecture: AMD x86-64
+
+GNU gdb (Ubuntu 15.1-1ubuntu1~24.04.1) 15.1
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+--Type <RET> for more, q to quit, c to continue without paging--c
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx...
+
+warning: Can't open file /dev/zero (deleted) during file-backed mapping note processing
+[New LWP 21357]
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.ubuntu.com>
+Enable debuginfod for this session? (y or [n]) y
+Debuginfod has been enabled.
+To make this setting permanent, add 'set debuginfod enabled on' to .gdbinit.
+Downloading separate debug info for /lib/x86_64-linux-gnu/libcrypt.so.1
+Downloading separate debug info for /lib/x86_64-linux-gnu/libpcre2-8.so.0                                                                                                           
+[Thread debugging using libthread_db enabled]                                                                                                                                       
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Core was generated by `nginx: worker process                                                         '.
+Program terminated with signal SIGSEGV, Segmentation fault.
+Download failed: Invalid argument.  Continuing without source file ./string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S.
+#0  __memcpy_evex_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:265
+
+warning: 265    ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S: No such file or directory
+(gdb) bt
+#0  __memcpy_evex_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:265
+#1  0x000057ddff4d9490 in ngx_sprintf_str (buf=0x7fff85b3146d "Accept: */*\"\nurl/8.5.0\"\n\177", last=0x7fff85b31c30 "", src=0x0, len=1987, hexadecimal=0)
+    at src/core/ngx_string.c:586
+#2  0x000057ddff4d84ec in ngx_vslprintf (buf=0x7fff85b3146d "Accept: */*\"\nurl/8.5.0\"\n\177", last=0x7fff85b31c30 "", fmt=0x57ddff5c6d08 "s\"", args=0x7fff85b31418)
+    at src/core/ngx_string.c:271
+#3  0x000057ddff4d085d in ngx_log_error_core (level=8, log=0x57de13687040, err=0, fmt=0x57ddff5c6cf1 "http proxy header:%N\"%*s\"") at src/core/ngx_log.c:135
+#4  0x000057ddff592128 in ngx_http_proxy_create_request (r=0x57de13696d40) at src/http/modules/ngx_http_proxy_module.c:1580
+#5  0x000057ddff54c905 in ngx_http_upstream_init_request (r=0x57de13696d40) at src/http/ngx_http_upstream.c:659
+#6  0x000057ddff54c46d in ngx_http_upstream_init (r=0x57de13696d40) at src/http/ngx_http_upstream.c:572
+#7  0x000057ddff53f3e5 in ngx_http_read_client_request_body (r=0x57de13696d40, post_handler=0x57ddff54c373 <ngx_http_upstream_init>) at src/http/ngx_http_request_body.c:84
+#8  0x000057ddff5904f5 in ngx_http_proxy_handler (r=0x57de13696d40) at src/http/modules/ngx_http_proxy_module.c:1043
+#9  0x000057ddff524cdd in ngx_http_core_content_phase (r=0x57de13696d40, ph=0x57de136a67c8) at src/http/ngx_http_core_module.c:1275
+#10 0x000057ddff523b73 in ngx_http_core_run_phases (r=0x57de13696d40) at src/http/ngx_http_core_module.c:889
+#11 0x000057ddff523adc in ngx_http_handler (r=0x57de13696d40) at src/http/ngx_http_core_module.c:872
+#12 0x000057ddff533b1a in ngx_http_process_request (r=0x57de13696d40) at src/http/ngx_http_request.c:2165
+#13 0x000057ddff532500 in ngx_http_process_request_headers (rev=0x57de1368c570) at src/http/ngx_http_request.c:1554
+#14 0x000057ddff531876 in ngx_http_process_request_line (rev=0x57de1368c570) at src/http/ngx_http_request.c:1221
+#15 0x000057ddff530f1f in ngx_http_wait_request_handler (rev=0x57de1368c570) at src/http/ngx_http_request.c:524
+#16 0x000057ddff51cac9 in ngx_epoll_process_events (cycle=0x57de136884f0, timer=60000, flags=1) at src/event/modules/ngx_epoll_module.c:901
+#17 0x000057ddff508e34 in ngx_process_events_and_timers (cycle=0x57de136884f0) at src/event/ngx_event.c:248
+#18 0x000057ddff519dec in ngx_worker_process_cycle (cycle=0x57de136884f0, data=0x0) at src/os/unix/ngx_process_cycle.c:721
+#19 0x000057ddff5162b3 in ngx_spawn_process (cycle=0x57de136884f0, proc=0x57ddff519cf2 <ngx_worker_process_cycle>, data=0x0, name=0x57ddff5bc98a "worker process", respawn=-3)
+    at src/os/unix/ngx_process.c:199
+#20 0x000057ddff518b47 in ngx_start_worker_processes (cycle=0x57de136884f0, n=1, type=-3) at src/os/unix/ngx_process_cycle.c:344
+#21 0x000057ddff5181b6 in ngx_master_process_cycle (cycle=0x57de136884f0) at src/os/unix/ngx_process_cycle.c:130
+#22 0x000057ddff4cdb62 in main (argc=5, argv=0x7fff85b329c8) at src/core/nginx.c:384
+(gdb) bt full
+#0  __memcpy_evex_unaligned_erms () at ../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S:265
+No locals.
+#1  0x000057ddff4d9490 in ngx_sprintf_str (buf=0x7fff85b3146d "Accept: */*\"\nurl/8.5.0\"\n\177", last=0x7fff85b31c30 "", src=0x0, len=1987, hexadecimal=0)
+    at src/core/ngx_string.c:586
+        hex = "0123456789abcdef"
+        HEX = "0123456789ABCDEF"
+#2  0x000057ddff4d84ec in ngx_vslprintf (buf=0x7fff85b3146d "Accept: */*\"\nurl/8.5.0\"\n\177", last=0x7fff85b31c30 "", fmt=0x57ddff5c6d08 "s\"", args=0x7fff85b31418)
+    at src/core/ngx_string.c:271
+        p = 0x0
+        zero = 32 ' '
+        d = 0
+        f = 4.9406564584124654e-324
+        slen = 96611320036543
+        i64 = 0
+        ui64 = 0
+        frac = 96610983620770
+        ms = 17179869192
+        width = 0
+        sign = 1
+        hex = 0
+        max_width = 0
+        frac_width = 0
+        scale = 140735436496064
+        n = 96610982626951
+        v = 0x7fff85b31430
+        vv = 0x57ddff5c0e70
+#3  0x000057ddff4d085d in ngx_log_error_core (level=8, log=0x57de13687040, err=0, fmt=0x57ddff5c6cf1 "http proxy header:%N\"%*s\"") at src/core/ngx_log.c:135
+--Type <RET> for more, q to quit, c to continue without paging--c
+        args = {{gp_offset = 48, fp_offset = 48, overflow_arg_area = 0x7fff85b31d00, reg_save_area = 0x7fff85b31c40}}
+        p = 0x7fff85b31459 "http proxy header:\n\"Accept: */*\"\nurl/8.5.0\"\n\177"
+        last = 0x7fff85b31c30 ""
+        msg = 0x7fff85b31459 "http proxy header:\n\"Accept: */*\"\nurl/8.5.0\"\n\177"
+        n = 74
+        wrote_stderr = 0
+        debug_connection = 0
+        errstr = "2026/09/21 02:12:33 [debug] 21357#0: *12 http proxy header:\n\"Accept: */*\"\nurl/8.5.0\"\n\177\000\000\377\377\377\377\377\377\377\377\000\000\000\000\000\000\000\000\f\000\000\000\000\000\000\000\302\024\263\205\377\177", '\000' <repeats 42 times>, "\220\025\263\205\377\177\000\000ӓM\377\335W\000\000\b\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000@\267]\3770W\000\000\000"...
+#4  0x000057ddff592128 in ngx_http_proxy_create_request (r=0x57de13696d40) at src/http/modules/ngx_http_proxy_module.c:1580
+        len = 96
+        uri_len = 1
+        loc_len = 6
+        body_len = 4283861462
+        key_len = 17
+        val_len = 0
+        escape = 0
+        b = 0x57de13697c10
+        method = {len = 3, data = 0x57de13686570 "GET /ttll/ HTTP/1.1\r\nHost"}
+        i = 3
+        unparsed_uri = 0
+        cl = 0x57de13697cc0
+        body = 0x7fff85b31e20
+        part = 0x57de13696db0
+        header = 0x57de1368f4e0
+        u = 0x57de1368f940
+        ctx = 0x57de136979f0
+        code = 0x57ddff54964b <ngx_http_script_copy_var_code>
+        headers = 0x57de136a0b98
+        e = {ip = 0x57de136a4190 "", pos = 0x57de13697c98 "User-Agent: curl/8.5.0\r\nAccept: */*\r\n\r\n", sp = 0x0, buf = {len = 0, data = 0x0}, line = {len = 0, data = 0x0}, 
+          args = 0x0, flushed = 1, skip = 0, quote = 0, is_args = 0, log = 0, status = 0, request = 0x57de13696d40}
+        le = {ip = 0x57de136a4438 "", pos = 0x0, sp = 0x0, buf = {len = 0, data = 0x0}, line = {len = 0, data = 0x0}, args = 0x0, flushed = 1, skip = 0, quote = 0, is_args = 0, 
+          log = 0, status = 0, request = 0x57de13696d40}
+        plcf = 0x57de136a09a0
+        lcode = 0x57ddff5495a3 <ngx_http_script_copy_var_len_code>
+#5  0x000057ddff54c905 in ngx_http_upstream_init_request (r=0x57de13696d40) at src/http/ngx_http_upstream.c:659
+        host = 0x801
+        i = 140735436496592
+        ctx = 0x3e8000081b4
+        temp = {next = 0x57de13697078, resolver = 0x0, node = 0x0, ident = 4096, state = 0, name = {len = 1789923972, 
+            data = 0x21cd32bf <error: Cannot access memory at address 0x21cd32bf>}, service = {len = 14389069312731412736, 
+            data = 0x2510bb34 <error: Cannot access memory at address 0x2510bb34>}, valid = 1789923972, naddrs = 539095784, addrs = 0x0, addr = {sockaddr = 0x7fff85b31fe0, 
+            socklen = 4283547710, name = {len = 2147491845, data = 0x57ddff51c05d <ngx_epoll_add_event+321> "\203\370\377uRH\213E\250H\213@ H\213"}, priority = 8448, 
+            weight = 34227}, sin = {sin_family = 0, sin_port = 32768, sin_addr = {s_addr = 0}, sin_zero = "\004\000\000\000\000\000\000"}, count = 96611320141008, nsrvs = 126, 
+          srvs = 0x300000001, handler = 0x200100002005, data = 0x57de1368c570, timeout = 96611320112576, quick = 0, async = 0, cancelable = 0, recursion = 96611320112576, 
+          event = 0xc7b03e4da9d47900}
+        cln = 0x3
+        u = 0x57de1368f940
+        clcf = 0x3
+        uscf = 0x7fff85b31f00
+        uscfp = 0x1
+        umcf = 0x180fcc
+#6  0x000057ddff54c46d in ngx_http_upstream_init (r=0x57de13696d40) at src/http/ngx_http_upstream.c:572
+        c = 0x57de136aa5c0
+#7  0x000057ddff53f3e5 in ngx_http_read_client_request_body (r=0x57de13696d40, post_handler=0x57ddff54c373 <ngx_http_upstream_init>) at src/http/ngx_http_request_body.c:84
+        preread = 96611320032496
+        size = 140735436496976
+        rc = 96610982633627
+        b = 0x7fff85b32080
+        out = {buf = 0x118, next = 0x57de13696cf0}
+        rb = 0x57de13697bc0
+        clcf = 0x57ddff4d254f <ngx_pcalloc+71>
+#8  0x000057ddff5904f5 in ngx_http_proxy_handler (r=0x57de13696d40) at src/http/modules/ngx_http_proxy_module.c:1043
+        rc = 0
+        u = 0x57de1368f940
+        ctx = 0x57de136979f0
+        plcf = 0x57de136a09a0
+        pmcf = 0x57de1368ba60
+#9  0x000057ddff524cdd in ngx_http_core_content_phase (r=0x57de13696d40, ph=0x57de136a67c8) at src/http/ngx_http_core_module.c:1275
+        root = 140735436497200
+        rc = 96610982968365
+        path = {len = 96611320096688, data = 0x57de13696d40 "HTTP"}
+#10 0x000057ddff523b73 in ngx_http_core_run_phases (r=0x57de13696d40) at src/http/ngx_http_core_module.c:889
+        rc = -2
+        ph = 0x57de136a66c0
+        cmcf = 0x57de1368af48
+#11 0x000057ddff523adc in ngx_http_handler (r=0x57de13696d40) at src/http/ngx_http_core_module.c:872
+        cmcf = 0x57de1368c570
+#12 0x000057ddff533b1a in ngx_http_process_request (r=0x57de13696d40) at src/http/ngx_http_request.c:2165
+        c = 0x57de136aa5c0
+#13 0x000057ddff532500 in ngx_http_process_request_headers (rev=0x57de1368c570) at src/http/ngx_http_request.c:1554
+        p = 0x57ddff530231 <ngx_list_init+51> "H\213U\370H\211B\bH\213E\370H\213@\bH\205\300u\tH\307\300\377\377\377\377\353PH\213E\370H\307@\020"
+        len = 0
+        n = 61
+        rc = 0
+        rv = 140735436497488
+        h = 0x57de1368f550
+        c = 0x57de136aa5c0
+        hh = 0x0
+        r = 0x57de13696d40
+        cscf = 0x57de1369d8b0
+        cmcf = 0x57de1368af48
+#14 0x000057ddff531876 in ngx_http_process_request_line (rev=0x57de1368c570) at src/http/ngx_http_request.c:1221
+        n = 82
+        rc = 0
+        rv = 96611320112576
+        host = {len = 140735436497600, data = 0x57de13696d40 "HTTP"}
+        c = 0x57de136aa5c0
+        r = 0x57de13696d40
+#15 0x000057ddff530f1f in ngx_http_wait_request_handler (rev=0x57de1368c570) at src/http/ngx_http_request.c:524
+        p = 0x57ddff51c8e4 <ngx_epoll_process_events+740> "H\203\304\020\213E\274\203\340\030\205\300tRH\213E\250H\213@\020H\213"
+        size = 1024
+        n = 82
+        b = 0x57de136870f0
+        c = 0x57de136aa5c0
+        hc = 0x57de136870a0
+        cscf = 0x57de1369d8b0
+#16 0x000057ddff51cac9 in ngx_epoll_process_events (cycle=0x57de136884f0, timer=60000, flags=1) at src/event/modules/ngx_epoll_module.c:901
+        events = 1
+        revents = 1
+        instance = 0
+        i = 0
+        level = 140735436497824
+        err = 0
+        rev = 0x57de1368c570
+        wev = 0xea60
+        queue = 0x57de1368c598
+        c = 0x57de136aa5c0
+#17 0x000057ddff508e34 in ngx_process_events_and_timers (cycle=0x57de136884f0) at src/event/ngx_event.c:248
+        flags = 1
+        timer = 60000
+        delta = 21437975
+#18 0x000057ddff519dec in ngx_worker_process_cycle (cycle=0x57de136884f0, data=0x0) at src/os/unix/ngx_process_cycle.c:721
+        worker = 0
+#19 0x000057ddff5162b3 in ngx_spawn_process (cycle=0x57de136884f0, proc=0x57ddff519cf2 <ngx_worker_process_cycle>, data=0x0, name=0x57ddff5bc98a "worker process", respawn=-3)
+    at src/os/unix/ngx_process.c:199
+        on = 1
+        pid = 0
+        s = 0
+#20 0x000057ddff518b47 in ngx_start_worker_processes (cycle=0x57de136884f0, n=1, type=-3) at src/os/unix/ngx_process_cycle.c:344
+        i = 0
+#21 0x000057ddff5181b6 in ngx_master_process_cycle (cycle=0x57de136884f0) at src/os/unix/ngx_process_cycle.c:130
+        title = 0x57de136a6972 "master process /home/ksh/mydir/ngx-1.29.1/nginx-1.29.1-debug/objs/nginx -p /home/ksh/mydir/ngx-1.29.1/ngx-issues-983-debug -c nginx.conf"
+        p = 0x57de136a69fa ""
+        size = 137
+        i = 5
+        sigio = 0
+        set = {__val = {0, 0, 0, 0, 0, 0, 0, 6, 0, 96611319973128, 0, 96611319973128, 140735436498368, 96610982629892, 0, 96611319973104}}
+        itv = {it_interval = {tv_sec = 0, tv_usec = 0}, it_value = {tv_sec = 0, tv_usec = 0}}
+        live = 0
+        delay = 0
+        ccf = 0x57de1368a2e0
+#22 0x000057ddff4cdb62 in main (argc=5, argv=0x7fff85b329c8) at src/core/nginx.c:384
+        b = 0x0
+        log = 0x57ddff5eca40 <ngx_log>
+        i = 44755967686830
+        cycle = 0x57de136884f0
+        init_cycle = {conf_ctx = 0x0, pool = 0x57de13686570, log = 0x57ddff5eca40 <ngx_log>, new_log = {log_level = 0, file = 0x0, connection = 0, disk_full_time = 0, 
+            handler = 0x0, data = 0x0, writer = 0x0, wdata = 0x0, action = 0x0, next = 0x0}, log_use_stderr = 0, files = 0x0, free_connections = 0x0, free_connection_n = 0, 
+          modules = 0x0, modules_n = 0, modules_used = 0, reusable_connections_queue = {prev = 0x0, next = 0x0}, reusable_connections_n = 0, connections_reuse_time = 0, 
+          listening = {elts = 0x0, nelts = 0, size = 0, nalloc = 0, pool = 0x0}, paths = {elts = 0x0, nelts = 0, size = 0, nalloc = 0, pool = 0x0}, config_dump = {elts = 0x0, 
+            nelts = 0, size = 0, nalloc = 0, pool = 0x0}, config_dump_rbtree = {root = 0x0, sentinel = 0x0, insert = 0x0}, config_dump_sentinel = {key = 0, left = 0x0, 
+            right = 0x0, parent = 0x0, color = 0 '\000', data = 0 '\000'}, open_files = {last = 0x0, part = {elts = 0x0, nelts = 0, next = 0x0}, size = 0, nalloc = 0, 
+            pool = 0x0}, shared_memory = {last = 0x0, part = {elts = 0x0, nelts = 0, next = 0x0}, size = 0, nalloc = 0, pool = 0x0}, connection_n = 0, files_n = 0, 
+          connections = 0x0, read_events = 0x0, write_events = 0x0, old_cycle = 0x0, conf_file = {len = 58, 
+            data = 0x57de136865f0 "/home/ksh/mydir/ngx-1.29.1/ngx-issues-983-debug/nginx.conf"}, conf_param = {len = 0, data = 0x0}, conf_prefix = {len = 48, 
+            data = 0x57de136865f0 "/home/ksh/mydir/ngx-1.29.1/ngx-issues-983-debug/nginx.conf"}, prefix = {len = 48, 
+            data = 0x57de136865c0 "\r\n\r\ne/ksh/mydir/ngx-1.29.1/ngx-issues-983-debug//home/ksh/mydir/ngx-1.29.1/ngx-issues-983-debug/nginx.conf"}, error_log = {len = 14, 
+            data = 0x57ddff5b7a40 "logs/error.log"}, lock_file = {len = 0, data = 0x0}, hostname = {len = 0, data = 0x0}}
+        cd = 0x0
+        ccf = 0x57de1368a2e0
+(gdb) 
