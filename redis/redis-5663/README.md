@@ -36,7 +36,7 @@ Escape character is '^]'.
 2개 이상의 redis서버를 대상으로하여
 master의 데이터를 다른 slaves들로 복제하여 운용 가능 
 
-클라이언트에게 보낼 에러 메시지를 작성하는 코드
+클라이언트에게 보낼 에러 메시지를 작성하는 코드:
 ```c
 void addReplyErrorLength(client *c, const char *s, size_t len) {
     /* If the string already starts with "-..." then the error code
