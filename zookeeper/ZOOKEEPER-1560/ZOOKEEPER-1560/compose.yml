@@ -1,0 +1,37 @@
+name: zookeeper-1560
+
+services:
+  zookeeper:
+    image: zookeeper-1560:3.4.4-jdk6
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    init: true
+    environment:
+      JMXDISABLE: "true"
+      ZOO_LOG_DIR: /logs
+      ZOO_LOG4J_PROP: INFO,CONSOLE,ROLLINGFILE
+      SERVER_JVMFLAGS: -Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp
+    volumes:
+      - type: bind
+        source: ${ZK_DATA_DIR:-./data}
+        target: /data
+      - type: bind
+        source: ${ZK_LOG_DIR:-./logs}
+        target: /logs
+      - type: bind
+        source: ${ZK_RESULT_DIR:-./result}
+        target: /result
+    ports:
+      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
+    cpus: 1.0
+    mem_limit: 1g
+    stop_grace_period: 10s
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/zookeeper/bin/zkServer.sh status /opt/zookeeper/conf/zoo.cfg >/dev/null 2>&1"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s

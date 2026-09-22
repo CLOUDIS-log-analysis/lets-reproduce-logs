@@ -6,6 +6,7 @@ apache-cassandra-*
 .DS_Store
 *.qcow2
 *.tar*
+uftrace.data*
 
 # 젯브레인 계열 IDE
 .idea/

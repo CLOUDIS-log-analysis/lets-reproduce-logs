@@ -7,7 +7,7 @@ XADD … MAXLEN ~1 명령이 반복실행되면 stream은 설정된 최대길이
 
 Tombstone 엔트리 수와 실제 유효 엔트리수를 기반으로 메모리 버퍼의 할당 크기 산출과정에서 결함 존재(메모리 할당 시 실제 필요한 공간보다 작은 크기의 heap할당)
 
-overflow된 데이터가 메모리를 손상시키고 손상된 메모리에 접근하거나 free 시 SIGSEGV발생
+overflow된 데이터가 메모리를 손상시키고 손상된 메모리에 접근 시 SIGSEGV발생
 
 
 # Step to reproduce

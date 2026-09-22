@@ -1,0 +1,18 @@
+Completed exactly one experiment: `attempt-001`.
+
+- Result: `SUCCESS` — issue reproduced.
+- Injected send buffer: requested 1024 bytes, actual 2304 bytes.
+- Large create remained blocked beyond 30 seconds.
+- `Verify.java` exited `0` with the expected waiting stack.
+- All five evidence categories are protected (`0555` directories, `0444` files), host-readable, and traversable.
+- Server container is stopped.
+- Progress: 1 of 3 required attempts completed.
+
+Artifacts:
+
+- [Result properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/attempt-001.properties)
+- [Application logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001)
+- [JVM evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/jvm_logs/attempt-001)
+- [Transaction logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001)
+- [Snapshot data](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001)
+- [OS/container evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/os_logs/attempt-001)

@@ -1,0 +1,44 @@
+name: zookeeper-1513
+services:
+  zookeeper:
+    build:
+      context: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513
+      dockerfile: Dockerfile
+      args:
+        ZK_GID: "988"
+        ZK_UID: "1000"
+    cap_drop:
+      - ALL
+    cpus: 2
+    image: zookeeper-1513:3.3.4-jdk8
+    init: true
+    mem_limit: "2147483648"
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 2181
+        published: "2181"
+        protocol: tcp
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 20s
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m,mode=1777
+    user: 1000:988
+    volumes:
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/data
+        target: /var/lib/zookeeper
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/logs
+        target: /var/log/zookeeper
+      - type: bind
+        source: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/result
+        target: /result
+        read_only: true
+networks:
+  default:
+    name: zookeeper-1513_default

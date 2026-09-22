@@ -1,0 +1,886 @@
+2026-09-16 02:24:38,305 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+2026-09-16 02:24:38,311 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2026-09-16 02:24:38,312 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2026-09-16 02:24:38,312 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2026-09-16 02:24:38,313 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:24:38,394 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+2026-09-16 02:24:38,396 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+2026-09-16 02:24:38,411 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+2026-09-16 02:24:38,412 [myid:] - INFO  [main:Environment@100] - Server environment:host.name=2b5e6ec4a895
+2026-09-16 02:24:38,412 [myid:] - INFO  [main:Environment@100] - Server environment:java.version=1.6.0-119
+2026-09-16 02:24:38,413 [myid:] - INFO  [main:Environment@100] - Server environment:java.vendor=Azul Systems, Inc.
+2026-09-16 02:24:38,413 [myid:] - INFO  [main:Environment@100] - Server environment:java.home=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre
+2026-09-16 02:24:38,413 [myid:] - INFO  [main:Environment@100] - Server environment:java.class.path=/opt/zookeeper/bin/../build/classes:/opt/zookeeper/bin/../build/lib/*.jar:/opt/zookeeper/bin/../lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper/bin/../lib/slf4j-api-1.6.1.jar:/opt/zookeeper/bin/../lib/netty-3.2.2.Final.jar:/opt/zookeeper/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper/bin/../lib/jline-0.9.94.jar:/opt/zookeeper/bin/../zookeeper-3.4.4.jar:/opt/zookeeper/bin/../src/java/lib/*.jar:/opt/zookeeper/conf:
+2026-09-16 02:24:38,414 [myid:] - INFO  [main:Environment@100] - Server environment:java.library.path=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64/server:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:24:38,414 [myid:] - INFO  [main:Environment@100] - Server environment:java.io.tmpdir=/data/tmp
+2026-09-16 02:24:38,415 [myid:] - INFO  [main:Environment@100] - Server environment:java.compiler=<NA>
+2026-09-16 02:24:38,415 [myid:] - INFO  [main:Environment@100] - Server environment:os.name=Linux
+2026-09-16 02:24:38,416 [myid:] - INFO  [main:Environment@100] - Server environment:os.arch=amd64
+2026-09-16 02:24:38,416 [myid:] - INFO  [main:Environment@100] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:24:38,416 [myid:] - INFO  [main:Environment@100] - Server environment:user.name=zookeeper
+2026-09-16 02:24:38,417 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/opt/zookeeper
+2026-09-16 02:24:38,417 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/opt/zookeeper-3.4.4
+2026-09-16 02:24:38,423 [myid:] - INFO  [main:ZooKeeperServer@726] - tickTime set to 2000
+2026-09-16 02:24:38,423 [myid:] - INFO  [main:ZooKeeperServer@735] - minSessionTimeout set to -1
+2026-09-16 02:24:38,423 [myid:] - INFO  [main:ZooKeeperServer@744] - maxSessionTimeout set to -1
+2026-09-16 02:24:38,511 [myid:] - INFO  [main:NIOServerCnxnFactory@94] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:24:38,592 [myid:] - INFO  [main:FileTxnSnapLog@240] - Snapshotting: 0x0 to /data/version-2/snapshot.0
+2026-09-16 02:24:43,015 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:43,085 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35370
+2026-09-16 02:24:43,095 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35370
+2026-09-16 02:24:43,102 [myid:] - INFO  [Thread-1:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35370 (no session established for client)
+2026-09-16 02:24:45,416 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:45,497 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55978
+2026-09-16 02:24:45,499 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55978
+2026-09-16 02:24:45,502 [myid:] - INFO  [Thread-2:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55978 (no session established for client)
+2026-09-16 02:24:47,815 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:47,889 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55986
+2026-09-16 02:24:47,890 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55986
+2026-09-16 02:24:47,893 [myid:] - INFO  [Thread-3:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55986 (no session established for client)
+2026-09-16 02:24:50,214 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:50,277 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55992
+2026-09-16 02:24:50,278 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55992
+2026-09-16 02:24:50,282 [myid:] - INFO  [Thread-4:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55992 (no session established for client)
+2026-09-16 02:24:52,617 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:52,702 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55998
+2026-09-16 02:24:52,703 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55998
+2026-09-16 02:24:52,705 [myid:] - INFO  [Thread-5:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55998 (no session established for client)
+2026-09-16 02:24:55,024 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:55,109 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56006
+2026-09-16 02:24:55,110 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56006
+2026-09-16 02:24:55,113 [myid:] - INFO  [Thread-6:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56006 (no session established for client)
+2026-09-16 02:24:57,429 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:57,502 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:50626
+2026-09-16 02:24:57,504 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:50626
+2026-09-16 02:24:57,507 [myid:] - INFO  [Thread-7:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:50626 (no session established for client)
+2026-09-16 02:24:59,811 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:24:59,892 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:50634
+2026-09-16 02:24:59,894 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:50634
+2026-09-16 02:24:59,897 [myid:] - INFO  [Thread-8:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:50634 (no session established for client)
+2026-09-16 02:25:01,575 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.26.0.1:49016
+2026-09-16 02:25:01,583 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.26.0.1:49016
+2026-09-16 02:25:01,591 [myid:] - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+2026-09-16 02:25:01,626 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a807ccc90000 with negotiated timeout 10000 for client /172.26.0.1:49016
+2026-09-16 02:25:02,216 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:02,294 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:50648
+2026-09-16 02:25:02,295 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:50648
+2026-09-16 02:25:02,299 [myid:] - INFO  [Thread-9:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:50648 (no session established for client)
+2026-09-16 02:25:04,621 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:04,692 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:50654
+2026-09-16 02:25:04,694 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:50654
+2026-09-16 02:25:04,697 [myid:] - INFO  [Thread-10:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:50654 (no session established for client)
+2026-09-16 02:25:07,020 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:07,092 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43150
+2026-09-16 02:25:07,094 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43150
+2026-09-16 02:25:07,098 [myid:] - INFO  [Thread-11:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43150 (no session established for client)
+2026-09-16 02:25:08,296 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a807ccc90000, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+	at java.lang.Thread.run(Thread.java:704)
+2026-09-16 02:25:08,300 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.26.0.1:49016 which had sessionid 0xffa0a807ccc90000
+2026-09-16 02:25:09,417 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:09,505 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43166
+2026-09-16 02:25:09,507 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43166
+2026-09-16 02:25:09,510 [myid:] - INFO  [Thread-12:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43166 (no session established for client)
+2026-09-16 02:25:11,889 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:11,911 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43176
+2026-09-16 02:25:11,913 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43176
+2026-09-16 02:25:11,917 [myid:] - INFO  [Thread-13:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43176 (no session established for client)
+2026-09-16 02:25:12,001 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a807ccc90000, timeout of 10000ms exceeded
+2026-09-16 02:25:12,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a807ccc90000
+2026-09-16 02:25:14,293 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:14,312 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43190
+2026-09-16 02:25:14,314 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43190
+2026-09-16 02:25:14,316 [myid:] - INFO  [Thread-14:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43190 (no session established for client)
+2026-09-16 02:25:16,679 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:16,710 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:42178
+2026-09-16 02:25:16,711 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:42178
+2026-09-16 02:25:16,713 [myid:] - INFO  [Thread-15:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:42178 (no session established for client)
+2026-09-16 02:25:19,092 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:19,113 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:42194
+2026-09-16 02:25:19,114 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:42194
+2026-09-16 02:25:19,116 [myid:] - INFO  [Thread-16:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:42194 (no session established for client)
+2026-09-16 02:25:21,477 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:21,506 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:42204
+2026-09-16 02:25:21,507 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:42204
+2026-09-16 02:25:21,510 [myid:] - INFO  [Thread-17:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:42204 (no session established for client)
+2026-09-16 02:25:23,828 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:23,906 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:42210
+2026-09-16 02:25:23,907 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:42210
+2026-09-16 02:25:23,909 [myid:] - INFO  [Thread-18:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:42210 (no session established for client)
+2026-09-16 02:25:26,210 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:26,221 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:58268
+2026-09-16 02:25:26,274 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:58268
+2026-09-16 02:25:26,277 [myid:] - INFO  [Thread-19:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:58268 (no session established for client)
+2026-09-16 02:25:28,619 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:28,688 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:58274
+2026-09-16 02:25:28,690 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:58274
+2026-09-16 02:25:28,692 [myid:] - INFO  [Thread-20:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:58274 (no session established for client)
+2026-09-16 02:25:31,015 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:31,027 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:58290
+2026-09-16 02:25:31,074 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:58290
+2026-09-16 02:25:31,077 [myid:] - INFO  [Thread-21:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:58290 (no session established for client)
+2026-09-16 02:25:33,415 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:33,488 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:58304
+2026-09-16 02:25:33,489 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:58304
+2026-09-16 02:25:33,492 [myid:] - INFO  [Thread-22:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:58304 (no session established for client)
+2026-09-16 02:25:35,816 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:35,902 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45210
+2026-09-16 02:25:35,904 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45210
+2026-09-16 02:25:35,906 [myid:] - INFO  [Thread-23:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45210 (no session established for client)
+2026-09-16 02:25:38,223 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:38,304 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45222
+2026-09-16 02:25:38,306 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45222
+2026-09-16 02:25:38,309 [myid:] - INFO  [Thread-24:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45222 (no session established for client)
+2026-09-16 02:25:40,680 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:40,698 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45226
+2026-09-16 02:25:40,700 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45226
+2026-09-16 02:25:40,702 [myid:] - INFO  [Thread-25:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45226 (no session established for client)
+2026-09-16 02:25:43,021 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:43,098 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45228
+2026-09-16 02:25:43,099 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45228
+2026-09-16 02:25:43,102 [myid:] - INFO  [Thread-26:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45228 (no session established for client)
+2026-09-16 02:25:45,412 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:45,485 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59342
+2026-09-16 02:25:45,487 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59342
+2026-09-16 02:25:45,489 [myid:] - INFO  [Thread-27:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59342 (no session established for client)
+2026-09-16 02:25:47,800 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:47,813 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59352
+2026-09-16 02:25:47,814 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59352
+2026-09-16 02:25:47,874 [myid:] - INFO  [Thread-28:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59352 (no session established for client)
+2026-09-16 02:25:50,217 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:50,281 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59368
+2026-09-16 02:25:50,283 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59368
+2026-09-16 02:25:50,286 [myid:] - INFO  [Thread-29:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59368 (no session established for client)
+2026-09-16 02:25:52,599 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:52,610 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59370
+2026-09-16 02:25:52,612 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59370
+2026-09-16 02:25:52,614 [myid:] - INFO  [Thread-30:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59370 (no session established for client)
+2026-09-16 02:25:55,018 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:55,099 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59372
+2026-09-16 02:25:55,100 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59372
+2026-09-16 02:25:55,103 [myid:] - INFO  [Thread-31:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59372 (no session established for client)
+2026-09-16 02:25:57,188 [myid:] - INFO  [main:Environment@100] - Client environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+2026-09-16 02:25:57,194 [myid:] - INFO  [main:Environment@100] - Client environment:host.name=2b5e6ec4a895
+2026-09-16 02:25:57,195 [myid:] - INFO  [main:Environment@100] - Client environment:java.version=1.6.0-119
+2026-09-16 02:25:57,196 [myid:] - INFO  [main:Environment@100] - Client environment:java.vendor=Azul Systems, Inc.
+2026-09-16 02:25:57,196 [myid:] - INFO  [main:Environment@100] - Client environment:java.home=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre
+2026-09-16 02:25:57,197 [myid:] - INFO  [main:Environment@100] - Client environment:java.class.path=/opt/zookeeper/bin/../build/classes:/opt/zookeeper/bin/../build/lib/*.jar:/opt/zookeeper/bin/../lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper/bin/../lib/slf4j-api-1.6.1.jar:/opt/zookeeper/bin/../lib/netty-3.2.2.Final.jar:/opt/zookeeper/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper/bin/../lib/jline-0.9.94.jar:/opt/zookeeper/bin/../zookeeper-3.4.4.jar:/opt/zookeeper/bin/../src/java/lib/*.jar:/opt/zookeeper/conf:
+2026-09-16 02:25:57,198 [myid:] - INFO  [main:Environment@100] - Client environment:java.library.path=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64/server:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:25:57,199 [myid:] - INFO  [main:Environment@100] - Client environment:java.io.tmpdir=/tmp
+2026-09-16 02:25:57,199 [myid:] - INFO  [main:Environment@100] - Client environment:java.compiler=<NA>
+2026-09-16 02:25:57,200 [myid:] - INFO  [main:Environment@100] - Client environment:os.name=Linux
+2026-09-16 02:25:57,200 [myid:] - INFO  [main:Environment@100] - Client environment:os.arch=amd64
+2026-09-16 02:25:57,201 [myid:] - INFO  [main:Environment@100] - Client environment:os.version=6.8.0-139-generic
+2026-09-16 02:25:57,201 [myid:] - INFO  [main:Environment@100] - Client environment:user.name=zookeeper
+2026-09-16 02:25:57,202 [myid:] - INFO  [main:Environment@100] - Client environment:user.home=/opt/zookeeper
+2026-09-16 02:25:57,203 [myid:] - INFO  [main:Environment@100] - Client environment:user.dir=/opt/zookeeper-3.4.4
+2026-09-16 02:25:57,204 [myid:] - INFO  [main:ZooKeeper@433] - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@31f49401
+2026-09-16 02:25:57,400 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@966] - Opening socket connection to server localhost/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2026-09-16 02:25:57,481 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46978
+2026-09-16 02:25:57,482 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@849] - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2026-09-16 02:25:57,490 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /127.0.0.1:46978
+2026-09-16 02:25:57,584 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a807ccc90001 with negotiated timeout 30000 for client /127.0.0.1:46978
+2026-09-16 02:25:57,594 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1207] - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0xffa0a807ccc90001, negotiated timeout = 30000
+2026-09-16 02:25:57,896 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:25:57,907 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46994
+2026-09-16 02:25:57,909 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46994
+2026-09-16 02:25:57,911 [myid:] - INFO  [Thread-32:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46994 (no session established for client)
+2026-09-16 02:26:00,225 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:00,299 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47002
+2026-09-16 02:26:00,300 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47002
+2026-09-16 02:26:00,303 [myid:] - INFO  [Thread-33:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47002 (no session established for client)
+2026-09-16 02:26:02,618 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:02,689 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47018
+2026-09-16 02:26:02,691 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47018
+2026-09-16 02:26:02,776 [myid:] - INFO  [Thread-34:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47018 (no session established for client)
+2026-09-16 02:26:05,112 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:05,183 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47034
+2026-09-16 02:26:05,184 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47034
+2026-09-16 02:26:05,187 [myid:] - INFO  [Thread-35:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47034 (no session established for client)
+2026-09-16 02:26:07,525 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:07,587 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:53426
+2026-09-16 02:26:07,589 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:53426
+2026-09-16 02:26:07,592 [myid:] - INFO  [Thread-36:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:53426 (no session established for client)
+2026-09-16 02:26:09,989 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:10,011 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:53438
+2026-09-16 02:26:10,013 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:53438
+2026-09-16 02:26:10,015 [myid:] - INFO  [Thread-37:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:53438 (no session established for client)
+2026-09-16 02:26:12,391 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:12,412 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:53444
+2026-09-16 02:26:12,413 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:53444
+2026-09-16 02:26:12,414 [myid:] - INFO  [Thread-38:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:53444 (no session established for client)
+2026-09-16 02:26:14,715 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:14,793 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:53446
+2026-09-16 02:26:14,795 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:53446
+2026-09-16 02:26:14,797 [myid:] - INFO  [Thread-39:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:53446 (no session established for client)
+2026-09-16 02:26:17,102 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:17,113 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57532
+2026-09-16 02:26:17,115 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57532
+2026-09-16 02:26:17,117 [myid:] - INFO  [Thread-40:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57532 (no session established for client)
+2026-09-16 02:26:17,586 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1083] - Client session timed out, have not heard from server in 20000ms for sessionid 0xffa0a807ccc90001, closing socket connection and attempting reconnect
+2026-09-16 02:26:17,588 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a807ccc90001, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+	at java.lang.Thread.run(Thread.java:704)
+2026-09-16 02:26:17,590 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46978 which had sessionid 0xffa0a807ccc90001
+2026-09-16 02:26:19,512 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:19,573 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57540
+2026-09-16 02:26:19,575 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57540
+2026-09-16 02:26:19,577 [myid:] - INFO  [Thread-41:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57540 (no session established for client)
+2026-09-16 02:26:21,920 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:21,994 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57548
+2026-09-16 02:26:21,995 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57548
+2026-09-16 02:26:21,998 [myid:] - INFO  [Thread-42:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57548 (no session established for client)
+2026-09-16 02:26:24,298 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:24,310 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57558
+2026-09-16 02:26:24,311 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57558
+2026-09-16 02:26:24,374 [myid:] - INFO  [Thread-43:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57558 (no session established for client)
+2026-09-16 02:26:26,722 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:26,794 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55458
+2026-09-16 02:26:26,795 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55458
+2026-09-16 02:26:26,798 [myid:] - INFO  [Thread-44:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55458 (no session established for client)
+2026-09-16 02:26:28,001 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a807ccc90001, timeout of 30000ms exceeded
+2026-09-16 02:26:28,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a807ccc90001
+2026-09-16 02:26:29,117 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:29,195 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55472
+2026-09-16 02:26:29,196 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55472
+2026-09-16 02:26:29,198 [myid:] - INFO  [Thread-45:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55472 (no session established for client)
+2026-09-16 02:26:31,518 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:31,595 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55478
+2026-09-16 02:26:31,596 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55478
+2026-09-16 02:26:31,599 [myid:] - INFO  [Thread-46:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55478 (no session established for client)
+2026-09-16 02:26:33,916 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:34,001 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55490
+2026-09-16 02:26:34,003 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55490
+2026-09-16 02:26:34,005 [myid:] - INFO  [Thread-47:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55490 (no session established for client)
+2026-09-16 02:26:36,376 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:36,407 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44776
+2026-09-16 02:26:36,409 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44776
+2026-09-16 02:26:36,411 [myid:] - INFO  [Thread-48:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44776 (no session established for client)
+2026-09-16 02:26:38,797 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:38,817 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44784
+2026-09-16 02:26:38,819 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44784
+2026-09-16 02:26:38,821 [myid:] - INFO  [Thread-49:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44784 (no session established for client)
+2026-09-16 02:26:41,210 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:41,223 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44794
+2026-09-16 02:26:41,225 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44794
+2026-09-16 02:26:41,227 [myid:] - INFO  [Thread-50:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44794 (no session established for client)
+2026-09-16 02:26:43,508 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:43,519 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44806
+2026-09-16 02:26:43,574 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44806
+2026-09-16 02:26:43,577 [myid:] - INFO  [Thread-51:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44806 (no session established for client)
+2026-09-16 02:26:45,900 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:45,912 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55336
+2026-09-16 02:26:45,913 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55336
+2026-09-16 02:26:45,974 [myid:] - INFO  [Thread-52:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55336 (no session established for client)
+2026-09-16 02:26:48,313 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:48,386 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55340
+2026-09-16 02:26:48,387 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55340
+2026-09-16 02:26:48,390 [myid:] - INFO  [Thread-53:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55340 (no session established for client)
+2026-09-16 02:26:50,722 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:50,797 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55342
+2026-09-16 02:26:50,798 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55342
+2026-09-16 02:26:50,801 [myid:] - INFO  [Thread-54:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55342 (no session established for client)
+2026-09-16 02:26:53,123 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:53,204 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55346
+2026-09-16 02:26:53,206 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55346
+2026-09-16 02:26:53,208 [myid:] - INFO  [Thread-55:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55346 (no session established for client)
+2026-09-16 02:26:55,573 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:55,606 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35970
+2026-09-16 02:26:55,607 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35970
+2026-09-16 02:26:55,610 [myid:] - INFO  [Thread-56:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35970 (no session established for client)
+2026-09-16 02:26:57,067 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.26.0.1:60852
+2026-09-16 02:26:57,071 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.26.0.1:60852
+2026-09-16 02:26:57,079 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a807ccc90002 with negotiated timeout 10000 for client /172.26.0.1:60852
+2026-09-16 02:26:57,914 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:26:57,999 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35978
+2026-09-16 02:26:58,000 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35978
+2026-09-16 02:26:58,002 [myid:] - INFO  [Thread-57:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35978 (no session established for client)
+2026-09-16 02:27:00,323 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:00,401 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35984
+2026-09-16 02:27:00,402 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35984
+2026-09-16 02:27:00,405 [myid:] - INFO  [Thread-58:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35984 (no session established for client)
+2026-09-16 02:27:02,705 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:02,776 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35986
+2026-09-16 02:27:02,778 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35986
+2026-09-16 02:27:02,780 [myid:] - INFO  [Thread-59:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35986 (no session established for client)
+2026-09-16 02:27:03,750 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a807ccc90002, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+	at java.lang.Thread.run(Thread.java:704)
+2026-09-16 02:27:03,752 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.26.0.1:60852 which had sessionid 0xffa0a807ccc90002
+2026-09-16 02:27:05,104 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:05,115 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:35994
+2026-09-16 02:27:05,174 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:35994
+2026-09-16 02:27:05,177 [myid:] - INFO  [Thread-60:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:35994 (no session established for client)
+2026-09-16 02:27:07,515 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:07,589 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45924
+2026-09-16 02:27:07,591 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45924
+2026-09-16 02:27:07,593 [myid:] - INFO  [Thread-61:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45924 (no session established for client)
+2026-09-16 02:27:08,000 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a807ccc90002, timeout of 10000ms exceeded
+2026-09-16 02:27:08,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a807ccc90002
+2026-09-16 02:27:09,916 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:09,994 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45938
+2026-09-16 02:27:09,996 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45938
+2026-09-16 02:27:09,998 [myid:] - INFO  [Thread-62:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45938 (no session established for client)
+2026-09-16 02:27:12,317 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:12,395 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45946
+2026-09-16 02:27:12,397 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45946
+2026-09-16 02:27:12,400 [myid:] - INFO  [Thread-63:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45946 (no session established for client)
+2026-09-16 02:27:14,715 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:14,792 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45950
+2026-09-16 02:27:14,793 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45950
+2026-09-16 02:27:14,795 [myid:] - INFO  [Thread-64:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45950 (no session established for client)
+2026-09-16 02:27:17,100 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:17,112 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44306
+2026-09-16 02:27:17,113 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44306
+2026-09-16 02:27:17,116 [myid:] - INFO  [Thread-65:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44306 (no session established for client)
+2026-09-16 02:27:19,272 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.26.0.1:42406
+2026-09-16 02:27:19,278 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.26.0.1:42406
+2026-09-16 02:27:19,289 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a807ccc90003 with negotiated timeout 10000 for client /172.26.0.1:42406
+2026-09-16 02:27:19,514 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:19,576 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44312
+2026-09-16 02:27:19,577 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44312
+2026-09-16 02:27:19,579 [myid:] - INFO  [Thread-66:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44312 (no session established for client)
+2026-09-16 02:27:21,902 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:21,914 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44320
+2026-09-16 02:27:21,974 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44320
+2026-09-16 02:27:21,976 [myid:] - INFO  [Thread-67:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44320 (no session established for client)
+2026-09-16 02:27:24,320 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:24,391 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44328
+2026-09-16 02:27:24,392 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44328
+2026-09-16 02:27:24,395 [myid:] - INFO  [Thread-68:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44328 (no session established for client)
+2026-09-16 02:27:25,959 [myid:] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@349] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0xffa0a807ccc90003, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208)
+	at java.lang.Thread.run(Thread.java:704)
+2026-09-16 02:27:25,961 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.26.0.1:42406 which had sessionid 0xffa0a807ccc90003
+2026-09-16 02:27:26,698 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:26,710 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59100
+2026-09-16 02:27:26,710 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59100
+2026-09-16 02:27:26,712 [myid:] - INFO  [Thread-69:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59100 (no session established for client)
+2026-09-16 02:27:29,113 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:29,126 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59108
+2026-09-16 02:27:29,174 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59108
+2026-09-16 02:27:29,176 [myid:] - INFO  [Thread-70:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59108 (no session established for client)
+2026-09-16 02:27:30,001 [myid:] - INFO  [SessionTracker:ZooKeeperServer@325] - Expiring session 0xffa0a807ccc90003, timeout of 10000ms exceeded
+2026-09-16 02:27:30,002 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a807ccc90003
+2026-09-16 02:27:31,497 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:31,508 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59120
+2026-09-16 02:27:31,510 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59120
+2026-09-16 02:27:31,512 [myid:] - INFO  [Thread-71:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59120 (no session established for client)
+2026-09-16 02:27:33,894 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:33,906 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59124
+2026-09-16 02:27:33,907 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59124
+2026-09-16 02:27:33,908 [myid:] - INFO  [Thread-72:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59124 (no session established for client)
+2026-09-16 02:27:36,278 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:36,308 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59050
+2026-09-16 02:27:36,309 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59050
+2026-09-16 02:27:36,311 [myid:] - INFO  [Thread-73:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59050 (no session established for client)
+2026-09-16 02:27:38,601 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:38,612 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59054
+2026-09-16 02:27:38,674 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59054
+2026-09-16 02:27:38,676 [myid:] - INFO  [Thread-74:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59054 (no session established for client)
+2026-09-16 02:27:41,017 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:41,092 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59064
+2026-09-16 02:27:41,094 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59064
+2026-09-16 02:27:41,096 [myid:] - INFO  [Thread-75:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59064 (no session established for client)
+2026-09-16 02:27:43,416 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:43,495 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:59068
+2026-09-16 02:27:43,496 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:59068
+2026-09-16 02:27:43,499 [myid:] - INFO  [Thread-76:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:59068 (no session established for client)
+2026-09-16 02:27:45,879 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:45,908 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55370
+2026-09-16 02:27:45,910 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55370
+2026-09-16 02:27:45,912 [myid:] - INFO  [Thread-77:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55370 (no session established for client)
+2026-09-16 02:27:48,282 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:48,309 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55384
+2026-09-16 02:27:48,310 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55384
+2026-09-16 02:27:48,312 [myid:] - INFO  [Thread-78:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55384 (no session established for client)
+2026-09-16 02:27:50,699 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:50,714 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55394
+2026-09-16 02:27:50,715 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55394
+2026-09-16 02:27:50,717 [myid:] - INFO  [Thread-79:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55394 (no session established for client)
+2026-09-16 02:27:53,113 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:53,176 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55408
+2026-09-16 02:27:53,180 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55408
+2026-09-16 02:27:53,183 [myid:] - INFO  [Thread-80:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55408 (no session established for client)
+2026-09-16 02:27:55,521 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:55,600 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56150
+2026-09-16 02:27:55,602 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56150
+2026-09-16 02:27:55,604 [myid:] - INFO  [Thread-81:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56150 (no session established for client)
+2026-09-16 02:27:57,880 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:27:57,895 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56162
+2026-09-16 02:27:57,897 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56162
+2026-09-16 02:27:57,899 [myid:] - INFO  [Thread-82:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56162 (no session established for client)
+2026-09-16 02:28:00,218 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:00,289 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56168
+2026-09-16 02:28:00,291 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56168
+2026-09-16 02:28:00,293 [myid:] - INFO  [Thread-83:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56168 (no session established for client)
+2026-09-16 02:28:02,610 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:02,675 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56182
+2026-09-16 02:28:02,676 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56182
+2026-09-16 02:28:02,679 [myid:] - INFO  [Thread-84:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56182 (no session established for client)
+2026-09-16 02:28:05,001 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:05,016 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56196
+2026-09-16 02:28:05,017 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56196
+2026-09-16 02:28:05,018 [myid:] - INFO  [Thread-85:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56196 (no session established for client)
+2026-09-16 02:28:07,374 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:07,387 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47008
+2026-09-16 02:28:07,388 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47008
+2026-09-16 02:28:07,389 [myid:] - INFO  [Thread-86:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47008 (no session established for client)
+2026-09-16 02:28:09,696 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:09,708 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47018
+2026-09-16 02:28:09,710 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47018
+2026-09-16 02:28:09,712 [myid:] - INFO  [Thread-87:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47018 (no session established for client)
+2026-09-16 02:28:12,020 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:12,084 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47024
+2026-09-16 02:28:12,086 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47024
+2026-09-16 02:28:12,088 [myid:] - INFO  [Thread-88:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47024 (no session established for client)
+2026-09-16 02:28:14,391 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:14,411 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47040
+2026-09-16 02:28:14,412 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47040
+2026-09-16 02:28:14,414 [myid:] - INFO  [Thread-89:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47040 (no session established for client)
+2026-09-16 02:28:16,696 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:16,706 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56052
+2026-09-16 02:28:16,707 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56052
+2026-09-16 02:28:16,709 [myid:] - INFO  [Thread-90:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56052 (no session established for client)
+2026-09-16 02:28:18,999 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:19,011 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56056
+2026-09-16 02:28:19,011 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56056
+2026-09-16 02:28:19,013 [myid:] - INFO  [Thread-91:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56056 (no session established for client)
+2026-09-16 02:28:21,399 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:21,414 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56060
+2026-09-16 02:28:21,416 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56060
+2026-09-16 02:28:21,417 [myid:] - INFO  [Thread-92:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56060 (no session established for client)
+2026-09-16 02:28:23,719 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:23,799 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56064
+2026-09-16 02:28:23,799 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56064
+2026-09-16 02:28:23,801 [myid:] - INFO  [Thread-93:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56064 (no session established for client)
+2026-09-16 02:28:26,113 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:26,125 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44598
+2026-09-16 02:28:26,126 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44598
+2026-09-16 02:28:26,174 [myid:] - INFO  [Thread-94:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44598 (no session established for client)
+2026-09-16 02:28:28,492 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:28,503 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44600
+2026-09-16 02:28:28,504 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44600
+2026-09-16 02:28:28,505 [myid:] - INFO  [Thread-95:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44600 (no session established for client)
+2026-09-16 02:28:30,801 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:30,817 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44614
+2026-09-16 02:28:30,817 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44614
+2026-09-16 02:28:30,874 [myid:] - INFO  [Thread-96:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44614 (no session established for client)
+2026-09-16 02:28:33,129 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:33,199 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44626
+2026-09-16 02:28:33,200 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44626
+2026-09-16 02:28:33,201 [myid:] - INFO  [Thread-97:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44626 (no session established for client)
+2026-09-16 02:28:34,690 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.26.0.1:47676
+2026-09-16 02:28:34,694 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.26.0.1:47676
+2026-09-16 02:28:34,706 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a807ccc90004 with negotiated timeout 10000 for client /172.26.0.1:47676
+2026-09-16 02:28:34,803 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a807ccc90004
+2026-09-16 02:28:34,809 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.26.0.1:47676 which had sessionid 0xffa0a807ccc90004
+2026-09-16 02:28:35,488 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:35,505 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55584
+2026-09-16 02:28:35,505 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55584
+2026-09-16 02:28:35,507 [myid:] - INFO  [Thread-98:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55584 (no session established for client)
+2026-09-16 02:28:37,791 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:37,802 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55600
+2026-09-16 02:28:37,803 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55600
+2026-09-16 02:28:37,805 [myid:] - INFO  [Thread-99:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55600 (no session established for client)
+2026-09-16 02:28:40,095 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:40,106 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55602
+2026-09-16 02:28:40,107 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55602
+2026-09-16 02:28:40,108 [myid:] - INFO  [Thread-100:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55602 (no session established for client)
+2026-09-16 02:28:42,419 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:42,497 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55610
+2026-09-16 02:28:42,498 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55610
+2026-09-16 02:28:42,501 [myid:] - INFO  [Thread-101:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55610 (no session established for client)
+2026-09-16 02:28:44,809 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:44,823 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55626
+2026-09-16 02:28:44,874 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55626
+2026-09-16 02:28:44,876 [myid:] - INFO  [Thread-102:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55626 (no session established for client)
+2026-09-16 02:28:47,202 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:47,217 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:49550
+2026-09-16 02:28:47,218 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:49550
+2026-09-16 02:28:47,220 [myid:] - INFO  [Thread-103:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:49550 (no session established for client)
+2026-09-16 02:28:49,583 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:49,608 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:49552
+2026-09-16 02:28:49,609 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:49552
+2026-09-16 02:28:49,612 [myid:] - INFO  [Thread-104:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:49552 (no session established for client)
+2026-09-16 02:28:51,924 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:52,006 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:49558
+2026-09-16 02:28:52,007 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:49558
+2026-09-16 02:28:52,009 [myid:] - INFO  [Thread-105:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:49558 (no session established for client)
+2026-09-16 02:28:54,316 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:54,401 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:49560
+2026-09-16 02:28:54,403 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:49560
+2026-09-16 02:28:54,405 [myid:] - INFO  [Thread-106:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:49560 (no session established for client)
+2026-09-16 02:28:56,705 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:56,782 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41372
+2026-09-16 02:28:56,783 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41372
+2026-09-16 02:28:56,786 [myid:] - INFO  [Thread-107:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41372 (no session established for client)
+2026-09-16 02:28:59,113 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:28:59,176 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41380
+2026-09-16 02:28:59,177 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41380
+2026-09-16 02:28:59,179 [myid:] - INFO  [Thread-108:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41380 (no session established for client)
+2026-09-16 02:29:01,513 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:01,526 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41386
+2026-09-16 02:29:01,574 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41386
+2026-09-16 02:29:01,577 [myid:] - INFO  [Thread-109:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41386 (no session established for client)
+2026-09-16 02:29:03,910 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:03,974 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41394
+2026-09-16 02:29:03,976 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41394
+2026-09-16 02:29:03,978 [myid:] - INFO  [Thread-110:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41394 (no session established for client)
+2026-09-16 02:29:06,314 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:06,387 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56644
+2026-09-16 02:29:06,388 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56644
+2026-09-16 02:29:06,393 [myid:] - INFO  [Thread-111:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56644 (no session established for client)
+2026-09-16 02:29:08,695 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:08,706 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56658
+2026-09-16 02:29:08,708 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56658
+2026-09-16 02:29:08,710 [myid:] - INFO  [Thread-112:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56658 (no session established for client)
+2026-09-16 02:29:11,112 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:11,176 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56674
+2026-09-16 02:29:11,178 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56674
+2026-09-16 02:29:11,180 [myid:] - INFO  [Thread-113:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56674 (no session established for client)
+2026-09-16 02:29:13,496 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:13,507 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56690
+2026-09-16 02:29:13,509 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56690
+2026-09-16 02:29:13,511 [myid:] - INFO  [Thread-114:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56690 (no session established for client)
+2026-09-16 02:29:15,912 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:15,979 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41750
+2026-09-16 02:29:15,980 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41750
+2026-09-16 02:29:15,983 [myid:] - INFO  [Thread-115:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41750 (no session established for client)
+2026-09-16 02:29:18,302 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:18,315 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41766
+2026-09-16 02:29:18,316 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41766
+2026-09-16 02:29:18,318 [myid:] - INFO  [Thread-116:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41766 (no session established for client)
+2026-09-16 02:29:20,699 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:20,712 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41780
+2026-09-16 02:29:20,714 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41780
+2026-09-16 02:29:20,716 [myid:] - INFO  [Thread-117:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41780 (no session established for client)
+2026-09-16 02:29:23,004 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:23,016 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:41794
+2026-09-16 02:29:23,016 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:41794
+2026-09-16 02:29:23,017 [myid:] - INFO  [Thread-118:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:41794 (no session established for client)
+2026-09-16 02:29:25,387 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:25,412 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57938
+2026-09-16 02:29:25,413 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57938
+2026-09-16 02:29:25,415 [myid:] - INFO  [Thread-119:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57938 (no session established for client)
+2026-09-16 02:29:27,779 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:27,808 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57946
+2026-09-16 02:29:27,809 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57946
+2026-09-16 02:29:27,879 [myid:] - INFO  [Thread-120:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57946 (no session established for client)
+2026-09-16 02:29:30,216 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:30,279 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57958
+2026-09-16 02:29:30,280 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57958
+2026-09-16 02:29:30,283 [myid:] - INFO  [Thread-121:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57958 (no session established for client)
+2026-09-16 02:29:32,618 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:32,685 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57960
+2026-09-16 02:29:32,687 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57960
+2026-09-16 02:29:32,689 [myid:] - INFO  [Thread-122:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57960 (no session established for client)
+2026-09-16 02:29:35,001 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:35,012 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57964
+2026-09-16 02:29:35,013 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57964
+2026-09-16 02:29:35,015 [myid:] - INFO  [Thread-123:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57964 (no session established for client)
+2026-09-16 02:29:37,134 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+2026-09-16 02:29:37,139 [myid:] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2026-09-16 02:29:37,139 [myid:] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2026-09-16 02:29:37,139 [myid:] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2026-09-16 02:29:37,139 [myid:] - WARN  [main:QuorumPeerMain@113] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:29:37,251 [myid:] - INFO  [main:QuorumPeerConfig@101] - Reading configuration from: /opt/zookeeper/conf/zoo.cfg
+2026-09-16 02:29:37,251 [myid:] - INFO  [main:ZooKeeperServerMain@95] - Starting server
+2026-09-16 02:29:37,260 [myid:] - INFO  [main:Environment@100] - Server environment:zookeeper.version=3.4.4-1386507, built on 09/17/2012 08:33 GMT
+2026-09-16 02:29:37,260 [myid:] - INFO  [main:Environment@100] - Server environment:host.name=9001fd2fdf1f
+2026-09-16 02:29:37,261 [myid:] - INFO  [main:Environment@100] - Server environment:java.version=1.6.0-119
+2026-09-16 02:29:37,261 [myid:] - INFO  [main:Environment@100] - Server environment:java.vendor=Azul Systems, Inc.
+2026-09-16 02:29:37,261 [myid:] - INFO  [main:Environment@100] - Server environment:java.home=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre
+2026-09-16 02:29:37,262 [myid:] - INFO  [main:Environment@100] - Server environment:java.class.path=/opt/zookeeper/bin/../build/classes:/opt/zookeeper/bin/../build/lib/*.jar:/opt/zookeeper/bin/../lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper/bin/../lib/slf4j-api-1.6.1.jar:/opt/zookeeper/bin/../lib/netty-3.2.2.Final.jar:/opt/zookeeper/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper/bin/../lib/jline-0.9.94.jar:/opt/zookeeper/bin/../zookeeper-3.4.4.jar:/opt/zookeeper/bin/../src/java/lib/*.jar:/opt/zookeeper/conf:
+2026-09-16 02:29:37,262 [myid:] - INFO  [main:Environment@100] - Server environment:java.library.path=/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64/server:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/lib/amd64:/opt/zulu6.22.0.3-jdk6.0.119-linux_x64/jre/../lib/amd64:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:29:37,262 [myid:] - INFO  [main:Environment@100] - Server environment:java.io.tmpdir=/data/tmp
+2026-09-16 02:29:37,263 [myid:] - INFO  [main:Environment@100] - Server environment:java.compiler=<NA>
+2026-09-16 02:29:37,263 [myid:] - INFO  [main:Environment@100] - Server environment:os.name=Linux
+2026-09-16 02:29:37,263 [myid:] - INFO  [main:Environment@100] - Server environment:os.arch=amd64
+2026-09-16 02:29:37,263 [myid:] - INFO  [main:Environment@100] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:29:37,264 [myid:] - INFO  [main:Environment@100] - Server environment:user.name=zookeeper
+2026-09-16 02:29:37,302 [myid:] - INFO  [main:Environment@100] - Server environment:user.home=/opt/zookeeper
+2026-09-16 02:29:37,303 [myid:] - INFO  [main:Environment@100] - Server environment:user.dir=/opt/zookeeper-3.4.4
+2026-09-16 02:29:37,318 [myid:] - INFO  [main:ZooKeeperServer@726] - tickTime set to 2000
+2026-09-16 02:29:37,319 [myid:] - INFO  [main:ZooKeeperServer@735] - minSessionTimeout set to -1
+2026-09-16 02:29:37,320 [myid:] - INFO  [main:ZooKeeperServer@744] - maxSessionTimeout set to -1
+2026-09-16 02:29:37,415 [myid:] - INFO  [main:NIOServerCnxnFactory@94] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:29:37,436 [myid:] - INFO  [main:FileTxnSnapLog@240] - Snapshotting: 0x0 to /data/version-2/snapshot.0
+2026-09-16 02:29:41,826 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:41,902 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47766
+2026-09-16 02:29:41,914 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47766
+2026-09-16 02:29:41,922 [myid:] - INFO  [Thread-1:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47766 (no session established for client)
+2026-09-16 02:29:44,243 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:44,327 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47768
+2026-09-16 02:29:44,329 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47768
+2026-09-16 02:29:44,332 [myid:] - INFO  [Thread-2:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47768 (no session established for client)
+2026-09-16 02:29:46,647 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:46,728 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46536
+2026-09-16 02:29:46,730 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46536
+2026-09-16 02:29:46,733 [myid:] - INFO  [Thread-3:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46536 (no session established for client)
+2026-09-16 02:29:47,650 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /172.26.0.1:46080
+2026-09-16 02:29:47,657 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@839] - Client attempting to establish new session at /172.26.0.1:46080
+2026-09-16 02:29:47,663 [myid:] - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+2026-09-16 02:29:47,695 [myid:] - INFO  [SyncThread:0:ZooKeeperServer@595] - Established session 0xffa0a80c5c200000 with negotiated timeout 10000 for client /172.26.0.1:46080
+2026-09-16 02:29:47,804 [myid:] - INFO  [ProcessThread(sid:0 cport:-1)::PrepRequestProcessor@476] - Processed session termination for sessionid: 0xffa0a80c5c200000
+2026-09-16 02:29:47,811 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1001] - Closed socket connection for client /172.26.0.1:46080 which had sessionid 0xffa0a80c5c200000
+2026-09-16 02:29:49,031 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:49,043 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46550
+2026-09-16 02:29:49,102 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46550
+2026-09-16 02:29:49,105 [myid:] - INFO  [Thread-4:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46550 (no session established for client)
+2026-09-16 02:29:51,427 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:51,439 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46564
+2026-09-16 02:29:51,440 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46564
+2026-09-16 02:29:51,444 [myid:] - INFO  [Thread-5:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46564 (no session established for client)
+2026-09-16 02:29:53,844 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:53,915 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46568
+2026-09-16 02:29:53,917 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46568
+2026-09-16 02:29:53,920 [myid:] - INFO  [Thread-6:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46568 (no session established for client)
+2026-09-16 02:29:56,242 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:56,314 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34696
+2026-09-16 02:29:56,316 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34696
+2026-09-16 02:29:56,319 [myid:] - INFO  [Thread-7:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34696 (no session established for client)
+2026-09-16 02:29:58,649 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:29:58,730 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34702
+2026-09-16 02:29:58,731 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34702
+2026-09-16 02:29:58,734 [myid:] - INFO  [Thread-8:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34702 (no session established for client)
+2026-09-16 02:30:01,051 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:01,132 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34706
+2026-09-16 02:30:01,134 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34706
+2026-09-16 02:30:01,137 [myid:] - INFO  [Thread-9:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34706 (no session established for client)
+2026-09-16 02:30:03,443 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:03,512 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34708
+2026-09-16 02:30:03,513 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34708
+2026-09-16 02:30:03,516 [myid:] - INFO  [Thread-10:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34708 (no session established for client)
+2026-09-16 02:30:05,851 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:05,933 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45158
+2026-09-16 02:30:05,935 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45158
+2026-09-16 02:30:05,938 [myid:] - INFO  [Thread-11:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45158 (no session established for client)
+2026-09-16 02:30:08,304 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:08,332 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45162
+2026-09-16 02:30:08,334 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45162
+2026-09-16 02:30:08,338 [myid:] - INFO  [Thread-12:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45162 (no session established for client)
+2026-09-16 02:30:10,630 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:10,641 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45176
+2026-09-16 02:30:10,702 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45176
+2026-09-16 02:30:10,705 [myid:] - INFO  [Thread-13:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45176 (no session established for client)
+2026-09-16 02:30:13,044 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:13,110 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:45184
+2026-09-16 02:30:13,112 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:45184
+2026-09-16 02:30:13,114 [myid:] - INFO  [Thread-14:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:45184 (no session established for client)
+2026-09-16 02:30:15,447 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:15,513 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57108
+2026-09-16 02:30:15,514 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57108
+2026-09-16 02:30:15,517 [myid:] - INFO  [Thread-15:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57108 (no session established for client)
+2026-09-16 02:30:17,847 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:17,927 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57120
+2026-09-16 02:30:17,929 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57120
+2026-09-16 02:30:17,932 [myid:] - INFO  [Thread-16:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57120 (no session established for client)
+2026-09-16 02:30:19,434 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:19,501 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57136
+2026-09-16 02:30:19,503 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57136
+2026-09-16 02:30:19,506 [myid:] - INFO  [Thread-17:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57136 (no session established for client)
+2026-09-16 02:30:20,239 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:20,313 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57148
+2026-09-16 02:30:20,315 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57148
+2026-09-16 02:30:20,317 [myid:] - INFO  [Thread-18:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57148 (no session established for client)
+2026-09-16 02:30:22,644 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:22,717 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57154
+2026-09-16 02:30:22,718 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57154
+2026-09-16 02:30:22,721 [myid:] - INFO  [Thread-19:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57154 (no session established for client)
+2026-09-16 02:30:25,040 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:25,105 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57156
+2026-09-16 02:30:25,107 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57156
+2026-09-16 02:30:25,110 [myid:] - INFO  [Thread-20:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57156 (no session established for client)
+2026-09-16 02:30:27,448 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:27,530 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:60712
+2026-09-16 02:30:27,532 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:60712
+2026-09-16 02:30:27,535 [myid:] - INFO  [Thread-21:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:60712 (no session established for client)
+2026-09-16 02:30:29,846 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:29,923 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:60728
+2026-09-16 02:30:29,924 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:60728
+2026-09-16 02:30:29,926 [myid:] - INFO  [Thread-22:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:60728 (no session established for client)
+2026-09-16 02:30:32,246 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:32,329 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:60736
+2026-09-16 02:30:32,331 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:60736
+2026-09-16 02:30:32,333 [myid:] - INFO  [Thread-23:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:60736 (no session established for client)
+2026-09-16 02:30:34,638 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:34,709 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:60742
+2026-09-16 02:30:34,711 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:60742
+2026-09-16 02:30:34,713 [myid:] - INFO  [Thread-24:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:60742 (no session established for client)
+2026-09-16 02:30:37,041 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:37,112 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46430
+2026-09-16 02:30:37,113 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46430
+2026-09-16 02:30:37,116 [myid:] - INFO  [Thread-25:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46430 (no session established for client)
+2026-09-16 02:30:39,446 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:39,516 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46444
+2026-09-16 02:30:39,517 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46444
+2026-09-16 02:30:39,520 [myid:] - INFO  [Thread-26:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46444 (no session established for client)
+2026-09-16 02:30:41,846 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:41,925 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46458
+2026-09-16 02:30:41,926 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46458
+2026-09-16 02:30:41,929 [myid:] - INFO  [Thread-27:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46458 (no session established for client)
+2026-09-16 02:30:44,246 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:44,327 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46466
+2026-09-16 02:30:44,329 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46466
+2026-09-16 02:30:44,332 [myid:] - INFO  [Thread-28:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46466 (no session established for client)
+2026-09-16 02:30:46,650 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:46,729 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56740
+2026-09-16 02:30:46,730 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56740
+2026-09-16 02:30:46,732 [myid:] - INFO  [Thread-29:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56740 (no session established for client)
+2026-09-16 02:30:49,029 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:49,040 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56742
+2026-09-16 02:30:49,042 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56742
+2026-09-16 02:30:49,104 [myid:] - INFO  [Thread-30:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56742 (no session established for client)
+2026-09-16 02:30:51,447 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:51,521 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56758
+2026-09-16 02:30:51,523 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56758
+2026-09-16 02:30:51,525 [myid:] - INFO  [Thread-31:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56758 (no session established for client)
+2026-09-16 02:30:53,845 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:53,911 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:56766
+2026-09-16 02:30:53,913 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:56766
+2026-09-16 02:30:53,915 [myid:] - INFO  [Thread-32:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:56766 (no session established for client)
+2026-09-16 02:30:56,227 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:56,239 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34806
+2026-09-16 02:30:56,240 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34806
+2026-09-16 02:30:56,241 [myid:] - INFO  [Thread-33:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34806 (no session established for client)
+2026-09-16 02:30:58,636 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:30:58,649 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34816
+2026-09-16 02:30:58,702 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34816
+2026-09-16 02:30:58,705 [myid:] - INFO  [Thread-34:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34816 (no session established for client)
+2026-09-16 02:31:01,043 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:01,114 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34828
+2026-09-16 02:31:01,116 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34828
+2026-09-16 02:31:01,118 [myid:] - INFO  [Thread-35:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34828 (no session established for client)
+2026-09-16 02:31:03,441 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:03,509 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:34830
+2026-09-16 02:31:03,510 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:34830
+2026-09-16 02:31:03,513 [myid:] - INFO  [Thread-36:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:34830 (no session established for client)
+2026-09-16 02:31:05,829 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:05,841 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57188
+2026-09-16 02:31:05,901 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57188
+2026-09-16 02:31:05,904 [myid:] - INFO  [Thread-37:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57188 (no session established for client)
+2026-09-16 02:31:08,242 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:08,314 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57202
+2026-09-16 02:31:08,316 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57202
+2026-09-16 02:31:08,318 [myid:] - INFO  [Thread-38:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57202 (no session established for client)
+2026-09-16 02:31:10,646 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:10,728 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57204
+2026-09-16 02:31:10,729 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57204
+2026-09-16 02:31:10,731 [myid:] - INFO  [Thread-39:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57204 (no session established for client)
+2026-09-16 02:31:13,044 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:13,130 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:57212
+2026-09-16 02:31:13,131 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:57212
+2026-09-16 02:31:13,134 [myid:] - INFO  [Thread-40:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:57212 (no session established for client)
+2026-09-16 02:31:15,445 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:15,521 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43732
+2026-09-16 02:31:15,522 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43732
+2026-09-16 02:31:15,524 [myid:] - INFO  [Thread-41:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43732 (no session established for client)
+2026-09-16 02:31:17,843 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:17,920 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43748
+2026-09-16 02:31:17,921 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43748
+2026-09-16 02:31:17,924 [myid:] - INFO  [Thread-42:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43748 (no session established for client)
+2026-09-16 02:31:20,226 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:20,238 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43764
+2026-09-16 02:31:20,240 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43764
+2026-09-16 02:31:20,242 [myid:] - INFO  [Thread-43:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43764 (no session established for client)
+2026-09-16 02:31:22,615 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:22,639 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43770
+2026-09-16 02:31:22,640 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43770
+2026-09-16 02:31:22,642 [myid:] - INFO  [Thread-44:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43770 (no session established for client)
+2026-09-16 02:31:25,020 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:25,041 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:43778
+2026-09-16 02:31:25,042 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:43778
+2026-09-16 02:31:25,045 [myid:] - INFO  [Thread-45:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:43778 (no session established for client)
+2026-09-16 02:31:27,403 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:27,419 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:37218
+2026-09-16 02:31:27,420 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:37218
+2026-09-16 02:31:27,423 [myid:] - INFO  [Thread-46:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:37218 (no session established for client)
+2026-09-16 02:31:29,745 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:29,814 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:37226
+2026-09-16 02:31:29,815 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:37226
+2026-09-16 02:31:29,818 [myid:] - INFO  [Thread-47:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:37226 (no session established for client)
+2026-09-16 02:31:32,146 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:32,232 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:37234
+2026-09-16 02:31:32,234 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:37234
+2026-09-16 02:31:32,236 [myid:] - INFO  [Thread-48:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:37234 (no session established for client)
+2026-09-16 02:31:34,601 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:34,634 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:37236
+2026-09-16 02:31:34,636 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:37236
+2026-09-16 02:31:34,638 [myid:] - INFO  [Thread-49:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:37236 (no session established for client)
+2026-09-16 02:31:37,002 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:37,033 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44148
+2026-09-16 02:31:37,034 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44148
+2026-09-16 02:31:37,036 [myid:] - INFO  [Thread-50:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44148 (no session established for client)
+2026-09-16 02:31:39,333 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:39,403 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44162
+2026-09-16 02:31:39,405 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44162
+2026-09-16 02:31:39,407 [myid:] - INFO  [Thread-51:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44162 (no session established for client)
+2026-09-16 02:31:41,742 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:41,817 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44178
+2026-09-16 02:31:41,818 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44178
+2026-09-16 02:31:41,821 [myid:] - INFO  [Thread-52:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44178 (no session established for client)
+2026-09-16 02:31:44,145 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:44,221 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:44182
+2026-09-16 02:31:44,222 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:44182
+2026-09-16 02:31:44,225 [myid:] - INFO  [Thread-53:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:44182 (no session established for client)
+2026-09-16 02:31:46,540 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:46,615 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46670
+2026-09-16 02:31:46,617 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46670
+2026-09-16 02:31:46,620 [myid:] - INFO  [Thread-54:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46670 (no session established for client)
+2026-09-16 02:31:48,946 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:49,010 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46682
+2026-09-16 02:31:49,011 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46682
+2026-09-16 02:31:49,014 [myid:] - INFO  [Thread-55:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46682 (no session established for client)
+2026-09-16 02:31:51,350 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:51,430 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46688
+2026-09-16 02:31:51,432 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46688
+2026-09-16 02:31:51,434 [myid:] - INFO  [Thread-56:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46688 (no session established for client)
+2026-09-16 02:31:53,752 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:53,832 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:46704
+2026-09-16 02:31:53,834 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:46704
+2026-09-16 02:31:53,836 [myid:] - INFO  [Thread-57:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:46704 (no session established for client)
+2026-09-16 02:31:56,136 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:56,211 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55528
+2026-09-16 02:31:56,212 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55528
+2026-09-16 02:31:56,214 [myid:] - INFO  [Thread-58:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55528 (no session established for client)
+2026-09-16 02:31:58,544 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:31:58,618 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55538
+2026-09-16 02:31:58,620 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55538
+2026-09-16 02:31:58,622 [myid:] - INFO  [Thread-59:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55538 (no session established for client)
+2026-09-16 02:32:00,938 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:01,002 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55550
+2026-09-16 02:32:01,003 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55550
+2026-09-16 02:32:01,005 [myid:] - INFO  [Thread-60:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55550 (no session established for client)
+2026-09-16 02:32:03,324 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:03,335 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:55552
+2026-09-16 02:32:03,337 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:55552
+2026-09-16 02:32:03,339 [myid:] - INFO  [Thread-61:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:55552 (no session established for client)
+2026-09-16 02:32:05,745 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:05,805 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47150
+2026-09-16 02:32:05,806 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47150
+2026-09-16 02:32:05,809 [myid:] - INFO  [Thread-62:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47150 (no session established for client)
+2026-09-16 02:32:08,149 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:08,230 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47166
+2026-09-16 02:32:08,232 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47166
+2026-09-16 02:32:08,234 [myid:] - INFO  [Thread-63:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47166 (no session established for client)
+2026-09-16 02:32:10,553 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:10,628 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47170
+2026-09-16 02:32:10,629 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47170
+2026-09-16 02:32:10,632 [myid:] - INFO  [Thread-64:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47170 (no session established for client)
+2026-09-16 02:32:12,930 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:12,941 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:47178
+2026-09-16 02:32:12,942 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:47178
+2026-09-16 02:32:13,002 [myid:] - INFO  [Thread-65:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:47178 (no session established for client)
+2026-09-16 02:32:15,338 [myid:] - INFO  [main:FourLetterWordMain@43] - connecting to localhost 2181
+2026-09-16 02:32:15,401 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@197] - Accepted socket connection from /127.0.0.1:42820
+2026-09-16 02:32:15,402 [myid:] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@821] - Processing srvr command from /127.0.0.1:42820
+2026-09-16 02:32:15,405 [myid:] - INFO  [Thread-66:NIOServerCnxn@1001] - Closed socket connection for client /127.0.0.1:42820 (no session established for client)

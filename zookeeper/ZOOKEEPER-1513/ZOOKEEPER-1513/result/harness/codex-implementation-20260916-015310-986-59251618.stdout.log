@@ -1,0 +1,15 @@
+Implemented the Maven reproduction project:
+
+- [pom.xml](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/pom.xml) builds a Java 8 shaded jar with ZooKeeper 3.3.4.
+- [FaultInjection.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/FaultInjection.java:15) explicitly constructs and submits the deterministic boundary payload.
+- [Reproduce.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/Reproduce.java:26) creates the znode, performs the acknowledged write, and creates evidence without overwriting existing files.
+- [Verify.java](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1513/src/main/java/Verify.java:11) checks write evidence, restart failure, exact length, and replay stack frames.
+
+Validation completed:
+
+- `mvn -B -ntp clean package`: **BUILD SUCCESS**
+- Produced `target/zookeeper-1513-reproducer.jar`
+- Confirmed Java 8 execution.
+- Confirmed with ZooKeeper’s serializer that the default-path payload is 1,048,524 bytes and produces exactly the reported 1,048,583-byte transaction. This corrects README’s impossible 1 MiB assumption: 3.3.4 rejects a 1,048,576-byte payload because its actual default cap is 1,048,575.
+- No experiment attempts were run.
+- `logs/`, `result/`, and `status.properties` were not modified.

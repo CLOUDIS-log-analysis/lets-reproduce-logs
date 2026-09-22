@@ -9,5 +9,6 @@
 
 #12540: Double freeClient() when io-threads-do-reads and TLS are enabled
 
-#10968: Redis Stream의 논리적 삭제 데이터 처리 중 발생한 메모리 할당 크기 계산 오류로 인한 Heap overflow
+#10968: Stream의 논리적 삭제 데이터 처리 중 발생한 메모리 할당 크기 계산 오류
 
+#15424: 
