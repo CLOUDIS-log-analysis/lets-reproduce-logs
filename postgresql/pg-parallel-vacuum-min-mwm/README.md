@@ -21,7 +21,7 @@ docker compose up -d
 # Check
 stdout 출력
 
-psql:<stdin>:6: server closed the connection unexpectedly
+        psql:<stdin>:6: server closed the connection unexpectedly
 
         This probably means the server terminated abnormally
 
