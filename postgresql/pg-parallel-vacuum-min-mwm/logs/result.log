@@ -1,0 +1,295 @@
+2026-09-25 05:58:06.157 UTC [1] LOG:  00000: starting PostgreSQL 17.0 on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-09-25 05:58:06.157 UTC [1] LOCATION:  PostmasterMain, postmaster.c:1080
+2026-09-25 05:58:06.158 UTC [1] LOG:  00000: listening on IPv6 address "::1", port 5432
+2026-09-25 05:58:06.158 UTC [1] LOCATION:  ListenServerPort, pqcomm.c:661
+2026-09-25 05:58:06.158 UTC [1] LOG:  00000: listening on IPv4 address "127.0.0.1", port 5432
+2026-09-25 05:58:06.158 UTC [1] LOCATION:  ListenServerPort, pqcomm.c:661
+2026-09-25 05:58:06.164 UTC [1] LOG:  00000: listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-09-25 05:58:06.164 UTC [1] LOCATION:  ListenServerPort, pqcomm.c:657
+2026-09-25 05:58:06.172 UTC [8] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-25 05:58:06.172 UTC [8] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1322
+2026-09-25 05:58:06.172 UTC [10] LOG:  00000: database system was shut down at 2026-09-25 05:56:38 UTC
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  StartupXLOG, xlog.c:5444
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: checkpoint record is at 0/14E4080
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:782
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: redo record is at 0/14E4080; shutdown true
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:870
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: next transaction ID: 738; next OID: 13580
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:874
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:878
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: oldest unfrozen transaction ID: 730, in database 1
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:881
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:884
+2026-09-25 05:58:06.172 UTC [10] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-25 05:58:06.172 UTC [10] LOCATION:  InitWalRecovery, xlogrecovery.c:887
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: transaction ID wrap limit is 2147484377, limited by database with OID 1
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  SetTransactionIdLimit, varsup.c:454
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  SetMultiXactIdLimit, multixact.c:2423
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: starting up replication slots
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  StartupReplicationSlots, slot.c:1901
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: xmin required by slots: data 0, catalog 0
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  ProcArraySetReplicationSlotXmin, procarray.c:3956
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: starting up replication origin progress state
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  StartupReplicationOrigin, origin.c:722
+2026-09-25 05:58:06.173 UTC [10] DEBUG:  00000: reading stats file "pg_stat/pgstat.stat"
+2026-09-25 05:58:06.173 UTC [10] LOCATION:  pgstat_read_statsfile, pgstat.c:1494
+2026-09-25 05:58:06.174 UTC [10] DEBUG:  00000: removing permanent stats file "pg_stat/pgstat.stat"
+2026-09-25 05:58:06.174 UTC [10] LOCATION:  pgstat_read_statsfile, pgstat.c:1665
+2026-09-25 05:58:06.175 UTC [10] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-25 05:58:06.175 UTC [10] LOCATION:  SetMultiXactIdLimit, multixact.c:2423
+2026-09-25 05:58:06.175 UTC [10] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-25 05:58:06.175 UTC [10] LOCATION:  SetOffsetVacuumLimit, multixact.c:2791
+2026-09-25 05:58:06.180 UTC [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-25 05:58:06.180 UTC [1] LOCATION:  do_start_bgworker, postmaster.c:4266
+2026-09-25 05:58:06.180 UTC [1] LOG:  00000: database system is ready to accept connections
+2026-09-25 05:58:06.180 UTC [1] LOCATION:  process_pm_child_exit, postmaster.c:2483
+2026-09-25 05:58:06.181 UTC [12] DEBUG:  00000: autovacuum launcher started
+2026-09-25 05:58:06.181 UTC [12] LOCATION:  AutoVacLauncherMain, autovacuum.c:377
+2026-09-25 05:58:06.181 UTC [13] DEBUG:  00000: logical replication launcher started
+2026-09-25 05:58:06.181 UTC [13] LOCATION:  ApplyLauncherMain, launcher.c:1124
+2026-09-25 05:58:19.692 UTC [1] DEBUG:  00000: forked new backend, pid=20 socket=11
+2026-09-25 05:58:19.692 UTC [1] LOCATION:  BackendStartup, postmaster.c:3612
+2026-09-25 05:58:19.789 UTC [1] DEBUG:  00000: server process (PID 20) exited with exit code 0
+2026-09-25 05:58:19.789 UTC [1] LOCATION:  LogChildExit, postmaster.c:3076
+2026-09-25 05:58:19.983 UTC [1] DEBUG:  00000: forked new backend, pid=27 socket=11
+2026-09-25 05:58:19.983 UTC [1] LOCATION:  BackendStartup, postmaster.c:3612
+2026-09-25 05:58:20.010 UTC [27] LOG:  00000: statement: SET maintenance_work_mem = '64kB';
+2026-09-25 05:58:20.010 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+2026-09-25 05:58:20.011 UTC [27] LOG:  00000: statement: CREATE TABLE t (a int, b int);
+2026-09-25 05:58:20.011 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+2026-09-25 05:58:20.218 UTC [27] LOG:  00000: statement: INSERT INTO t SELECT g, g FROM generate_series(1, 100000) g;
+2026-09-25 05:58:20.218 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+2026-09-25 05:58:20.393 UTC [27] LOG:  00000: statement: CREATE INDEX ON t (a);
+2026-09-25 05:58:20.393 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+2026-09-25 05:58:20.423 UTC [27] DEBUG:  00000: building index "t_a_idx" on table "t" serially
+2026-09-25 05:58:20.423 UTC [27] LOCATION:  index_build, index.c:2974
+2026-09-25 05:58:20.492 UTC [27] DEBUG:  00000: index "t_a_idx" can safely use deduplication
+2026-09-25 05:58:20.492 UTC [27] LOCATION:  _bt_allequalimage, nbtutils.c:5164
+2026-09-25 05:58:20.519 UTC [27] LOG:  00000: statement: CREATE INDEX ON t (b);
+2026-09-25 05:58:20.519 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+2026-09-25 05:58:20.519 UTC [27] DEBUG:  00000: building index "t_b_idx" on table "t" serially
+2026-09-25 05:58:20.519 UTC [27] LOCATION:  index_build, index.c:2974
+2026-09-25 05:58:20.554 UTC [27] DEBUG:  00000: index "t_b_idx" can safely use deduplication
+2026-09-25 05:58:20.554 UTC [27] LOCATION:  _bt_allequalimage, nbtutils.c:5164
+2026-09-25 05:58:20.580 UTC [27] LOG:  00000: statement: VACUUM (PARALLEL 2) t;
+2026-09-25 05:58:20.580 UTC [27] LOCATION:  exec_simple_query, postgres.c:1075
+TRAP: failed Assert("vacrel->lpdead_item_pages > 0"), File: "vacuumlazy.c", Line: 1865, PID: 27
+postgres: postgres postgres [local] VACUUM(ExceptionalCondition+0x59)[0x595c7bc315b9]
+postgres: postgres postgres [local] VACUUM(+0x1d8cbd)[0x595c7b7d4cbd]
+postgres: postgres postgres [local] VACUUM(heap_vacuum_rel+0xd98)[0x595c7b7d5b68]
+postgres: postgres postgres [local] VACUUM(+0x32c6bb)[0x595c7b9286bb]
+postgres: postgres postgres [local] VACUUM(vacuum+0x290)[0x595c7b929bd0]
+postgres: postgres postgres [local] VACUUM(ExecVacuum+0x3ae)[0x595c7b92a49e]
+postgres: postgres postgres [local] VACUUM(standard_ProcessUtility+0x7e1)[0x595c7bb01d71]
+postgres: postgres postgres [local] VACUUM(+0x503f1c)[0x595c7bafff1c]
+postgres: postgres postgres [local] VACUUM(+0x50405d)[0x595c7bb0005d]
+postgres: postgres postgres [local] VACUUM(PortalRun+0x26f)[0x595c7bb0067f]
+postgres: postgres postgres [local] VACUUM(+0x500549)[0x595c7bafc549]
+postgres: postgres postgres [local] VACUUM(PostgresMain+0x13a1)[0x595c7bafdd11]
+postgres: postgres postgres [local] VACUUM(BackendMain+0x4d)[0x595c7baf8c0d]
+postgres: postgres postgres [local] VACUUM(postmaster_child_launch+0xb5)[0x595c7ba5c725]
+postgres: postgres postgres [local] VACUUM(+0x4644eb)[0x595c7ba604eb]
+postgres: postgres postgres [local] VACUUM(PostmasterMain+0xe9f)[0x595c7ba6224f]
+postgres: postgres postgres [local] VACUUM(main+0x203)[0x595c7b76c703]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2724a)[0x7e9345db424a]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x85)[0x7e9345db4305]
+postgres: postgres postgres [local] VACUUM(_start+0x21)[0x595c7b76ca31]
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: server process (PID 27) was terminated by signal 6: Aborted
+2026-09-25 05:58:20.921 UTC [1] DETAIL:  Failed process was running: VACUUM (PARALLEL 2) t;
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  LogChildExit, postmaster.c:3097
+2026-09-25 05:58:20.921 UTC [1] LOG:  00000: server process (PID 27) was terminated by signal 6: Aborted
+2026-09-25 05:58:20.921 UTC [1] DETAIL:  Failed process was running: VACUUM (PARALLEL 2) t;
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  LogChildExit, postmaster.c:3097
+2026-09-25 05:58:20.921 UTC [1] LOG:  00000: terminating any other active server processes
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:2893
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: sending SIGQUIT to process 13
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  sigquit_child, postmaster.c:3453
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: sending SIGQUIT to process 9
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  sigquit_child, postmaster.c:3453
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: sending SIGQUIT to process 8
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  sigquit_child, postmaster.c:3453
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: sending SIGQUIT to process 11
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  sigquit_child, postmaster.c:3453
+2026-09-25 05:58:20.921 UTC [1] DEBUG:  00000: sending SIGQUIT to process 12
+2026-09-25 05:58:20.921 UTC [1] LOCATION:  sigquit_child, postmaster.c:3453
+2026-09-25 05:58:20.924 UTC [1] LOG:  00000: all server processes terminated; reinitializing
+2026-09-25 05:58:20.924 UTC [1] LOCATION:  PostmasterStateMachine, postmaster.c:3373
+2026-09-25 05:58:20.926 UTC [1] DEBUG:  00000: cleaning up orphaned dynamic shared memory with ID 2050134668
+2026-09-25 05:58:20.926 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:397
+2026-09-25 05:58:20.926 UTC [1] DEBUG:  00000: cleaning up orphaned dynamic shared memory with ID 621098054
+2026-09-25 05:58:20.926 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:397
+2026-09-25 05:58:20.926 UTC [1] DEBUG:  00000: cleaning up orphaned dynamic shared memory with ID 2477753382
+2026-09-25 05:58:20.926 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:397
+2026-09-25 05:58:20.927 UTC [1] DEBUG:  00000: cleaning up orphaned dynamic shared memory with ID 3743674784
+2026-09-25 05:58:20.927 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:397
+2026-09-25 05:58:20.927 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1009285814
+2026-09-25 05:58:20.927 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:406
+2026-09-25 05:58:20.964 UTC [1] DEBUG:  00000: mmap(150994944) with MAP_HUGETLB failed, huge pages disabled: Cannot allocate memory
+2026-09-25 05:58:20.964 UTC [1] LOCATION:  CreateAnonymousSegment, pg_shmem.c:626
+2026-09-25 05:58:21.278 UTC [1] DEBUG:  00000: dynamic shared memory system will support 674 segments
+2026-09-25 05:58:21.278 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:197
+2026-09-25 05:58:21.278 UTC [1] DEBUG:  00000: created dynamic shared memory control segment 510427922 (26976 bytes)
+2026-09-25 05:58:21.278 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:221
+2026-09-25 05:58:21.280 UTC [28] LOG:  00000: database system was interrupted; last known up at 2026-09-25 05:58:06 UTC
+2026-09-25 05:58:21.280 UTC [28] LOCATION:  StartupXLOG, xlog.c:5478
+2026-09-25 05:58:21.280 UTC [28] DEBUG:  00000: removing all temporary WAL segments
+2026-09-25 05:58:21.280 UTC [28] LOCATION:  RemoveTempXlogFiles, xlog.c:3831
+2026-09-25 05:58:21.281 UTC [29] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-25 05:58:21.281 UTC [29] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1322
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: checkpoint record is at 0/14E4080
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:782
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: redo record is at 0/14E4080; shutdown true
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:870
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: next transaction ID: 738; next OID: 13580
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:874
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:878
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: oldest unfrozen transaction ID: 730, in database 1
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:881
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:884
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:887
+2026-09-25 05:58:28.231 UTC [28] LOG:  00000: database system was not properly shut down; automatic recovery in progress
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  InitWalRecovery, xlogrecovery.c:937
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: transaction ID wrap limit is 2147484377, limited by database with OID 1
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  SetTransactionIdLimit, varsup.c:454
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  SetMultiXactIdLimit, multixact.c:2423
+2026-09-25 05:58:28.231 UTC [28] DEBUG:  00000: starting up replication slots
+2026-09-25 05:58:28.231 UTC [28] LOCATION:  StartupReplicationSlots, slot.c:1901
+2026-09-25 05:58:28.232 UTC [28] DEBUG:  00000: xmin required by slots: data 0, catalog 0
+2026-09-25 05:58:28.232 UTC [28] LOCATION:  ProcArraySetReplicationSlotXmin, procarray.c:3956
+2026-09-25 05:58:28.232 UTC [28] DEBUG:  00000: starting up replication origin progress state
+2026-09-25 05:58:28.232 UTC [28] LOCATION:  StartupReplicationOrigin, origin.c:722
+2026-09-25 05:58:28.232 UTC [28] DEBUG:  00000: didn't need to unlink permanent stats file "pg_stat/pgstat.stat" - didn't exist
+2026-09-25 05:58:28.232 UTC [28] LOCATION:  pgstat_discard_stats, pgstat.c:429
+2026-09-25 05:58:28.237 UTC [28] DEBUG:  00000: resetting unlogged relations: cleanup 1 init 0
+2026-09-25 05:58:28.237 UTC [28] LOCATION:  ResetUnloggedRelations, reinit.c:56
+2026-09-25 05:58:28.244 UTC [28] LOG:  00000: redo starts at 0/14E40F8
+2026-09-25 05:58:28.244 UTC [28] LOCATION:  PerformWalRecovery, xlogrecovery.c:1739
+2026-09-25 05:58:28.244 UTC [1] DEBUG:  00000: postmaster received pmsignal signal
+2026-09-25 05:58:28.244 UTC [1] LOCATION:  process_pm_pmsignal, postmaster.c:3706
+2026-09-25 05:58:28.324 UTC [28] LOG:  00000: invalid record length at 0/1EFECE8: expected at least 24, got 0
+2026-09-25 05:58:28.324 UTC [28] LOCATION:  ReadRecord, xlogrecovery.c:3186
+2026-09-25 05:58:28.324 UTC [28] LOG:  00000: redo done at 0/1EFEBF0 system usage: CPU: user: 0.06 s, system: 0.00 s, elapsed: 0.08 s
+2026-09-25 05:58:28.324 UTC [28] LOCATION:  PerformWalRecovery, xlogrecovery.c:1874
+2026-09-25 05:58:28.324 UTC [28] DEBUG:  00000: resetting unlogged relations: cleanup 0 init 1
+2026-09-25 05:58:28.324 UTC [28] LOCATION:  ResetUnloggedRelations, reinit.c:56
+2026-09-25 05:58:28.341 UTC [28] DEBUG:  00000: creating and filling new WAL file
+2026-09-25 05:58:28.341 UTC [28] LOCATION:  XLogFileInitInternal, xlog.c:3240
+2026-09-25 05:58:28.417 UTC [28] DEBUG:  00000: done creating and filling new WAL file
+2026-09-25 05:58:28.417 UTC [28] LOCATION:  XLogFileInitInternal, xlog.c:3345
+2026-09-25 05:58:28.417 UTC [28] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-25 05:58:28.417 UTC [28] LOCATION:  SetMultiXactIdLimit, multixact.c:2423
+2026-09-25 05:58:28.417 UTC [28] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-25 05:58:28.417 UTC [28] LOCATION:  SetOffsetVacuumLimit, multixact.c:2791
+2026-09-25 05:58:28.422 UTC [29] LOG:  00000: checkpoint starting: end-of-recovery immediate wait
+2026-09-25 05:58:28.422 UTC [29] LOCATION:  LogCheckpointStart, xlog.c:6636
+2026-09-25 05:58:28.422 UTC [29] DEBUG:  00000: performing replication slot checkpoint
+2026-09-25 05:58:28.422 UTC [29] LOCATION:  CheckPointReplicationSlots, slot.c:1843
+2026-09-25 05:58:28.460 UTC [29] DEBUG:  00000: checkpoint sync: number=1 file=base/5/2662 time=3.992 ms
+2026-09-25 05:58:28.460 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.462 UTC [29] DEBUG:  00000: checkpoint sync: number=2 file=base/5/1249 time=1.890 ms
+2026-09-25 05:58:28.462 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.470 UTC [29] DEBUG:  00000: checkpoint sync: number=3 file=base/5/16388 time=8.407 ms
+2026-09-25 05:58:28.470 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.472 UTC [29] DEBUG:  00000: checkpoint sync: number=4 file=base/5/2674 time=1.951 ms
+2026-09-25 05:58:28.472 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.474 UTC [29] DEBUG:  00000: checkpoint sync: number=5 file=base/5/2608 time=2.031 ms
+2026-09-25 05:58:28.474 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.476 UTC [29] DEBUG:  00000: checkpoint sync: number=6 file=base/5/1247 time=1.634 ms
+2026-09-25 05:58:28.476 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.478 UTC [29] DEBUG:  00000: checkpoint sync: number=7 file=base/5/2658 time=1.655 ms
+2026-09-25 05:58:28.478 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.480 UTC [29] DEBUG:  00000: checkpoint sync: number=8 file=base/5/1259 time=1.686 ms
+2026-09-25 05:58:28.480 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.481 UTC [29] DEBUG:  00000: checkpoint sync: number=9 file=base/5/2704 time=1.480 ms
+2026-09-25 05:58:28.481 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.483 UTC [29] DEBUG:  00000: checkpoint sync: number=10 file=base/5/1249_fsm time=1.555 ms
+2026-09-25 05:58:28.483 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.492 UTC [29] DEBUG:  00000: checkpoint sync: number=11 file=base/5/16387 time=8.944 ms
+2026-09-25 05:58:28.492 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.494 UTC [29] DEBUG:  00000: checkpoint sync: number=12 file=base/5/1247_vm time=1.782 ms
+2026-09-25 05:58:28.494 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.495 UTC [29] DEBUG:  00000: checkpoint sync: number=13 file=base/5/2659 time=1.758 ms
+2026-09-25 05:58:28.495 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.497 UTC [29] DEBUG:  00000: checkpoint sync: number=14 file=base/5/2608_fsm time=1.568 ms
+2026-09-25 05:58:28.497 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.499 UTC [29] DEBUG:  00000: checkpoint sync: number=15 file=pg_xact/0000 time=1.861 ms
+2026-09-25 05:58:28.499 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.501 UTC [29] DEBUG:  00000: checkpoint sync: number=16 file=pg_multixact/offsets/0000 time=1.863 ms
+2026-09-25 05:58:28.501 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.514 UTC [29] DEBUG:  00000: checkpoint sync: number=17 file=base/5/16384 time=12.731 ms
+2026-09-25 05:58:28.514 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.516 UTC [29] DEBUG:  00000: checkpoint sync: number=18 file=base/5/2610_fsm time=2.401 ms
+2026-09-25 05:58:28.516 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.518 UTC [29] DEBUG:  00000: checkpoint sync: number=19 file=base/5/2673 time=2.183 ms
+2026-09-25 05:58:28.518 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.520 UTC [29] DEBUG:  00000: checkpoint sync: number=20 file=base/5/2679 time=1.746 ms
+2026-09-25 05:58:28.520 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.523 UTC [29] DEBUG:  00000: checkpoint sync: number=21 file=base/5/2663 time=2.435 ms
+2026-09-25 05:58:28.523 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.525 UTC [29] DEBUG:  00000: checkpoint sync: number=22 file=base/5/1249_vm time=2.862 ms
+2026-09-25 05:58:28.525 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.528 UTC [29] DEBUG:  00000: checkpoint sync: number=23 file=base/5/1259_vm time=2.317 ms
+2026-09-25 05:58:28.528 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.530 UTC [29] DEBUG:  00000: checkpoint sync: number=24 file=base/5/2608_vm time=1.944 ms
+2026-09-25 05:58:28.530 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.532 UTC [29] DEBUG:  00000: checkpoint sync: number=25 file=base/5/16384_fsm time=1.902 ms
+2026-09-25 05:58:28.532 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.534 UTC [29] DEBUG:  00000: checkpoint sync: number=26 file=base/5/2678 time=1.830 ms
+2026-09-25 05:58:28.534 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.536 UTC [29] DEBUG:  00000: checkpoint sync: number=27 file=base/5/3455 time=1.924 ms
+2026-09-25 05:58:28.536 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.538 UTC [29] DEBUG:  00000: checkpoint sync: number=28 file=base/5/2610 time=2.010 ms
+2026-09-25 05:58:28.538 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.540 UTC [29] DEBUG:  00000: checkpoint sync: number=29 file=base/5/2610_vm time=1.900 ms
+2026-09-25 05:58:28.540 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.542 UTC [29] DEBUG:  00000: checkpoint sync: number=30 file=base/5/2703 time=1.956 ms
+2026-09-25 05:58:28.542 UTC [29] LOCATION:  ProcessSyncRequests, sync.c:429
+2026-09-25 05:58:28.550 UTC [29] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000000
+2026-09-25 05:58:28.550 UTC [29] LOCATION:  RemoveOldXlogFiles, xlog.c:3879
+2026-09-25 05:58:28.550 UTC [29] LOG:  00000: checkpoint complete: wrote 1027 buffers (6.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.026 s, sync=0.086 s, total=0.133 s; sync files=30, longest=0.013 s, average=0.003 s; distance=10347 kB, estimate=10347 kB; lsn=0/1EFECE8, redo lsn=0/1EFECE8
+2026-09-25 05:58:28.550 UTC [29] LOCATION:  LogCheckpointEnd, xlog.c:6725
+2026-09-25 05:58:28.560 UTC [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-25 05:58:28.560 UTC [1] LOCATION:  do_start_bgworker, postmaster.c:4266
+2026-09-25 05:58:28.560 UTC [1] LOG:  00000: database system is ready to accept connections
+2026-09-25 05:58:28.560 UTC [1] LOCATION:  process_pm_child_exit, postmaster.c:2483
+2026-09-25 05:58:28.561 UTC [32] DEBUG:  00000: autovacuum launcher started
+2026-09-25 05:58:28.561 UTC [32] LOCATION:  AutoVacLauncherMain, autovacuum.c:377
+2026-09-25 05:58:28.563 UTC [33] DEBUG:  00000: logical replication launcher started
+2026-09-25 05:58:28.563 UTC [33] LOCATION:  ApplyLauncherMain, launcher.c:1124
+2026-09-25 05:58:31.189 UTC [1] DEBUG:  00000: postmaster received shutdown request signal
+2026-09-25 05:58:31.189 UTC [1] LOCATION:  process_pm_shutdown_request, postmaster.c:2196
+2026-09-25 05:58:31.189 UTC [1] LOG:  00000: received smart shutdown request
+2026-09-25 05:58:31.189 UTC [1] LOCATION:  process_pm_shutdown_request, postmaster.c:2232
+2026-09-25 05:58:31.194 UTC [33] DEBUG:  00000: logical replication launcher shutting down
+2026-09-25 05:58:31.194 UTC [33] LOCATION:  ProcessInterrupts, postgres.c:3300
+2026-09-25 05:58:31.194 UTC [32] DEBUG:  00000: autovacuum launcher shutting down
+2026-09-25 05:58:31.194 UTC [32] LOCATION:  AutoVacLauncherShutdown, autovacuum.c:777
+2026-09-25 05:58:31.195 UTC [1] LOG:  00000: background worker "logical replication launcher" (PID 33) exited with exit code 1
+2026-09-25 05:58:31.195 UTC [1] LOCATION:  LogChildExit, postmaster.c:3076
+2026-09-25 05:58:31.196 UTC [29] LOG:  00000: shutting down
+2026-09-25 05:58:31.196 UTC [29] LOCATION:  ShutdownXLOG, xlog.c:6586
+2026-09-25 05:58:31.200 UTC [29] LOG:  00000: checkpoint starting: shutdown immediate
+2026-09-25 05:58:31.200 UTC [29] LOCATION:  LogCheckpointStart, xlog.c:6636
+2026-09-25 05:58:31.200 UTC [29] DEBUG:  00000: performing replication slot checkpoint
+2026-09-25 05:58:31.200 UTC [29] LOCATION:  CheckPointReplicationSlots, slot.c:1843
+2026-09-25 05:58:31.219 UTC [29] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000000
+2026-09-25 05:58:31.219 UTC [29] LOCATION:  RemoveOldXlogFiles, xlog.c:3879
+2026-09-25 05:58:31.219 UTC [29] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-09-25 05:58:31.219 UTC [29] LOCATION:  SlruScanDirectory, slru.c:1809
+2026-09-25 05:58:31.219 UTC [29] LOG:  00000: checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.024 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=9312 kB; lsn=0/1EFED60, redo lsn=0/1EFED60
+2026-09-25 05:58:31.219 UTC [29] LOCATION:  LogCheckpointEnd, xlog.c:6725
+2026-09-25 05:58:31.219 UTC [29] DEBUG:  00000: writing stats file "pg_stat/pgstat.stat"
+2026-09-25 05:58:31.219 UTC [29] LOCATION:  pgstat_write_statsfile, pgstat.c:1322
+2026-09-25 05:58:31.223 UTC [1] DEBUG:  00000: cleaning up orphaned dynamic shared memory with ID 4258750554
+2026-09-25 05:58:31.223 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:397
+2026-09-25 05:58:31.223 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 510427922
+2026-09-25 05:58:31.223 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:406
+2026-09-25 05:58:31.232 UTC [1] LOG:  00000: database system is shut down
+2026-09-25 05:58:31.232 UTC [1] LOCATION:  UnlinkLockFiles, miscinit.c:1137

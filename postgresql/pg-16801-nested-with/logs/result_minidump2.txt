@@ -1,0 +1,347 @@
+=== MINIDUMP ===
+signal=11 (Segmentation fault)
+pid=89
+faulting_address=0xfffffffffffffff8
+RIP=0000643990748aba RSP=00007fffc0364690 RBP=00007fffc03646a0
+RAX=00006439b10a93c0 RBX=0000000000000080 RCX=00006439903cb770 RDX=0000000000000080
+
+=== BACKTRACE ===
+/libminidump.so(+0x13ff)[0x724f009cc3ff]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x12730)[0x724f009b9730]
+postgres: postgres postgres [local] SELECT(repalloc+0xa)[0x643990748aba]
+postgres: postgres postgres [local] SELECT(+0x2e0d22)[0x6439904e3d22]
+postgres: postgres postgres [local] SELECT(lappend+0x45)[0x6439904e4045]
+postgres: postgres postgres [local] SELECT(+0x1c89ea)[0x6439903cb9ea]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(+0x1c89df)[0x6439903cb9df]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x510)[0x6439904e9700]
+postgres: postgres postgres [local] SELECT(raw_expression_tree_walker+0x3bd)[0x6439904e95ad]
+postgres: postgres postgres [local] SELECT(transformWithClause+0x1dc)[0x6439903cc7dc]
+postgres: postgres postgres [local] SELECT(transformStmt+0xcdf)[0x6439903a6e6f]
+postgres: postgres postgres [local] SELECT(parse_analyze+0x56)[0x6439903a9086]
+postgres: postgres postgres [local] SELECT(pg_analyze_and_rewrite+0x20)[0x6439905f40e0]
+postgres: postgres postgres [local] SELECT(+0x3f1616)[0x6439905f4616]
+postgres: postgres postgres [local] SELECT(PostgresMain+0x1863)[0x6439905f62c3]
+postgres: postgres postgres [local] SELECT(+0x3730c9)[0x6439905760c9]
+postgres: postgres postgres [local] SELECT(PostmasterMain+0xc71)[0x643990577031]
+postgres: postgres postgres [local] SELECT(main+0x78f)[0x6439902c2f3f]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xeb)[0x724effb5109b]
+postgres: postgres postgres [local] SELECT(_start+0x2a)[0x6439902c2fda]
+
+=== MODULES (/proc/self/maps) ===
+643990203000-6439902c0000 r--p 00000000 00:36 1080709                    /usr/lib/postgresql/13/bin/postgres
+6439902c0000-643990770000 r-xp 000bd000 00:36 1080709                    /usr/lib/postgresql/13/bin/postgres
+643990770000-643990972000 r--p 0056d000 00:36 1080709                    /usr/lib/postgresql/13/bin/postgres
+643990972000-643990990000 r--p 0076e000 00:36 1080709                    /usr/lib/postgresql/13/bin/postgres
+643990990000-64399099f000 rw-p 0078c000 00:36 1080709                    /usr/lib/postgresql/13/bin/postgres
+64399099f000-6439909d1000 rw-p 00000000 00:00 0 
+6439b0fb3000-6439b1029000 rw-p 00000000 00:00 0                          [heap]
+6439b1029000-6439b10c5000 rw-p 00000000 00:00 0                          [heap]
+724ef4093000-724ef4176000 rw-p 00000000 00:00 0 
+724ef4176000-724ef4179000 r--p 00000000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4179000-724ef4180000 r-xp 00003000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4180000-724ef4182000 r--p 0000a000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4182000-724ef4183000 ---p 0000c000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4183000-724ef4184000 r--p 0000c000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4184000-724ef4185000 rw-p 0000d000 00:36 1074724                    /lib/x86_64-linux-gnu/libnss_files-2.28.so
+724ef4185000-724ef418b000 rw-p 00000000 00:00 0 
+724ef418e000-724ef4192000 rw-s 00000000 00:4a 8                          /dev/shm/PostgreSQL.375375218
+724ef4192000-724efcfc6000 rw-s 00000000 00:01 7992                       /dev/zero (deleted)
+724efcfc6000-724efd2ab000 r--p 00000000 00:36 1079410                    /usr/lib/locale/locale-archive
+724efd2ab000-724efd2b4000 rw-p 00000000 00:00 0 
+724efd2b4000-724efd2b6000 r--p 00000000 00:36 1075425                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+724efd2b6000-724efd2bb000 r-xp 00002000 00:36 1075425                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+724efd2bb000-724efd2bc000 r--p 00007000 00:36 1075425                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+724efd2bc000-724efd2bd000 r--p 00007000 00:36 1075425                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+724efd2bd000-724efd2be000 rw-p 00008000 00:36 1075425                    /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+724efd2be000-724efd2c0000 rw-p 00000000 00:00 0 
+724efd2c0000-724efd2c4000 r--p 00000000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2c4000-724efd2d7000 r-xp 00004000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2d7000-724efd2e0000 r--p 00017000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2e0000-724efd2e1000 ---p 00020000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2e1000-724efd2e2000 r--p 00020000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2e2000-724efd2e3000 rw-p 00021000 00:36 1074706                    /lib/x86_64-linux-gnu/libgpg-error.so.0.26.1
+724efd2e3000-724efd2ee000 r--p 00000000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd2ee000-724efd34c000 r-xp 0000b000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd34c000-724efd363000 r--p 00069000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd363000-724efd364000 ---p 00080000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd364000-724efd365000 r--p 00080000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd365000-724efd366000 rw-p 00081000 00:36 1075429                    /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+724efd366000-724efd36e000 r--p 00000000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd36e000-724efd37e000 r-xp 00008000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd37e000-724efd39c000 r--p 00018000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd39c000-724efd39d000 ---p 00036000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd39d000-724efd39e000 r--p 00036000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd39e000-724efd39f000 rw-p 00037000 00:36 1075433                    /usr/lib/x86_64-linux-gnu/libhogweed.so.4.5
+724efd39f000-724efd3a8000 r--p 00000000 00:36 1075441                    /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+724efd3a8000-724efd3c5000 r-xp 00009000 00:36 1075441                    /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+724efd3c5000-724efd3d4000 r--p 00026000 00:36 1075441                    /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+724efd3d4000-724efd3d6000 r--p 00034000 00:36 1075441                    /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+724efd3d6000-724efd3d7000 rw-p 00036000 00:36 1075441                    /usr/lib/x86_64-linux-gnu/libnettle.so.6.5
+724efd3d7000-724efd3e8000 r-xp 00000000 00:36 1075454                    /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+724efd3e8000-724efd5e8000 ---p 00011000 00:36 1075454                    /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+724efd5e8000-724efd5e9000 r--p 00011000 00:36 1075454                    /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+724efd5e9000-724efd5ea000 rw-p 00012000 00:36 1075454                    /usr/lib/x86_64-linux-gnu/libtasn1.so.6.5.5
+724efd5ea000-724efd5fb000 r--p 00000000 00:36 1075458                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+724efd5fb000-724efd632000 r-xp 00011000 00:36 1075458                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+724efd632000-724efd769000 r--p 00048000 00:36 1075458                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+724efd769000-724efd76d000 r--p 0017e000 00:36 1075458                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+724efd76d000-724efd76e000 rw-p 00182000 00:36 1075458                    /usr/lib/x86_64-linux-gnu/libunistring.so.2.1.0
+724efd76e000-724efd770000 rw-p 00000000 00:00 0 
+724efd770000-724efd772000 r--p 00000000 00:36 1075435                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.4
+724efd772000-724efd776000 r-xp 00002000 00:36 1075435                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.4
+724efd776000-724efd78d000 r--p 00006000 00:36 1075435                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.4
+724efd78d000-724efd78e000 r--p 0001c000 00:36 1075435                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.4
+724efd78e000-724efd78f000 rw-p 0001d000 00:36 1075435                    /usr/lib/x86_64-linux-gnu/libidn2.so.0.3.4
+724efd78f000-724efd7ba000 r--p 00000000 00:36 1075443                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+724efd7ba000-724efd84e000 r-xp 0002b000 00:36 1075443                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+724efd84e000-724efd8a9000 r--p 000bf000 00:36 1075443                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+724efd8a9000-724efd8b4000 r--p 00119000 00:36 1075443                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+724efd8b4000-724efd8be000 rw-p 00124000 00:36 1075443                    /usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.0
+724efd8be000-724efd8c0000 r--p 00000000 00:36 1074689                    /lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+724efd8c0000-724efd8c3000 r-xp 00002000 00:36 1074689                    /lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+724efd8c3000-724efd8c4000 r--p 00005000 00:36 1074689                    /lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+724efd8c4000-724efd8c5000 r--p 00005000 00:36 1074689                    /lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+724efd8c5000-724efd8c6000 rw-p 00006000 00:36 1074689                    /lib/x86_64-linux-gnu/libcap-ng.so.0.0.0
+724efd8c6000-724efd8d2000 r--p 00000000 00:36 1074704                    /lib/x86_64-linux-gnu/libgcrypt.so.20.2.4
+724efd8d2000-724efd9a0000 r-xp 0000c000 00:36 1074704                    /lib/x86_64-linux-gnu/libgcrypt.so.20.2.4
+724efd9a0000-724efd9dd000 r--p 000da000 00:36 1074704                    /lib/x86_64-linux-gnu/libgcrypt.so.20.2.4
+724efd9dd000-724efd9df000 r--p 00116000 00:36 1074704                    /lib/x86_64-linux-gnu/libgcrypt.so.20.2.4
+724efd9df000-724efd9e4000 rw-p 00118000 00:36 1074704                    /lib/x86_64-linux-gnu/libgcrypt.so.20.2.4
+724efd9e4000-724efd9e6000 r--p 00000000 00:36 1075437                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.8.3
+724efd9e6000-724efd9fe000 r-xp 00002000 00:36 1075437                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.8.3
+724efd9fe000-724efda01000 r--p 0001a000 00:36 1075437                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.8.3
+724efda01000-724efda02000 r--p 0001c000 00:36 1075437                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.8.3
+724efda02000-724efda03000 rw-p 0001d000 00:36 1075437                    /usr/lib/x86_64-linux-gnu/liblz4.so.1.8.3
+724efda03000-724efda06000 r--p 00000000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda06000-724efda17000 r-xp 00003000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda17000-724efda1a000 r--p 00014000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda1a000-724efda1b000 ---p 00017000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda1b000-724efda1c000 r--p 00017000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda1c000-724efda1d000 rw-p 00018000 00:36 1074702                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+724efda1d000-724efda1f000 rw-p 00000000 00:00 0 
+724efda1f000-724efdaa8000 r--p 00000000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdaa8000-724efdb54000 r-xp 00089000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdb54000-724efdb92000 r--p 00135000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdb92000-724efdb93000 ---p 00173000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdb93000-724efdb9d000 r--p 00173000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdb9d000-724efdb9f000 rw-p 0017d000 00:36 1075452                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+724efdb9f000-724efdba3000 rw-p 00000000 00:00 0 
+724efdba3000-724efdbd3000 r--p 00000000 00:36 1075431                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.23.2
+724efdbd3000-724efdcd8000 r-xp 00030000 00:36 1075431                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.23.2
+724efdcd8000-724efdd3e000 r--p 00135000 00:36 1075431                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.23.2
+724efdd3e000-724efdd4e000 r--p 0019a000 00:36 1075431                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.23.2
+724efdd4e000-724efdd4f000 rw-p 001aa000 00:36 1075431                    /usr/lib/x86_64-linux-gnu/libgnutls.so.30.23.2
+724efdd4f000-724efdd50000 rw-p 00000000 00:00 0 
+724efdd50000-724efdd53000 r--p 00000000 00:36 1079123                    /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+724efdd53000-724efdd65000 r-xp 00003000 00:36 1079123                    /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+724efdd65000-724efdd6b000 r--p 00015000 00:36 1079123                    /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+724efdd6b000-724efdd6c000 r--p 0001a000 00:36 1079123                    /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+724efdd6c000-724efdd6d000 rw-p 0001b000 00:36 1079123                    /usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25
+724efdd6d000-724efdd70000 r--p 00000000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd70000-724efdd78000 r-xp 00003000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd78000-724efdd7b000 r--p 0000b000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd7b000-724efdd7c000 ---p 0000e000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd7c000-724efdd7d000 r--p 0000e000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd7d000-724efdd7e000 rw-p 0000f000 00:36 1079116                    /usr/lib/x86_64-linux-gnu/liblber-2.4.so.2.10.10
+724efdd7e000-724efdd82000 r--p 00000000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd82000-724efdd8f000 r-xp 00004000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd8f000-724efdd93000 r--p 00011000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd93000-724efdd94000 ---p 00015000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd94000-724efdd95000 r--p 00015000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd95000-724efdd96000 rw-p 00016000 00:36 1074743                    /lib/x86_64-linux-gnu/libresolv-2.28.so
+724efdd96000-724efdd9a000 rw-p 00000000 00:00 0 
+724efdd9a000-724efdd9c000 r--p 00000000 00:36 1080597                    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
+724efdd9c000-724efdd9e000 r-xp 00002000 00:36 1080597                    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
+724efdd9e000-724efdd9f000 r--p 00004000 00:36 1080597                    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
+724efdd9f000-724efdda0000 r--p 00004000 00:36 1080597                    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
+724efdda0000-724efdda1000 rw-p 00005000 00:36 1080597                    /lib/x86_64-linux-gnu/libkeyutils.so.1.8
+724efdda1000-724efdda4000 r--p 00000000 00:36 1081849                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+724efdda4000-724efddab000 r-xp 00003000 00:36 1081849                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+724efddab000-724efddae000 r--p 0000a000 00:36 1081849                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+724efddae000-724efddaf000 r--p 0000c000 00:36 1081849                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+724efddaf000-724efddb0000 rw-p 0000d000 00:36 1081849                    /usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1
+724efddb0000-724efddb2000 r--p 00000000 00:36 1074691                    /lib/x86_64-linux-gnu/libcom_err.so.2.1
+724efddb2000-724efddb3000 r-xp 00002000 00:36 1074691                    /lib/x86_64-linux-gnu/libcom_err.so.2.1
+724efddb3000-724efddb4000 r--p 00003000 00:36 1074691                    /lib/x86_64-linux-gnu/libcom_err.so.2.1
+724efddb4000-724efddb5000 r--p 00003000 00:36 1074691                    /lib/x86_64-linux-gnu/libcom_err.so.2.1
+724efddb5000-724efddb6000 rw-p 00004000 00:36 1074691                    /lib/x86_64-linux-gnu/libcom_err.so.2.1
+724efddb6000-724efddbb000 r--p 00000000 00:36 1081845                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+724efddbb000-724efddd8000 r-xp 00005000 00:36 1081845                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+724efddd8000-724efdde6000 r--p 00022000 00:36 1081845                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+724efdde6000-724efdde8000 r--p 0002f000 00:36 1081845                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+724efdde8000-724efdde9000 rw-p 00031000 00:36 1081845                    /usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1
+724efdde9000-724efddea000 rw-p 00000000 00:00 0 
+724efddea000-724efde0e000 r--p 00000000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efde0e000-724efde6f000 r-xp 00024000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efde6f000-724efdeb8000 r--p 00085000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efdeb8000-724efdeb9000 ---p 000ce000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efdeb9000-724efdec7000 r--p 000ce000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efdec7000-724efdeca000 rw-p 000dc000 00:36 1081847                    /usr/lib/x86_64-linux-gnu/libkrb5.so.3.3
+724efdeca000-724efdecd000 r--p 00000000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efdecd000-724efded4000 r-xp 00003000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efded4000-724efdee8000 r--p 0000a000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efdee8000-724efdee9000 ---p 0001e000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efdee9000-724efdeea000 r--p 0001e000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efdeea000-724efdeeb000 rw-p 0001f000 00:36 1074680                    /lib/x86_64-linux-gnu/libaudit.so.1.0.0
+724efdeeb000-724efdef7000 rw-p 00000000 00:00 0 
+724efdef7000-724efdefa000 r--p 00000000 00:36 1074708                    /lib/x86_64-linux-gnu/liblzma.so.5.2.4
+724efdefa000-724efdf12000 r-xp 00003000 00:36 1074708                    /lib/x86_64-linux-gnu/liblzma.so.5.2.4
+724efdf12000-724efdf1d000 r--p 0001b000 00:36 1074708                    /lib/x86_64-linux-gnu/liblzma.so.5.2.4
+724efdf1d000-724efdf1e000 r--p 00025000 00:36 1074708                    /lib/x86_64-linux-gnu/liblzma.so.5.2.4
+724efdf1e000-724efdf1f000 rw-p 00026000 00:36 1074708                    /lib/x86_64-linux-gnu/liblzma.so.5.2.4
+724efdf1f000-724efdf3b000 r-xp 00000000 00:36 1074766                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+724efdf3b000-724efe13b000 ---p 0001c000 00:36 1074766                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+724efe13b000-724efe13c000 r--p 0001c000 00:36 1074766                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+724efe13c000-724efe13d000 rw-p 0001d000 00:36 1074766                    /lib/x86_64-linux-gnu/libz.so.1.2.11
+724efe13d000-724efe13e000 r--p 00000000 00:36 1081833                    /usr/lib/x86_64-linux-gnu/libicudata.so.63.1
+724efe13e000-724efe13f000 r-xp 00001000 00:36 1081833                    /usr/lib/x86_64-linux-gnu/libicudata.so.63.1
+724efe13f000-724effb2b000 r--p 00002000 00:36 1081833                    /usr/lib/x86_64-linux-gnu/libicudata.so.63.1
+724effb2b000-724effb2c000 r--p 019ed000 00:36 1081833                    /usr/lib/x86_64-linux-gnu/libicudata.so.63.1
+724effb2c000-724effb2d000 rw-p 019ee000 00:36 1081833                    /usr/lib/x86_64-linux-gnu/libicudata.so.63.1
+724effb2d000-724effb4f000 r--p 00000000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effb4f000-724effc97000 r-xp 00022000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effc97000-724effce3000 r--p 0016a000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effce3000-724effce4000 ---p 001b6000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effce4000-724effce8000 r--p 001b6000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effce8000-724effcea000 rw-p 001ba000 00:36 1074686                    /lib/x86_64-linux-gnu/libc-2.28.so
+724effcea000-724effcee000 rw-p 00000000 00:00 0 
+724effcee000-724effcfe000 r--p 00000000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effcfe000-724effd68000 r-xp 00010000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effd68000-724effd89000 r--p 0007a000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effd89000-724effd8a000 ---p 0009b000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effd8a000-724effd8d000 r--p 0009b000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effd8d000-724effd8e000 rw-p 0009e000 00:36 1074754                    /lib/x86_64-linux-gnu/libsystemd.so.0.25.0
+724effd8e000-724effd8f000 rw-p 00000000 00:00 0 
+724effd8f000-724effdf1000 r--p 00000000 00:36 1081843                    /usr/lib/x86_64-linux-gnu/libicuuc.so.63.1
+724effdf1000-724effec5000 r-xp 00062000 00:36 1081843                    /usr/lib/x86_64-linux-gnu/libicuuc.so.63.1
+724effec5000-724efff49000 r--p 00136000 00:36 1081843                    /usr/lib/x86_64-linux-gnu/libicuuc.so.63.1
+724efff49000-724efff5c000 r--p 001b9000 00:36 1081843                    /usr/lib/x86_64-linux-gnu/libicuuc.so.63.1
+724efff5c000-724efff5d000 rw-p 001cc000 00:36 1081843                    /usr/lib/x86_64-linux-gnu/libicuuc.so.63.1
+724efff5d000-724efff60000 rw-p 00000000 00:00 0 
+724efff60000-724f0003d000 r--p 00000000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f0003d000-724f001a7000 r-xp 000dd000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f001a7000-724f00228000 r--p 00247000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f00228000-724f00229000 ---p 002c8000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f00229000-724f00239000 r--p 002c8000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f00239000-724f0023a000 rw-p 002d8000 00:36 1081835                    /usr/lib/x86_64-linux-gnu/libicui18n.so.63.1
+724f0023a000-724f0023b000 rw-p 00000000 00:00 0 
+724f0023b000-724f00249000 r--p 00000000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f00249000-724f0027b000 r-xp 0000e000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f0027b000-724f00289000 r--p 00040000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f00289000-724f0028a000 ---p 0004e000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f0028a000-724f0028c000 r--p 0004e000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f0028c000-724f0028d000 rw-p 00050000 00:36 1079119                    /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.2.10.10
+724f0028d000-724f0028f000 rw-p 00000000 00:00 0 
+724f0028f000-724f0029c000 r--p 00000000 00:36 1074709                    /lib/x86_64-linux-gnu/libm-2.28.so
+724f0029c000-724f0033b000 r-xp 0000d000 00:36 1074709                    /lib/x86_64-linux-gnu/libm-2.28.so
+724f0033b000-724f00410000 r--p 000ac000 00:36 1074709                    /lib/x86_64-linux-gnu/libm-2.28.so
+724f00410000-724f00411000 r--p 00180000 00:36 1074709                    /lib/x86_64-linux-gnu/libm-2.28.so
+724f00411000-724f00412000 rw-p 00181000 00:36 1074709                    /lib/x86_64-linux-gnu/libm-2.28.so
+724f00412000-724f00413000 r--p 00000000 00:36 1074694                    /lib/x86_64-linux-gnu/libdl-2.28.so
+724f00413000-724f00414000 r-xp 00001000 00:36 1074694                    /lib/x86_64-linux-gnu/libdl-2.28.so
+724f00414000-724f00415000 r--p 00002000 00:36 1074694                    /lib/x86_64-linux-gnu/libdl-2.28.so
+724f00415000-724f00416000 r--p 00002000 00:36 1074694                    /lib/x86_64-linux-gnu/libdl-2.28.so
+724f00416000-724f00417000 rw-p 00003000 00:36 1074694                    /lib/x86_64-linux-gnu/libdl-2.28.so
+724f00417000-724f00419000 r--p 00000000 00:36 1074745                    /lib/x86_64-linux-gnu/librt-2.28.so
+724f00419000-724f0041d000 r-xp 00002000 00:36 1074745                    /lib/x86_64-linux-gnu/librt-2.28.so
+724f0041d000-724f0041f000 r--p 00006000 00:36 1074745                    /lib/x86_64-linux-gnu/librt-2.28.so
+724f0041f000-724f00420000 r--p 00007000 00:36 1074745                    /lib/x86_64-linux-gnu/librt-2.28.so
+724f00420000-724f00421000 rw-p 00008000 00:36 1074745                    /lib/x86_64-linux-gnu/librt-2.28.so
+724f00421000-724f0042c000 r--p 00000000 00:36 1081831                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+724f0042c000-724f0045e000 r-xp 0000b000 00:36 1081831                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+724f0045e000-724f0046a000 r--p 0003d000 00:36 1081831                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+724f0046a000-724f0046c000 r--p 00048000 00:36 1081831                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+724f0046c000-724f0046e000 rw-p 0004a000 00:36 1081831                    /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2
+724f0046e000-724f00470000 rw-p 00000000 00:00 0 
+724f00470000-724f004f5000 r--p 00000000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f004f5000-724f00693000 r-xp 00085000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f00693000-724f00722000 r--p 00223000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f00722000-724f00723000 ---p 002b2000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f00723000-724f00753000 r--p 002b2000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f00753000-724f00755000 rw-p 002e2000 00:36 1081821                    /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1
+724f00755000-724f00759000 rw-p 00000000 00:00 0 
+724f00759000-724f00776000 r--p 00000000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f00776000-724f007c3000 r-xp 0001d000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f007c3000-724f007dd000 r--p 0006a000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f007dd000-724f007de000 ---p 00084000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f007de000-724f007e7000 r--p 00084000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f007e7000-724f007eb000 rw-p 0008d000 00:36 1081854                    /usr/lib/x86_64-linux-gnu/libssl.so.1.1
+724f007eb000-724f007ee000 r--p 00000000 00:36 1074733                    /lib/x86_64-linux-gnu/libpam.so.0.84.2
+724f007ee000-724f007f6000 r-xp 00003000 00:36 1074733                    /lib/x86_64-linux-gnu/libpam.so.0.84.2
+724f007f6000-724f007fa000 r--p 0000b000 00:36 1074733                    /lib/x86_64-linux-gnu/libpam.so.0.84.2
+724f007fa000-724f007fb000 r--p 0000e000 00:36 1074733                    /lib/x86_64-linux-gnu/libpam.so.0.84.2
+724f007fb000-724f007fc000 rw-p 0000f000 00:36 1074733                    /lib/x86_64-linux-gnu/libpam.so.0.84.2
+724f007fc000-724f0082a000 r--p 00000000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f0082a000-724f00948000 r-xp 0002e000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f00948000-724f0099b000 r--p 0014c000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f0099b000-724f0099c000 ---p 0019f000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f0099c000-724f009a4000 r--p 0019f000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f009a4000-724f009a6000 rw-p 001a7000 00:36 1081856                    /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4
+724f009a6000-724f009a7000 rw-p 00000000 00:00 0 
+724f009a7000-724f009ad000 r--p 00000000 00:36 1074741                    /lib/x86_64-linux-gnu/libpthread-2.28.so
+724f009ad000-724f009bc000 r-xp 00006000 00:36 1074741                    /lib/x86_64-linux-gnu/libpthread-2.28.so
+724f009bc000-724f009c2000 r--p 00015000 00:36 1074741                    /lib/x86_64-linux-gnu/libpthread-2.28.so
+724f009c2000-724f009c3000 r--p 0001a000 00:36 1074741                    /lib/x86_64-linux-gnu/libpthread-2.28.so
+724f009c3000-724f009c4000 rw-p 0001b000 00:36 1074741                    /lib/x86_64-linux-gnu/libpthread-2.28.so
+724f009c4000-724f009c8000 rw-p 00000000 00:00 0 
+724f009ca000-724f009cb000 rw-s 00000000 00:01 5                          /SYSV000933a5 (deleted)
+724f009cb000-724f009cc000 r--p 00000000 fd:01 534060                     /libminidump.so
+724f009cc000-724f009cd000 r-xp 00001000 fd:01 534060                     /libminidump.so
+724f009cd000-724f009ce000 r--p 00002000 fd:01 534060                     /libminidump.so
+724f009ce000-724f009cf000 r--p 00002000 fd:01 534060                     /libminidump.so
+724f009cf000-724f009d0000 rw-p 00003000 fd:01 534060                     /libminidump.so
+724f009d0000-724f009d2000 rw-p 00000000 00:00 0 
+724f009d2000-724f009d3000 r--p 00000000 00:36 1074672                    /lib/x86_64-linux-gnu/ld-2.28.so
+724f009d3000-724f009f1000 r-xp 00001000 00:36 1074672                    /lib/x86_64-linux-gnu/ld-2.28.so
+724f009f1000-724f009f9000 r--p 0001f000 00:36 1074672                    /lib/x86_64-linux-gnu/ld-2.28.so
+724f009f9000-724f009fa000 r--p 00026000 00:36 1074672                    /lib/x86_64-linux-gnu/ld-2.28.so
+724f009fa000-724f009fb000 rw-p 00027000 00:36 1074672                    /lib/x86_64-linux-gnu/ld-2.28.so
+724f009fb000-724f009fc000 rw-p 00000000 00:00 0 
+7fffc0347000-7fffc0368000 rw-p 00000000 00:00 0                          [stack]
+7fffc03ac000-7fffc03b0000 r--p 00000000 00:00 0                          [vvar]
+7fffc03b0000-7fffc03b2000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

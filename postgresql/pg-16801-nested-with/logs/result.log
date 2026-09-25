@@ -1,0 +1,356 @@
+2026-09-21 03:09:16.440 UTC [48] LOG:  00000: starting PostgreSQL 13.1 (Debian 13.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2026-09-21 03:09:16.440 UTC [48] LOCATION:  PostmasterMain, postmaster.c:1125
+2026-09-21 03:09:16.443 UTC [48] LOG:  00000: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-09-21 03:09:16.443 UTC [48] LOCATION:  StreamServerPort, pqcomm.c:585
+2026-09-21 03:09:16.455 UTC [50] LOG:  00000: database system was shut down at 2026-09-21 03:09:16 UTC
+2026-09-21 03:09:16.455 UTC [50] LOCATION:  StartupXLOG, xlog.c:6353
+2026-09-21 03:09:16.455 UTC [50] DEBUG:  00000: checkpoint record is at 0/15CC7A8
+2026-09-21 03:09:16.455 UTC [50] LOCATION:  StartupXLOG, xlog.c:6665
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: redo record is at 0/15CC7A8; shutdown true
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6743
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: next transaction ID: 486; next OID: 13396
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6747
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6750
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: oldest unfrozen transaction ID: 479, in database 1
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6753
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6756
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupXLOG, xlog.c:6760
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: transaction ID wrap limit is 2147484126, limited by database with OID 1
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  SetTransactionIdLimit, varsup.c:410
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: starting up replication slots
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupReplicationSlots, slot.c:1289
+2026-09-21 03:09:16.456 UTC [50] DEBUG:  00000: starting up replication origin progress state
+2026-09-21 03:09:16.456 UTC [50] LOCATION:  StartupReplicationOrigin, origin.c:694
+2026-09-21 03:09:16.457 UTC [50] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:16.457 UTC [50] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:16.457 UTC [50] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-21 03:09:16.457 UTC [50] LOCATION:  SetOffsetVacuumLimit, multixact.c:2634
+2026-09-21 03:09:16.467 UTC [51] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-21 03:09:16.467 UTC [51] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1301
+2026-09-21 03:09:16.467 UTC [48] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-21 03:09:16.467 UTC [48] LOCATION:  do_start_bgworker, postmaster.c:5848
+2026-09-21 03:09:16.468 UTC [48] LOG:  00000: database system is ready to accept connections
+2026-09-21 03:09:16.468 UTC [48] LOCATION:  reaper, postmaster.c:3061
+2026-09-21 03:09:16.469 UTC [54] DEBUG:  00000: autovacuum launcher started
+2026-09-21 03:09:16.469 UTC [54] LOCATION:  AutoVacLauncherMain, autovacuum.c:442
+2026-09-21 03:09:16.469 UTC [56] DEBUG:  00000: logical replication launcher started
+2026-09-21 03:09:16.469 UTC [56] LOCATION:  ApplyLauncherMain, launcher.c:951
+2026-09-21 03:09:16.471 UTC [55] DEBUG:  00000: received inquiry for database 0
+2026-09-21 03:09:16.471 UTC [55] LOCATION:  pgstat_recv_inquiry, pgstat.c:5866
+2026-09-21 03:09:16.471 UTC [55] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-09-21 03:09:16.471 UTC [55] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:16.611 UTC [48] DEBUG:  00000: forked new backend, pid=66 socket=8
+2026-09-21 03:09:16.611 UTC [48] LOCATION:  BackendStartup, postmaster.c:4242
+2026-09-21 03:09:16.633 UTC [48] DEBUG:  00000: server process (PID 66) exited with exit code 0
+2026-09-21 03:09:16.633 UTC [48] LOCATION:  LogChildExit, postmaster.c:3731
+2026-09-21 03:09:16.635 UTC [48] DEBUG:  00000: postmaster received signal 2
+2026-09-21 03:09:16.635 UTC [48] LOCATION:  pmdie, postmaster.c:2787
+2026-09-21 03:09:16.635 UTC [48] LOG:  00000: received fast shutdown request
+2026-09-21 03:09:16.635 UTC [48] LOCATION:  pmdie, postmaster.c:2848
+2026-09-21 03:09:16.644 UTC [48] LOG:  00000: aborting any active transactions
+2026-09-21 03:09:16.644 UTC [48] LOCATION:  pmdie, postmaster.c:2866
+2026-09-21 03:09:16.644 UTC [54] DEBUG:  00000: autovacuum launcher shutting down
+2026-09-21 03:09:16.644 UTC [54] LOCATION:  AutoVacLauncherShutdown, autovacuum.c:839
+2026-09-21 03:09:16.644 UTC [56] DEBUG:  00000: logical replication launcher shutting down
+2026-09-21 03:09:16.644 UTC [56] LOCATION:  ProcessInterrupts, postgres.c:3049
+2026-09-21 03:09:16.649 UTC [48] LOG:  00000: background worker "logical replication launcher" (PID 56) exited with exit code 1
+2026-09-21 03:09:16.649 UTC [48] LOCATION:  LogChildExit, postmaster.c:3731
+2026-09-21 03:09:16.651 UTC [51] LOG:  00000: shutting down
+2026-09-21 03:09:16.651 UTC [51] LOCATION:  ShutdownXLOG, xlog.c:8499
+2026-09-21 03:09:16.663 UTC [51] DEBUG:  00000: performing replication slot checkpoint
+2026-09-21 03:09:16.663 UTC [51] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-09-21 03:09:16.679 UTC [51] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000000
+2026-09-21 03:09:16.679 UTC [51] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-09-21 03:09:16.679 UTC [51] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-09-21 03:09:16.679 UTC [51] LOCATION:  SlruScanDirectory, slru.c:1458
+2026-09-21 03:09:16.688 UTC [55] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-09-21 03:09:16.688 UTC [55] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:16.688 UTC [55] DEBUG:  00000: writing stats file "pg_stat/db_13395.stat"
+2026-09-21 03:09:16.688 UTC [55] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5036
+2026-09-21 03:09:16.688 UTC [55] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_13395.stat"
+2026-09-21 03:09:16.688 UTC [55] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5117
+2026-09-21 03:09:16.688 UTC [55] DEBUG:  00000: writing stats file "pg_stat/db_0.stat"
+2026-09-21 03:09:16.688 UTC [55] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5036
+2026-09-21 03:09:16.688 UTC [55] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_0.stat"
+2026-09-21 03:09:16.688 UTC [55] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5117
+2026-09-21 03:09:16.693 UTC [48] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 759866037
+2026-09-21 03:09:16.693 UTC [48] LOCATION:  dsm_postmaster_shutdown, dsm.c:364
+2026-09-21 03:09:16.698 UTC [48] LOG:  00000: database system is shut down
+2026-09-21 03:09:16.698 UTC [48] LOCATION:  UnlinkLockFiles, miscinit.c:928
+2026-09-21 03:09:16.703 UTC [49] DEBUG:  00000: logger shutting down
+2026-09-21 03:09:16.703 UTC [49] LOCATION:  SysLoggerMain, syslogger.c:522
+2026-09-21 03:09:16.798 UTC [1] LOG:  00000: starting PostgreSQL 13.1 (Debian 13.1-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+2026-09-21 03:09:16.798 UTC [1] LOCATION:  PostmasterMain, postmaster.c:1125
+2026-09-21 03:09:16.798 UTC [1] LOG:  00000: listening on IPv4 address "0.0.0.0", port 5432
+2026-09-21 03:09:16.798 UTC [1] LOCATION:  StreamServerPort, pqcomm.c:591
+2026-09-21 03:09:16.798 UTC [1] LOG:  00000: listening on IPv6 address "::", port 5432
+2026-09-21 03:09:16.798 UTC [1] LOCATION:  StreamServerPort, pqcomm.c:591
+2026-09-21 03:09:16.811 UTC [1] LOG:  00000: listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-09-21 03:09:16.811 UTC [1] LOCATION:  StreamServerPort, pqcomm.c:585
+2026-09-21 03:09:16.823 UTC [69] LOG:  00000: database system was shut down at 2026-09-21 03:09:16 UTC
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6353
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: checkpoint record is at 0/15CC820
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6665
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: redo record is at 0/15CC820; shutdown true
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6743
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: next transaction ID: 486; next OID: 13396
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6747
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6750
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: oldest unfrozen transaction ID: 479, in database 1
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6753
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6756
+2026-09-21 03:09:16.823 UTC [69] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-21 03:09:16.823 UTC [69] LOCATION:  StartupXLOG, xlog.c:6760
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: transaction ID wrap limit is 2147484126, limited by database with OID 1
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  SetTransactionIdLimit, varsup.c:410
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: starting up replication slots
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  StartupReplicationSlots, slot.c:1289
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: starting up replication origin progress state
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  StartupReplicationOrigin, origin.c:694
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:16.824 UTC [69] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-21 03:09:16.824 UTC [69] LOCATION:  SetOffsetVacuumLimit, multixact.c:2634
+2026-09-21 03:09:16.833 UTC [70] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-21 03:09:16.833 UTC [70] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1301
+2026-09-21 03:09:16.833 UTC [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-21 03:09:16.833 UTC [1] LOCATION:  do_start_bgworker, postmaster.c:5848
+2026-09-21 03:09:16.835 UTC [1] LOG:  00000: database system is ready to accept connections
+2026-09-21 03:09:16.835 UTC [1] LOCATION:  reaper, postmaster.c:3061
+2026-09-21 03:09:16.836 UTC [73] DEBUG:  00000: autovacuum launcher started
+2026-09-21 03:09:16.836 UTC [73] LOCATION:  AutoVacLauncherMain, autovacuum.c:442
+2026-09-21 03:09:16.836 UTC [75] DEBUG:  00000: logical replication launcher started
+2026-09-21 03:09:16.836 UTC [75] LOCATION:  ApplyLauncherMain, launcher.c:951
+2026-09-21 03:09:16.836 UTC [74] DEBUG:  00000: removing permanent stats file "pg_stat/db_13395.stat"
+2026-09-21 03:09:16.836 UTC [74] LOCATION:  pgstat_read_db_statsfile, pgstat.c:5533
+2026-09-21 03:09:16.836 UTC [74] DEBUG:  00000: removing permanent stats file "pg_stat/db_0.stat"
+2026-09-21 03:09:16.836 UTC [74] LOCATION:  pgstat_read_db_statsfile, pgstat.c:5533
+2026-09-21 03:09:16.836 UTC [74] DEBUG:  00000: removing permanent stats file "pg_stat/global.stat"
+2026-09-21 03:09:16.836 UTC [74] LOCATION:  pgstat_read_statsfiles, pgstat.c:5371
+2026-09-21 03:09:16.838 UTC [74] DEBUG:  00000: received inquiry for database 0
+2026-09-21 03:09:16.838 UTC [74] LOCATION:  pgstat_recv_inquiry, pgstat.c:5866
+2026-09-21 03:09:16.838 UTC [74] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-09-21 03:09:16.838 UTC [74] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:16.838 UTC [74] DEBUG:  00000: writing stats file "pg_stat_tmp/db_0.stat"
+2026-09-21 03:09:16.838 UTC [74] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5036
+2026-09-21 03:09:20.963 UTC [1] DEBUG:  00000: forked new backend, pid=89 socket=10
+2026-09-21 03:09:20.963 UTC [1] LOCATION:  BackendStartup, postmaster.c:4242
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: server process (PID 89) was terminated by signal 11: Segmentation fault
+2026-09-21 03:09:21.355 UTC [1] DETAIL:  Failed process was running: WITH RECURSIVE rec(x) AS (
+	  SELECT ( WITH c1 AS (
+	  SELECT ( WITH c2 AS (
+	  SELECT ( WITH c3 AS (
+	  SELECT ( WITH c4 AS (
+	  SELECT ( WITH c5 AS (
+	  SELECT ( WITH c6 AS (
+	  SELECT ( WITH c7 AS (
+	  SELECT ( WITH c8 AS (
+	  SELECT ( WITH c9 AS (
+	  SELECT ( WITH c10 AS (
+	  SELECT ( WITH c11 AS (
+	  SELECT ( WITH c12 AS (
+	  SELECT ( WITH c13 AS (
+	  SELECT ( WITH c14 AS (
+	  SELECT ( WITH c15 AS (
+	  SELECT ( WITH c16 AS (
+	  SELECT ( WITH c17 AS (
+	  SELECT ( WITH c18 AS (
+	  SELECT ( WITH c19 AS (
+	  SELECT ( WITH c20 AS (
+	  SELECT ( WITH c21 AS (
+	  SELECT ( WITH c22 AS (
+	  SELECT ( WITH c23 AS (
+	  SELECT ( WITH c24 AS (
+	  SELECT ( WITH c25 AS (
+	  SELECT ( WITH c26 AS (
+	  SELECT ( WITH c27 AS (
+	  SELECT ( WITH c28 AS (
+	  SELECT ( WITH c29 AS (
+	  SELECT ( WITH c30 AS (
+	  SELECT ( WITH c31 AS (
+	  SELECT ( WITH c32 AS (
+	  SELECT ( WITH c33 AS (
+	  SELECT ( WITH c34 AS (
+	  SELECT ( WITH c35 AS (
+	  SELECT ( WITH c36 AS (
+	  SELECT ( WITH c37 AS (
+	  SELECT ( WITH c38 AS (
+	  SELECT ( WITH c39 AS (
+	  SELECT ( WITH c40 AS (
+	  SEL
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  LogChildExit, postmaster.c:3753
+2026-09-21 03:09:21.355 UTC [1] LOG:  00000: server process (PID 89) was terminated by signal 11: Segmentation fault
+2026-09-21 03:09:21.355 UTC [1] DETAIL:  Failed process was running: WITH RECURSIVE rec(x) AS (
+	  SELECT ( WITH c1 AS (
+	  SELECT ( WITH c2 AS (
+	  SELECT ( WITH c3 AS (
+	  SELECT ( WITH c4 AS (
+	  SELECT ( WITH c5 AS (
+	  SELECT ( WITH c6 AS (
+	  SELECT ( WITH c7 AS (
+	  SELECT ( WITH c8 AS (
+	  SELECT ( WITH c9 AS (
+	  SELECT ( WITH c10 AS (
+	  SELECT ( WITH c11 AS (
+	  SELECT ( WITH c12 AS (
+	  SELECT ( WITH c13 AS (
+	  SELECT ( WITH c14 AS (
+	  SELECT ( WITH c15 AS (
+	  SELECT ( WITH c16 AS (
+	  SELECT ( WITH c17 AS (
+	  SELECT ( WITH c18 AS (
+	  SELECT ( WITH c19 AS (
+	  SELECT ( WITH c20 AS (
+	  SELECT ( WITH c21 AS (
+	  SELECT ( WITH c22 AS (
+	  SELECT ( WITH c23 AS (
+	  SELECT ( WITH c24 AS (
+	  SELECT ( WITH c25 AS (
+	  SELECT ( WITH c26 AS (
+	  SELECT ( WITH c27 AS (
+	  SELECT ( WITH c28 AS (
+	  SELECT ( WITH c29 AS (
+	  SELECT ( WITH c30 AS (
+	  SELECT ( WITH c31 AS (
+	  SELECT ( WITH c32 AS (
+	  SELECT ( WITH c33 AS (
+	  SELECT ( WITH c34 AS (
+	  SELECT ( WITH c35 AS (
+	  SELECT ( WITH c36 AS (
+	  SELECT ( WITH c37 AS (
+	  SELECT ( WITH c38 AS (
+	  SELECT ( WITH c39 AS (
+	  SELECT ( WITH c40 AS (
+	  SEL
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  LogChildExit, postmaster.c:3753
+2026-09-21 03:09:21.355 UTC [1] LOG:  00000: terminating any other active server processes
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3474
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 75
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3519
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 71
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3601
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 70
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3613
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 72
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3625
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 73
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3649
+2026-09-21 03:09:21.355 UTC [1] DEBUG:  00000: sending SIGQUIT to process 74
+2026-09-21 03:09:21.355 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3679
+2026-09-21 03:09:21.357 UTC [74] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-09-21 03:09:21.357 UTC [74] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:21.357 UTC [73] WARNING:  57P02: terminating connection because of crash of another server process
+2026-09-21 03:09:21.357 UTC [73] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-09-21 03:09:21.357 UTC [73] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-09-21 03:09:21.357 UTC [73] LOCATION:  quickdie, postgres.c:2802
+2026-09-21 03:09:21.357 UTC [74] DEBUG:  00000: writing stats file "pg_stat/db_13395.stat"
+2026-09-21 03:09:21.357 UTC [74] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5036
+2026-09-21 03:09:21.358 UTC [74] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_13395.stat"
+2026-09-21 03:09:21.358 UTC [74] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5117
+2026-09-21 03:09:21.358 UTC [74] DEBUG:  00000: writing stats file "pg_stat/db_0.stat"
+2026-09-21 03:09:21.358 UTC [74] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5036
+2026-09-21 03:09:21.358 UTC [74] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_0.stat"
+2026-09-21 03:09:21.358 UTC [74] LOCATION:  pgstat_write_db_statsfile, pgstat.c:5117
+2026-09-21 03:09:21.364 UTC [1] LOG:  00000: all server processes terminated; reinitializing
+2026-09-21 03:09:21.364 UTC [1] LOCATION:  PostmasterStateMachine, postmaster.c:4010
+2026-09-21 03:09:21.364 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 2070173266
+2026-09-21 03:09:21.364 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:364
+2026-09-21 03:09:21.400 UTC [1] DEBUG:  00000: mmap(150994944) with MAP_HUGETLB failed, huge pages disabled: Cannot allocate memory
+2026-09-21 03:09:21.400 UTC [1] LOCATION:  CreateAnonymousSegment, pg_shmem.c:558
+2026-09-21 03:09:21.720 UTC [1] DEBUG:  00000: dynamic shared memory system will support 674 segments
+2026-09-21 03:09:21.720 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:161
+2026-09-21 03:09:21.720 UTC [1] DEBUG:  00000: created dynamic shared memory control segment 1949240385 (16192 bytes)
+2026-09-21 03:09:21.720 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:186
+2026-09-21 03:09:21.724 UTC [90] LOG:  00000: database system was interrupted; last known up at 2026-09-21 03:09:16 UTC
+2026-09-21 03:09:21.724 UTC [90] LOCATION:  StartupXLOG, xlog.c:6387
+2026-09-21 03:09:21.724 UTC [90] DEBUG:  00000: removing all temporary WAL segments
+2026-09-21 03:09:21.724 UTC [90] LOCATION:  RemoveTempXlogFiles, xlog.c:4000
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: checkpoint record is at 0/15CC820
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6665
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: redo record is at 0/15CC820; shutdown true
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6743
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: next transaction ID: 486; next OID: 13396
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6747
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6750
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: oldest unfrozen transaction ID: 479, in database 1
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6753
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6756
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6760
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: transaction ID wrap limit is 2147484126, limited by database with OID 1
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  SetTransactionIdLimit, varsup.c:410
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: starting up replication slots
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupReplicationSlots, slot.c:1289
+2026-09-21 03:09:21.806 UTC [90] DEBUG:  00000: starting up replication origin progress state
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupReplicationOrigin, origin.c:694
+2026-09-21 03:09:21.806 UTC [90] LOG:  00000: database system was not properly shut down; automatic recovery in progress
+2026-09-21 03:09:21.806 UTC [90] LOCATION:  StartupXLOG, xlog.c:6903
+2026-09-21 03:09:21.814 UTC [90] DEBUG:  00000: resetting unlogged relations: cleanup 1 init 0
+2026-09-21 03:09:21.814 UTC [90] LOCATION:  ResetUnloggedRelations, reinit.c:57
+2026-09-21 03:09:21.816 UTC [90] LOG:  00000: invalid record length at 0/15CC898: wanted 24, got 0
+2026-09-21 03:09:21.816 UTC [90] LOCATION:  ReadRecord, xlog.c:4365
+2026-09-21 03:09:21.816 UTC [90] LOG:  00000: redo is not required
+2026-09-21 03:09:21.816 UTC [90] LOCATION:  StartupXLOG, xlog.c:7454
+2026-09-21 03:09:21.816 UTC [90] DEBUG:  00000: resetting unlogged relations: cleanup 0 init 1
+2026-09-21 03:09:21.816 UTC [90] LOCATION:  ResetUnloggedRelations, reinit.c:57
+2026-09-21 03:09:21.826 UTC [90] DEBUG:  00000: performing replication slot checkpoint
+2026-09-21 03:09:21.826 UTC [90] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-09-21 03:09:21.843 UTC [90] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000000
+2026-09-21 03:09:21.843 UTC [90] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-09-21 03:09:21.843 UTC [90] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-21 03:09:21.843 UTC [90] LOCATION:  SetMultiXactIdLimit, multixact.c:2271
+2026-09-21 03:09:21.843 UTC [90] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-21 03:09:21.843 UTC [90] LOCATION:  SetOffsetVacuumLimit, multixact.c:2634
+2026-09-21 03:09:21.856 UTC [91] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-21 03:09:21.856 UTC [91] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1301
+2026-09-21 03:09:21.860 UTC [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-21 03:09:21.860 UTC [1] LOCATION:  do_start_bgworker, postmaster.c:5848
+2026-09-21 03:09:21.860 UTC [94] DEBUG:  00000: autovacuum launcher started
+2026-09-21 03:09:21.860 UTC [94] LOCATION:  AutoVacLauncherMain, autovacuum.c:442
+2026-09-21 03:09:21.862 UTC [1] LOG:  00000: database system is ready to accept connections
+2026-09-21 03:09:21.862 UTC [1] LOCATION:  reaper, postmaster.c:3061
+2026-09-21 03:09:21.863 UTC [95] DEBUG:  00000: received inquiry for database 0
+2026-09-21 03:09:21.863 UTC [95] LOCATION:  pgstat_recv_inquiry, pgstat.c:5866
+2026-09-21 03:09:21.863 UTC [95] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-09-21 03:09:21.863 UTC [95] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:21.863 UTC [96] DEBUG:  00000: logical replication launcher started
+2026-09-21 03:09:21.863 UTC [96] LOCATION:  ApplyLauncherMain, launcher.c:951
+2026-09-21 03:09:32.344 UTC [1] DEBUG:  00000: postmaster received signal 2
+2026-09-21 03:09:32.344 UTC [1] LOCATION:  pmdie, postmaster.c:2787
+2026-09-21 03:09:32.344 UTC [1] LOG:  00000: received fast shutdown request
+2026-09-21 03:09:32.344 UTC [1] LOCATION:  pmdie, postmaster.c:2848
+2026-09-21 03:09:32.350 UTC [1] LOG:  00000: aborting any active transactions
+2026-09-21 03:09:32.350 UTC [1] LOCATION:  pmdie, postmaster.c:2866
+2026-09-21 03:09:32.350 UTC [94] DEBUG:  00000: autovacuum launcher shutting down
+2026-09-21 03:09:32.350 UTC [94] LOCATION:  AutoVacLauncherShutdown, autovacuum.c:839
+2026-09-21 03:09:32.350 UTC [96] DEBUG:  00000: logical replication launcher shutting down
+2026-09-21 03:09:32.350 UTC [96] LOCATION:  ProcessInterrupts, postgres.c:3049
+2026-09-21 03:09:32.359 UTC [1] LOG:  00000: background worker "logical replication launcher" (PID 96) exited with exit code 1
+2026-09-21 03:09:32.359 UTC [1] LOCATION:  LogChildExit, postmaster.c:3731
+2026-09-21 03:09:32.359 UTC [91] LOG:  00000: shutting down
+2026-09-21 03:09:32.359 UTC [91] LOCATION:  ShutdownXLOG, xlog.c:8499
+2026-09-21 03:09:32.372 UTC [91] DEBUG:  00000: performing replication slot checkpoint
+2026-09-21 03:09:32.372 UTC [91] LOCATION:  CheckPointReplicationSlots, slot.c:1253
+2026-09-21 03:09:32.389 UTC [91] DEBUG:  00000: attempting to remove WAL segments older than log file 000000000000000000000000
+2026-09-21 03:09:32.389 UTC [91] LOCATION:  RemoveOldXlogFiles, xlog.c:4039
+2026-09-21 03:09:32.389 UTC [91] DEBUG:  00000: SlruScanDirectory invoking callback on pg_subtrans/0000
+2026-09-21 03:09:32.389 UTC [91] LOCATION:  SlruScanDirectory, slru.c:1458
+2026-09-21 03:09:32.397 UTC [95] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-09-21 03:09:32.397 UTC [95] LOCATION:  pgstat_write_statsfiles, pgstat.c:4873
+2026-09-21 03:09:32.402 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1949240385
+2026-09-21 03:09:32.402 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:364
+2026-09-21 03:09:32.409 UTC [1] LOG:  00000: database system is shut down
+2026-09-21 03:09:32.409 UTC [1] LOCATION:  UnlinkLockFiles, miscinit.c:928

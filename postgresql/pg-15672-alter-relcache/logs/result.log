@@ -1,0 +1,212 @@
+2026-09-23 06:32:46.506 UTC [53] LOG:  00000: database system was shut down at 2026-09-23 06:32:46 UTC
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6363
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: checkpoint record is at 0/1651C80
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6646
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: redo record is at 0/1651C80; shutdown true
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6724
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: next transaction ID: 0:569; next OID: 13068
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6728
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6731
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: oldest unfrozen transaction ID: 562, in database 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6734
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6737
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupXLOG, xlog.c:6741
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: transaction ID wrap limit is 2147484209, limited by database with OID 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  SetTransactionIdLimit, varsup.c:368
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  SetMultiXactIdLimit, multixact.c:2269
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: starting up replication slots
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupReplicationSlots, slot.c:1115
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: starting up replication origin progress state
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  StartupReplicationOrigin, origin.c:699
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  SetMultiXactIdLimit, multixact.c:2269
+2026-09-23 06:32:46.506 UTC [53] DEBUG:  00000: MultiXact member stop limit is now 4294914944 based on MultiXact 1
+2026-09-23 06:32:46.506 UTC [53] LOCATION:  SetOffsetVacuumLimit, multixact.c:2632
+2026-09-23 06:32:46.513 UTC [54] DEBUG:  00000: checkpointer updated shared memory configuration values
+2026-09-23 06:32:46.513 UTC [54] LOCATION:  UpdateSharedMemoryConfig, checkpointer.c:1362
+2026-09-23 06:32:46.513 UTC [57] DEBUG:  00000: autovacuum launcher started
+2026-09-23 06:32:46.513 UTC [57] LOCATION:  AutoVacLauncherMain, autovacuum.c:442
+2026-09-23 06:32:46.513 UTC [1] DEBUG:  00000: starting background worker process "logical replication launcher"
+2026-09-23 06:32:46.513 UTC [1] LOCATION:  do_start_bgworker, postmaster.c:5656
+2026-09-23 06:32:46.514 UTC [58] DEBUG:  00000: removing permanent stats file "pg_stat/global.stat"
+2026-09-23 06:32:46.514 UTC [58] LOCATION:  pgstat_read_statsfiles, pgstat.c:5157
+2026-09-23 06:32:46.514 UTC [58] DEBUG:  00000: received inquiry for database 0
+2026-09-23 06:32:46.514 UTC [58] LOCATION:  pgstat_recv_inquiry, pgstat.c:5640
+2026-09-23 06:32:46.514 UTC [58] DEBUG:  00000: writing stats file "pg_stat_tmp/global.stat"
+2026-09-23 06:32:46.514 UTC [58] LOCATION:  pgstat_write_statsfiles, pgstat.c:4684
+2026-09-23 06:32:46.514 UTC [1] LOG:  00000: database system is ready to accept connections
+2026-09-23 06:32:46.514 UTC [1] LOCATION:  reaper, postmaster.c:2888
+2026-09-23 06:32:46.515 UTC [59] DEBUG:  00000: logical replication launcher started
+2026-09-23 06:32:46.515 UTC [59] LOCATION:  ApplyLauncherMain, launcher.c:988
+2026-09-23 06:32:47.162 UTC [1] DEBUG:  00000: forked new backend, pid=66 socket=10
+2026-09-23 06:32:47.162 UTC [1] LOCATION:  BackendStartup, postmaster.c:4055
+2026-09-23 06:32:47.184 UTC [1] DEBUG:  00000: server process (PID 66) exited with exit code 0
+2026-09-23 06:32:47.184 UTC [1] LOCATION:  LogChildExit, postmaster.c:3557
+2026-09-23 06:32:47.478 UTC [1] DEBUG:  00000: forked new backend, pid=80 socket=10
+2026-09-23 06:32:47.478 UTC [1] LOCATION:  BackendStartup, postmaster.c:4055
+2026-09-23 06:32:47.480 UTC [80] LOG:  00000: statement: CREATE TABLE users(
+	    user_id int,
+	    name varchar(64),
+	    unique (user_id, name)
+	) PARTITION BY HASH(user_id);
+2026-09-23 06:32:47.480 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.482 UTC [80] DEBUG:  00000: CREATE TABLE / UNIQUE will create implicit index "users_user_id_name_key" for table "users"
+2026-09-23 06:32:47.482 UTC [80] LOCATION:  DefineIndex, indexcmds.c:809
+2026-09-23 06:32:47.489 UTC [80] LOG:  00000: statement: CREATE TABLE users_000 PARTITION OF users FOR VALUES WITH (modulus 2, remainder 0);
+2026-09-23 06:32:47.489 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.489 UTC [80] DEBUG:  00000: CREATE TABLE / UNIQUE will create implicit index "users_000_user_id_name_key" for table "users_000"
+2026-09-23 06:32:47.489 UTC [80] LOCATION:  DefineIndex, indexcmds.c:809
+2026-09-23 06:32:47.490 UTC [80] DEBUG:  00000: building index "users_000_user_id_name_key" on table "users_000" serially
+2026-09-23 06:32:47.490 UTC [80] LOCATION:  index_build, index.c:2297
+2026-09-23 06:32:47.496 UTC [80] LOG:  00000: statement: CREATE TABLE users_001 PARTITION OF users FOR VALUES WITH (modulus 2, remainder 1);
+2026-09-23 06:32:47.496 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.497 UTC [80] DEBUG:  00000: CREATE TABLE / UNIQUE will create implicit index "users_001_user_id_name_key" for table "users_001"
+2026-09-23 06:32:47.497 UTC [80] LOCATION:  DefineIndex, indexcmds.c:809
+2026-09-23 06:32:47.497 UTC [80] DEBUG:  00000: building index "users_001_user_id_name_key" on table "users_001" serially
+2026-09-23 06:32:47.497 UTC [80] LOCATION:  index_build, index.c:2297
+2026-09-23 06:32:47.501 UTC [80] LOG:  00000: statement: ALTER TABLE users ALTER COLUMN name TYPE varchar(127);
+2026-09-23 06:32:47.501 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.502 UTC [80] DEBUG:  00000: drop auto-cascades to index users_user_id_name_key
+2026-09-23 06:32:47.502 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.502 UTC [80] DEBUG:  00000: drop auto-cascades to constraint users_000_user_id_name_key on table users_000
+2026-09-23 06:32:47.502 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.502 UTC [80] DEBUG:  00000: drop auto-cascades to index users_000_user_id_name_key
+2026-09-23 06:32:47.502 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.502 UTC [80] DEBUG:  00000: drop auto-cascades to constraint users_001_user_id_name_key on table users_001
+2026-09-23 06:32:47.502 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.502 UTC [80] DEBUG:  00000: drop auto-cascades to index users_001_user_id_name_key
+2026-09-23 06:32:47.502 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] LOG:  00000: statement: BEGIN;
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.506 UTC [80] LOG:  00000: statement: DROP TABLE users;
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to constraint users_user_id_name_key on table users
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to index users_user_id_name_key
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users[]
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to table users_000
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to constraint users_000_user_id_name_key on table users_000
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to index users_000_user_id_name_key
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users_000
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users_000[]
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to table users_001
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to constraint users_001_user_id_name_key on table users_001
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to index users_001_user_id_name_key
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users_001
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.506 UTC [80] DEBUG:  00000: drop auto-cascades to type users_001[]
+2026-09-23 06:32:47.506 UTC [80] LOCATION:  reportDependentObjects, dependency.c:906
+2026-09-23 06:32:47.507 UTC [80] LOG:  00000: statement: COMMIT;
+2026-09-23 06:32:47.507 UTC [80] LOCATION:  exec_simple_query, postgres.c:975
+2026-09-23 06:32:47.509 UTC [80] ERROR:  XX000: SMgrRelation hashtable corrupted
+2026-09-23 06:32:47.509 UTC [80] LOCATION:  smgrclose, smgr.c:312
+2026-09-23 06:32:47.509 UTC [80] STATEMENT:  COMMIT;
+2026-09-23 06:32:47.509 UTC [80] WARNING:  01000: AbortTransaction while in COMMIT state
+2026-09-23 06:32:47.509 UTC [80] LOCATION:  AbortTransaction, xact.c:2557
+2026-09-23 06:32:47.509 UTC [80] PANIC:  XX000: cannot abort transaction 573, it was already committed
+2026-09-23 06:32:47.509 UTC [80] LOCATION:  RecordTransactionAbort, xact.c:1581
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: server process (PID 80) was terminated by signal 6: Aborted
+2026-09-23 06:32:47.990 UTC [1] DETAIL:  Failed process was running: COMMIT;
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  LogChildExit, postmaster.c:3579
+2026-09-23 06:32:47.990 UTC [1] LOG:  00000: server process (PID 80) was terminated by signal 6: Aborted
+2026-09-23 06:32:47.990 UTC [1] DETAIL:  Failed process was running: COMMIT;
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  LogChildExit, postmaster.c:3579
+2026-09-23 06:32:47.990 UTC [1] LOG:  00000: terminating any other active server processes
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3299
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 59
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3344
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 55
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3426
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 54
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3438
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 56
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3450
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 57
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3474
+2026-09-23 06:32:47.990 UTC [1] DEBUG:  00000: sending SIGQUIT to process 58
+2026-09-23 06:32:47.990 UTC [1] LOCATION:  HandleChildCrash, postmaster.c:3504
+2026-09-23 06:32:47.990 UTC [58] DEBUG:  00000: writing stats file "pg_stat/global.stat"
+2026-09-23 06:32:47.990 UTC [58] LOCATION:  pgstat_write_statsfiles, pgstat.c:4684
+2026-09-23 06:32:47.990 UTC [58] DEBUG:  00000: writing stats file "pg_stat/db_13067.stat"
+2026-09-23 06:32:47.990 UTC [58] LOCATION:  pgstat_write_db_statsfile, pgstat.c:4841
+2026-09-23 06:32:47.990 UTC [58] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_13067.stat"
+2026-09-23 06:32:47.990 UTC [58] LOCATION:  pgstat_write_db_statsfile, pgstat.c:4922
+2026-09-23 06:32:47.990 UTC [58] DEBUG:  00000: writing stats file "pg_stat/db_0.stat"
+2026-09-23 06:32:47.990 UTC [58] LOCATION:  pgstat_write_db_statsfile, pgstat.c:4841
+2026-09-23 06:32:47.991 UTC [58] DEBUG:  00000: removing temporary stats file "pg_stat_tmp/db_0.stat"
+2026-09-23 06:32:47.991 UTC [58] LOCATION:  pgstat_write_db_statsfile, pgstat.c:4922
+2026-09-23 06:32:47.993 UTC [57] WARNING:  57P02: terminating connection because of crash of another server process
+2026-09-23 06:32:47.993 UTC [57] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2026-09-23 06:32:47.993 UTC [57] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2026-09-23 06:32:47.993 UTC [57] LOCATION:  quickdie, postgres.c:2663
+2026-09-23 06:32:47.995 UTC [1] LOG:  00000: all server processes terminated; reinitializing
+2026-09-23 06:32:47.995 UTC [1] LOCATION:  PostmasterStateMachine, postmaster.c:3823
+2026-09-23 06:32:47.995 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 1257395572
+2026-09-23 06:32:47.995 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:377
+2026-09-23 06:32:48.015 UTC [1] DEBUG:  00000: mmap(148897792) with MAP_HUGETLB failed, huge pages disabled: Cannot allocate memory
+2026-09-23 06:32:48.015 UTC [1] LOCATION:  CreateAnonymousSegment, pg_shmem.c:485
+2026-09-23 06:32:48.328 UTC [1] DEBUG:  00000: SlruScanDirectory invoking callback on pg_notify/0000
+2026-09-23 06:32:48.328 UTC [1] LOCATION:  SlruScanDirectory, slru.c:1398
+2026-09-23 06:32:48.328 UTC [1] DEBUG:  00000: removing file "pg_notify/0000"
+2026-09-23 06:32:48.328 UTC [1] LOCATION:  SlruInternalDeleteSegment, slru.c:1253
+2026-09-23 06:32:48.328 UTC [1] DEBUG:  00000: dynamic shared memory system will support 288 segments
+2026-09-23 06:32:48.328 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:170
+2026-09-23 06:32:48.329 UTC [1] DEBUG:  00000: created dynamic shared memory control segment 570364146 (6928 bytes)
+2026-09-23 06:32:48.329 UTC [1] LOCATION:  dsm_postmaster_startup, dsm.c:195
+2026-09-23 06:32:48.331 UTC [81] LOG:  00000: database system was interrupted; last known up at 2026-09-23 06:32:46 UTC
+2026-09-23 06:32:48.331 UTC [81] LOCATION:  StartupXLOG, xlog.c:6388
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: checkpoint record is at 0/1651C80
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6646
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: redo record is at 0/1651C80; shutdown true
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6724
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: next transaction ID: 0:569; next OID: 13068
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6728
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: next MultiXactId: 1; next MultiXactOffset: 0
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6731
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: oldest unfrozen transaction ID: 562, in database 1
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6734
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: oldest MultiXactId: 1, in database 1
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6737
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: commit timestamp Xid oldest/newest: 0/0
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6741
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: transaction ID wrap limit is 2147484209, limited by database with OID 1
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  SetTransactionIdLimit, varsup.c:368
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: MultiXactId wrap limit is 2147483648, limited by database with OID 1
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  SetMultiXactIdLimit, multixact.c:2269
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: starting up replication slots
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupReplicationSlots, slot.c:1115
+2026-09-23 06:32:48.409 UTC [81] DEBUG:  00000: starting up replication origin progress state
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupReplicationOrigin, origin.c:699
+2026-09-23 06:32:48.409 UTC [81] LOG:  00000: database system was not properly shut down; automatic recovery in progress
+2026-09-23 06:32:48.409 UTC [81] LOCATION:  StartupXLOG, xlog.c:6879
+2026-09-23 06:32:48.416 UTC [81] DEBUG:  00000: resetting unlogged relations: cleanup 1 init 0
+2026-09-23 06:32:48.416 UTC [81] LOCATION:  ResetUnloggedRelations, reinit.c:57
+2026-09-23 06:32:48.417 UTC [81] LOG:  00000: redo starts at 0/1651CF0
+2026-09-23 06:32:48.417 UTC [81] LOCATION:  StartupXLOG, xlog.c:7150
+2026-09-23 06:32:48.419 UTC [81] FATAL:  XX000: SMgrRelation hashtable corrupted
+2026-09-23 06:32:48.419 UTC [81] CONTEXT:  WAL redo at 0/16782A8 for Transaction/COMMIT: 2026-09-23 06:32:47.50713+00; rels: base/13067/16389 base/13067/16387 base/13067/16394 base/13067/16387; inval msgs: catcache 41 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 19 catcache 32 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 74 catcache 73 catcache 74 catcache 73 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 19 catcache 32 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 74 catcache 73 catcache 74 catcache 73 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 19 catcache 32 catcache 7 catcache 6 catcache 7 catcache 6 catcache 50 catcache 49 catcache 74 catcache 73 catcache 74 catcache 73 relcache 16384 snapshot 2608 snapshot 2608 relcache 16399 relcache 16384 snapshot 2608 snapshot 2608 snapshot 2608 relcache 16389 relcache 16384 snapshot 2608 snapshot 2608 relcache 16401 relcache 16389 snapshot 2608 snapshot 2608 snapshot 2608 relcache 16394 relcache 16384 snapshot 2608 snapshot 2608 relcache 16403 relcache 16394 snapshot 2608 snapshot 2608 snapshot 2608
+2026-09-23 06:32:48.419 UTC [81] LOCATION:  smgrclose, smgr.c:312
+2026-09-23 06:32:48.421 UTC [1] LOG:  00000: startup process (PID 81) exited with exit code 1
+2026-09-23 06:32:48.421 UTC [1] LOCATION:  LogChildExit, postmaster.c:3557
+2026-09-23 06:32:48.421 UTC [1] LOG:  00000: aborting startup due to startup process failure
+2026-09-23 06:32:48.421 UTC [1] LOCATION:  reaper, postmaster.c:2827
+2026-09-23 06:32:48.421 UTC [1] DEBUG:  00000: cleaning up dynamic shared memory control segment with ID 570364146
+2026-09-23 06:32:48.421 UTC [1] LOCATION:  dsm_postmaster_shutdown, dsm.c:377
+2026-09-23 06:32:48.426 UTC [1] LOG:  00000: database system is shut down
+2026-09-23 06:32:48.426 UTC [1] LOCATION:  UnlinkLockFiles, miscinit.c:860

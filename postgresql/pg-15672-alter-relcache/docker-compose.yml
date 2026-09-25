@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:11.2
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./logs:/var/log/postgresql
+    command:
+      - "postgres"
+      - "-c"
+      - "logging_collector=on"
+      - "-c"
+      - "log_directory=/var/log/postgresql"
+      - "-c"
+      - "log_filename=output.log"
+      - "-c"
+      - "log_statement=all"
+      - "-c"
+      - "log_min_messages=debug2"
+      - "-c"
+      - "log_error_verbosity=verbose"
