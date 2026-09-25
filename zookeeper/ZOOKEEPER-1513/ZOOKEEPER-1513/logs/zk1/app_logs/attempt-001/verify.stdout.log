@@ -1,0 +1,8 @@
+write.acknowledged=true
+write.payload.size.matches=true
+write.payload.digest.matches=true
+write.transaction.size.matches=true
+restart.failed=true
+restart.exact.length.seen=true
+restart.replay.path.seen=true
+reproduced=true

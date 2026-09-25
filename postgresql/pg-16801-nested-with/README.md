@@ -7,6 +7,7 @@
 
 # reproduce
 sudo chmod +x ./trigger.sh
+
 ./trigger.sh
 
 # Check

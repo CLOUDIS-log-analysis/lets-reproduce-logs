@@ -1,0 +1,60 @@
+2026-09-16 02:00:49,712 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:00:49,713 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:00:49,721 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:00:49,722 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+2026-09-16 02:00:49,724 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:host.name=a2fe0fc9913c
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:00:49,725 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+2026-09-16 02:00:49,726 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:00:49,732 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+2026-09-16 02:00:49,732 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+2026-09-16 02:00:49,732 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+2026-09-16 02:00:49,740 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:00:49,748 - INFO  [main:FileTxnSnapLog@254] - Snapshotting: 0
+2026-09-16 02:01:07,195 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:45470
+2026-09-16 02:01:07,203 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /172.25.0.1:45470
+2026-09-16 02:01:07,209 - INFO  [Thread-1:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:45470 (no session established for client)
+2026-09-16 02:01:18,916 - INFO  [main:Environment@97] - Client environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:host.name=a2fe0fc9913c
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:java.version=1.8.0_502
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:java.vendor=Temurin
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:01:18,918 - INFO  [main:Environment@97] - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:java.io.tmpdir=/tmp
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:java.compiler=<NA>
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:os.name=Linux
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:os.arch=amd64
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:os.version=6.8.0-139-generic
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:user.name=zookeeper
+2026-09-16 02:01:18,919 - INFO  [main:Environment@97] - Client environment:user.home=/var/lib/zookeeper
+2026-09-16 02:01:18,920 - INFO  [main:Environment@97] - Client environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:01:18,920 - INFO  [main:ZooKeeper@379] - Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@5010be6
+2026-09-16 02:01:18,941 - INFO  [main-SendThread():ClientCnxn$SendThread@1061] - Opening socket connection to server /127.0.0.1:2181
+2026-09-16 02:01:19,033 - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@950] - Socket connection established to localhost/127.0.0.1:2181, initiating session
+2026-09-16 02:01:19,033 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /127.0.0.1:41986
+2026-09-16 02:01:19,051 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@777] - Client attempting to establish new session at /127.0.0.1:41986
+2026-09-16 02:01:19,058 - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+2026-09-16 02:01:19,088 - INFO  [SyncThread:0:NIOServerCnxn@1580] - Established session 0xffa0a7f1ff580000 with negotiated timeout 30000 for client /127.0.0.1:41986
+2026-09-16 02:01:19,093 - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@739] - Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0xffa0a7f1ff580000, negotiated timeout = 30000
+2026-09-16 02:01:19,183 - INFO  [ProcessThread:-1:PrepRequestProcessor@391] - Processed session termination for sessionid: 0xffa0a7f1ff580000
+2026-09-16 02:01:19,188 - INFO  [main:ZooKeeper@544] - Session: 0xffa0a7f1ff580000 closed
+2026-09-16 02:01:19,188 - INFO  [main-EventThread:ClientCnxn$EventThread@521] - EventThread shut down
+2026-09-16 02:01:19,190 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1435] - Closed socket connection for client /127.0.0.1:41986 which had sessionid 0xffa0a7f1ff580000
+2026-09-16 02:01:19,287 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:37348
+2026-09-16 02:01:19,288 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /172.25.0.1:37348
+2026-09-16 02:01:19,292 - INFO  [Thread-2:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:37348 (no session established for client)
+2026-09-16 02:01:42,387 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:52582
+2026-09-16 02:01:42,390 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /172.25.0.1:52582
+2026-09-16 02:01:42,394 - INFO  [Thread-3:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:52582 (no session established for client)

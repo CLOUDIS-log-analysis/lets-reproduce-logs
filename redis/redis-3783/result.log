@@ -1,0 +1,242 @@
+554346:C 22 Sep 01:02:57.015 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+554346:C 22 Sep 01:02:57.015 # Redis version=999.999.999, bits=64, commit=2e4f53a7, modified=1, pid=554346, just started
+554346:C 22 Sep 01:02:57.015 # Configuration loaded
+554346:M 22 Sep 01:02:57.016 * Running mode=standalone, port=6379.
+554346:M 22 Sep 01:02:57.016 # Server initialized
+554346:M 22 Sep 01:02:57.016 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+554346:M 22 Sep 01:02:57.016 * Ready to accept connections
+554346:M 22 Sep 01:02:57.017 - 0 clients connected (0 slaves), 765600 bytes in use
+554346:M 22 Sep 01:03:02.037 - 0 clients connected (0 slaves), 765600 bytes in use
+554346:M 22 Sep 01:03:07.057 - 0 clients connected (0 slaves), 765600 bytes in use
+554346:M 22 Sep 01:03:12.077 - 0 clients connected (0 slaves), 765600 bytes in use
+554346:M 22 Sep 01:03:16.285 - Accepted 127.0.0.1:34780
+554346:M 22 Sep 01:03:17.098 - 1 clients connected (0 slaves), 786456 bytes in use
+554346:M 22 Sep 01:03:22.119 - 1 clients connected (0 slaves), 786456 bytes in use
+554346:M 22 Sep 01:03:27.138 - 1 clients connected (0 slaves), 786456 bytes in use
+554346:M 22 Sep 01:03:32.566 - DB 0: 1000000 keys (0 volatile) in 1048576 slots HT.
+554346:M 22 Sep 01:03:32.566 - 1 clients connected (0 slaves), 81174464 bytes in use
+554346:M 22 Sep 01:03:37.589 - DB 0: 1000000 keys (0 volatile) in 1048576 slots HT.
+554346:M 22 Sep 01:03:37.589 - 1 clients connected (0 slaves), 81174464 bytes in use
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+554346:M 22 Sep 01:03:41.360 # Redis 999.999.999 crashed by signal: 8
+554346:M 22 Sep 01:03:41.360 # Crashed running the instuction at: 0x442fba
+554346:M 22 Sep 01:03:41.360 # Failed assertion: <no assertion failed> (<no file>:0)
+
+------ STACK TRACE ------
+EIP:
+./src/redis-server *:6379(getMemoryDoctorReport+0xba)[0x442fba]
+
+Backtrace:
+./src/redis-server *:6379(logStackTrace+0x6b)[0x46f40b]
+./src/redis-server *:6379(sigsegvHandler+0xb1)[0x46fb51]
+/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0(+0x11f10)[0x756ab4411f10]
+./src/redis-server *:6379(getMemoryDoctorReport+0xba)[0x442fba]
+./src/redis-server *:6379(memoryCommand+0x555)[0x4438e5]
+./src/redis-server *:6379(call+0x86)[0x42f126]
+./src/redis-server *:6379(processCommand+0x45f)[0x42f8ff]
+./src/redis-server *:6379(processInputBuffer+0x115)[0x43f2c5]
+./src/redis-server *:6379(aeProcessEvents+0x124)[0x4290f4]
+./src/redis-server *:6379(aeMain+0x2b)[0x4294ab]
+./src/redis-server *:6379(main+0x37e)[0x42617e]
+/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6(__libc_start_main+0xee)[0x756ab4021b8e]
+./src/redis-server *:6379(_start+0x2a)[0x4265aa]
+
+------ INFO OUTPUT ------
+# Server
+redis_version:999.999.999
+redis_git_sha1:2e4f53a7
+redis_git_dirty:1
+redis_build_id:20c53bd58a0e31ca
+redis_mode:standalone
+os:Linux 7.1.5 x86_64
+arch_bits:64
+multiplexing_api:epoll
+gcc_version:7.3.0
+process_id:554346
+run_id:cbffaff3c0155a28a7e864de1a784aded52f78b3
+tcp_port:6379
+uptime_in_seconds:44
+uptime_in_days:0
+hz:10
+lru_clock:11621725
+executable:/home/sshkgw/repo/lets-reproduce-logs/rr/redis/./src/redis-server
+config_file:
+
+# Clients
+connected_clients:1
+client_longest_output_list:0
+client_biggest_input_buf:0
+blocked_clients:0
+
+# Memory
+used_memory:81216648
+used_memory_human:77.45M
+used_memory_rss:86700032
+used_memory_rss_human:82.68M
+used_memory_peak:81216648
+used_memory_peak_human:77.45M
+used_memory_peak_perc:100.00%
+used_memory_overhead:49203822
+used_memory_startup:765600
+used_memory_dataset:32012826
+used_memory_dataset_perc:39.79%
+total_system_memory:16149856256
+total_system_memory_human:15.04G
+used_memory_lua:37888
+used_memory_lua_human:37.00K
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+mem_fragmentation_ratio:1.07
+mem_allocator:jemalloc-4.0.3
+active_defrag_running:0
+lazyfree_pending_objects:0
+
+# Persistence
+loading:0
+rdb_changes_since_last_save:0
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1790006577
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_last_cow_size:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_last_write_status:ok
+aof_last_cow_size:0
+
+# Stats
+total_connections_received:1
+total_commands_processed:2
+instantaneous_ops_per_sec:0
+total_net_input_bytes:87
+total_net_output_bytes:898657
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_keys:0
+evicted_keys:0
+keyspace_hits:0
+keyspace_misses:0
+pubsub_channels:0
+pubsub_patterns:0
+latest_fork_usec:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+
+# Replication
+role:master
+connected_slaves:0
+master_replid:b3ca5509afeefb813de9f33ecb4ac0cd6be03216
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:0.06
+used_cpu_user:0.42
+used_cpu_sys_children:0.00
+used_cpu_user_children:0.00
+
+# Commandstats
+cmdstat_debug:calls=1,usec=424158,usec_per_call=424158.00
+cmdstat_command:calls=1,usec=199,usec_per_call=199.00
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=1000000,expires=0,avg_ttl=0
+hash_init_value: 1790516203
+
+------ CLIENT LIST OUTPUT ------
+id=2 addr=127.0.0.1:34780 fd=6 name= age=25 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 events=r cmd=memory
+
+------ CURRENT CLIENT INFO ------
+id=2 addr=127.0.0.1:34780 fd=6 name= age=25 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 events=r cmd=memory
+argv[0]: 'MEMORY'
+argv[1]: 'DOCTOR'
+
+------ REGISTERS ------
+554346:M 22 Sep 01:03:41.360 # 
+RAX:0000000000000000 RBX:0000756ab3623000
+RCX:0000000001e87582 RDX:0000000000000000
+RDI:0000000000000000 RSI:0000000000765820
+RBP:0000000000000000 RSP:00007ffc78b306f0
+R8 :0000000000000000 R9 :00000000007678a8
+R10:0000756ab3600000 R11:0000000000767880
+R12:0000000000000000 R13:0000756ab371c600
+R14:0000000000000000 R15:0000756aacf87280
+RIP:0000000000442fba EFL:0000000000010246
+CSGSFS:002b000000000033
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306ff) -> 0000756ab361fb10
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306fe) -> 0000756ab3618060
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306fd) -> 000000000042ab69
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306fc) -> 0000756ab3e00180
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306fb) -> 000000000000a000
+554346:M 22 Sep 01:03:41.360 # (00007ffc78b306fa) -> 0000756ab360d000
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f9) -> 0000000000008006
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f8) -> 0000756ab360d000
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f7) -> 00000000004438e5
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f6) -> 0000756ab371c600
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f5) -> 0000000000000000
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f4) -> 0000756aacf868f3
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f3) -> 0000756ab371c600
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f2) -> 0000000000000000
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f1) -> 0000756ab3e00188
+554346:M 22 Sep 01:03:41.361 # (00007ffc78b306f0) -> 000000000000a000
+
+------ FAST MEMORY TEST ------
+554346:M 22 Sep 01:03:41.361 # Bio thread for job type #0 terminated
+554346:M 22 Sep 01:03:41.361 # Bio thread for job type #1 terminated
+554346:M 22 Sep 01:03:41.361 # Bio thread for job type #2 terminated
+*** Preparing to test memory region 751000 (94208 bytes)
+*** Preparing to test memory region 6e36000 (135168 bytes)
+*** Preparing to test memory region 756aace00000 (81788928 bytes)
+*** Preparing to test memory region 756ab1dfe000 (8388608 bytes)
+*** Preparing to test memory region 756ab25ff000 (8388608 bytes)
+*** Preparing to test memory region 756ab2e00000 (8388608 bytes)
+*** Preparing to test memory region 756ab3600000 (2097152 bytes)
+*** Preparing to test memory region 756ab3e00000 (2097152 bytes)
+*** Preparing to test memory region 756ab43b0000 (16384 bytes)
+*** Preparing to test memory region 756ab461b000 (16384 bytes)
+*** Preparing to test memory region 756ab5226000 (4096 bytes)
+*** Preparing to test memory region 756ab531e000 (16384 bytes)
+.O.O.O.O.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+------ DUMPING CODE AROUND EIP ------
+Symbol: getMemoryDoctorReport (base: 0x442f00)
+Module: ./src/redis-server *:6379 (base 0x400000)
+$ xxd -r -p /tmp/dump.hex /tmp/dump.bin
+$ objdump --adjust-vma=0x442f00 -D -b binary -m i386:x86-64 /tmp/dump.bin
+------
+554346:M 22 Sep 01:03:41.693 # dump of function (hexdump of 256 bytes):
+4155415455534883ec18e891fbffff4889c3488b4008483dffff4f00772a488d3d93750c00e81604ffff4889c54889dfe84bfbffff4883c4184889e85b5d415c415dc30f1f440000488b134885d20f8834010000660fefc94885c0f3480f2aca0f8847010000660fefc0f3480f2ac04531c0f30f5ec80f2e0dff820c000f28c1660fefc9f30f5a4b60410f97c031ed660f2e0dd9820c0076094183c001bd0100000048c7c62058760031d2488b8600020000488b7828488b432048f7f731d24889c1488b86e8010000488b7028488b43284829fe48f7f6483d0020030077314881f90000a0000f87e40000004585c00f8538010000488d3d4c740c00e83f03ff
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/antirez/redis/issues
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+

@@ -1,0 +1,69 @@
+Evidence tree before protection:
+logs/zk1/app_logs/attempt-001
+logs/zk1/app_logs/attempt-001/client-output.log
+logs/zk1/app_logs/attempt-001/container-console-final.log
+logs/zk1/app_logs/attempt-001/container-console-startup.log
+logs/zk1/app_logs/attempt-001/verify-output.log
+logs/zk1/app_logs/attempt-001/zookeeper.log
+logs/zk1/jvm_logs/attempt-001
+logs/zk1/jvm_logs/attempt-001/client-pid.txt
+logs/zk1/jvm_logs/attempt-001/java-version.txt
+logs/zk1/jvm_logs/attempt-001/thread-dump.log
+logs/zk1/os_logs/attempt-001
+logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+logs/zk1/os_logs/attempt-001/client-execution.txt
+logs/zk1/os_logs/attempt-001/container-id.txt
+logs/zk1/os_logs/attempt-001/container-inspect-running-end.json
+logs/zk1/os_logs/attempt-001/container-inspect-start.json
+logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+logs/zk1/os_logs/attempt-001/container-stats-end.txt
+logs/zk1/os_logs/attempt-001/container-stats-start.txt
+logs/zk1/os_logs/attempt-001/container-stop.txt
+logs/zk1/os_logs/attempt-001/docker-run-status.txt
+logs/zk1/os_logs/attempt-001/environment.txt
+logs/zk1/os_logs/attempt-001/final-capture-status.txt
+logs/zk1/os_logs/attempt-001/permissions-before-protection.txt
+logs/zk1/os_logs/attempt-001/server-readiness.txt
+logs/zk1/os_logs/attempt-001/verifier-status.txt
+logs/zk1/snapshot_data/attempt-001
+logs/zk1/snapshot_data/attempt-001/tmp
+logs/zk1/snapshot_data/attempt-001/txnlog
+logs/zk1/snapshot_data/attempt-001/version-2
+logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+logs/zk1/txn_logs/attempt-001
+logs/zk1/txn_logs/attempt-001/version-2
+logs/zk1/txn_logs/attempt-001/version-2/log.1
+Modes and ownership:
+-rw-r--r-- shkim:docker 14 logs/zk1/os_logs/attempt-001/verifier-status.txt
+-rw-r--r-- shkim:docker 18 logs/zk1/os_logs/attempt-001/docker-run-status.txt
+-rw-r--r-- shkim:docker 182 logs/zk1/os_logs/attempt-001/client-execution.txt
+-rw-r--r-- shkim:docker 183 logs/zk1/jvm_logs/attempt-001/java-version.txt
+-rw-r--r-- shkim:docker 21 logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+-rw-r--r-- shkim:docker 234 logs/zk1/os_logs/attempt-001/container-stats-start.txt
+-rw-r--r-- shkim:docker 236 logs/zk1/os_logs/attempt-001/container-stats-end.txt
+-rw-r--r-- shkim:docker 26 logs/zk1/os_logs/attempt-001/container-stop.txt
+-rw-r--r-- shkim:docker 296 logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+-rw-r--r-- shkim:docker 358 logs/zk1/os_logs/attempt-001/environment.txt
+-rw-r--r-- shkim:docker 4495 logs/zk1/app_logs/attempt-001/container-console-startup.log
+-rw-r--r-- shkim:docker 4586 logs/zk1/app_logs/attempt-001/client-output.log
+-rw-r--r-- shkim:docker 5285 logs/zk1/jvm_logs/attempt-001/thread-dump.log
+-rw-r--r-- shkim:docker 56 logs/zk1/app_logs/attempt-001/verify-output.log
+-rw-r--r-- shkim:docker 59 logs/zk1/os_logs/attempt-001/final-capture-status.txt
+-rw-r--r-- shkim:docker 63 logs/zk1/os_logs/attempt-001/server-readiness.txt
+-rw-r--r-- shkim:docker 65 logs/zk1/os_logs/attempt-001/container-id.txt
+-rw-r--r-- shkim:docker 67108880 logs/zk1/txn_logs/attempt-001/version-2/log.1
+-rw-r--r-- shkim:docker 7 logs/zk1/jvm_logs/attempt-001/client-pid.txt
+-rw-r--r-- shkim:docker 7215 logs/zk1/app_logs/attempt-001/zookeeper.log
+-rw-r--r-- shkim:docker 7286 logs/zk1/app_logs/attempt-001/container-console-final.log
+-rw-r--r-- shkim:docker 9374 logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+-rw-r--r-- shkim:docker 9763 logs/zk1/os_logs/attempt-001/container-inspect-running-end.json
+-rw-r--r-- shkim:docker 9763 logs/zk1/os_logs/attempt-001/container-inspect-start.json
+drwxr-xr-x root:root 4096 logs/zk1/snapshot_data/attempt-001/txnlog
+drwxr-xr-x shkim:docker 4096 logs/zk1/app_logs/attempt-001
+drwxr-xr-x shkim:docker 4096 logs/zk1/jvm_logs/attempt-001
+drwxr-xr-x shkim:docker 4096 logs/zk1/os_logs/attempt-001
+drwxr-xr-x shkim:docker 4096 logs/zk1/snapshot_data/attempt-001
+drwxr-xr-x shkim:docker 4096 logs/zk1/snapshot_data/attempt-001/tmp
+drwxr-xr-x shkim:docker 4096 logs/zk1/snapshot_data/attempt-001/version-2
+drwxr-xr-x shkim:docker 4096 logs/zk1/txn_logs/attempt-001
+drwxr-xr-x shkim:docker 4096 logs/zk1/txn_logs/attempt-001/version-2

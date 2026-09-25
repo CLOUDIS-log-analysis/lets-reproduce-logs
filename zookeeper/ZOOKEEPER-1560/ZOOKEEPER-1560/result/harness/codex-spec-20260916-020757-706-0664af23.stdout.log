@@ -1,0 +1,9 @@
+Completed the SPEC stage:
+
+- Created [README.md](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/README.md) with the evidence-backed reproduction procedure, rationale, controls, and hang oracle.
+- Created [repro.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/repro.properties) targeting ZooKeeper 3.4.4, JDK 6, one node, and three attempts.
+- Validated all six required workflow keys and `attempt.count=3`.
+- Did not create Docker files, Java code, or experiment attempts.
+- Did not modify `status.properties`, `logs/`, or existing `result/` artifacts.
+
+All validation commands exited successfully.

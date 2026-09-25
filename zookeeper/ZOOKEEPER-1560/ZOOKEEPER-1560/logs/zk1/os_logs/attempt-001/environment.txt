@@ -1,0 +1,8 @@
+attempt=attempt-001
+started_utc=2026-09-16T02:32:16Z
+host_uid=1000
+host_gid=988
+kernel=Linux 6.8.0-139-generic #139-Ubuntu SMP PREEMPT_DYNAMIC Sat Aug  1 03:52:05 UTC 2026 x86_64
+docker_version=29.8.1
+image_id=sha256:115b9707c1d3ccc3e947a1e8ebb6da50255a4d45b66ebe1d84e5b4e2311cb421
+jar_sha256=9433b765557ed49344ef64605273e086d13fd6b63dca7e79c0e47bc618e0ef13

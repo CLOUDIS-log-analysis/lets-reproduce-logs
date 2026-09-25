@@ -1,0 +1,2 @@
+16 org.apache.zookeeper.server.quorum.QuorumPeerMain /etc/zookeeper/zoo.cfg
+34 sun.tools.jcmd.JCmd -l

@@ -1,0 +1,9 @@
+Environment stage completed successfully.
+
+- Downloaded and checksum-verified ZooKeeper 3.4.4 and Zulu OpenJDK 6u119 in [dist](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/dist).
+- Added [Dockerfile](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/Dockerfile), [compose.yml](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/compose.yml), [zoo.cfg](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/config/zoo.cfg), and [log4j.properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/config/log4j.properties).
+- Built `zookeeper-1560:3.4.4-jdk6` with a clean, no-cache build; exit status was 0.
+- Verified OpenJDK `1.6.0-119` and ZooKeeper `3.4.4-1386507`.
+- Verified non-root UID/GID 1000, umask `0022`, files created as `0644`, and directories as `0755`.
+- Added [protect-artifacts.sh](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/scripts/protect-artifacts.sh) for read-only, host-readable captured artifacts.
+- No server, reproduction, or fault-injection experiment was run. No Java reproduction sources were created, and existing `result/` artifacts remain untouched.

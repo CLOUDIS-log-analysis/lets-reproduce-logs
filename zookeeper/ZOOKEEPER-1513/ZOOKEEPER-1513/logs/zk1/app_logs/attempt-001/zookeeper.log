@@ -1,0 +1,75 @@
+2026-09-16 02:03:45,390 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:03:45,392 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:03:45,401 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:03:45,401 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+2026-09-16 02:03:45,404 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:03:45,404 - INFO  [main:Environment@97] - Server environment:host.name=1d789fc90370
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:03:45,405 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+2026-09-16 02:03:45,406 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:03:45,410 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+2026-09-16 02:03:45,411 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+2026-09-16 02:03:45,411 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+2026-09-16 02:03:45,444 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:03:45,465 - INFO  [main:FileTxnSnapLog@254] - Snapshotting: 0
+2026-09-16 02:04:01,448 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:48484
+2026-09-16 02:04:01,453 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /172.25.0.1:48484
+2026-09-16 02:04:01,459 - INFO  [Thread-1:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:48484 (no session established for client)
+2026-09-16 02:04:19,295 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:39400
+2026-09-16 02:04:19,306 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@777] - Client attempting to establish new session at /172.25.0.1:39400
+2026-09-16 02:04:19,311 - INFO  [SyncThread:0:FileTxnLog@199] - Creating new log file: log.1
+2026-09-16 02:04:19,340 - INFO  [SyncThread:0:NIOServerCnxn@1580] - Established session 0xffa0a7f4adbf0000 with negotiated timeout 10000 for client /172.25.0.1:39400
+2026-09-16 02:04:19,793 - INFO  [ProcessThread:-1:PrepRequestProcessor@391] - Processed session termination for sessionid: 0xffa0a7f4adbf0000
+2026-09-16 02:04:19,802 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:39400 which had sessionid 0xffa0a7f4adbf0000
+2026-09-16 02:04:47,075 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn$Factory@251] - Accepted socket connection from /172.25.0.1:38192
+2026-09-16 02:04:47,077 - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1237] - Processing ruok command from /172.25.0.1:38192
+2026-09-16 02:04:47,081 - INFO  [Thread-2:NIOServerCnxn@1435] - Closed socket connection for client /172.25.0.1:38192 (no session established for client)
+2026-09-16 02:05:01,597 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,599 - WARN  [main:QuorumPeerMain@105] - Either no config or no quorum defined in config, running  in standalone mode
+2026-09-16 02:05:01,607 - INFO  [main:QuorumPeerConfig@90] - Reading configuration from: /etc/zookeeper/zoo.cfg
+2026-09-16 02:05:01,607 - INFO  [main:ZooKeeperServerMain@94] - Starting server
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:zookeeper.version=3.3.3-1203054, built on 11/17/2011 05:47 GMT
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:host.name=1d789fc90370
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.version=1.8.0_502
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.vendor=Temurin
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.home=/opt/java/openjdk/jre
+2026-09-16 02:05:01,610 - INFO  [main:Environment@97] - Server environment:java.class.path=/opt/zookeeper-3.3.4/bin/../build/classes:/opt/zookeeper-3.3.4/bin/../build/lib/*.jar:/opt/zookeeper-3.3.4/bin/../zookeeper-3.3.4.jar:/opt/zookeeper-3.3.4/bin/../lib/log4j-1.2.15.jar:/opt/zookeeper-3.3.4/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-lang-2.4.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-collections-3.2.jar:/opt/zookeeper-3.3.4/bin/../lib/commons-cli-1.1.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-tasks-0.6.jar:/opt/zookeeper-3.3.4/bin/../lib/apache-rat-core-0.6.jar:/opt/zookeeper-3.3.4/bin/../src/java/lib/*.jar:/etc/zookeeper:
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.io.tmpdir=/tmp
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:java.compiler=<NA>
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.name=Linux
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.arch=amd64
+2026-09-16 02:05:01,611 - INFO  [main:Environment@97] - Server environment:os.version=6.8.0-139-generic
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.name=zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.home=/var/lib/zookeeper
+2026-09-16 02:05:01,612 - INFO  [main:Environment@97] - Server environment:user.dir=/opt/zookeeper-3.3.4
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@663] - tickTime set to 2000
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@672] - minSessionTimeout set to -1
+2026-09-16 02:05:01,615 - INFO  [main:ZooKeeperServer@681] - maxSessionTimeout set to -1
+2026-09-16 02:05:01,649 - INFO  [main:NIOServerCnxn$Factory@143] - binding to port 0.0.0.0/0.0.0.0:2181
+2026-09-16 02:05:01,670 - INFO  [main:FileSnap@82] - Reading snapshot /var/lib/zookeeper/version-2/snapshot.0
+2026-09-16 02:05:01,681 - FATAL [main:ZooKeeperServerMain@62] - Unexpected exception, exiting abnormally
+java.io.IOException: Unreasonable length = 1048583
+	at org.apache.jute.BinaryInputArchive.readBuffer(BinaryInputArchive.java:100)
+	at org.apache.zookeeper.server.persistence.Util.readTxnBytes(Util.java:232)
+	at org.apache.zookeeper.server.persistence.FileTxnLog$FileTxnIterator.next(FileTxnLog.java:602)
+	at org.apache.zookeeper.server.persistence.FileTxnSnapLog.restore(FileTxnSnapLog.java:155)
+	at org.apache.zookeeper.server.ZKDatabase.loadDataBase(ZKDatabase.java:222)
+	at org.apache.zookeeper.server.ZooKeeperServer.loadData(ZooKeeperServer.java:239)
+	at org.apache.zookeeper.server.ZooKeeperServer.startdata(ZooKeeperServer.java:366)
+	at org.apache.zookeeper.server.NIOServerCnxn$Factory.startup(NIOServerCnxn.java:160)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.runFromConfig(ZooKeeperServerMain.java:110)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.initializeAndRun(ZooKeeperServerMain.java:85)
+	at org.apache.zookeeper.server.ZooKeeperServerMain.main(ZooKeeperServerMain.java:51)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.initializeAndRun(QuorumPeerMain.java:108)
+	at org.apache.zookeeper.server.quorum.QuorumPeerMain.main(QuorumPeerMain.java:76)

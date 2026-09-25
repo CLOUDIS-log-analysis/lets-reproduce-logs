@@ -1,0 +1,5 @@
+[NOTICE]   (515081) : Automatically setting global.maxconn to 262114.
+[NOTICE]   (515081) : haproxy version is 3.4-dev8
+[NOTICE]   (515081) : path to executable is haproxy/haproxy
+[WARNING]  (515081) : Unable to allocate master pipe for splicing, splicing disabled
+<fish: Job 1, 'haproxy/haproxy -f segmentation…' terminated by signal SIGSEGV (Address boundary error)>

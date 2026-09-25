@@ -1,0 +1,1797 @@
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0a80d-8430-7082-bb22-88f065fac8e2
+--------
+user
+You are working inside the reproduction directory for ZOOKEEPER-1560.
+Current Harness stage: EXPERIMENT.
+Jira XML source: 1560.xml.
+
+Mandatory rules for this invocation:
+- Work ONLY on the current stage. Do not jump ahead to later stages.
+- Inspect the existing repository state before creating or changing files.
+- Stay inside the current issue directory. Do not inspect or modify sibling ZOOKEEPER-* directories.
+- Never delete logs/ or result/.
+- Never truncate, replace, or overwrite an existing file under logs/ or result/.
+- Never delete or reuse an existing attempt directory or result/attempt-NNN.properties file.
+- Do not modify status.properties. Harness owns workflow state.
+- Do not put JIRA-specific workflow logic into the Harness project.
+- Every directory and regular file created by a container in a host bind mount must remain
+  traversable/readable by the host account running Harness. "Protected" means immutable,
+  not inaccessible. If the container runs as root, use umask 022 (not 027 or 077) or an
+  equivalent UID/GID and mode strategy.
+- Execute the relevant commands and inspect their real exit status/output instead of merely claiming success.
+- If an existing protected artifact conflicts with this stage, preserve it and report the conflict rather than destroying it.
+
+Perform exactly ONE experiment attempt: attempt-001.
+Harness requires 3 completed attempts in total for this issue.
+
+Before doing anything, verify that this attempt identifier is unused for experiment artifacts.
+If protected artifacts for attempt-001 already exist, do not alter them; stop and report the conflict.
+
+Required work for this attempt:
+- Run the implemented reproduction workload and fault injection for this single attempt.
+- Preserve per-node observation data under the explicit log categories:
+  app_logs, txn_logs, snapshot_data, jvm_logs, os_logs.
+- Use the exact path logs/zkN/<category>/attempt-001 for every node/category; never reuse an older attempt directory.
+- Confirm all newly captured attempt directories are host-traversable and all regular
+  evidence files are host-readable before completing the attempt.
+- Run the issue-specific Verify.java logic or equivalent deterministic verification prepared by this reproduction.
+- Create result/attempt-001.properties exactly once.
+- The result file must contain result=SUCCESS, result=FAILURE, or result=INCONCLUSIVE.
+- Additional attempt-specific evidence may be added, but existing results must remain untouched.
+
+Do not execute any second attempt in this invocation.
+
+codex
+I’ll first verify that `attempt-001` is completely unused, then inspect the repository’s experiment instructions and run only that attempt. I’ll preserve all existing logs/results and validate permissions plus the verifier’s actual output before writing the one result file.
+exec
+/bin/bash -lc "pwd && rg --files -g '"'!*'"' -g '*' | sed -n '1,240p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+logs/zookeeper.log
+pom.xml
+target/zookeeper-1560-reproduction-jar-with-dependencies.jar
+target/maven-archiver/pom.properties
+target/antrun/build-main.xml
+data/version-2/snapshot.0
+scripts/protect-artifacts.sh
+scripts/docker-entrypoint.sh
+status.properties
+1560.xml
+.dockerignore
+compose.yml
+Dockerfile
+repro.properties
+config/zoo.cfg
+config/log4j.properties
+target/classes/org/apache/zookeeper/FaultInjection.class
+target/classes/org/apache/zookeeper/Verify.class
+target/classes/org/apache/zookeeper/Reproduce.class
+target/zookeeper-1560-reproduction-1.0-SNAPSHOT.jar
+result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+result/harness/validator-20260916-021736-300-ff58125d.log
+result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+result/harness/validator-20260916-021736-512-f9ddec3e.log
+result/harness/validator-20260916-023052-452-26d5a225.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+result/harness/validator-20260916-022311-257-35ed03eb.log
+result/harness/validator-20260916-023052-233-987afca3.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+README.md
+data/baseline-retest/txnlog/version-2/log.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/ASSEMBLY_EXCEPTION
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/readme.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/THIRD_PARTY_README
+data/txnlog/version-2/log.1
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/LICENSE
+data/baseline-retest/version-2/snapshot.0
+dist/zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz
+dist/zookeeper-3.4.4.tar.gz
+dist/SHA256SUMS
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/CLASSPATH_EXCEPTION_NOTE
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/MalformedRequestException.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/N2.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/N1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Request.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Dispatcher.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Reply.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Handler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Dispatcher1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/B1.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/RequestHandler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Acceptor.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/StringContent.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/ChannelIO.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/BP.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/URLDumper.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/DispatcherN.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/RequestServicer.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Server.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Content.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/AcceptHandler.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/BN.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/Sendable.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/FileContent.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/nio/server/ChannelIOSecure.java
+src/main/java/org/apache/zookeeper/FaultInjection.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/Welcome.html
+src/main/java/org/apache/zookeeper/Verify.java
+src/main/java/org/apache/zookeeper/Reproduce.java
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/DISCLAIMER
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/build.properties
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/netbeans-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/jdk.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/nbproject/file-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/build.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/linux/jawt_md.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/linux/jni_md.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jni.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jvmti.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/classfile_constants.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jvmticmlr.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jdwpTransport.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/include/jawt.h
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/idlj.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstatd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/appletviewer.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/wsgen.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmiregistry.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jhat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/manifest.mf
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/truststore
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/index.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/build.properties
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/netbeans-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/jdk.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/project.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/nbproject/file-targets.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/build.xml
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/gui.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/java.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/conc.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/mm.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/extcheck.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/scriptpad.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/apt.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/resources/Main.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/pack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/wsimport.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/policytool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/orbd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jinfo.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jdb.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jar.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/xjc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jstack.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jmap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmic.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jrunscript.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/servertool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jsadebugd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/native2ascii.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javadoc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/unpack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javac.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/rmid.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/serialver.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jps.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/schemagen.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jarsigner.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/keytool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/javah.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/jconsole.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/ja_JP.eucJP/man1/tnameserv.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/META-INF/manifest.mf
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Font2DTest/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Font2DTest/Font2DTest.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Font2DTest/Font2DTest.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Font2DTest/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/scandir-start.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/scandir-config.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/remote-connection.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/connect-local-java-jar.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/connect-local-ant-run.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/scandir-result.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/connect-local.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/docfiles/remote-connection-failed.jpg
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/dt.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/java.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/extcheck.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/apt.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/pack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/wsimport.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/FileChooserDemo/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/policytool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/orbd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/FileChooserDemo/FileChooserDemo.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jinfo.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/FileChooserDemo/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jdb.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jar.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/xjc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/javap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jstack.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jmap.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/rmic.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jrunscript.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/servertool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jsadebugd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/native2ascii.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/javadoc.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/unpack200.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/javac.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/rmid.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/serialver.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jps.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/schemagen.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jarsigner.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/keytool.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/javah.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jconsole.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/tnameserv.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jhat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jstat.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/rmiregistry.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/appletviewer.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/wsgen.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/idlj.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/man/man1/jstatd.1
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/CodePointIM/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/CodePointIM/CodePointIM.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/CodePointIM/README_zh_CN.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/CodePointIM/README_ja.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/CodePointIM/README.html
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/SampleTree/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/SampleTree/SampleTree.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/SampleTree/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/textcolor.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/mail.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/memory.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/insertfile.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/memory.sh
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/linewrap.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/browse.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/memory.bat
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/scripting/scriptpad/src/scripts/memmonitor.js
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/keystore
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/sample/jmx/jmx-scandir/logging.properties
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Notepad/Notepad.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Notepad/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Notepad/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Metalworks/Metalworks.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Metalworks/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/Metalworks/README.txt
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/amd64/jli/libjli.so
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/jexec
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/orb.idl
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/jconsole.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/ct.sym
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/tools.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/ir.idl
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/lib/sa-jdi.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/TableExample/src.zip
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/TableExample/TableExample.jar
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/demo/jfc/TableExample/README.txt
+
+exec
+/bin/bash -lc 'set -o pipefail
+matches=$(find logs result -path '"'*/attempt-001' -o -path '*/attempt-001/*' -o -name 'attempt-001.properties' 2>/dev/null)
+printf '%s\\n' \""'$matches"
+if [ -e result/attempt-001.properties ] || find logs -type d -name attempt-001 -print -quit 2>/dev/null | grep -q .; then
+  exit 73
+fi
+printf '"'ATTEMPT_001_UNUSED\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+
+ATTEMPT_001_UNUSED
+
+exec
+/bin/bash -lc "sed -n '1,260p' README.md
+sed -n '1,260p' compose.yml
+sed -n '1,260p' scripts/docker-entrypoint.sh
+sed -n '1,220p' scripts/protect-artifacts.sh
+sed -n '1,260p' src/main/java/org/apache/zookeeper/Reproduce.java
+sed -n '1,260p' src/main/java/org/apache/zookeeper/FaultInjection.java
+sed -n '1,320p' src/main/java/org/apache/zookeeper/Verify.java
+sed -n '1,180p' repro.properties
+sed -n '1,220p' pom.xml" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+# ZOOKEEPER-1560 reproduction specification
+
+## Objective
+
+Reproduce the ZooKeeper 3.4.4 Java client hang reported as
+ZOOKEEPER-1560, "Zookeeper client hangs on creation of large nodes." The
+experiment must exercise the unmodified 3.4.4 client and server. It must not
+apply the eventual fix or substitute an artificial implementation of the
+client write path.
+
+The primary operation is a synchronous `ZooKeeper.create` of `/large` with a
+500,000-byte payload. The Jira description calls this "0.5M of data," and a
+later failure log reports an original packet limit of 500,074 bytes, which is
+consistent with that payload plus protocol framing.
+
+## Jira evidence and defect model
+
+The specification is based only on `1560.xml`:
+
+- Affected versions are 3.4.4 and 3.5.0; the listed fixed versions are 3.4.5
+  and 3.5.0. Version 3.4.4 is therefore the concrete released vulnerable
+  target.
+- The reporter says a Java-client create containing 0.5M of data waits
+  indefinitely for the server response.
+- The captured thread dump places the caller in `Object.wait`, reached through
+  `ClientCnxn.submitRequest`, while executing `ZooKeeper.create` from
+  `ClientTest.testLargeNodeData`.
+- The reported defect is in `ClientCnxnSocketNIO.doIO`. A nonblocking
+  `SocketChannel.write` may consume only part of a packet. The faulty path
+  removes that packet from `outgoingQueue` too early, recreates its byte
+  buffer on a later pass, and assigns another xid. The server consequently
+  does not receive one coherent request for which the waiting client can
+  complete.
+- The accepted change keeps a partially written packet at the head of the
+  queue, creates its buffer and xid only once, and removes it only after the
+  buffer is drained. The Jira records the production change as revision
+  1404260 and the missing large-node test as revision 1404288.
+
+This is a client transport bug, not a quorum or failover bug. One server is
+enough to expose it.
+
+## Environment contract
+
+The later BUILD stage should provision, but this SPEC stage does not create:
+
+- Apache ZooKeeper 3.4.4 for both server and Java client.
+- JDK 6. The Jira does not state a JDK version, but discussion links the Java
+  6 `SocketChannel.write` documentation and its stack traces are from the
+  Java-6-era codebase, making JDK 6 the closest evidence-backed baseline.
+- One standalone ZooKeeper server on loopback/container networking.
+- One CPU and 1 GiB of memory. These are sufficient for a standalone server
+  and keep the I/O conditions modest; the test must not fail because of an
+  imposed memory limit.
+- Three independent attempts, each starting with clean server data and a new
+  client process.
+
+All future container processes that write through host bind mounts must use
+`umask 022` (or matching explicit modes) so host Harness can traverse and read
+their artifacts.
+
+## Reproduction procedure
+
+For each attempt:
+
+1. Start a fresh standalone ZooKeeper 3.4.4 server and wait until it accepts a
+   client connection. Preserve its logs.
+2. Start an unmodified ZooKeeper 3.4.4 Java client and wait for the connected
+   state.
+3. As a readiness control, synchronously create and then delete a small znode.
+   If that operation fails, classify the attempt as an environment failure,
+   not a reproduction.
+4. Construct a deterministic byte array of exactly 500,000 bytes and call the
+   synchronous create API for `/large` with open ACLs and persistent create
+   mode. Use a fresh server data directory so the path cannot already exist.
+5. Apply a 30-second wall-clock deadline to the client process. If the create
+   is still pending at the deadline, capture a Java thread dump before
+   terminating the process and preserve both client and server logs.
+6. Record the process exit status, elapsed time, create result or exception,
+   and whether the expected waiting stack was present. Do not infer success
+   merely from the server-side existence or absence of `/large`.
+
+No server restart, quorum, concurrent application request, source patch, or
+fault-injection code is part of the primary reproduction. The packet is large
+enough that an ordinary nonblocking socket may need multiple writes, which is
+the condition described in the Jira.
+
+## Oracle
+
+An attempt **reproduces the bug** when all of the following hold:
+
+1. The small-node readiness control completed successfully.
+2. The 500,000-byte synchronous create did not return within 30 seconds.
+3. A thread dump captured at the deadline shows the calling thread waiting in
+   the synchronous request path, including `ClientCnxn.submitRequest` and
+   `ZooKeeper.create`, matching the Jira evidence.
+
+An attempt is a **non-reproduction** when the large create returns successfully
+inside the deadline. A concrete ZooKeeper exception, JVM crash, server startup
+failure, failed readiness control, or resource-limit termination is an
+**environment/test failure** and must remain distinct from the hang oracle.
+
+The issue is considered reproduced if at least one of the three valid attempts
+meets the bug oracle. Report all three outcomes; do not discard successful
+creates. Three attempts are appropriate because partial-write scheduling can
+vary, while the Jira presents the 500,000-byte test as a direct reproduction
+rather than a rare stress race.
+
+## Optional confirmation (not the primary oracle)
+
+After the vulnerable-version experiment is complete, the same scenario may be
+run against the listed fixed version, ZooKeeper 3.4.5, as an A/B confirmation.
+That comparison must be reported separately and must not replace the required
+3.4.4 result. On the fixed version the create is expected to return normally
+within the deadline.
+
+## Prepared environment
+
+The environment stage supplies the official ZooKeeper 3.4.4 release archive,
+a pinned Zulu OpenJDK 6u119 archive, `Dockerfile`, `compose.yml`, and the
+ZooKeeper 3.4.4 Log4j 1.x/server configuration. Archive hashes are recorded in
+`dist/SHA256SUMS` and are checked again inside the image build.
+
+Build the image from this directory with:
+
+```sh
+docker compose -f compose.yml build
+```
+
+Compose defaults to host UID/GID 1000. A host using different IDs should set
+`HOST_UID` and `HOST_GID`. `ZK_DATA_DIR`, `ZK_LOG_DIR`, and `ZK_RESULT_DIR`
+select the host bind-mount directories and should point at new, unique attempt
+directories when experiments are eventually run. The non-root entrypoint sets
+umask 022 and refuses mounts that are not readable, writable, and traversable.
+
+After an attempt has fully stopped and its output has been captured, invoke
+`scripts/protect-artifacts.sh` separately on its directory beneath `logs/` and
+on its file or directory beneath `result/`. It makes regular files read-only
+and directories readable/traversable but non-writable. It refuses paths
+outside those two trees and refuses symbolic links.
+
+This environment stage does not add reproduction/fault-injection Java source
+and does not start the server or run an experiment.
+
+## Implementation project
+
+The Maven project compiles the reproduction classes with the pinned JDK 6
+archive and packages their ZooKeeper 3.4.4 dependencies into
+`target/zookeeper-1560-reproduction-jar-with-dependencies.jar`. Build it with:
+
+```sh
+mvn clean package
+```
+
+The primary client invocation is:
+
+```sh
+java -jar target/zookeeper-1560-reproduction-jar-with-dependencies.jar \
+  --connect 127.0.0.1:2181
+```
+
+When the caller has not supplied an explicit JAAS or ZooKeeper SASL client
+configuration, the launcher names an absent login context so that ZooKeeper
+3.4.4 takes its built-in non-SASL fallback. This avoids the unrelated
+ZOOKEEPER-1455-era behavior that can defer even the one-byte readiness request;
+it does not alter or replace the 3.4.4 NIO write path under test.
+
+The experiment driver must enforce the specified 30-second deadline and save a
+thread dump before terminating a blocked client. `Reproduce` emits stable
+`ZOOKEEPER_1560` markers for classification. `Verify` consumes the combined
+client output and the captured dump without contacting ZooKeeper:
+
+```sh
+java -cp target/zookeeper-1560-reproduction-jar-with-dependencies.jar \
+  org.apache.zookeeper.Verify client-output.log thread-dump.log
+```
+
+It exits 0 for a reproduced hang, 1 when the large create returned, and 2 for
+invalid or incomplete evidence.
+
+For an explicit diagnostic that makes partial nonblocking writes more likely,
+pass `--inject-small-send-buffer`. This selects `FaultInjection`, which only
+constrains the socket send buffer; it does not replace or patch ZooKeeper
+3.4.4's `ClientCnxnSocketNIO.doIO`. The primary experiment leaves this option
+disabled, as required by the oracle above.
+name: zookeeper-1560
+
+services:
+  zookeeper:
+    image: zookeeper-1560:3.4.4-jdk6
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    init: true
+    environment:
+      JMXDISABLE: "true"
+      ZOO_LOG_DIR: /logs
+      ZOO_LOG4J_PROP: INFO,CONSOLE,ROLLINGFILE
+      SERVER_JVMFLAGS: -Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp
+    volumes:
+      - type: bind
+        source: ${ZK_DATA_DIR:-./data}
+        target: /data
+      - type: bind
+        source: ${ZK_LOG_DIR:-./logs}
+        target: /logs
+      - type: bind
+        source: ${ZK_RESULT_DIR:-./result}
+        target: /result
+    ports:
+      - "127.0.0.1:${ZK_CLIENT_PORT:-2181}:2181"
+    cpus: 1.0
+    mem_limit: 1g
+    stop_grace_period: 10s
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/zookeeper/bin/zkServer.sh status /opt/zookeeper/conf/zoo.cfg >/dev/null 2>&1"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+#!/bin/sh
+set -eu
+
+# Files and directories created through host bind mounts must remain readable
+# and traversable by the host-side Harness account.
+umask 022
+
+for mounted_dir in /logs /data /result; do
+    if [ ! -d "$mounted_dir" ]; then
+        echo "required bind-mount directory is missing: $mounted_dir" >&2
+        exit 70
+    fi
+    if [ ! -r "$mounted_dir" ] || [ ! -w "$mounted_dir" ] || [ ! -x "$mounted_dir" ]; then
+        echo "required bind-mount directory is not readable, writable, and traversable: $mounted_dir" >&2
+        exit 71
+    fi
+done
+
+mkdir -p /data/txnlog /data/tmp
+
+exec "$@"
+#!/bin/sh
+set -eu
+
+if [ "$#" -ne 1 ]; then
+    echo "usage: $0 logs/attempt-NNN-or-unique-name | result/attempt-NNN.properties | result/attempt-NNN-or-unique-name" >&2
+    exit 64
+fi
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+issue_dir=$(CDPATH= cd -- "$script_dir/.." && pwd)
+
+if [ -L "$1" ]; then
+    echo "refusing to protect a symbolic link: $1" >&2
+    exit 65
+fi
+
+if [ -d "$1" ]; then
+    artifact_path=$(CDPATH= cd -- "$1" && pwd -P)
+    artifact_kind=directory
+elif [ -f "$1" ]; then
+    artifact_parent=$(CDPATH= cd -- "$(dirname -- "$1")" && pwd -P)
+    artifact_path=$artifact_parent/$(basename -- "$1")
+    artifact_kind=file
+else
+    echo "artifact file or directory does not exist: $1" >&2
+    exit 66
+fi
+
+case "$artifact_path" in
+    "$issue_dir"/logs/*|"$issue_dir"/result/*) ;;
+    *)
+        echo "refusing to protect a path outside logs/ or result/: $artifact_path" >&2
+        exit 65
+        ;;
+esac
+
+# Regular files become read-only and directories stay readable/traversable,
+# including for Harness processes outside the container. Reject symlinks so a
+# directory walk can never change permissions outside the selected tree.
+if [ "$artifact_kind" = file ]; then
+    chmod 0444 "$artifact_path"
+else
+    if find -P "$artifact_path" -type l -print -quit | grep -q .; then
+        echo "refusing to protect an artifact tree containing symbolic links: $artifact_path" >&2
+        exit 65
+    fi
+
+    find -P "$artifact_path" -type f -exec chmod 0444 {} +
+    find -P "$artifact_path" -depth -type d -exec chmod 0555 {} +
+fi
+/*
+ * Reproduction client for ZOOKEEPER-1560.
+ *
+ * This class intentionally uses the synchronous ZooKeeper.create API. The
+ * experiment driver owns the 30-second wall-clock deadline and captures a
+ * thread dump before terminating a client that is still blocked.
+ */
+package org.apache.zookeeper;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+public final class Reproduce implements Watcher {
+    static final int PAYLOAD_BYTES = 500000;
+    static final int SESSION_TIMEOUT_MS = 10000;
+    static final int CONNECT_TIMEOUT_MS = 15000;
+    static final String LARGE_PATH = "/large";
+    static final String READY_PATH = "/zookeeper-1560-readiness";
+    static final String SASL_CLIENT_CONFIG_PROPERTY =
+            "zookeeper.sasl.clientconfig";
+    static final String JAAS_CONFIG_PROPERTY =
+            "java.security.auth.login.config";
+    static final String NO_SASL_LOGIN_CONTEXT = "ZooKeeper1560NoSasl";
+
+    private final CountDownLatch connected = new CountDownLatch(1);
+
+    public void process(WatchedEvent event) {
+        if (event.getState() == Event.KeeperState.SyncConnected) {
+            connected.countDown();
+        }
+    }
+
+    private static void emit(String value) {
+        System.out.println("ZOOKEEPER_1560 " + value);
+        System.out.flush();
+    }
+
+    private static byte[] deterministicPayload() {
+        byte[] payload = new byte[PAYLOAD_BYTES];
+        int i;
+        for (i = 0; i < payload.length; i++) {
+            payload[i] = (byte) (i * 31 + 17);
+        }
+        return payload;
+    }
+
+    private static String connectString(String[] args) {
+        String value = System.getenv("ZK_CONNECT");
+        if (value == null || value.length() == 0) {
+            value = "127.0.0.1:2181";
+        }
+
+        int i;
+        for (i = 0; i < args.length; i++) {
+            if ("--connect".equals(args[i])) {
+                if (i + 1 >= args.length) {
+                    throw new IllegalArgumentException("--connect requires host:port");
+                }
+                value = args[++i];
+            } else if (!"--inject-small-send-buffer".equals(args[i])) {
+                throw new IllegalArgumentException("unknown argument: " + args[i]);
+            }
+        }
+        return value;
+    }
+
+    private static boolean injectionRequested(String[] args) {
+        int i;
+        for (i = 0; i < args.length; i++) {
+            if ("--inject-small-send-buffer".equals(args[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*
+     * ZooKeeper 3.4.4 can incorrectly treat the JVM's non-null default JAAS
+     * Configuration as an active SASL setup (ZOOKEEPER-1455), indefinitely
+     * deferring even the one-byte readiness request. This standalone
+     * reproduction does not configure SASL. Naming an absent login context
+     * selects 3.4.4's own LoginException fallback, while preserving any
+     * explicit JAAS/SASL configuration supplied by the caller.
+     */
+    private static void configureStandaloneSaslFallback() {
+        if (System.getProperty(SASL_CLIENT_CONFIG_PROPERTY) == null
+                && System.getProperty(JAAS_CONFIG_PROPERTY) == null) {
+            System.setProperty(SASL_CLIENT_CONFIG_PROPERTY,
+                    NO_SASL_LOGIN_CONTEXT);
+            emit("sasl_setup=standalone_fallback");
+        }
+    }
+
+    private int run(String[] args) throws Exception {
+        String connect = connectString(args);
+        boolean inject = injectionRequested(args);
+        configureStandaloneSaslFallback();
+        if (inject) {
+            FaultInjection.install();
+        }
+
+        emit("client_start connect=" + connect
+                + " payload_bytes=" + PAYLOAD_BYTES
+                + " fault_injection=" + (inject ? "enabled" : "disabled"));
+
+        ZooKeeper zk = null;
+        try {
+            zk = new ZooKeeper(connect, SESSION_TIMEOUT_MS, this);
+            if (!connected.await(CONNECT_TIMEOUT_MS, TimeUnit.MILLISECONDS)) {
+                emit("environment_failure phase=connect reason=timeout");
+                return 2;
+            }
+            emit("connected");
+
+            byte[] control = new byte[] { 1 };
+            zk.create(READY_PATH, control, ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                    CreateMode.PERSISTENT);
+            zk.delete(READY_PATH, -1);
+            emit("readiness_control=passed");
+
+            byte[] payload = deterministicPayload();
+            emit("large_create=started path=" + LARGE_PATH
+                    + " payload_bytes=" + payload.length);
+            long startedNanos = System.nanoTime();
+            String created = zk.create(LARGE_PATH, payload,
+                    ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            long elapsedMillis = TimeUnit.NANOSECONDS.toMillis(
+                    System.nanoTime() - startedNanos);
+            emit("large_create=returned path=" + created
+                    + " elapsed_ms=" + elapsedMillis);
+            return 0;
+        } catch (Throwable failure) {
+            emit("environment_failure type=" + failure.getClass().getName()
+                    + " message=" + safeMessage(failure));
+            failure.printStackTrace(System.err);
+            System.err.flush();
+            return 2;
+        } finally {
+            if (zk != null) {
+                try {
+                    zk.close();
+                } catch (InterruptedException interrupted) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+
+    private static String safeMessage(Throwable failure) {
+        String message = failure.getMessage();
+        if (message == null) {
+            return "none";
+        }
+        return message.replace('\n', ' ').replace('\r', ' ');
+    }
+
+    public static void main(String[] args) throws IOException {
+        int exit;
+        try {
+            exit = new Reproduce().run(args);
+        } catch (Throwable failure) {
+            emit("environment_failure type=" + failure.getClass().getName()
+                    + " message=" + safeMessage(failure));
+            failure.printStackTrace(System.err);
+            exit = 2;
+        }
+        System.exit(exit);
+    }
+}
+/*
+ * Explicit, opt-in fault injection for ZOOKEEPER-1560.
+ *
+ * The vulnerable ZooKeeper 3.4.4 transport code is not replaced or patched.
+ * This socket subclass only makes partial nonblocking writes easier to reach
+ * by constraining SO_SNDBUF before connect. ClientCnxnSocketNIO.doIO remains
+ * the unmodified implementation from the 3.4.4 dependency.
+ */
+package org.apache.zookeeper;
+
+import java.io.IOException;
+import java.nio.channels.SocketChannel;
+
+public final class FaultInjection extends ClientCnxnSocketNIO {
+    public static final String SEND_BUFFER_PROPERTY =
+            "zookeeper1560.sendBufferBytes";
+    public static final int DEFAULT_SEND_BUFFER_BYTES = 1024;
+
+    public FaultInjection() throws IOException {
+        super();
+    }
+
+    public static void install() {
+        System.setProperty(ZooKeeper.ZOOKEEPER_CLIENT_CNXN_SOCKET,
+                FaultInjection.class.getName());
+    }
+
+    SocketChannel createSock() throws IOException {
+        SocketChannel channel = super.createSock();
+        int requested = Integer.getInteger(SEND_BUFFER_PROPERTY,
+                DEFAULT_SEND_BUFFER_BYTES).intValue();
+        if (requested <= 0) {
+            channel.close();
+            throw new IOException(SEND_BUFFER_PROPERTY + " must be positive");
+        }
+        channel.socket().setSendBufferSize(requested);
+        System.out.println("ZOOKEEPER_1560 fault_injection=socket_send_buffer"
+                + " requested_bytes=" + requested
+                + " actual_bytes=" + channel.socket().getSendBufferSize());
+        System.out.flush();
+        return channel;
+    }
+}
+/* Offline oracle for preserved ZOOKEEPER-1560 attempt artifacts. */
+package org.apache.zookeeper;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public final class Verify {
+    private static final int REPRODUCED = 0;
+    private static final int NOT_REPRODUCED = 1;
+    private static final int INVALID_EVIDENCE = 2;
+
+    private Verify() {
+    }
+
+    private static String readUtf8(File file) throws IOException {
+        StringBuilder contents = new StringBuilder();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(
+                new FileInputStream(file), "UTF-8"));
+        try {
+            char[] buffer = new char[8192];
+            int count;
+            while ((count = reader.read(buffer)) != -1) {
+                contents.append(buffer, 0, count);
+            }
+        } finally {
+            reader.close();
+        }
+        return contents.toString();
+    }
+
+    private static boolean has(String text, String token) {
+        return text.indexOf(token) >= 0;
+    }
+
+    private static int verify(String clientLog, String threadDump) {
+        if (!has(clientLog, "ZOOKEEPER_1560 readiness_control=passed")) {
+            System.out.println("INVALID reason=readiness_control_not_passed");
+            return INVALID_EVIDENCE;
+        }
+        if (has(clientLog, "ZOOKEEPER_1560 environment_failure")) {
+            System.out.println("INVALID reason=client_reported_environment_failure");
+            return INVALID_EVIDENCE;
+        }
+        if (!has(clientLog, "ZOOKEEPER_1560 large_create=started")) {
+            System.out.println("INVALID reason=large_create_not_started");
+            return INVALID_EVIDENCE;
+        }
+        if (has(clientLog, "ZOOKEEPER_1560 large_create=returned")) {
+            System.out.println("NOT_REPRODUCED reason=large_create_returned");
+            return NOT_REPRODUCED;
+        }
+
+        boolean submitRequest = has(threadDump,
+                "org.apache.zookeeper.ClientCnxn.submitRequest");
+        boolean create = has(threadDump, "org.apache.zookeeper.ZooKeeper.create");
+        boolean waiting = has(threadDump, "java.lang.Object.wait")
+                || has(threadDump, "java.lang.Object.wait0")
+                || has(threadDump, "java.lang.Thread.State: WAITING");
+
+        if (submitRequest && create && waiting) {
+            System.out.println("REPRODUCED reason=timed_out_with_expected_waiting_stack");
+            return REPRODUCED;
+        }
+
+        System.out.println("INVALID reason=expected_waiting_stack_missing"
+                + " submitRequest=" + submitRequest
+                + " create=" + create
+                + " waiting=" + waiting);
+        return INVALID_EVIDENCE;
+    }
+
+    private static void usage() {
+        System.err.println("usage: org.apache.zookeeper.Verify"
+                + " <client-output.log> <thread-dump.log>");
+        System.err.println("exit 0=reproduced, 1=not reproduced, 2=invalid evidence");
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            usage();
+            System.exit(INVALID_EVIDENCE);
+        }
+
+        try {
+            File client = new File(args[0]);
+            File dump = new File(args[1]);
+            if (!client.isFile() || !dump.isFile()) {
+                System.err.println("both arguments must name readable regular files");
+                System.exit(INVALID_EVIDENCE);
+            }
+            System.exit(verify(readUtf8(client), readUtf8(dump)));
+        } catch (IOException failure) {
+            System.err.println("verification failed: " + failure);
+            System.exit(INVALID_EVIDENCE);
+        }
+    }
+}
+zookeeper.version=3.4.4
+jdk.version=6
+node.count=1
+cpu.count=1
+memory=1g
+attempt.count=3
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.apache.zookeeper.reproduction</groupId>
+  <artifactId>zookeeper-1560-reproduction</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>ZOOKEEPER-1560 reproduction</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <zookeeper.version>3.4.4</zookeeper.version>
+    <jdk6.archive>${project.basedir}/dist/zulu6.22.0.3-ca-jdk6.0.119-linux_x64.tar.gz</jdk6.archive>
+    <jdk6.home>${project.build.directory}/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64</jdk6.home>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>${zookeeper.version}</version>
+      <exclusions>
+        <!--
+          The release POM's Log4j 1.2.16 graph refers to retired java.net
+          artifacts using Maven's unsupported legacy repository layout.
+          ZooKeeper logs through SLF4J, so use slf4j-simple below instead.
+        -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!--
+        The reproduction image runs JDK 6. Compile with the pinned JDK from
+        dist/ rather than silently producing newer class files with the host
+        JDK used to launch Maven.
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>extract-pinned-jdk6</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <mkdir dir="${project.build.directory}/toolchain" />
+                <untar src="${jdk6.archive}"
+                       dest="${project.build.directory}/toolchain"
+                       compression="gzip" />
+                <chmod dir="${jdk6.home}/bin" includes="*" perm="755" />
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <fork>true</fork>
+          <executable>${jdk6.home}/bin/javac</executable>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.apache.zookeeper.Reproduce</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.apache.zookeeper.Reproduce</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <finalName>zookeeper-1560-reproduction</finalName>
+          <appendAssemblyId>true</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-runnable-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+codex
+`attempt-001` is unused: there is no attempt result and no per-node attempt directory. The prepared reproduction has one node (`zk1`), an opt-in small-send-buffer injector, a 30-second hang oracle, and an offline verifier; I’m now checking the container/runtime state and exact mount layout before creating the five required evidence categories.
+exec
+/bin/bash -lc "sed -n '1,260p' Dockerfile
+sed -n '1,220p' config/zoo.cfg
+sed -n '1,220p' config/log4j.properties
+git status --short 2>/dev/null || true
+docker compose version
+docker image inspect zookeeper-1560:3.4.4-jdk6 --format '{{.Id}} {{.Created}}' 2>&1 || true
+docker compose -f compose.yml ps -a" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 327ms:
+Docker Compose version v5.5.1
+sha256:115b9707c1d3ccc3e947a1e8ebb6da50255a4d45b66ebe1d84e5b4e2311cb421 2026-09-16T02:16:50.8839641Z
+NAME                         IMAGE                       COMMAND                  SERVICE     CREATED              STATUS                        PORTS
+zookeeper-1560-zookeeper-1   zookeeper-1560:3.4.4-jdk6   "/usr/local/bin/dock…"   zookeeper   About a minute ago   Up About a minute (healthy)   127.0.0.1:12181->2181/tcp
+
+exec
+/bin/bash -lc "docker inspect zookeeper-1560-zookeeper-1 --format '{{json .Mounts}}\\n{{json .Config.Env}}\\n{{json .HostConfig.PortBindings}}'
+find logs -maxdepth 5 -printf '%M %u:%g %p\\n' | sort
+find result -maxdepth 2 -printf '%M %u:%g %p\\n' | sort
+find data -maxdepth 3 -printf '%M %u:%g %p\\n' | sort | sed -n '1,120p'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+[{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/data/baseline-retest","Destination":"/data","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs","Destination":"/logs","Mode":"rw","RW":true,"Propagation":"rprivate"},{"Type":"bind","Source":"/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result","Destination":"/result","Mode":"rw","RW":true,"Propagation":"rprivate"}]\n["JMXDISABLE=true","ZOO_LOG_DIR=/logs","ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE","SERVER_JVMFLAGS=-Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp","PATH=/opt/java/bin:/opt/zookeeper/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin","JAVA_HOME=/opt/java","ZK_HOME=/opt/zookeeper","ZOOCFGDIR=/opt/zookeeper/conf"]\n{"2181/tcp":[{"HostIp":"127.0.0.1","HostPort":"12181"}]}
+-rw-r--r-- shkim:docker logs/zookeeper.log
+drwxr-xr-x shkim:docker logs
+-rw-rw-r-- shkim:docker result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-baseline-20260916-022315-056-dbb81b0c.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-environment-20260916-020950-389-d2cf6680.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-environment-20260916-020950-389-d2cf6680.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-experiment-attempt-001-20260916-023052-694-63ce0667.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-implementation-20260916-021737-967-f46fbbfb.stdout.log
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-020757-706-0664af23.stderr.log
+-rw-rw-r-- shkim:docker result/harness/codex-spec-20260916-020757-706-0664af23.stdout.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-021736-300-ff58125d.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-021736-512-f9ddec3e.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-022311-257-35ed03eb.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-023052-233-987afca3.log
+-rw-rw-r-- shkim:docker result/harness/validator-20260916-023052-452-26d5a225.log
+drwxrwxr-x shkim:docker result
+drwxrwxr-x shkim:docker result/harness
+-rw-r--r-- shkim:docker data/baseline-retest/version-2/snapshot.0
+-rw-r--r-- shkim:docker data/txnlog/version-2/log.1
+-rw-r--r-- shkim:docker data/version-2/snapshot.0
+drwxr-xr-x shkim:docker data
+drwxr-xr-x shkim:docker data/baseline-retest
+drwxr-xr-x shkim:docker data/baseline-retest/tmp
+drwxr-xr-x shkim:docker data/baseline-retest/txnlog
+drwxr-xr-x shkim:docker data/baseline-retest/txnlog/version-2
+drwxr-xr-x shkim:docker data/baseline-retest/version-2
+drwxr-xr-x shkim:docker data/tmp
+drwxr-xr-x shkim:docker data/txnlog
+drwxr-xr-x shkim:docker data/txnlog/version-2
+drwxr-xr-x shkim:docker data/version-2
+
+exec
+/bin/bash -lc 'set -eu
+umask 022
+uid=$(id -u)
+gid=$(id -g)
+printf '"'host_uid=%s host_gid=%s\\n' \""'$uid" "$gid"
+if docker ps -a --format '"'{{.Names}}' | grep -Fxq 'zookeeper1560-attempt-001'; then
+  echo 'conflict: container zookeeper1560-attempt-001 already exists' >&2
+  exit 73
+fi
+if ss -ltn '( sport = :12182 )' | tail -n +2 | grep -q .; then
+  echo 'conflict: TCP port 12182 is already in use' >&2
+  exit 73
+fi
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  test "'! -e "logs/zk1/$category/attempt-001" || { echo "conflict: logs/zk1/$category/attempt-001 exists" >&2; exit 73; }
+done
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  install -d -m 0755 "logs/zk1/$category/attempt-001"
+done
+install -d -m 0755 logs/zk1/snapshot_data/attempt-001/tmp
+printf '"'CREATED_ATTEMPT_DIRECTORIES\\n'
+find logs/zk1 -mindepth 2 -maxdepth 2 -type d -name attempt-001 -printf '%M %u:%g %p\\n' | sort" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 98ms:
+CREATED_ATTEMPT_DIRECTORIES
+drwxr-xr-x shkim:docker logs/zk1/app_logs/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/jvm_logs/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/os_logs/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/snapshot_data/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/txn_logs/attempt-001
+
+codex
+The five required `zk1` category directories now exist with mode `0755` and host ownership. I’ll isolate this attempt from the leftover baseline container, start a fresh 3.4.4 server with snapshot and transaction storage bound directly to their required categories, then run the injected client under the 30-second deadline.
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+docker compose -f compose.yml stop zookeeper
+stop_rc=$?
+printf '"'baseline_stop_exit=%s\\n' \""'$stop_rc" | tee logs/zk1/os_logs/attempt-001/baseline-container-stop.txt
+{
+  printf '"'attempt=attempt-001\\n'
+  printf 'started_utc=%s\\n' \""'$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  printf '"'host_uid=%s\\n' \""'$(id -u)"
+  printf '"'host_gid=%s\\n' \""'$(id -g)"
+  printf '"'kernel=%s\\n' \""'$(uname -srvm)"
+  printf '"'docker_version=%s\\n' \""'$(docker version --format '"'{{.Server.Version}}')\"
+  printf 'image_id=%s\\n' \""'$(docker image inspect zookeeper-1560:3.4.4-jdk6 --format '"'{{.Id}}')\"
+  printf 'jar_sha256=%s\\n' \""'$(sha256sum target/zookeeper-1560-reproduction-jar-with-dependencies.jar | awk '"'{print "'$1}'"')\"
+} | tee logs/zk1/os_logs/attempt-001/environment.txt
+exit \""'$stop_rc"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 879ms:
+ Container zookeeper-1560-zookeeper-1 Stopping 
+ Container zookeeper-1560-zookeeper-1 Stopped 
+baseline_stop_exit=0
+attempt=attempt-001
+started_utc=2026-09-16T02:32:16Z
+host_uid=1000
+host_gid=988
+kernel=Linux 6.8.0-139-generic #139-Ubuntu SMP PREEMPT_DYNAMIC Sat Aug  1 03:52:05 UTC 2026 x86_64
+docker_version=29.8.1
+image_id=sha256:115b9707c1d3ccc3e947a1e8ebb6da50255a4d45b66ebe1d84e5b4e2311cb421
+jar_sha256=9433b765557ed49344ef64605273e086d13fd6b63dca7e79c0e47bc618e0ef13
+
+exec
+/bin/bash -lc "set -o pipefail
+umask 022
+docker run -d \\
+  --name zookeeper1560-attempt-001 \\
+  --platform linux/amd64 \\
+  --user 1000:988 \\
+  --init \\
+  --cpus 1.0 \\
+  --memory 1g \\
+  --stop-timeout 10 \\
+  -p 127.0.0.1:12182:2181 \\
+  -e JMXDISABLE=true \\
+  -e ZOO_LOG_DIR=/logs \\
+  -e ZOO_LOG4J_PROP=INFO,CONSOLE,ROLLINGFILE \\
+  -e 'SERVER_JVMFLAGS=-Xms128m -Xmx512m -Djava.io.tmpdir=/data/tmp' \\
+  --mount type=bind,source=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001,target=/data \\
+  --mount type=bind,source=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001,target=/data/txnlog \\
+  --mount type=bind,source=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001,target=/logs \\
+  zookeeper-1560:3.4.4-jdk6 | tee logs/zk1/os_logs/attempt-001/container-id.txt
+run_rc="'${PIPESTATUS[0]}
+printf '"'docker_run_exit=%s\\n' \""'$run_rc" | tee logs/zk1/os_logs/attempt-001/docker-run-status.txt
+exit "$run_rc"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 428ms:
+6e7430ce5f92214f329df1fb5ba2557c004e58aace9a5565536c9944d66fc3e7
+docker_run_exit=0
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+ready=0
+for n in $(seq 1 30); do
+  state=$(docker inspect zookeeper1560-attempt-001 --format '"'{{.State.Status}} {{.State.ExitCode}}')
+  if [ \""'$state" != '"'running 0' ]; then
+    printf 'server_state=%s\\n' \""'$state" | tee logs/zk1/os_logs/attempt-001/server-readiness.txt
+    docker logs zookeeper1560-attempt-001 2>&1 | tee logs/zk1/app_logs/attempt-001/container-console-startup.log
+    exit 74
+  fi
+  if timeout 1 bash -c '"'exec 3<>/dev/tcp/127.0.0.1/12182' 2>/dev/null; then
+    ready=1
+    printf 'server_ready=true probe=tcp attempt=%s utc=%s\\n' \""'$n" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee logs/zk1/os_logs/attempt-001/server-readiness.txt
+    break
+  fi
+  sleep 1
+done
+docker inspect zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-inspect-start.json >/dev/null
+docker stats --no-stream zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-stats-start.txt
+docker logs zookeeper1560-attempt-001 2>&1 | tee logs/zk1/app_logs/attempt-001/container-console-startup.log >/dev/null
+if [ "$ready" -ne 1 ]; then
+  echo '"'server did not become ready' >&2
+  exit 75
+fi
+printf 'SERVER_READY\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 1144ms:
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O     PIDS
+6e7430ce5f92   zookeeper1560-attempt-001   0.19%     22.71MiB / 1GiB     2.22%     1.19kB / 374B   0B / 98.3kB   24
+SERVER_READY
+
+codex
+The fresh server is accepting connections on the isolated attempt port, with its live data already landing in the required snapshot/transaction categories. I’m launching the 500,000-byte synchronous create with the socket send-buffer injector enabled; if it remains blocked for 30 seconds, the process will be dumped before termination.
+exec
+/bin/bash -lc 'set -u
+umask 022
+java_bin=target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/bin/java
+client_log=logs/zk1/app_logs/attempt-001/client-output.log
+thread_dump=logs/zk1/jvm_logs/attempt-001/thread-dump.log
+pid_file=logs/zk1/jvm_logs/attempt-001/client-pid.txt
+status_file=logs/zk1/os_logs/attempt-001/client-execution.txt
+"$java_bin" -Dzookeeper1560.sendBufferBytes=1024 '"\\
+  -jar target/zookeeper-1560-reproduction-jar-with-dependencies.jar \\
+  --connect 127.0.0.1:12182 --inject-small-send-buffer \\
+  >\""'$client_log" 2>&1 &
+client_pid=$!
+printf '"'%s\\n' \""'$client_pid" | tee "$pid_file"
+launch_ms=$(date +%s%3N)
+started=0
+start_marker_ms=0
+while kill -0 "$client_pid" 2>/dev/null; do
+  if grep -q '"'ZOOKEEPER_1560 large_create=started' \""'$client_log"; then
+    started=1
+    start_marker_ms=$(date +%s%3N)
+    break
+  fi
+  now_ms=$(date +%s%3N)
+  if [ $((now_ms - launch_ms)) -ge 20000 ]; then
+    break
+  fi
+  sleep 0.1
+done
+timed_out=false
+jstack_rc=not_run
+if [ "$started" -eq 1 ]; then
+  while kill -0 "$client_pid" 2>/dev/null; do
+    now_ms=$(date +%s%3N)
+    if [ $((now_ms - start_marker_ms)) -ge 30000 ]; then
+      timed_out=true
+      break
+    fi
+    sleep 0.1
+  done
+fi
+if [ "$timed_out" = true ]; then
+  "$java_bin" -version >/dev/null 2>&1
+  target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/bin/jstack -l "$client_pid" >"$thread_dump" 2>&1
+  jstack_rc=$?
+  kill -TERM "$client_pid" 2>/dev/null || true
+else
+  printf '"'No deadline thread dump: client exited before the 30-second large-create deadline.\\n' >\""'$thread_dump"
+fi
+wait "$client_pid"
+client_rc=$?
+finish_ms=$(date +%s%3N)
+{
+  printf '"'client_pid=%s\\n' \""'$client_pid"
+  printf '"'large_create_started=%s\\n' \""'$started"
+  printf '"'timed_out=%s\\n' \""'$timed_out"
+  printf '"'jstack_exit=%s\\n' \""'$jstack_rc"
+  printf '"'client_exit=%s\\n' \""'$client_rc"
+  printf '"'total_elapsed_ms=%s\\n' \""'$((finish_ms - launch_ms))"
+  if [ "$started" -eq 1 ]; then
+    printf '"'large_create_observed_elapsed_ms=%s\\n' \""'$((finish_ms - start_marker_ms))"
+  fi
+  printf '"'finished_utc=%s\\n' \""'$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+} | tee "$status_file"
+printf '"'%s\\n' '--- client markers ---'
+grep 'ZOOKEEPER_1560' \""'$client_log" || true
+printf '"'%s\\n' '--- thread dump oracle frames ---'
+grep -E 'ClientCnxn.submitRequest|ZooKeeper.create|java.lang.Object.wait|java.lang.Thread.State: WAITING' \""'$thread_dump" || true
+exit 0' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 31033ms:
+client_pid=197186
+large_create_started=1
+timed_out=true
+jstack_exit=0
+client_exit=143
+total_elapsed_ms=31146
+large_create_observed_elapsed_ms=30794
+finished_utc=2026-09-16T02:33:52Z
+--- client markers ---
+ZOOKEEPER_1560 sasl_setup=standalone_fallback
+ZOOKEEPER_1560 client_start connect=127.0.0.1:12182 payload_bytes=500000 fault_injection=enabled
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+ZOOKEEPER_1560 connected
+ZOOKEEPER_1560 readiness_control=passed
+ZOOKEEPER_1560 large_create=started path=/large payload_bytes=500000
+ZOOKEEPER_1560 fault_injection=socket_send_buffer requested_bytes=1024 actual_bytes=2304
+--- thread dump oracle frames ---
+   java.lang.Thread.State: WAITING (parking)
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at org.apache.zookeeper.ClientCnxn.submitRequest(ClientCnxn.java:1309)
+	at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:776)
+
+codex
+The client reached the large create and is still running at the deadline window. I’m waiting for the dump/termination sequence to finish, then I’ll run `Verify` against the preserved client output and dump.
+exec
+/bin/bash -lc "set +e
+set -o pipefail
+umask 022
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/bin/java \\
+  -cp target/zookeeper-1560-reproduction-jar-with-dependencies.jar \\
+  org.apache.zookeeper.Verify \\
+  logs/zk1/app_logs/attempt-001/client-output.log \\
+  logs/zk1/jvm_logs/attempt-001/thread-dump.log \\
+  2>&1 | tee logs/zk1/app_logs/attempt-001/verify-output.log
+verify_rc="'${PIPESTATUS[0]}
+printf '"'verify_exit=%s\\n' \""'$verify_rc" | tee logs/zk1/os_logs/attempt-001/verifier-status.txt
+exit "$verify_rc"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+REPRODUCED reason=timed_out_with_expected_waiting_stack
+verify_exit=0
+
+exec
+/bin/bash -lc 'set -o pipefail
+umask 022
+docker stats --no-stream zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-stats-end.txt
+docker inspect zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-inspect-running-end.json >/dev/null
+docker stop -t 10 zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-stop.txt
+stop_rc=${PIPESTATUS[0]}
+docker logs zookeeper1560-attempt-001 2>&1 | tee logs/zk1/app_logs/attempt-001/container-console-final.log >/dev/null
+logs_rc=${PIPESTATUS[0]}
+docker inspect zookeeper1560-attempt-001 | tee logs/zk1/os_logs/attempt-001/container-inspect-stopped.json >/dev/null
+inspect_rc=${PIPESTATUS[0]}
+target/toolchain/zulu6.22.0.3-jdk6.0.119-linux_x64/bin/java -version 2>&1 | tee logs/zk1/jvm_logs/attempt-001/java-version.txt
+java_rc=${PIPESTATUS[0]}
+printf '"'stop_exit=%s logs_exit=%s inspect_exit=%s java_version_exit=%s\\n' \""'$stop_rc" "$logs_rc" "$inspect_rc" "$java_rc" | tee logs/zk1/os_logs/attempt-001/final-capture-status.txt
+if [ "$stop_rc" -ne 0 ] || [ "$logs_rc" -ne 0 ] || [ "$inspect_rc" -ne 0 ] || [ "$java_rc" -ne 0 ]; then
+  exit 76
+fi
+printf '"'SERVER_STOPPED_AND_CAPTURED\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 1935ms:
+CONTAINER ID   NAME                        CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O    PIDS
+6e7430ce5f92   zookeeper1560-attempt-001   0.19%     25.15MiB / 1GiB     2.46%     36.5kB / 2.13kB   0B / 582kB   24
+zookeeper1560-attempt-001
+openjdk version "1.6.0-119"
+OpenJDK Runtime Environment (Zulu 6.22.0.3-linux64) (build 1.6.0-119-b119)
+OpenJDK 64-Bit Server VM (Zulu 6.22.0.3-linux64) (build 23.77-b119, mixed mode)
+stop_exit=0 logs_exit=0 inspect_exit=0 java_version_exit=0
+SERVER_STOPPED_AND_CAPTURED
+
+codex
+The deterministic verifier exited `0` with `REPRODUCED`: readiness passed, the injected 500,000-byte create remained blocked past 30 seconds, and the dump contains `Object.wait`, `ClientCnxn.submitRequest`, and `ZooKeeper.create`. The server is stopped; I’m auditing the complete category layout and file permissions before creating the single result file.
+exec
+/bin/bash -lc "set -o pipefail
+umask 022
+attempt_root=logs/zk1
+{
+  printf '%s\\n' 'Evidence tree before protection:'
+  find \""'$attempt_root" -path '"'*/attempt-001' -o -path '*/attempt-001/*' | sort
+  printf '%s\\n' 'Modes and ownership:'
+  find \""'$attempt_root" '"\\( -path '*/attempt-001' -o -path '*/attempt-001/*' \\) "'! -name permissions-before-protection.txt -printf '"'%M %u:%g %s %p\\n' | sort
+} | tee logs/zk1/os_logs/attempt-001/permissions-before-protection.txt
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  dir=\"logs/zk1/"'$category/attempt-001"
+  test -d "$dir" || { echo "missing category: $dir" >&2; exit 77; }
+  test -r "$dir" && test -x "$dir" || { echo "category not host-readable/traversable: $dir" >&2; exit 77; }
+done
+if find logs/zk1 -path '"'*/attempt-001/*' -type d \\( "'! -readable -o ! -executable '"\\) -print -quit | grep -q .; then
+  echo 'unreadable or untraversable attempt directory found' >&2
+  exit 77
+fi
+if find logs/zk1 -path '*/attempt-001/*' -type f "'! -readable -print -quit | grep -q .; then
+  echo '"'unreadable evidence file found' >&2
+  exit 77
+fi
+if find logs/zk1 -path '*/attempt-001/*' -type l -print -quit | grep -q .; then
+  echo 'symlink found in evidence' >&2
+  exit 77
+fi
+test -s logs/zk1/app_logs/attempt-001/client-output.log
+test -s logs/zk1/app_logs/attempt-001/zookeeper.log
+test -s logs/zk1/txn_logs/attempt-001/version-2/log.1
+test -s logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+test -s logs/zk1/jvm_logs/attempt-001/thread-dump.log
+test -s logs/zk1/os_logs/attempt-001/container-inspect-stopped.json
+find logs/zk1 \\( -path '*/attempt-001/*' -type f \\) "'! -name evidence-manifest.sha256 -exec sha256sum {} + | sort | tee logs/zk1/os_logs/attempt-001/evidence-manifest.sha256 >/dev/null
+printf '"'EVIDENCE_AUDIT_PASSED\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 110ms:
+EVIDENCE_AUDIT_PASSED
+
+exec
+/bin/bash -lc 'test ! -e result/attempt-001.properties && printf '"'RESULT_PATH_UNUSED_IMMEDIATELY_BEFORE_CREATE\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+RESULT_PATH_UNUSED_IMMEDIATELY_BEFORE_CREATE
+
+apply patch
+patch: completed
+/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/attempt-001.properties
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+codex
+The evidence audit passed across all five categories, including non-empty server logs, transaction log, snapshot, JVM dump, and OS/container records. I created `result/attempt-001.properties` once with `result=SUCCESS`; I’m now making this attempt immutable while retaining host read/traverse access, then performing the final permission and content checks.
+exec
+/bin/bash -lc 'set -eu
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  scripts/protect-artifacts.sh "logs/zk1/$category/attempt-001"
+done
+scripts/protect-artifacts.sh result/attempt-001.properties
+printf '"'PROTECTION_COMPLETE\\n'
+printf '%s\\n' 'Protected roots:'
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  stat -c '%A %U:%G %n' \"logs/zk1/"'$category/attempt-001"
+done
+stat -c '"'%A %U:%G %n' result/attempt-001.properties" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ exited 1 in 0ms:
+chmod: changing permissions of '/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001/txnlog': Operation not permitted
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+codex
+Protection exposed one permissions edge case: Docker created an empty mountpoint directory at `snapshot_data/.../txnlog` owned by root. It is already host-readable/traversable, but the host account cannot remove its write bits. I’m preserving it and using the same container image as root only to change that exact directory to `0555`; no evidence will be deleted or rewritten.
+exec
+/bin/bash -lc "set -o pipefail
+umask 022
+docker run --rm \\
+  --user 0:0 \\
+  --entrypoint /bin/chmod \\
+  --mount type=bind,source=/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001,target=/evidence \\
+  zookeeper-1560:3.4.4-jdk6 \\
+  0555 /evidence/txnlog \\
+  2>&1 | tee logs/zk1/os_logs/attempt-001/protection-remediation.txt
+fix_rc="'${PIPESTATUS[0]}
+printf '"'root_mountpoint_chmod_exit=%s\\n' \""'$fix_rc" | tee logs/zk1/os_logs/attempt-001/protection-remediation-status.txt
+stat -c '"'%A %U:%G %n' logs/zk1/snapshot_data/attempt-001/txnlog
+exit \""'$fix_rc"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 720ms:
+root_mountpoint_chmod_exit=0
+dr-xr-xr-x root:root logs/zk1/snapshot_data/attempt-001/txnlog
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+exec
+/bin/bash -lc 'set -eu
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  scripts/protect-artifacts.sh "logs/zk1/$category/attempt-001"
+done
+scripts/protect-artifacts.sh result/attempt-001.properties
+printf '"'PROTECTION_COMPLETE\\n'
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  stat -c '%A %U:%G %n' \"logs/zk1/"'$category/attempt-001"
+done
+stat -c '"'%A %U:%G %n' result/attempt-001.properties" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ exited 1 in 0ms:
+chmod: changing permissions of '/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001/txnlog': Operation not permitted
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+exec
+/bin/bash -lc "find logs/zk1/snapshot_data/attempt-001 -printf '%M %U:%G %p\\n' | sort
+stat -c '%A %U:%G %n' logs/zk1/app_logs/attempt-001 logs/zk1/txn_logs/attempt-001 logs/zk1/jvm_logs/attempt-001 logs/zk1/os_logs/attempt-001 result/attempt-001.properties" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+-r--r--r-- 1000:988 logs/zk1/snapshot_data/attempt-001/version-2/snapshot.0
+dr-xr-xr-x 0:0 logs/zk1/snapshot_data/attempt-001/txnlog
+dr-xr-xr-x 1000:988 logs/zk1/snapshot_data/attempt-001
+dr-xr-xr-x 1000:988 logs/zk1/snapshot_data/attempt-001/tmp
+dr-xr-xr-x 1000:988 logs/zk1/snapshot_data/attempt-001/version-2
+dr-xr-xr-x shkim:docker logs/zk1/app_logs/attempt-001
+dr-xr-xr-x shkim:docker logs/zk1/txn_logs/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/jvm_logs/attempt-001
+drwxr-xr-x shkim:docker logs/zk1/os_logs/attempt-001
+-rw-rw-r-- shkim:docker result/attempt-001.properties
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+exec
+/bin/bash -lc "set -eu
+scripts/protect-artifacts.sh logs/zk1/jvm_logs/attempt-001
+scripts/protect-artifacts.sh logs/zk1/os_logs/attempt-001
+scripts/protect-artifacts.sh result/attempt-001.properties
+printf 'REMAINING_PROTECTION_COMPLETE\\n'" in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 0ms:
+REMAINING_PROTECTION_COMPLETE
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+exec
+/bin/bash -lc 'set -eu
+attempt_dirs=$(find logs/zk1 -type d -name attempt-001 | wc -l)
+test "$attempt_dirs" -eq 5
+if find logs/zk1 -path '"'*/attempt-001*' -type d \\( "'! -readable -o ! -executable '"\\) -print -quit | grep -q .; then
+  echo 'FINAL_AUDIT_FAIL: unreadable or untraversable directory' >&2
+  exit 78
+fi
+if find logs/zk1 -path '*/attempt-001/*' -type f "'! -readable -print -quit | grep -q .; then
+  echo '"'FINAL_AUDIT_FAIL: unreadable regular file' >&2
+  exit 78
+fi
+if find logs/zk1 -path '*/attempt-001*' -type d -writable -print -quit | grep -q .; then
+  echo 'FINAL_AUDIT_FAIL: writable protected directory' >&2
+  exit 78
+fi
+if find logs/zk1 -path '*/attempt-001/*' -type f -writable -print -quit | grep -q .; then
+  echo 'FINAL_AUDIT_FAIL: writable protected evidence file' >&2
+  exit 78
+fi
+test -r result/attempt-001.properties
+test "'! -w result/attempt-001.properties
+test "$(grep -c '"'"'^result=SUCCESS$'"' result/attempt-001.properties)\" -eq 1
+test \""'$(docker inspect zookeeper1560-attempt-001 --format '"'{{.State.Status}}')\" = exited
+printf '%s\\n' 'Final protected roots:'
+for category in app_logs txn_logs snapshot_data jvm_logs os_logs; do
+  stat -c '%A %U:%G %n' \"logs/zk1/"'$category/attempt-001"
+done
+stat -c '"'%A %U:%G %n' result/attempt-001.properties
+printf '%s\\n' 'Result contents:'
+sed -n '1,80p' result/attempt-001.properties
+printf 'FINAL_AUDIT_PASSED attempt_directories=%s server_state=exited\\n' \""'$attempt_dirs"' in /home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560
+ succeeded in 2ms:
+result=SUCCESS
+attempt=attempt-001
+node=zk1
+zookeeper_version=3.4.4
+fault_injection=socket_send_buffer
+requested_send_buffer_bytes=1024
+actual_send_buffer_bytes=2304
+readiness_control=passed
+large_create_payload_bytes=500000
+large_create_timed_out=true
+deadline_seconds=30
+expected_waiting_stack=true
+verify_exit=0
+verifier_outcome=REPRODUCED
+client_exit=143
+evidence_root=logs/zk1
+FINAL_AUDIT_PASSED attempt_directories=5 server_state=exited
+
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+codex
+Completed exactly one experiment: `attempt-001`.
+
+- Result: `SUCCESS` — issue reproduced.
+- Injected send buffer: requested 1024 bytes, actual 2304 bytes.
+- Large create remained blocked beyond 30 seconds.
+- `Verify.java` exited `0` with the expected waiting stack.
+- All five evidence categories are protected (`0555` directories, `0444` files), host-readable, and traversable.
+- Server container is stopped.
+- Progress: 1 of 3 required attempts completed.
+
+Artifacts:
+
+- [Result properties](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/result/attempt-001.properties)
+- [Application logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/app_logs/attempt-001)
+- [JVM evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/jvm_logs/attempt-001)
+- [Transaction logs](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/txn_logs/attempt-001)
+- [Snapshot data](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/snapshot_data/attempt-001)
+- [OS/container evidence](/home/shkim/mydir/zk-collect/issues/ZOOKEEPER-1560/logs/zk1/os_logs/attempt-001)
+diff --git a/result/attempt-001.properties b/result/attempt-001.properties
+new file mode 100644
+index 0000000000000000000000000000000000000000..bca48589e3a4a113e0903d1775a4362397506e33
+--- /dev/null
++++ b/result/attempt-001.properties
+@@ -0,0 +1,16 @@
++result=SUCCESS
++attempt=attempt-001
++node=zk1
++zookeeper_version=3.4.4
++fault_injection=socket_send_buffer
++requested_send_buffer_bytes=1024
++actual_send_buffer_bytes=2304
++readiness_control=passed
++large_create_payload_bytes=500000
++large_create_timed_out=true
++deadline_seconds=30
++expected_waiting_stack=true
++verify_exit=0
++verifier_outcome=REPRODUCED
++client_exit=143
++evidence_root=logs/zk1
+
+tokens used
+52,744

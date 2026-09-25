@@ -1,0 +1,6 @@
+[NOTICE]   (989033) : haproxy version is 2.7-dev5-025945-3
+[NOTICE]   (989033) : path to executable is ./haproxy/haproxy
+[WARNING]  (989033) : [./haproxy/haproxy.main()] Failed to drop supplementary groups. Using 'gid'/'group' without 'uid'/'user' is generally useless.
+[WARNING]  (989033) : Health check for server BACKEND_POOL/backend succeeded, reason: Layer4 check passed, check duration: 0ms, status: 3/3 UP.
+Health check for server BACKEND_POOL/backend succeeded, reason: Layer4 check passed, check duration: 0ms, status: 3/3 UP.
+<terminated by signal SIGSEGV (Address boundary error)>

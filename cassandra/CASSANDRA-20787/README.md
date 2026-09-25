@@ -1,4 +1,4 @@
-# [CASSANDRA-13669](https://issues.apache.org/jira/browse/CASSANDRA-13669)
+# [CASSANDRA-20787](https://issues.apache.org/jira/browse/CASSANDRA-20787)
 새로운 카산드라 노드를 시작할때 
 $CASSANDRA_HOME/data/data 디렉토리가 없으며
 config의 설정 항목인 data_disk_usage_max_disk_size의 값이 설정되어 있으면

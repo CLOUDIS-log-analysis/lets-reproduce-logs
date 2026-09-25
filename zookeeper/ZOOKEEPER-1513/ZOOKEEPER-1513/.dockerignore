@@ -1,0 +1,7 @@
+**
+!Dockerfile
+!docker-entrypoint.sh
+!zoo.cfg
+!log4j.properties
+!dist/
+!dist/zookeeper-3.3.4.tar.gz

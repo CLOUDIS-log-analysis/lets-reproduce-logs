@@ -1,0 +1,27 @@
+2026/09/21 01:22:23 [notice] 16385#0: using the "epoll" event method
+2026/09/21 01:22:23 [notice] 16385#0: nginx/1.29.1
+2026/09/21 01:22:23 [notice] 16385#0: built by gcc 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 
+2026/09/21 01:22:23 [notice] 16385#0: OS: Linux 6.8.0-139-generic
+2026/09/21 01:22:23 [notice] 16385#0: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/09/21 01:22:23 [notice] 16385#0: start worker processes
+2026/09/21 01:22:23 [notice] 16385#0: start worker process 16386
+2026/09/21 01:23:08 [info] 16386#0: *1 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:23:20 [info] 16386#0: *2 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:23:26 [info] 16386#0: *4 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:23:28 [info] 16386#0: *6 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:23:29 [info] 16386#0: *8 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:23:57 [notice] 16385#0: signal 17 (SIGCHLD) received from 16386
+2026/09/21 01:23:57 [alert] 16385#0: worker process 16386 exited on signal 11 (core dumped)
+2026/09/21 01:23:57 [notice] 16385#0: start worker process 16591
+2026/09/21 01:24:23 [info] 16591#0: *12 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:24:33 [info] 16591#0: *13 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:24:35 [info] 16591#0: *15 client 127.0.0.1 closed keepalive connection
+2026/09/21 01:25:15 [notice] 16385#0: signal 2 (SIGINT) received, exiting
+2026/09/21 01:25:15 [notice] 16591#0: signal 2 (SIGINT) received, exiting
+2026/09/21 01:25:15 [info] 16591#0: epoll_wait() failed (4: Interrupted system call)
+2026/09/21 01:25:15 [notice] 16591#0: exiting
+2026/09/21 01:25:15 [notice] 16591#0: exit
+2026/09/21 01:25:15 [notice] 16385#0: signal 17 (SIGCHLD) received from 16591
+2026/09/21 01:25:15 [notice] 16385#0: worker process 16591 exited with code 0
+2026/09/21 01:25:15 [notice] 16385#0: exit
+
