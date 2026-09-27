@@ -1,143 +1,106 @@
-2069120:C 27 Sep 2026 14:45:58.609 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
-2069120:C 27 Sep 2026 14:45:58.609 # Redis version=999.999.999, bits=64, commit=11d399dd, modified=0, pid=2069120, just started
-2069120:C 27 Sep 2026 14:45:58.609 # Configuration loaded
-2069120:M 27 Sep 2026 14:45:58.610 * Running mode=standalone, port=6379.
-2069120:M 27 Sep 2026 14:45:58.610 # Server initialized
-2069120:M 27 Sep 2026 14:45:58.610 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
-2069120:M 27 Sep 2026 14:45:58.610 * Ready to accept connections
-2069120:M 27 Sep 2026 14:45:58.610 - 0 clients connected (0 replicas), 792032 bytes in use
-2069120:M 27 Sep 2026 14:46:03.627 - 0 clients connected (0 replicas), 792032 bytes in use
-2069120:M 27 Sep 2026 14:46:08.644 - 0 clients connected (0 replicas), 792032 bytes in use
-2069120:M 27 Sep 2026 14:46:11.947 - Accepted ::1:50644
-2069120:M 27 Sep 2026 14:46:13.663 - 1 clients connected (0 replicas), 812920 bytes in use
-2069120:M 27 Sep 2026 14:46:18.682 - 1 clients connected (0 replicas), 812944 bytes in use
-2069120:M 27 Sep 2026 14:46:23.703 - 1 clients connected (0 replicas), 812944 bytes in use
-2069120:M 27 Sep 2026 14:46:28.722 - DB 0: 1 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:28.722 - 1 clients connected (0 replicas), 813032 bytes in use
-2069120:M 27 Sep 2026 14:46:33.741 - DB 0: 1 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:33.741 - 1 clients connected (0 replicas), 811992 bytes in use
-2069120:M 27 Sep 2026 14:46:38.760 - DB 0: 1 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:38.760 - 1 clients connected (0 replicas), 811992 bytes in use
-2069120:M 27 Sep 2026 14:46:39.681 - Client closed connection
-2069120:M 27 Sep 2026 14:46:43.780 - DB 0: 1 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:43.780 - 0 clients connected (0 replicas), 791112 bytes in use
-2069120:M 27 Sep 2026 14:46:46.879 - Accepted 127.0.0.1:46186
-2069120:M 27 Sep 2026 14:46:48.798 - DB 0: 2 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:48.798 - 1 clients connected (0 replicas), 812064 bytes in use
-2069120:M 27 Sep 2026 14:46:53.818 - DB 0: 2 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:53.819 - 1 clients connected (0 replicas), 812064 bytes in use
-2069120:M 27 Sep 2026 14:46:58.838 - DB 0: 2 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:46:58.838 - 1 clients connected (0 replicas), 812064 bytes in use
-2069120:M 27 Sep 2026 14:47:03.857 - DB 0: 2 keys (0 volatile) in 4 slots HT.
-2069120:M 27 Sep 2026 14:47:03.857 - 1 clients connected (0 replicas), 812064 bytes in use
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 999.999.999 (3b644e82/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 2093137
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+2093137:M 27 Sep 15:48:26.933 # Server started, Redis version 999.999.999
+2093137:M 27 Sep 15:48:26.933 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+2093137:M 27 Sep 15:48:26.933 * The server is now ready to accept connections on port 6379
+2093137:M 27 Sep 15:48:26.934 - 0 clients connected (0 slaves), 762624 bytes in use
+2093137:M 27 Sep 15:48:31.953 - 0 clients connected (0 slaves), 762624 bytes in use
+2093137:M 27 Sep 15:48:33.216 - Accepted 127.0.0.1:58436
 
 
 === REDIS BUG REPORT START: Cut & paste starting from here ===
-2069120:M 27 Sep 2026 14:47:06.795 # Redis 999.999.999 crashed by signal: 11
-2069120:M 27 Sep 2026 14:47:06.795 # Crashed running the instruction at: 0x4459b9
-2069120:M 27 Sep 2026 14:47:06.795 # Accessing address: 0x7b07f3baa000
-2069120:M 27 Sep 2026 14:47:06.795 # Failed assertion: <no assertion failed> (<no file>:0)
+2093137:M 27 Sep 15:48:36.145 # Redis 999.999.999 crashed by signal: 11
+2093137:M 27 Sep 15:48:36.145 # Crashed running the instuction at: 0x47d221
+2093137:M 27 Sep 15:48:36.145 # Accessing address: (nil)
+2093137:M 27 Sep 15:48:36.145 # Failed assertion: <no assertion failed> (<no file>:0)
 
 ------ STACK TRACE ------
 EIP:
-./redis/src/redis-server *:6379(stringmatchlen+0x59)[0x4459b9]
+./redis/src/redis-server *:6379(bitfieldCommand+0x3f1)[0x47d221]
 
 Backtrace:
-./redis/src/redis-server *:6379(logStackTrace+0x6b)[0x47a51b]
-./redis/src/redis-server *:6379(sigsegvHandler+0xb1)[0x47ac61]
-/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0(+0x11f10)[0x7b07f3e11f10]
-./redis/src/redis-server *:6379(stringmatchlen+0x59)[0x4459b9]
-./redis/src/redis-server *:6379(stringmatchlen+0xec)[0x445a4c]
-./redis/src/redis-server *:6379(keysCommand+0xe6)[0x44b766]
-./redis/src/redis-server *:6379(call+0x90)[0x434740]
-./redis/src/redis-server *:6379(processCommand+0x477)[0x435be7]
-./redis/src/redis-server *:6379(processInputBuffer+0x179)[0x445439]
-./redis/src/redis-server *:6379(aeProcessEvents+0x150)[0x42e350]
-./redis/src/redis-server *:6379(aeMain+0x2b)[0x42e78b]
-./redis/src/redis-server *:6379(main+0x3bf)[0x42b36f]
-/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6(__libc_start_main+0xee)[0x7b07f3a21b8e]
-./redis/src/redis-server *:6379(_start+0x2a)[0x42b6ea]
+./redis/src/redis-server *:6379(logStackTrace+0x6b)[0x4670fb]
+./redis/src/redis-server *:6379(sigsegvHandler+0xaf)[0x46766f]
+/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libpthread.so.0(+0x11f10)[0x75b151c11f10]
+./redis/src/redis-server *:6379(bitfieldCommand+0x3f1)[0x47d221]
+./redis/src/redis-server *:6379(call+0x71)[0x42ac81]
+./redis/src/redis-server *:6379(processCommand+0x45f)[0x42df8f]
+./redis/src/redis-server *:6379(processInputBuffer+0x115)[0x43b155]
+./redis/src/redis-server *:6379(aeProcessEvents+0x124)[0x424b04]
+./redis/src/redis-server *:6379(aeMain+0x2b)[0x424ebb]
+./redis/src/redis-server *:6379(main+0x200)[0x421b30]
+/nix/store/fg4yq8i8wd08xg3fy58l6q73cjy8hjr2-glibc-2.27/lib/libc.so.6(__libc_start_main+0xee)[0x75b151821b8e]
+./redis/src/redis-server *:6379(_start+0x2a)[0x421fda]
 
 ------ INFO OUTPUT ------
 # Server
 redis_version:999.999.999
-redis_git_sha1:11d399dd
+redis_git_sha1:3b644e82
 redis_git_dirty:0
-redis_build_id:53fcbd37483af0a4
+redis_build_id:158514199423cc90
 redis_mode:standalone
 os:Linux 7.1.5 x86_64
 arch_bits:64
 multiplexing_api:epoll
-atomicvar_api:atomic-builtin
 gcc_version:7.3.0
-process_id:2069120
-run_id:f607ea98f73d392613d81698761c6ccb93a89911
+process_id:2093137
+run_id:e7c932b25820e30b9e30d576518e3d318f393205
 tcp_port:6379
-uptime_in_seconds:68
+uptime_in_seconds:10
 uptime_in_days:0
 hz:10
-configured_hz:10
-lru_clock:12103130
-executable:/home/sshkgw/repo/lets-reproduce-logs/redis/redis-5632/./redis/src/redis-server
+lru_clock:12106820
+executable:/home/sshkgw/repo/lets-reproduce-logs/redis/redis-3221/./redis/src/redis-server
 config_file:
 
 # Clients
 connected_clients:1
-client_recent_max_input_buffer:2
-client_recent_max_output_buffer:0
+client_longest_output_list:0
+client_biggest_input_buf:0
 blocked_clients:0
 
 # Memory
-used_memory:854432
-used_memory_human:834.41K
-used_memory_rss:6209536
-used_memory_rss_human:5.92M
-used_memory_peak:854432
-used_memory_peak_human:834.41K
-used_memory_peak_perc:100.05%
-used_memory_overhead:841878
-used_memory_startup:792032
-used_memory_dataset:12554
-used_memory_dataset_perc:20.12%
-allocator_allocated:1363760
-allocator_active:1617920
-allocator_resident:9523200
+used_memory:825800
+used_memory_human:806.45K
+used_memory_rss:4583424
+used_memory_rss_human:4.37M
+used_memory_peak:825800
+used_memory_peak_human:806.45K
 total_system_memory:16149856256
 total_system_memory_human:15.04G
 used_memory_lua:37888
 used_memory_lua_human:37.00K
-used_memory_scripts:0
-used_memory_scripts_human:0B
-number_of_cached_scripts:0
 maxmemory:0
 maxmemory_human:0B
 maxmemory_policy:noeviction
-allocator_frag_ratio:1.19
-allocator_frag_bytes:254160
-allocator_rss_ratio:5.89
-allocator_rss_bytes:7905280
-rss_overhead_ratio:0.65
-rss_overhead_bytes:-3313664
-mem_fragmentation_ratio:7.65
-mem_fragmentation_bytes:5397472
-mem_not_counted_for_evict:0
-mem_replication_backlog:0
-mem_clients_slaves:0
-mem_clients_normal:49734
-mem_aof_buffer:0
-mem_allocator:jemalloc-5.1.0
-active_defrag_running:0
+mem_fragmentation_ratio:5.55
+mem_allocator:jemalloc-4.0.3
 lazyfree_pending_objects:0
 
 # Persistence
 loading:0
-rdb_changes_since_last_save:2
+rdb_changes_since_last_save:1
 rdb_bgsave_in_progress:0
-rdb_last_save_time:1790487958
+rdb_last_save_time:1790491706
 rdb_last_bgsave_status:ok
 rdb_last_bgsave_time_sec:-1
 rdb_current_bgsave_time_sec:-1
-rdb_last_cow_size:0
 aof_enabled:0
 aof_rewrite_in_progress:0
 aof_rewrite_scheduled:0
@@ -145,128 +108,115 @@ aof_last_rewrite_time_sec:-1
 aof_current_rewrite_time_sec:-1
 aof_last_bgrewrite_status:ok
 aof_last_write_status:ok
-aof_last_cow_size:0
 
 # Stats
-total_connections_received:2
-total_commands_processed:3
+total_connections_received:1
+total_commands_processed:2
 instantaneous_ops_per_sec:0
-total_net_input_bytes:134
-total_net_output_bytes:11769
-instantaneous_input_kbps:0.00
+total_net_input_bytes:97
+total_net_output_bytes:832476
+instantaneous_input_kbps:0.02
 instantaneous_output_kbps:0.00
 rejected_connections:0
 sync_full:0
 sync_partial_ok:0
 sync_partial_err:0
 expired_keys:0
-expired_stale_perc:0.00
-expired_time_cap_reached_count:0
 evicted_keys:0
-keyspace_hits:0
+keyspace_hits:1
 keyspace_misses:0
 pubsub_channels:0
 pubsub_patterns:0
 latest_fork_usec:0
 migrate_cached_sockets:0
-slave_expires_tracked_keys:0
-active_defrag_hits:0
-active_defrag_misses:0
-active_defrag_key_hits:0
-active_defrag_key_misses:0
 
 # Replication
 role:master
 connected_slaves:0
-master_replid:5f8d1da1fc176f1cfc147f76554573edcd293bf0
-master_replid2:0000000000000000000000000000000000000000
 master_repl_offset:0
-second_repl_offset:-1
 repl_backlog_active:0
 repl_backlog_size:1048576
 repl_backlog_first_byte_offset:0
 repl_backlog_histlen:0
 
 # CPU
-used_cpu_sys:0.056635
-used_cpu_user:0.071442
-used_cpu_sys_children:0.000000
-used_cpu_user_children:0.000000
+used_cpu_sys:0.01
+used_cpu_user:0.01
+used_cpu_sys_children:0.00
+used_cpu_user_children:0.00
 
 # Commandstats
-cmdstat_command:calls=1,usec=749,usec_per_call=749.00
-cmdstat_set:calls=2,usec=12,usec_per_call=6.00
+cmdstat_set:calls=1,usec=9,usec_per_call=9.00
+cmdstat_command:calls=1,usec=207,usec_per_call=207.00
 
 # Cluster
 cluster_enabled:0
 
 # Keyspace
-db0:keys=2,expires=0,avg_ttl=0
+db0:keys=1,expires=0,avg_ttl=0
+hash_init_value: 1789491022
 
 ------ CLIENT LIST OUTPUT ------
-id=4 addr=127.0.0.1:46186 fd=8 name= age=20 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=23 qbuf-free=32745 obl=0 oll=1 omem=40 events=r cmd=keys
+id=2 addr=127.0.0.1:58436 fd=6 name= age=3 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=4 oll=0 omem=0 events=r cmd=bitfield
 
 ------ CURRENT CLIENT INFO ------
-id=4 addr=127.0.0.1:46186 fd=8 name= age=20 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=23 qbuf-free=32745 obl=0 oll=1 omem=40 events=r cmd=keys
-argv[0]: 'KEYS'
-argv[1]: ''
+id=2 addr=127.0.0.1:58436 fd=6 name= age=3 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=4 oll=0 omem=0 events=r cmd=bitfield
+argv[0]: 'bitfield'
+argv[1]: 'foo'
+argv[2]: 'get'
+argv[3]: 'i1'
+argv[4]: '0'
+2093137:M 27 Sep 15:48:36.146 # key 'foo' found in DB containing the following object:
+2093137:M 27 Sep 15:48:36.146 # Object type: 0
+2093137:M 27 Sep 15:48:36.146 # Object encoding: 1
+2093137:M 27 Sep 15:48:36.146 # Object refcount: 2147483647
 
 ------ REGISTERS ------
-2069120:M 27 Sep 2026 14:47:06.796 # 
-RAX:0000000000000000 RBX:0000000000000001
-RCX:00000000ffa5f7ab RDX:00007b07f3baa000
-RDI:00007b07f3629815 RSI:0000000000000001
-RBP:000000000000007a RSP:00007fff2ceb5260
-R8 :0000000000000000 R9 :00007b07f3baa000
-R10:00007b07f503d000 R11:00007b07f50357a8
-R12:00007b07f3629815 R13:0000000000000000
-R14:00000000ffa5f7ab R15:00000000ffa5f7ab
-RIP:00000000004459b9 EFL:0000000000010246
+2093137:M 27 Sep 15:48:36.146 # 
+RAX:000075b150e16ba0 RBX:000075b150f00440
+RCX:00000000b8bc4400 RDX:00000000b8bc4410
+RDI:000075b150f17276 RSI:0000000000000001
+RBP:0000000000000020 RSP:00007fff011f1a20
+R8 :0000000000000003 R9 :000075b151931870
+R10:000075b150e00000 R11:000075b15197dda0
+R12:0000000000000000 R13:000075b150f17260
+R14:0000000000000001 R15:000075b150f17240
+RIP:000000000047d221 EFL:0000000000010206
 CSGSFS:002b000000000033
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526f) -> 000000000043bb0f
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526e) -> 0000000000000030
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526d) -> 00007b07f3baa000
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526c) -> 0000000000000000
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526b) -> 0000000000445a4c
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb526a) -> 00000000ffa5f7ab
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5269) -> 00000000ffffffff
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5268) -> 0000000000000000
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5267) -> 00007b07f3629815
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5266) -> 000000000000002a
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5265) -> 0000000000000001
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5264) -> 0000000000000018
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5263) -> 00000000004e25e6
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5262) -> 00000000007c1cd8
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5261) -> 00000000004e25e6
-2069120:M 27 Sep 2026 14:47:06.796 # (00007fff2ceb5260) -> 00007b07f360aa00
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2f) -> 00000000007535c0
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2e) -> 000075b150f00440
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2d) -> 8fb05040690a8e00
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2c) -> 0000000000000000
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2b) -> 000075b150e1af40
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a2a) -> 0000000000000000
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a29) -> 0000000000000000
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a28) -> 0000000100000001
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a27) -> 00007fff011f1a70
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a26) -> 00007fff011f1a68
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a25) -> 00007fff011f1a60
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a24) -> 00007fff011f1a64
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a23) -> 0000000000000001
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a22) -> 000075b150f17240
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a21) -> 0000000000000002
+2093137:M 27 Sep 15:48:36.146 # (00007fff011f1a20) -> 00007fff011f1a70
 
 ------ FAST MEMORY TEST ------
-2069120:M 27 Sep 2026 14:47:06.796 # Bio thread for job type #0 terminated
-2069120:M 27 Sep 2026 14:47:06.796 # Bio thread for job type #1 terminated
-2069120:M 27 Sep 2026 14:47:06.796 # Bio thread for job type #2 terminated
-*** Preparing to test memory region 7ac000 (2252800 bytes)
-*** Preparing to test memory region 1759e000 (135168 bytes)
-*** Preparing to test memory region 7b07f0e7d000 (5767168 bytes)
-*** Preparing to test memory region 7b07f13fe000 (8388608 bytes)
-*** Preparing to test memory region 7b07f1bff000 (8388608 bytes)
-*** Preparing to test memory region 7b07f2400000 (8388608 bytes)
-*** Preparing to test memory region 7b07f3200000 (8388608 bytes)
-*** Preparing to test memory region 7b07f3db0000 (16384 bytes)
-*** Preparing to test memory region 7b07f401b000 (16384 bytes)
-*** Preparing to test memory region 7b07f5026000 (4096 bytes)
-*** Preparing to test memory region 7b07f5035000 (32768 bytes)
+2093137:M 27 Sep 15:48:36.146 # Bio thread for job type #0 terminated
+2093137:M 27 Sep 15:48:36.146 # Bio thread for job type #1 terminated
+2093137:M 27 Sep 15:48:36.146 # Bio thread for job type #2 terminated
+*** Preparing to test memory region 73a000 (114688 bytes)
+*** Preparing to test memory region 16dff000 (135168 bytes)
+*** Preparing to test memory region 75b14f5fe000 (8388608 bytes)
+*** Preparing to test memory region 75b14fdff000 (8388608 bytes)
+*** Preparing to test memory region 75b150600000 (8388608 bytes)
+*** Preparing to test memory region 75b150e00000 (2097152 bytes)
+*** Preparing to test memory region 75b151600000 (2097152 bytes)
+*** Preparing to test memory region 75b151bb0000 (16384 bytes)
+*** Preparing to test memory region 75b151e1b000 (16384 bytes)
+*** Preparing to test memory region 75b152a26000 (4096 bytes)
+*** Preparing to test memory region 75b152b67000 (16384 bytes)
 .O.O.O.O.O.O.O.O.O.O.O
 Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
-
------- DUMPING CODE AROUND EIP ------
-Symbol: stringmatchlen (base: 0x445960)
-Module: ./redis/src/redis-server *:6379 (base 0x400000)
-$ xxd -r -p /tmp/dump.hex /tmp/dump.bin
-$ objdump --adjust-vma=0x445960 -D -b binary -m i386:x86-64 /tmp/dump.bin
-------
-2069120:M 27 Sep 2026 14:47:06.932 # dump of function (hexdump of 217 bytes):
-4157415641554154555389f34883ec2885f6747b4989fc4589c54189ce490fbe2c244589f74989d14080fd3f0f846e0200007e744080fd5b0f84da0000004080fd5c751283fb017e0d490fbe6c240183eb014983c4014585ed4c0fbe3a0f854d0200004438fd0f8597000000418d76ff4c89e589f183eb0185f64c8d65010f847f0200004883c20185db4189f6758e31c009d90f94c04883c4285b5d415c415d415e415fc30f1f004080fd2a7409eba64983c40183eb0141807c24012a74f183fb010f841002000083eb014983c4014585f6742f4589e84489
-
 === REDIS BUG REPORT END. Make sure to include from START to END. ===
 
        Please report the crash by opening an issue on github:
@@ -275,3 +225,70 @@ $ objdump --adjust-vma=0x445960 -D -b binary -m i386:x86-64 /tmp/dump.bin
 
   Suspect RAM error? Use redis-server --test-memory to verify it.
 
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 999.999.999 (3b644e82/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 2132462
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+2132462:M 27 Sep 18:32:00.892 # Server started, Redis version 999.999.999
+2132462:M 27 Sep 18:32:00.892 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+2132462:M 27 Sep 18:32:00.892 * The server is now ready to accept connections on port 6379
+2132462:M 27 Sep 18:32:00.893 - 0 clients connected (0 slaves), 762624 bytes in use
+2132462:M 27 Sep 18:32:05.910 - 0 clients connected (0 slaves), 762624 bytes in use
+2132462:M 27 Sep 18:32:09.953 - Accepted 127.0.0.1:36738
+2132462:M 27 Sep 18:32:10.929 - 1 clients connected (0 slaves), 783488 bytes in use
+2132462:M 27 Sep 18:32:15.946 - 1 clients connected (0 slaves), 783488 bytes in use
+2132462:M 27 Sep 18:32:20.967 - 1 clients connected (0 slaves), 783488 bytes in use
+2132462:M 27 Sep 18:32:25.987 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:25.987 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:31.003 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:31.003 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:36.022 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:36.022 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:41.042 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:41.042 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:46.061 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:46.061 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:51.080 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:51.080 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:32:56.099 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:32:56.099 - 1 clients connected (0 slaves), 783584 bytes in use
+2132462:M 27 Sep 18:33:01.115 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:01.115 - 1 clients connected (0 slaves), 783600 bytes in use
+2132462:M 27 Sep 18:33:06.133 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:06.133 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:11.151 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:11.151 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:16.170 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:16.170 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:21.189 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:21.189 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:26.208 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:26.208 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:31.227 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:31.227 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:36.245 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:36.245 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:41.265 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:41.265 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:46.285 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:46.286 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:51.306 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+2132462:M 27 Sep 18:33:51.306 - 1 clients connected (0 slaves), 783592 bytes in use
+2132462:M 27 Sep 18:33:53.994 - Client closed connection
+2132462:signal-handler (1790501636) Received SIGINT scheduling shutdown...
+2132462:M 27 Sep 18:33:56.022 # User requested shutdown...
+2132462:M 27 Sep 18:33:56.022 # Redis is now ready to exit, bye bye...
