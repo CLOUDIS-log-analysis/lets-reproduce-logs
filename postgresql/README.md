@@ -4,9 +4,9 @@
 
 20191119: fsync 중 삭제된 세그먼트 접근
 
+parallel vacuum: parallel vacuum 시 죽은 튜플없이 vacuum
+
 ---------------------------------------------------
 # 재현완료
-
-parallel vacuum: parallel vacuum 시 죽은 튜플없이 vacuum
 
 #16801: expansible array 확장 시 포인터 갱신 누락
