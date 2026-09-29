@@ -10,3 +10,5 @@ parallel vacuum: parallel vacuum 시 죽은 튜플없이 vacuum
 # 재현완료
 
 #16801: expansible array 확장 시 포인터 갱신 누락
+
+#15672: ALTER 시 relcache에 daggling pointer
