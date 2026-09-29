@@ -1,0 +1,524 @@
+rg "accept:"
+
+event/ngx_event_accept.c
+297:                           "*%uA accept: %V fd:%d", c->number, &addr, s);
+
+
+rg "event timer add:"
+
+event/ngx_event_timer.h
+81:                   "event timer add: %d: %M:%M",
+
+
+rg "reusable connection:"
+
+core/ngx_connection.c
+1207:                   "reusable connection: %ui", reusable);
+
+
+rg "epoll add event:"
+
+event/modules/ngx_epoll_module.c
+624:                   "epoll add event: fd:%d op:%d ev:%08XD",
+
+
+rg "http wait request handler"
+
+http/ngx_http_request.c
+397:    ngx_log_debug0(NGX_LOG_DEBUG_HTTP, c->log, 0, "http wait request handler");
+
+
+rg "malloc:"
+
+os/unix/ngx_alloc.c
+28:    ngx_log_debug2(NGX_LOG_DEBUG_ALLOC, log, 0, "malloc: %p:%uz", p, size);
+
+
+rg "recv: eof:"
+
+os/unix/ngx_recv.c
+57:                       "recv: eof:%d, avail:%d",
+
+
+rg "recv: fd:"
+
+os/unix/ngx_recv.c
+72:                       "recv: fd:%d %z of %uz", c->fd, n, size);
+
+
+rg "reusable connection:"
+
+core/ngx_connection.c
+1207:                   "reusable connection: %ui", reusable);
+
+
+rg "posix_memalign:"
+
+os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);
+
+
+rg "http process request line"
+
+http/ngx_http_request.c
+956:                   "http process request line");
+
+
+rg "http request line:"
+
+http/ngx_http_request.c
+988:                           "http request line: \"%V\"", &r->request_line);
+
+
+rg "http uri:"
+
+http/ngx_http_request.c
+1204:                   "http uri: \"%V\"", &r->uri);
+
+
+rg "http args:"
+
+http/ngx_http_request.c
+1207:                   "http args: \"%V\"", &r->args);
+
+
+rg "http exten:"
+
+http/ngx_http_request.c
+1210:                   "http exten: \"%V\"", &r->exten);
+
+
+rg "posix_memalign:"
+
+os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);
+
+
+rg "http process request header line"
+
+http/ngx_http_request.c
+1234:                   "http process request header line");
+
+
+rg "http header:"
+
+http/ngx_http_request.c
+1356:                           "http header: \"%V: %V\"",
+
+
+rg "http header:"
+
+http/ngx_http_request.c
+1356:                           "http header: \"%V: %V\"",
+
+
+rg "http header:"
+
+http/ngx_http_request.c
+1356:                           "http header: \"%V: %V\"",
+
+
+rg "http header:"
+
+http/ngx_http_request.c
+1356:                           "http header: \"%V: %V\"",
+
+
+rg "http header done"
+
+http/ngx_http_request.c
+1367:                           "http header done");
+
+
+rg "event timer del:"
+
+event/ngx_event_timer.c
+79:                       "event timer del: %d: %M",
+
+
+rg "rewrite phase:"
+
+http/ngx_http_core_module.c
+910:                   "rewrite phase: %ui", r->phase_handler);
+
+
+rg "test location:"
+
+http/ngx_http_core_module.c
+1345:                           "test location: ~ \"%V\"", &(*clcfp)->name);
+1399:                       "test location: \"%*s\"",
+2484:                           "test location: \"%V\"", &(*clcfp)->name);
+
+
+rg "using configuration"
+
+http/ngx_http_core_module.c
+958:                   "using configuration \"%s%V\"",
+
+
+rg "http cl:"
+
+http/ngx_http_core_module.c
+965:                   "http cl:%O max:%O",
+
+
+rg "rewrite phase:"
+
+http/ngx_http_core_module.c
+910:                   "rewrite phase: %ui", r->phase_handler);
+
+
+rg "post rewrite phase:"
+
+http/ngx_http_core_module.c
+1032:                   "post rewrite phase: %ui", r->phase_handler);
+
+
+rg "generic phase:"
+http/ngx_http_core_module.c
+878:                   "generic phase: %ui", r->phase_handler);
+
+
+rg "generic phase:"
+
+http/ngx_http_core_module.c
+878:                   "generic phase: %ui", r->phase_handler);
+
+
+rg "access phase:"
+
+http/ngx_http_core_module.c
+1081:                   "access phase: %ui", r->phase_handler);
+
+
+rg "access phase:"
+
+http/ngx_http_core_module.c
+1081:                   "access phase: %ui", r->phase_handler);
+
+
+rg "post access phase:"
+
+http/ngx_http_core_module.c
+1139:                   "post access phase: %ui", r->phase_handler);
+
+
+rg "generic phase:"
+
+http/ngx_http_core_module.c
+878:                   "generic phase: %ui", r->phase_handler);
+
+
+rg "generic phase:"
+
+http/ngx_http_core_module.c
+878:                   "generic phase: %ui", r->phase_handler);
+
+
+rg "http init upstream, client timer:"
+
+http/ngx_http_upstream.c
+515:                   "http init upstream, client timer: %d", c->read->timer_set);
+
+
+rg "epoll add event:"
+
+event/modules/ngx_epoll_module.c
+624:                   "epoll add event: fd:%d op:%d ev:%08XD",
+
+
+rg "http cache key:"
+
+http/ngx_http_file_cache.c
+246:                       "http cache key: \"%V\"", &key[i]);
+
+
+rg "http cache key:"
+
+http/ngx_http_file_cache.c
+246:                       "http cache key: \"%V\"", &key[i]);
+
+
+rg "add cleanup:"
+
+core/ngx_palloc.c
+336:    ngx_log_debug1(NGX_LOG_DEBUG_ALLOC, p->log, 0, "add cleanup: %p", c);
+
+
+rg "http file cache exists:"
+
+http/ngx_http_file_cache.c
+300:                   "http file cache exists: %i e:%d", rc, c->exists);
+
+
+rg "cache file:"
+
+http/ngx_http_file_cache.c
+961:                   "cache file: \"%s\"", c->file.name.data);
+
+
+rg "add cleanup:"
+
+core/ngx_palloc.c
+336:    ngx_log_debug1(NGX_LOG_DEBUG_ALLOC, p->log, 0, "add cleanup: %p", c);
+
+
+rg "http file cache fd:"
+
+http/ngx_http_file_cache.c
+377:                   "http file cache fd: %d", of.fd);
+
+
+rg "read:"
+
+os/unix/ngx_files.c
+36:                   "read: %d, %p, %uz, %O", file->fd, buf, size, offset);
+
+
+rg "http upstream cache:"
+
+http/ngx_http_upstream.c
+886:                   "http upstream cache: %i", rc);
+
+
+rg "http proxy status"
+
+http/modules/ngx_http_proxy_module.c
+1774:                   "http proxy status %ui \"%V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header:"
+
+http/modules/ngx_http_proxy_module.c
+1445:                           "http proxy header: \"%V: %V\"",
+1468:                   "http proxy header:%N\"%*s\"",
+1847:                           "http proxy header: \"%V: %V\"",
+
+
+rg "http proxy header done"
+
+http/modules/ngx_http_proxy_module.c
+1858:                           "http proxy header done");
+
+
+rg "http file cache send:"
+
+http/ngx_http_file_cache.c
+1573:                   "http file cache send: %s", c->file.name.data);
+
+
+rg "posix_memalign:"
+
+os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);
+
+
+rg "http im:"
+
+http/modules/ngx_http_not_modified_filter_module.c
+191:                   "http im:\"%V\" etag:%V", list, &etag);
+
+
+rg "http special response:"
+
+http/ngx_http_special_response.c
+423:                   "http special response: %i, \"%V?%V\"",
+
+
+rg "internal redirect:"
+
+http/ngx_http_core_module.c
+2423:                   "internal redirect: \"%V?%V\"", uri, &r->args);
+
+
+rg "rewrite phase:"
+http/ngx_http_core_module.c
+910:                   "rewrite phase: %ui", r->phase_handler);
+
+
+rg "test location:"
+
+http/ngx_http_core_module.c
+1345:                           "test location: ~ \"%V\"", &(*clcfp)->name);
+1399:                       "test location: \"%*s\"",
+2484:                           "test location: \"%V\"", &(*clcfp)->name);
+
+
+rg "test location:"
+
+http/ngx_http_core_module.c
+1345:                           "test location: ~ \"%V\"", &(*clcfp)->name);
+1399:                       "test location: \"%*s\"",
+2484:                           "test location: \"%V\"", &(*clcfp)->name);
+
+
+rg "using configuration"
+
+http/ngx_http_core_module.c
+958:                   "using configuration \"%s%V\"",
+
+
+rg "http cl:"
+
+http/ngx_http_core_module.c
+965:                   "http cl:%O max:%O",
+
+
+rg "rewrite phase:"
+
+http/ngx_http_core_module.c
+910:                   "rewrite phase: %ui", r->phase_handler);
+
+
+rg "HTTP/1.1 ~여러줄인부분"
+
+http/ngx_http_header_filter_module.c
+606:                   "%*s", (size_t) (b->last - b->pos), b->pos);
+
+
+rg "write new buf t:"
+
+http/ngx_http_write_filter_module.c
+131:                       "write new buf t:%d f:%d %p, pos %p, size: %z "
+
+
+rg "http write filter:"
+
+http/ngx_http_write_filter_module.c
+177:                   "http write filter: l:%ui f:%ui s:%O", last, flush, size);
+
+
+rg "http output filter"
+
+http/ngx_http_core_module.c
+1768:                   "http output filter \"%V?%V\"", &r->uri, &r->args);
+
+
+rg "http copy filter:"
+
+http/ngx_http_copy_filter_module.c
+98:                   "http copy filter: \"%V?%V\"", &r->uri, &r->args);
+162:                   "http copy filter: %i \"%V?%V\"", rc, &r->uri, &r->args);
+
+
+rg "http postpone filter"
+
+http/ngx_http_postpone_filter_module.c
+63:                   "http postpone filter \"%V?%V\" %p", &r->uri, &r->args, in);
+
+
+rg "write old buf t:"
+
+http/ngx_http_write_filter_module.c
+75:                       "write old buf t:%d f:%d %p, pos %p, size: %z "
+
+
+rg "write new buf t:"
+
+http/ngx_http_write_filter_module.c
+131:                       "write new buf t:%d f:%d %p, pos %p, size: %z "
+
+
+rg "http write filter:"
+
+http/ngx_http_write_filter_module.c
+177:                   "http write filter: l:%ui f:%ui s:%O", last, flush, size);
+
+
+rg "http write filter limit"
+
+http/ngx_http_write_filter_module.c
+252:                   "http write filter limit %O", limit);
+
+
+rg "writev:"
+
+os/unix/ngx_writev_chain.c
+192:                   "writev: %z of %uz", n, vec->size);
+
+
+rg "http write filter"
+
+http/ngx_http_write_filter_module.c
+257:                   "http write filter %p", chain);
+
+
+rg "http copy filter:"
+
+http/ngx_http_copy_filter_module.c
+162:                   "http copy filter: %i \"%V?%V\"", rc, &r->uri, &r->args);
+
+
+rg "http finalize request:"
+
+http/ngx_http_request.c
+2321:                   "http finalize request: %i, \"%V?%V\" a:%d, c:%d",
+
+
+rg "http terminate request count:"
+
+http/ngx_http_request.c
+2524:                   "http terminate request count:%d", mr->count);
+
+
+rg "http terminate cleanup count:"
+
+http/ngx_http_request.c
+2542:                   "http terminate cleanup count:%d blk:%d",
+
