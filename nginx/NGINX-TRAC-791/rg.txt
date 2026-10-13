@@ -1,0 +1,209 @@
+=== 검색어: accept: ===
+./nginx-1.9.4/src/event/ngx_event_accept.c
+340:                           "*%uA accept: %V fd:%d", c->number, &addr, s);
+
+./nginx-1.9.4/src/event/ngx_event.h
+35:    unsigned         accept:1;
+64:    unsigned         deferred_accept:1;
+93:     *   accept:     number of sockets that wait to be accepted
+102:     *   accept:     1 if accept many, 0 otherwise
+
+./nginx-1.9.4/src/core/ngx_connection.h
+62:    unsigned            nonblocking_accept:1;
+78:    unsigned            deferred_accept:1;
+=== 검색어: posix_memalign: ===
+./nginx-1.9.4/src/os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);
+=== 검색어: event timer add: ===
+./nginx-1.9.4/src/event/ngx_event_timer.h
+81:                   "event timer add: %d: %M:%M",
+=== 검색어: reusable connection: ===
+./nginx-1.9.4/src/core/ngx_connection.c
+1117:                   "reusable connection: %ui", reusable);
+=== 검색어: epoll add event: ===
+./nginx-1.9.4/src/event/modules/ngx_epoll_module.c
+541:                   "epoll add event: fd:%d op:%d ev:%08XD",
+=== 검색어: timer delta: ===
+./nginx-1.9.4/src/event/ngx_event.c
+247:                   "timer delta: %M", delta);
+=== 검색어: worker cycle ===
+./nginx-1.9.4/src/os/unix/ngx_process_cycle.c
+307:        ngx_log_debug0(NGX_LOG_DEBUG_EVENT, cycle->log, 0, "worker cycle");
+751:        ngx_log_debug0(NGX_LOG_DEBUG_EVENT, cycle->log, 0, "worker cycle");
+=== 검색어: epoll timer: ===
+./nginx-1.9.4/src/event/modules/ngx_epoll_module.c
+715:                   "epoll timer: %M", timer);
+=== 검색어: epoll: ===
+./nginx-1.9.4/src/event/modules/ngx_epoll_module.c
+769:                           "epoll: stale event %p", c);
+776:                       "epoll: fd:%d ev:%04XD d:%p",
+838:                               "epoll: stale event %p", c);
+=== 검색어: http wait request handler ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+386:    ngx_log_debug0(NGX_LOG_DEBUG_HTTP, c->log, 0, "http wait request handler");
+=== 검색어: malloc: ===
+./nginx-1.9.4/src/os/unix/ngx_alloc.c
+28:    ngx_log_debug2(NGX_LOG_DEBUG_ALLOC, log, 0, "malloc: %p:%uz", p, size);
+=== 검색어: recv: ===
+./nginx-1.9.4/src/os/unix/ngx_udp_recv.c
+28:                       "recv: fd:%d %d of %d", c->fd, n, size);
+86:                       "recv: fd:%d %d of %d", c->fd, n, size);
+
+./nginx-1.9.4/src/os/unix/ngx_recv.c
+26:                       "recv: eof:%d, avail:%d, err:%d",
+55:                       "recv: fd:%d %d of %d", c->fd, n, size);
+142:                       "recv: fd:%d %d of %d", c->fd, n, size);
+=== 검색어: reusable connection: ===
+./nginx-1.9.4/src/core/ngx_connection.c
+1117:                   "reusable connection: %ui", reusable);
+=== 검색어: posix_memalign: ===
+./nginx-1.9.4/src/os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);
+=== 검색어: http process request line ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+917:                   "http process request line");
+=== 검색어: http request line: ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+949:                           "http request line: \"%V\"", &r->request_line);
+
+./nginx-1.9.4/src/http/ngx_http_spdy.c
+3133:                   "spdy http request line: \"%V\"", &r->request_line);
+=== 검색어: http uri: ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+1158:                   "http uri: \"%V\"", &r->uri);
+=== 검색어: http args: ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+1161:                   "http args: \"%V\"", &r->args);
+=== 검색어: http exten: ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+1164:                   "http exten: \"%V\"", &r->exten);
+=== 검색어: http process request header line ===
+./nginx-1.9.4/src/http/ngx_http_request.c
+1188:                   "http process request header line");
+=== 검색어: http header: ===
+./nginx-1.9.4/src/http/ngx_http_spdy.c
+3160:                       "spdy http header: \"%V: %V\"", &h[i].key, &h[i].value);
+
+./nginx-1.9.4/src/http/ngx_http_request.c
+1310:                           "http header: \"%V: %V\"",
+
+./nginx-1.9.4/src/mail/ngx_mail_auth_http_module.c
+493:                           "mail auth http header: \"%V: %V\"",
+1398:                   "mail auth http header:%N\"%*s\"",
+=== 검색어: http header: ===
+./nginx-1.9.4/src/mail/ngx_mail_auth_http_module.c
+493:                           "mail auth http header: \"%V: %V\"",
+1398:                   "mail auth http header:%N\"%*s\"",
+
+./nginx-1.9.4/src/http/ngx_http_spdy.c
+3160:                       "spdy http header: \"%V: %V\"", &h[i].key, &h[i].value);
+
+./nginx-1.9.4/src/http/ngx_http_request.c
+1310:                           "http header: \"%V: %V\"",
+=== 검색어: http header: ===
+./nginx-1.9.4/src/http/ngx_http_spdy.c
+3160:                       "spdy http header: \"%V: %V\"", &h[i].key, &h[i].value);
+
+./nginx-1.9.4/src/http/ngx_http_request.c
+1310:                           "http header: \"%V: %V\"",
+
+./nginx-1.9.4/src/mail/ngx_mail_auth_http_module.c
+493:                           "mail auth http header: \"%V: %V\"",
+1398:                   "mail auth http header:%N\"%*s\"",
+=== 검색어: http header done ===
+./nginx-1.9.4/src/mail/ngx_mail_auth_http_module.c
+690:                           "mail auth http header done");
+
+./nginx-1.9.4/src/http/ngx_http_request.c
+1321:                           "http header done");
+=== 검색어: event timer del: ===
+./nginx-1.9.4/src/event/ngx_event_timer.h
+35:                   "event timer del: %d: %M",
+
+./nginx-1.9.4/src/event/ngx_event_timer.c
+79:                       "event timer del: %d: %M",
+=== 검색어: using configuration ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+940:                   "using configuration \"%s%V\"",
+=== 검색어: http cl: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+947:                   "http cl:%O max:%O",
+=== 검색어: generic phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+860:                   "generic phase: %ui", r->phase_handler);
+=== 검색어: generic phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+860:                   "generic phase: %ui", r->phase_handler);
+=== 검색어: access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1064:                   "access phase: %ui", r->phase_handler);
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1064:                   "access phase: %ui", r->phase_handler);
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: post access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: content phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1368:                   "content phase: %ui", r->phase_handler);
+=== 검색어: open index ===
+./nginx-1.9.4/src/http/modules/ngx_http_index_module.c
+201:                       "open index \"%V\"", &path);
+=== 검색어: internal redirect: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+2581:                   "internal redirect: \"%V?%V\"", uri, &r->args);
+=== 검색어: using configuration ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+940:                   "using configuration \"%s%V\"",
+=== 검색어: http cl: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+947:                   "http cl:%O max:%O",
+=== 검색어: generic phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+860:                   "generic phase: %ui", r->phase_handler);
+=== 검색어: generic phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+860:                   "generic phase: %ui", r->phase_handler);
+=== 검색어: access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1064:                   "access phase: %ui", r->phase_handler);
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1064:                   "access phase: %ui", r->phase_handler);
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: post access phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1122:                   "post access phase: %ui", r->phase_handler);
+=== 검색어: content phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1368:                   "content phase: %ui", r->phase_handler);
+=== 검색어: content phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1368:                   "content phase: %ui", r->phase_handler);
+=== 검색어: content phase: ===
+./nginx-1.9.4/src/http/ngx_http_core_module.c
+1368:                   "content phase: %ui", r->phase_handler);
+=== 검색어: http filename: ===
+./nginx-1.9.4/src/http/modules/ngx_http_gzip_static_module.c
+141:                   "http filename: \"%s\"", path.data);
+
+./nginx-1.9.4/src/http/modules/ngx_http_static_module.c
+85:                   "http filename: \"%s\"", path.data);
+=== 검색어: add cleanup: ===
+./nginx-1.9.4/src/core/ngx_palloc.c
+338:    ngx_log_debug1(NGX_LOG_DEBUG_ALLOC, p->log, 0, "add cleanup: %p", c);
+=== 검색어: http static fd: ===
+./nginx-1.9.4/src/http/modules/ngx_http_gzip_static_module.c
+199:    ngx_log_debug1(NGX_LOG_DEBUG_HTTP, log, 0, "http static fd: %d", of.fd);
+
+./nginx-1.9.4/src/http/modules/ngx_http_static_module.c
+145:    ngx_log_debug1(NGX_LOG_DEBUG_HTTP, log, 0, "http static fd: %d", of.fd);
+=== 검색어: http set discard body ===
+./nginx-1.9.4/src/http/ngx_http_request_body.c
+590:    ngx_log_debug0(NGX_LOG_DEBUG_HTTP, rev->log, 0, "http set discard body");
+=== 검색어: posix_memalign: ===
+./nginx-1.9.4/src/os/unix/ngx_alloc.c
+66:                   "posix_memalign: %p:%uz @%uz", p, size, alignment);

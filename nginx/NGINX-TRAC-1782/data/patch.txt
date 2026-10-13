@@ -1,0 +1,50 @@
+diffstat:
+
+ src/http/ngx_http_upstream.c |  19 ++++++++-----------
+ 1 files changed, 8 insertions(+), 11 deletions(-)
+
+diffs (43 lines):
+
+diff -r d964b0aee8e7 -r 319242d2ddc9 src/http/ngx_http_upstream.c
+--- a/src/http/ngx_http_upstream.c	Thu May 23 16:49:22 2019 +0300
++++ b/src/http/ngx_http_upstream.c	Mon Jun 03 20:33:26 2019 +0300
+@@ -597,10 +597,6 @@ ngx_http_upstream_init_request(ngx_http_
+                 u->cache_status = NGX_HTTP_CACHE_MISS;
+                 u->request_sent = 1;
+             }
+-
+-            if (ngx_http_upstream_cache_background_update(r, u) != NGX_OK) {
+-                rc = NGX_ERROR;
+-            }
+         }
+ 
+         if (rc != NGX_DECLINED) {
+@@ -902,9 +898,14 @@ ngx_http_upstream_cache(ngx_http_request
+              || c->stale_updating) && !r->background
+             && u->conf->cache_background_update)
+         {
+-            r->cache->background = 1;
+-            u->cache_status = rc;
+-            rc = NGX_OK;
++            if (ngx_http_upstream_cache_background_update(r, u) == NGX_OK) {
++                r->cache->background = 1;
++                u->cache_status = rc;
++                rc = NGX_OK;
++
++            } else {
++                rc = NGX_ERROR;
++            }
+         }
+ 
+         break;
+@@ -1106,10 +1107,6 @@ ngx_http_upstream_cache_background_updat
+ {
+     ngx_http_request_t  *sr;
+ 
+-    if (!r->cached || !r->cache->background) {
+-        return NGX_OK;
+-    }
+-
+     if (r == r->main) {
+         r->preserve_body = 1;
+     }

@@ -1,0 +1,363 @@
+2026/10/11 13:57:52 [warn] 8622#0: the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /home/ubuntu/ksh/runtime/conf/nginx.conf:1
+2026/10/11 13:57:52 [emerg] 8622#0: open() "/etc/nginx/mime.types" failed (2: No such file or directory) in /home/ubuntu/ksh/runtime/conf/nginx.conf:15
+2026/10/11 13:58:44 [emerg] 8624#0: unknown "home" variable
+2026/10/11 14:00:57 [debug] 8627#0: bind() 127.0.0.1:8080 #6 
+2026/10/11 14:00:57 [debug] 8627#0: counter: 00007FA102180080, 1
+2026/10/11 14:01:29 [debug] 8628#0: bind() 127.0.0.1:8080 #6 
+2026/10/11 14:01:29 [notice] 8628#0: using the "epoll" event method
+2026/10/11 14:01:29 [debug] 8628#0: counter: 00007F9B11358080, 1
+2026/10/11 14:01:29 [notice] 8628#0: nginx/1.9.4
+2026/10/11 14:01:29 [notice] 8628#0: built by gcc 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2) 
+2026/10/11 14:01:29 [notice] 8628#0: OS: Linux 4.2.0-16-generic
+2026/10/11 14:01:29 [notice] 8628#0: getrlimit(RLIMIT_NOFILE): 1024:65536
+2026/10/11 14:01:29 [debug] 8629#0: write: 7, 00007FFCFACF0300, 5, 0
+2026/10/11 14:01:29 [debug] 8629#0: setproctitle: "nginx: master process ./sbin/nginx"
+2026/10/11 14:01:29 [notice] 8629#0: start worker processes
+2026/10/11 14:01:29 [debug] 8629#0: channel 3:7
+2026/10/11 14:01:29 [notice] 8629#0: start worker process 8630
+2026/10/11 14:01:29 [debug] 8629#0: sigsuspend
+2026/10/11 14:01:29 [debug] 8630#0: notify eventfd: 9
+2026/10/11 14:01:29 [debug] 8630#0: malloc: 00000000011D5070:6144
+2026/10/11 14:01:29 [debug] 8630#0: malloc: 00007F9B1131A010:212992
+2026/10/11 14:01:29 [debug] 8630#0: malloc: 00000000011EAE10:98304
+2026/10/11 14:01:29 [debug] 8630#0: malloc: 0000000001202E20:98304
+2026/10/11 14:01:29 [debug] 8630#0: epoll add event: fd:6 op:1 ev:00002001
+2026/10/11 14:01:29 [debug] 8630#0: epoll add event: fd:7 op:1 ev:00002001
+2026/10/11 14:01:29 [debug] 8630#0: setproctitle: "nginx: worker process"
+2026/10/11 14:01:29 [debug] 8630#0: worker cycle
+2026/10/11 14:01:29 [debug] 8630#0: epoll timer: -1
+2026/10/11 14:02:42 [notice] 8631#0: signal process started
+2026/10/11 14:02:42 [notice] 8629#0: signal 3 (SIGQUIT) received, shutting down
+2026/10/11 14:02:42 [debug] 8629#0: wake up, sigio 0
+2026/10/11 14:02:42 [debug] 8629#0: child: 0 8630 e:0 t:0 d:0 r:1 j:0
+2026/10/11 14:02:42 [debug] 8629#0: sigsuspend
+2026/10/11 14:02:42 [debug] 8630#0: epoll: fd:7 ev:0001 d:00007F9B1131A0E0
+2026/10/11 14:02:42 [debug] 8630#0: channel handler
+2026/10/11 14:02:42 [debug] 8630#0: channel: 32
+2026/10/11 14:02:42 [debug] 8630#0: channel command: 3
+2026/10/11 14:02:42 [debug] 8630#0: channel: -2
+2026/10/11 14:02:42 [debug] 8630#0: timer delta: 72862
+2026/10/11 14:02:42 [notice] 8630#0: gracefully shutting down
+2026/10/11 14:02:42 [debug] 8630#0: setproctitle: "nginx: worker process is shutting down"
+2026/10/11 14:02:42 [debug] 8630#0: epoll del event: fd:6 op:2 ev:00000000
+2026/10/11 14:02:42 [debug] 8630#0: close listening 127.0.0.1:8080 #6 
+2026/10/11 14:02:42 [notice] 8630#0: exiting
+2026/10/11 14:02:42 [debug] 8630#0: flush files
+2026/10/11 14:02:42 [debug] 8630#0: run cleanup: 00000000011E56D0
+2026/10/11 14:02:42 [debug] 8630#0: cleanup resolver
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011E9DC0
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011E4520
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011DF450
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011DE390
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011DD2D0
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011D1060, unused: 1
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011E0510, unused: 3
+2026/10/11 14:02:42 [debug] 8630#0: free: 00000000011E5530, unused: 3368
+2026/10/11 14:02:42 [notice] 8630#0: exit
+2026/10/11 14:02:42 [notice] 8629#0: signal 17 (SIGCHLD) received
+2026/10/11 14:02:42 [notice] 8629#0: worker process 8630 exited with code 0
+2026/10/11 14:02:42 [debug] 8629#0: shmtx forced unlock
+2026/10/11 14:02:42 [debug] 8629#0: wake up, sigio 0
+2026/10/11 14:02:42 [debug] 8629#0: reap children
+2026/10/11 14:02:42 [debug] 8629#0: child: 0 8630 e:1 t:1 d:0 r:1 j:0
+2026/10/11 14:02:42 [notice] 8629#0: exit
+2026/10/11 14:02:42 [debug] 8629#0: run cleanup: 00000000011E56D0
+2026/10/11 14:02:42 [debug] 8629#0: cleanup resolver
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011E9DC0
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011E4520
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011DF450
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011DE390
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011DD2D0
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011D1060, unused: 1
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011E0510, unused: 3
+2026/10/11 14:02:42 [debug] 8629#0: free: 00000000011E5530, unused: 3380
+2026/10/11 14:03:21 [debug] 8632#0: bind() 127.0.0.1:8080 #6 
+2026/10/11 14:03:21 [notice] 8632#0: using the "epoll" event method
+2026/10/11 14:03:21 [debug] 8632#0: counter: 00007F7061C63080, 1
+2026/10/11 14:03:21 [notice] 8632#0: nginx/1.9.4
+2026/10/11 14:03:21 [notice] 8632#0: built by gcc 5.2.1 20151010 (Ubuntu 5.2.1-22ubuntu2) 
+2026/10/11 14:03:21 [notice] 8632#0: OS: Linux 4.2.0-16-generic
+2026/10/11 14:03:21 [notice] 8632#0: getrlimit(RLIMIT_NOFILE): 1024:65536
+2026/10/11 14:03:21 [debug] 8632#0: write: 7, 00007FFD253CE020, 5, 0
+2026/10/11 14:03:21 [debug] 8632#0: setproctitle: "nginx: master process ./sbin/nginx -g daemon off;"
+2026/10/11 14:03:21 [notice] 8632#0: start worker processes
+2026/10/11 14:03:21 [debug] 8632#0: channel 3:7
+2026/10/11 14:03:21 [notice] 8632#0: start worker process 8633
+2026/10/11 14:03:21 [debug] 8632#0: sigsuspend
+2026/10/11 14:03:21 [debug] 8633#0: notify eventfd: 9
+2026/10/11 14:03:21 [debug] 8633#0: malloc: 0000000001F83070:6144
+2026/10/11 14:03:21 [debug] 8633#0: malloc: 00007F7061C25010:212992
+2026/10/11 14:03:21 [debug] 8633#0: malloc: 0000000001F98EE0:98304
+2026/10/11 14:03:21 [debug] 8633#0: malloc: 0000000001FB0EF0:98304
+2026/10/11 14:03:21 [debug] 8633#0: epoll add event: fd:6 op:1 ev:00002001
+2026/10/11 14:03:21 [debug] 8633#0: epoll add event: fd:7 op:1 ev:00002001
+2026/10/11 14:03:21 [debug] 8633#0: setproctitle: "nginx: worker process"
+2026/10/11 14:03:21 [debug] 8633#0: worker cycle
+2026/10/11 14:03:21 [debug] 8633#0: epoll timer: -1
+2026/10/11 14:03:57 [notice] 8633#0: signal 28 (SIGWINCH) received
+2026/10/11 14:03:57 [info] 8633#0: epoll_wait() failed (4: Interrupted system call)
+2026/10/11 14:03:57 [debug] 8633#0: timer delta: 36173
+2026/10/11 14:03:57 [debug] 8633#0: worker cycle
+2026/10/11 14:03:57 [debug] 8633#0: epoll timer: -1
+2026/10/11 14:03:57 [notice] 8632#0: signal 28 (SIGWINCH) received
+2026/10/11 14:03:57 [debug] 8632#0: wake up, sigio 0
+2026/10/11 14:03:57 [debug] 8632#0: sigsuspend
+2026/10/11 14:04:11 [debug] 8633#0: epoll: fd:6 ev:0001 d:00007F7061C25010
+2026/10/11 14:04:11 [debug] 8633#0: accept on 127.0.0.1:8080, ready: 0
+2026/10/11 14:04:11 [debug] 8633#0: posix_memalign: 0000000001F7E490:256 @16
+2026/10/11 14:04:11 [debug] 8633#0: *1 accept: 127.0.0.1:39236 fd:3
+2026/10/11 14:04:11 [debug] 8633#0: posix_memalign: 0000000001F7E5A0:256 @16
+2026/10/11 14:04:11 [debug] 8633#0: *1 event timer add: 3: 60000:1791695111074
+2026/10/11 14:04:11 [debug] 8633#0: *1 reusable connection: 1
+2026/10/11 14:04:11 [debug] 8633#0: *1 epoll add event: fd:3 op:1 ev:80002001
+2026/10/11 14:04:11 [debug] 8633#0: timer delta: 13244
+2026/10/11 14:04:11 [debug] 8633#0: worker cycle
+2026/10/11 14:04:11 [debug] 8633#0: epoll timer: 60000
+2026/10/11 14:04:11 [debug] 8633#0: epoll: fd:3 ev:0001 d:00007F7061C251B0
+2026/10/11 14:04:11 [debug] 8633#0: *1 http wait request handler
+2026/10/11 14:04:11 [debug] 8633#0: *1 malloc: 0000000001F97680:1024
+2026/10/11 14:04:11 [debug] 8633#0: *1 recv: fd:3 78 of 1024
+2026/10/11 14:04:11 [debug] 8633#0: *1 reusable connection: 0
+2026/10/11 14:04:11 [debug] 8633#0: *1 posix_memalign: 0000000001F84880:4096 @16
+2026/10/11 14:04:11 [debug] 8633#0: *1 http process request line
+2026/10/11 14:04:11 [debug] 8633#0: *1 http request line: "GET / HTTP/1.1"
+2026/10/11 14:04:11 [debug] 8633#0: *1 http uri: "/"
+2026/10/11 14:04:11 [debug] 8633#0: *1 http args: ""
+2026/10/11 14:04:11 [debug] 8633#0: *1 http exten: ""
+2026/10/11 14:04:11 [debug] 8633#0: *1 http process request header line
+2026/10/11 14:04:11 [debug] 8633#0: *1 http header: "Host: 127.0.0.1:8080"
+2026/10/11 14:04:11 [debug] 8633#0: *1 http header: "User-Agent: curl/7.43.0"
+2026/10/11 14:04:11 [debug] 8633#0: *1 http header: "Accept: */*"
+2026/10/11 14:04:11 [debug] 8633#0: *1 http header done
+2026/10/11 14:04:11 [debug] 8633#0: *1 event timer del: 3: 1791695111074
+2026/10/11 14:04:11 [debug] 8633#0: *1 using configuration ""
+2026/10/11 14:04:11 [debug] 8633#0: *1 http cl:-1 max:1048576
+2026/10/11 14:04:11 [debug] 8633#0: *1 generic phase: 1
+2026/10/11 14:04:11 [debug] 8633#0: *1 generic phase: 2
+2026/10/11 14:04:11 [debug] 8633#0: *1 access phase: 3
+2026/10/11 14:04:11 [debug] 8633#0: *1 access phase: 4
+2026/10/11 14:04:11 [debug] 8633#0: *1 post access phase: 5
+2026/10/11 14:04:11 [debug] 8633#0: *1 content phase: 6
+2026/10/11 14:04:11 [debug] 8633#0: *1 open index "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:11 [debug] 8633#0: *1 internal redirect: "/index.html?"
+2026/10/11 14:04:11 [debug] 8633#0: *1 using configuration ""
+2026/10/11 14:04:11 [debug] 8633#0: *1 http cl:-1 max:1048576
+2026/10/11 14:04:11 [debug] 8633#0: *1 generic phase: 1
+2026/10/11 14:04:11 [debug] 8633#0: *1 generic phase: 2
+2026/10/11 14:04:11 [debug] 8633#0: *1 access phase: 3
+2026/10/11 14:04:11 [debug] 8633#0: *1 access phase: 4
+2026/10/11 14:04:11 [debug] 8633#0: *1 post access phase: 5
+2026/10/11 14:04:11 [debug] 8633#0: *1 content phase: 6
+2026/10/11 14:04:11 [debug] 8633#0: *1 content phase: 7
+2026/10/11 14:04:11 [debug] 8633#0: *1 content phase: 8
+2026/10/11 14:04:11 [debug] 8633#0: *1 http filename: "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:11 [debug] 8633#0: *1 add cleanup: 0000000001F85778
+2026/10/11 14:04:11 [debug] 8633#0: *1 http static fd: 10
+2026/10/11 14:04:11 [debug] 8633#0: *1 http set discard body
+2026/10/11 14:04:11 [debug] 8633#0: *1 posix_memalign: 0000000001F85890:4096 @16
+2026/10/11 14:04:11 [notice] 8632#0: signal 17 (SIGCHLD) received
+2026/10/11 14:04:11 [alert] 8632#0: worker process 8633 exited on signal 11 (core dumped)
+2026/10/11 14:04:11 [debug] 8632#0: shmtx forced unlock
+2026/10/11 14:04:11 [debug] 8632#0: wake up, sigio 0
+2026/10/11 14:04:11 [debug] 8632#0: reap children
+2026/10/11 14:04:11 [debug] 8632#0: child: 0 8633 e:0 t:1 d:0 r:1 j:0
+2026/10/11 14:04:11 [debug] 8632#0: channel 3:7
+2026/10/11 14:04:11 [notice] 8632#0: start worker process 8691
+2026/10/11 14:04:11 [debug] 8632#0: sigsuspend
+2026/10/11 14:04:11 [debug] 8691#0: notify eventfd: 9
+2026/10/11 14:04:11 [debug] 8691#0: malloc: 0000000001F83070:6144
+2026/10/11 14:04:11 [debug] 8691#0: malloc: 00007F7061C25010:212992
+2026/10/11 14:04:11 [debug] 8691#0: malloc: 0000000001F98EE0:98304
+2026/10/11 14:04:11 [debug] 8691#0: malloc: 0000000001FB0EF0:98304
+2026/10/11 14:04:11 [debug] 8691#0: epoll add event: fd:6 op:1 ev:00002001
+2026/10/11 14:04:11 [debug] 8691#0: epoll add event: fd:7 op:1 ev:00002001
+2026/10/11 14:04:11 [debug] 8691#0: setproctitle: "nginx: worker process"
+2026/10/11 14:04:11 [debug] 8691#0: worker cycle
+2026/10/11 14:04:11 [debug] 8691#0: epoll timer: -1
+2026/10/11 14:04:19 [debug] 8691#0: epoll: fd:6 ev:0001 d:00007F7061C25010
+2026/10/11 14:04:19 [debug] 8691#0: accept on 127.0.0.1:8080, ready: 0
+2026/10/11 14:04:19 [debug] 8691#0: posix_memalign: 0000000001F7E490:256 @16
+2026/10/11 14:04:19 [debug] 8691#0: *2 accept: 127.0.0.1:39238 fd:3
+2026/10/11 14:04:19 [debug] 8691#0: posix_memalign: 0000000001F7E5A0:256 @16
+2026/10/11 14:04:19 [debug] 8691#0: *2 event timer add: 3: 60000:1791695119236
+2026/10/11 14:04:19 [debug] 8691#0: *2 reusable connection: 1
+2026/10/11 14:04:19 [debug] 8691#0: *2 epoll add event: fd:3 op:1 ev:80002001
+2026/10/11 14:04:19 [debug] 8691#0: timer delta: 8160
+2026/10/11 14:04:19 [debug] 8691#0: worker cycle
+2026/10/11 14:04:19 [debug] 8691#0: epoll timer: 60000
+2026/10/11 14:04:19 [debug] 8691#0: epoll: fd:3 ev:0001 d:00007F7061C251B0
+2026/10/11 14:04:19 [debug] 8691#0: *2 http wait request handler
+2026/10/11 14:04:19 [debug] 8691#0: *2 malloc: 0000000001F97680:1024
+2026/10/11 14:04:19 [debug] 8691#0: *2 recv: fd:3 78 of 1024
+2026/10/11 14:04:19 [debug] 8691#0: *2 reusable connection: 0
+2026/10/11 14:04:19 [debug] 8691#0: *2 posix_memalign: 0000000001F84880:4096 @16
+2026/10/11 14:04:19 [debug] 8691#0: *2 http process request line
+2026/10/11 14:04:19 [debug] 8691#0: *2 http request line: "GET / HTTP/1.1"
+2026/10/11 14:04:19 [debug] 8691#0: *2 http uri: "/"
+2026/10/11 14:04:19 [debug] 8691#0: *2 http args: ""
+2026/10/11 14:04:19 [debug] 8691#0: *2 http exten: ""
+2026/10/11 14:04:19 [debug] 8691#0: *2 http process request header line
+2026/10/11 14:04:19 [debug] 8691#0: *2 http header: "Host: 127.0.0.1:8080"
+2026/10/11 14:04:19 [debug] 8691#0: *2 http header: "User-Agent: curl/7.43.0"
+2026/10/11 14:04:19 [debug] 8691#0: *2 http header: "Accept: */*"
+2026/10/11 14:04:19 [debug] 8691#0: *2 http header done
+2026/10/11 14:04:19 [debug] 8691#0: *2 event timer del: 3: 1791695119236
+2026/10/11 14:04:19 [debug] 8691#0: *2 using configuration ""
+2026/10/11 14:04:19 [debug] 8691#0: *2 http cl:-1 max:1048576
+2026/10/11 14:04:19 [debug] 8691#0: *2 generic phase: 1
+2026/10/11 14:04:19 [debug] 8691#0: *2 generic phase: 2
+2026/10/11 14:04:19 [debug] 8691#0: *2 access phase: 3
+2026/10/11 14:04:19 [debug] 8691#0: *2 access phase: 4
+2026/10/11 14:04:19 [debug] 8691#0: *2 post access phase: 5
+2026/10/11 14:04:19 [debug] 8691#0: *2 content phase: 6
+2026/10/11 14:04:19 [debug] 8691#0: *2 open index "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:19 [debug] 8691#0: *2 internal redirect: "/index.html?"
+2026/10/11 14:04:19 [debug] 8691#0: *2 using configuration ""
+2026/10/11 14:04:19 [debug] 8691#0: *2 http cl:-1 max:1048576
+2026/10/11 14:04:19 [debug] 8691#0: *2 generic phase: 1
+2026/10/11 14:04:19 [debug] 8691#0: *2 generic phase: 2
+2026/10/11 14:04:19 [debug] 8691#0: *2 access phase: 3
+2026/10/11 14:04:19 [debug] 8691#0: *2 access phase: 4
+2026/10/11 14:04:19 [debug] 8691#0: *2 post access phase: 5
+2026/10/11 14:04:19 [debug] 8691#0: *2 content phase: 6
+2026/10/11 14:04:19 [debug] 8691#0: *2 content phase: 7
+2026/10/11 14:04:19 [debug] 8691#0: *2 content phase: 8
+2026/10/11 14:04:19 [debug] 8691#0: *2 http filename: "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:19 [debug] 8691#0: *2 add cleanup: 0000000001F85778
+2026/10/11 14:04:19 [debug] 8691#0: *2 http static fd: 10
+2026/10/11 14:04:19 [debug] 8691#0: *2 http set discard body
+2026/10/11 14:04:19 [debug] 8691#0: *2 posix_memalign: 0000000001F85890:4096 @16
+2026/10/11 14:04:19 [notice] 8632#0: signal 17 (SIGCHLD) received
+2026/10/11 14:04:19 [alert] 8632#0: worker process 8691 exited on signal 11 (core dumped)
+2026/10/11 14:04:19 [debug] 8632#0: shmtx forced unlock
+2026/10/11 14:04:19 [debug] 8632#0: wake up, sigio 0
+2026/10/11 14:04:19 [debug] 8632#0: reap children
+2026/10/11 14:04:19 [debug] 8632#0: child: 0 8691 e:0 t:1 d:0 r:1 j:0
+2026/10/11 14:04:19 [debug] 8632#0: channel 3:7
+2026/10/11 14:04:19 [notice] 8632#0: start worker process 8693
+2026/10/11 14:04:19 [debug] 8632#0: sigsuspend
+2026/10/11 14:04:19 [debug] 8693#0: notify eventfd: 9
+2026/10/11 14:04:19 [debug] 8693#0: malloc: 0000000001F83070:6144
+2026/10/11 14:04:19 [debug] 8693#0: malloc: 00007F7061C25010:212992
+2026/10/11 14:04:19 [debug] 8693#0: malloc: 0000000001F98EE0:98304
+2026/10/11 14:04:19 [debug] 8693#0: malloc: 0000000001FB0EF0:98304
+2026/10/11 14:04:19 [debug] 8693#0: epoll add event: fd:6 op:1 ev:00002001
+2026/10/11 14:04:19 [debug] 8693#0: epoll add event: fd:7 op:1 ev:00002001
+2026/10/11 14:04:19 [debug] 8693#0: setproctitle: "nginx: worker process"
+2026/10/11 14:04:19 [debug] 8693#0: worker cycle
+2026/10/11 14:04:19 [debug] 8693#0: epoll timer: -1
+2026/10/11 14:04:26 [debug] 8693#0: epoll: fd:6 ev:0001 d:00007F7061C25010
+2026/10/11 14:04:26 [debug] 8693#0: accept on 127.0.0.1:8080, ready: 0
+2026/10/11 14:04:26 [debug] 8693#0: posix_memalign: 0000000001F7E490:256 @16
+2026/10/11 14:04:26 [debug] 8693#0: *3 accept: 127.0.0.1:39240 fd:3
+2026/10/11 14:04:26 [debug] 8693#0: posix_memalign: 0000000001F7E5A0:256 @16
+2026/10/11 14:04:26 [debug] 8693#0: *3 event timer add: 3: 60000:1791695126446
+2026/10/11 14:04:26 [debug] 8693#0: *3 reusable connection: 1
+2026/10/11 14:04:26 [debug] 8693#0: *3 epoll add event: fd:3 op:1 ev:80002001
+2026/10/11 14:04:26 [debug] 8693#0: timer delta: 7209
+2026/10/11 14:04:26 [debug] 8693#0: worker cycle
+2026/10/11 14:04:26 [debug] 8693#0: epoll timer: 60000
+2026/10/11 14:04:26 [debug] 8693#0: epoll: fd:3 ev:0001 d:00007F7061C251B0
+2026/10/11 14:04:26 [debug] 8693#0: *3 http wait request handler
+2026/10/11 14:04:26 [debug] 8693#0: *3 malloc: 0000000001F97680:1024
+2026/10/11 14:04:26 [debug] 8693#0: *3 recv: fd:3 78 of 1024
+2026/10/11 14:04:26 [debug] 8693#0: *3 reusable connection: 0
+2026/10/11 14:04:26 [debug] 8693#0: *3 posix_memalign: 0000000001F84880:4096 @16
+2026/10/11 14:04:26 [debug] 8693#0: *3 http process request line
+2026/10/11 14:04:26 [debug] 8693#0: *3 http request line: "GET / HTTP/1.1"
+2026/10/11 14:04:26 [debug] 8693#0: *3 http uri: "/"
+2026/10/11 14:04:26 [debug] 8693#0: *3 http args: ""
+2026/10/11 14:04:26 [debug] 8693#0: *3 http exten: ""
+2026/10/11 14:04:26 [debug] 8693#0: *3 http process request header line
+2026/10/11 14:04:26 [debug] 8693#0: *3 http header: "Host: 127.0.0.1:8080"
+2026/10/11 14:04:26 [debug] 8693#0: *3 http header: "User-Agent: curl/7.43.0"
+2026/10/11 14:04:26 [debug] 8693#0: *3 http header: "Accept: */*"
+2026/10/11 14:04:26 [debug] 8693#0: *3 http header done
+2026/10/11 14:04:26 [debug] 8693#0: *3 event timer del: 3: 1791695126446
+2026/10/11 14:04:26 [debug] 8693#0: *3 using configuration ""
+2026/10/11 14:04:26 [debug] 8693#0: *3 http cl:-1 max:1048576
+2026/10/11 14:04:26 [debug] 8693#0: *3 generic phase: 1
+2026/10/11 14:04:26 [debug] 8693#0: *3 generic phase: 2
+2026/10/11 14:04:26 [debug] 8693#0: *3 access phase: 3
+2026/10/11 14:04:26 [debug] 8693#0: *3 access phase: 4
+2026/10/11 14:04:26 [debug] 8693#0: *3 post access phase: 5
+2026/10/11 14:04:26 [debug] 8693#0: *3 content phase: 6
+2026/10/11 14:04:26 [debug] 8693#0: *3 open index "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:26 [debug] 8693#0: *3 internal redirect: "/index.html?"
+2026/10/11 14:04:26 [debug] 8693#0: *3 using configuration ""
+2026/10/11 14:04:26 [debug] 8693#0: *3 http cl:-1 max:1048576
+2026/10/11 14:04:26 [debug] 8693#0: *3 generic phase: 1
+2026/10/11 14:04:26 [debug] 8693#0: *3 generic phase: 2
+2026/10/11 14:04:26 [debug] 8693#0: *3 access phase: 3
+2026/10/11 14:04:26 [debug] 8693#0: *3 access phase: 4
+2026/10/11 14:04:26 [debug] 8693#0: *3 post access phase: 5
+2026/10/11 14:04:26 [debug] 8693#0: *3 content phase: 6
+2026/10/11 14:04:26 [debug] 8693#0: *3 content phase: 7
+2026/10/11 14:04:26 [debug] 8693#0: *3 content phase: 8
+2026/10/11 14:04:26 [debug] 8693#0: *3 http filename: "/home/ubuntu/ksh/runtime/html/index.html"
+2026/10/11 14:04:26 [debug] 8693#0: *3 add cleanup: 0000000001F85778
+2026/10/11 14:04:26 [debug] 8693#0: *3 http static fd: 10
+2026/10/11 14:04:26 [debug] 8693#0: *3 http set discard body
+2026/10/11 14:04:26 [debug] 8693#0: *3 posix_memalign: 0000000001F85890:4096 @16
+2026/10/11 14:04:26 [notice] 8632#0: signal 17 (SIGCHLD) received
+2026/10/11 14:04:26 [alert] 8632#0: worker process 8693 exited on signal 11 (core dumped)
+2026/10/11 14:04:26 [debug] 8632#0: shmtx forced unlock
+2026/10/11 14:04:26 [debug] 8632#0: wake up, sigio 0
+2026/10/11 14:04:26 [debug] 8632#0: reap children
+2026/10/11 14:04:26 [debug] 8632#0: child: 0 8693 e:0 t:1 d:0 r:1 j:0
+2026/10/11 14:04:26 [debug] 8632#0: channel 3:7
+2026/10/11 14:04:26 [notice] 8632#0: start worker process 8695
+2026/10/11 14:04:26 [debug] 8632#0: sigsuspend
+2026/10/11 14:04:26 [debug] 8695#0: notify eventfd: 9
+2026/10/11 14:04:26 [debug] 8695#0: malloc: 0000000001F83070:6144
+2026/10/11 14:04:26 [debug] 8695#0: malloc: 00007F7061C25010:212992
+2026/10/11 14:04:26 [debug] 8695#0: malloc: 0000000001F98EE0:98304
+2026/10/11 14:04:26 [debug] 8695#0: malloc: 0000000001FB0EF0:98304
+2026/10/11 14:04:26 [debug] 8695#0: epoll add event: fd:6 op:1 ev:00002001
+2026/10/11 14:04:26 [debug] 8695#0: epoll add event: fd:7 op:1 ev:00002001
+2026/10/11 14:04:26 [debug] 8695#0: setproctitle: "nginx: worker process"
+2026/10/11 14:04:26 [debug] 8695#0: worker cycle
+2026/10/11 14:04:26 [debug] 8695#0: epoll timer: -1
+2026/10/11 14:07:15 [notice] 8632#0: signal 2 (SIGINT) received, exiting
+2026/10/11 14:07:15 [debug] 8632#0: wake up, sigio 0
+2026/10/11 14:07:15 [debug] 8632#0: child: 0 8695 e:0 t:0 d:0 r:1 j:0
+2026/10/11 14:07:15 [debug] 8632#0: termination cycle: 50
+2026/10/11 14:07:15 [debug] 8632#0: sigsuspend
+2026/10/11 14:07:15 [notice] 8695#0: signal 2 (SIGINT) received, exiting
+2026/10/11 14:07:15 [debug] 8695#0: epoll: fd:7 ev:0001 d:00007F7061C250E0
+2026/10/11 14:07:15 [debug] 8695#0: channel handler
+2026/10/11 14:07:15 [debug] 8695#0: channel: 32
+2026/10/11 14:07:15 [debug] 8695#0: channel command: 4
+2026/10/11 14:07:15 [debug] 8695#0: channel: -2
+2026/10/11 14:07:15 [debug] 8695#0: timer delta: 169249
+2026/10/11 14:07:15 [notice] 8695#0: exiting
+2026/10/11 14:07:15 [debug] 8695#0: flush files
+2026/10/11 14:07:15 [debug] 8695#0: run cleanup: 0000000001F936F0
+2026/10/11 14:07:15 [debug] 8695#0: cleanup resolver
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F97E90
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F92520
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F8D450
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F8C390
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F8B2D0
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F7F060, unused: 0
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F8E510, unused: 4
+2026/10/11 14:07:15 [debug] 8695#0: free: 0000000001F93530, unused: 3320
+2026/10/11 14:07:15 [notice] 8695#0: exit
+2026/10/11 14:07:15 [notice] 8632#0: signal 17 (SIGCHLD) received
+2026/10/11 14:07:15 [notice] 8632#0: worker process 8695 exited with code 0
+2026/10/11 14:07:15 [debug] 8632#0: shmtx forced unlock
+2026/10/11 14:07:15 [debug] 8632#0: wake up, sigio 3
+2026/10/11 14:07:15 [debug] 8632#0: reap children
+2026/10/11 14:07:15 [debug] 8632#0: child: 0 8695 e:1 t:1 d:0 r:1 j:0
+2026/10/11 14:07:15 [notice] 8632#0: exit
+2026/10/11 14:07:15 [debug] 8632#0: close listening 127.0.0.1:8080 #6 
+2026/10/11 14:07:15 [debug] 8632#0: run cleanup: 0000000001F936F0
+2026/10/11 14:07:15 [debug] 8632#0: cleanup resolver
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F97E90
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F92520
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F8D450
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F8C390
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F8B2D0
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F7F060, unused: 0
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F8E510, unused: 4
+2026/10/11 14:07:15 [debug] 8632#0: free: 0000000001F93530, unused: 3333

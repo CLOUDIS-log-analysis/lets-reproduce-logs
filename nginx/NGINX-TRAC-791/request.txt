@@ -1,0 +1,24 @@
+ubuntu@ubuntu:~/ksh/runtime$ curl http://127.0.0.1:8080/
+curl: (52) Empty reply from server
+ubuntu@ubuntu:~/ksh/runtime$ curl -vvvv http://127.0.0.1:8080/
+*   Trying 127.0.0.1...
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.43.0
+> Accept: */*
+> 
+* Empty reply from server
+* Connection #0 to host 127.0.0.1 left intact
+curl: (52) Empty reply from server
+ubuntu@ubuntu:~/ksh/runtime$ curl -vvv http://127.0.0.1:8080/
+*   Trying 127.0.0.1...
+* Connected to 127.0.0.1 (127.0.0.1) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: 127.0.0.1:8080
+> User-Agent: curl/7.43.0
+> Accept: */*
+> 
+* Empty reply from server
+* Connection #0 to host 127.0.0.1 left intact
+curl: (52) Empty reply from server
