@@ -6,6 +6,6 @@ make
 ./src/redis-server --loglevel debug --logfile ../output.log
 
 ./src/redis-cli
-SET "" ""
+SET "" "v"
 KEYS "\x00*z"
 
