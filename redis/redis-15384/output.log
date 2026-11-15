@@ -1,0 +1,654 @@
+266958:C 14 Nov 2026 20:04:09.866 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+266958:C 14 Nov 2026 20:04:09.866 * Redis version=8.8.0, bits=64, commit=5a693aae, modified=0, pid=266958, just started
+266958:C 14 Nov 2026 20:04:09.866 * Configuration loaded
+266958:M 14 Nov 2026 20:04:09.866 * monotonic clock: POSIX clock_gettime
+266958:M 14 Nov 2026 20:04:09.867 * Running mode=standalone, port=6379.
+266958:M 14 Nov 2026 20:04:09.867 - <vectorset> Successfully loaded default module configuration
+266958:M 14 Nov 2026 20:04:09.867 - <vectorset> Successfully loaded user module configuration
+266958:M 14 Nov 2026 20:04:09.867 * Server initialized
+266958:M 14 Nov 2026 20:04:09.867 . The AOF directory appendonlydir doesn't exist
+266958:M 14 Nov 2026 20:04:09.867 * Ready to accept connections tcp
+266958:M 14 Nov 2026 20:04:09.867 # WARNING: Redis does not require authentication. Redis will accept connections from any local client.
+266958:M 14 Nov 2026 20:04:09.868 . 0 clients connected (0 replicas), 735272 bytes in use
+266958:M 14 Nov 2026 20:04:14.888 . 0 clients connected (0 replicas), 735272 bytes in use
+266958:M 14 Nov 2026 20:04:16.863 - Accepted 127.0.0.1:55014
+266958:M 14 Nov 2026 20:04:19.909 . 1 clients connected (0 replicas), 779112 bytes in use
+266958:M 14 Nov 2026 20:04:24.932 . 1 clients connected (0 replicas), 804008 bytes in use
+266958:M 14 Nov 2026 20:04:29.954 . 1 clients connected (0 replicas), 804008 bytes in use
+266958:M 14 Nov 2026 20:04:34.973 . 1 clients connected (0 replicas), 803672 bytes in use
+266958:M 14 Nov 2026 20:04:39.995 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:04:39.995 . 1 clients connected (0 replicas), 806688 bytes in use
+266958:M 14 Nov 2026 20:04:45.017 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:04:45.017 . 1 clients connected (0 replicas), 807432 bytes in use
+266958:M 14 Nov 2026 20:04:50.039 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:04:50.039 . 1 clients connected (0 replicas), 807432 bytes in use
+266958:M 14 Nov 2026 20:04:55.061 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:04:55.061 . 1 clients connected (0 replicas), 808168 bytes in use
+266958:M 14 Nov 2026 20:05:00.081 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:00.081 . 1 clients connected (0 replicas), 808168 bytes in use
+266958:M 14 Nov 2026 20:05:05.102 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:05.102 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:10.126 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:10.126 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:15.149 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:15.149 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:20.172 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:20.172 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:25.194 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:25.194 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:30.220 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:30.220 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:35.245 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:35.245 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:40.265 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:40.265 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:45.285 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:45.285 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:50.308 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:50.308 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:05:55.334 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:05:55.334 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:00.358 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:00.358 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:05.380 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:05.380 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:10.404 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:10.404 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:15.428 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:15.428 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:20.452 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:20.452 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:25.475 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:25.475 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:30.499 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:30.499 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:35.525 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:35.525 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:40.549 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:40.549 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:45.571 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:45.571 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:50.595 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:50.595 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:06:55.620 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:06:55.620 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:00.644 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:00.644 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:05.666 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:05.666 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:10.691 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:10.691 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:15.716 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:15.716 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:20.740 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:20.740 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:25.765 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:25.765 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:30.787 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:30.787 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:35.809 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:35.809 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:40.835 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:40.835 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:45.857 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:45.857 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:50.880 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:50.880 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:07:55.904 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:07:55.904 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:00.927 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:00.927 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:05.950 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:05.950 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:10.973 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:10.973 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:15.996 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:15.996 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:21.021 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:21.021 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:26.047 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:26.047 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:31.070 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:31.070 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:36.095 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:36.095 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:41.120 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:41.120 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:46.141 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:46.141 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:51.165 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:51.165 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:08:56.185 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:08:56.185 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:01.206 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:01.207 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:06.229 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:06.229 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:11.252 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:11.252 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:16.276 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:16.276 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:21.298 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:21.298 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:26.321 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:26.321 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:31.343 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:31.343 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:36.366 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:36.366 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:41.392 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:41.392 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:46.414 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:46.415 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:51.437 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:51.437 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:M 14 Nov 2026 20:09:56.460 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+266958:M 14 Nov 2026 20:09:56.460 . 1 clients connected (0 replicas), 832856 bytes in use
+266958:signal-handler (1794654599) Received SIGINT scheduling shutdown...
+266958:M 14 Nov 2026 20:09:59.974 * User requested shutdown...
+266958:M 14 Nov 2026 20:09:59.974 * Saving the final RDB snapshot before exiting.
+266958:M 14 Nov 2026 20:09:59.974 * BGSAVE done, 1 keys saved, 0 keys skipped, 272 bytes written.
+266958:M 14 Nov 2026 20:09:59.979 * DB saved on disk
+266958:M 14 Nov 2026 20:09:59.979 # Redis is now ready to exit, bye bye...
+270240:C 14 Nov 2026 20:18:20.798 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+270240:C 14 Nov 2026 20:18:20.798 * Redis version=8.8.0, bits=64, commit=5a693aae, modified=0, pid=270240, just started
+270240:C 14 Nov 2026 20:18:20.798 * Configuration loaded
+270240:M 14 Nov 2026 20:18:20.799 * monotonic clock: POSIX clock_gettime
+270240:M 14 Nov 2026 20:18:20.799 * Running mode=standalone, port=6379.
+270240:M 14 Nov 2026 20:18:20.799 - <vectorset> Successfully loaded default module configuration
+270240:M 14 Nov 2026 20:18:20.799 - <vectorset> Successfully loaded user module configuration
+270240:M 14 Nov 2026 20:18:20.799 # Warning: Could not create server TCP listening socket *:6379: bind: Address already in use
+270240:M 14 Nov 2026 20:18:20.799 # Failed listening on port 6379 (tcp), aborting.
+270455:C 14 Nov 2026 20:18:25.985 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+270455:C 14 Nov 2026 20:18:25.985 * Redis version=8.8.0, bits=64, commit=5a693aae, modified=0, pid=270455, just started
+270455:C 14 Nov 2026 20:18:25.985 * Configuration loaded
+270455:M 14 Nov 2026 20:18:25.986 * monotonic clock: POSIX clock_gettime
+270455:M 14 Nov 2026 20:18:25.986 * Running mode=standalone, port=6379.
+270455:M 14 Nov 2026 20:18:25.986 - <vectorset> Successfully loaded default module configuration
+270455:M 14 Nov 2026 20:18:25.986 - <vectorset> Successfully loaded user module configuration
+270455:M 14 Nov 2026 20:18:25.986 * Server initialized
+270455:M 14 Nov 2026 20:18:25.986 . The AOF directory appendonlydir doesn't exist
+270455:M 14 Nov 2026 20:18:25.986 * Loading RDB produced by version 8.8.0
+270455:M 14 Nov 2026 20:18:25.986 * RDB age 506 seconds
+270455:M 14 Nov 2026 20:18:25.986 * RDB memory usage when created 0.79 Mb
+270455:M 14 Nov 2026 20:18:25.986 - DB 0 resized: 4 key buckets, 0 expire buckets
+270455:M 14 Nov 2026 20:18:25.986 * Done loading RDB, keys loaded: 1, keys expired: 0.
+270455:M 14 Nov 2026 20:18:25.986 * DB loaded from disk: 0.000 seconds
+270455:M 14 Nov 2026 20:18:25.986 * Ready to accept connections tcp
+270455:M 14 Nov 2026 20:18:25.986 # WARNING: Redis does not require authentication. Redis will accept connections from any local client.
+270455:M 14 Nov 2026 20:18:25.988 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:25.988 . 0 clients connected (0 replicas), 739616 bytes in use
+270455:M 14 Nov 2026 20:18:28.205 - Accepted 127.0.0.1:51636
+270455:M 14 Nov 2026 20:18:31.007 - DB 0: 2 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:31.007 . 1 clients connected (0 replicas), 810808 bytes in use
+270455:M 14 Nov 2026 20:18:36.027 - DB 0: 2 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:36.027 . 1 clients connected (0 replicas), 810808 bytes in use
+270455:M 14 Nov 2026 20:18:41.049 - DB 0: 2 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:41.049 . 1 clients connected (0 replicas), 810808 bytes in use
+270455:M 14 Nov 2026 20:18:46.072 - DB 0: 2 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:46.072 . 1 clients connected (0 replicas), 835496 bytes in use
+270455:M 14 Nov 2026 20:18:51.097 - DB 0: 2 keys (0 volatile) in 4 slots HT.
+270455:M 14 Nov 2026 20:18:51.097 . 1 clients connected (0 replicas), 835496 bytes in use
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+270455:M 14 Nov 2026 20:18:52.125 # === ASSERTION FAILED ===
+270455:M 14 Nov 2026 20:18:52.125 # ==> networking.c:1203 'length >= 0' is not true
+
+------ STACK TRACE ------
+
+270457 bio_aof
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x7ed77d097389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x7ed77d099e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x5aa79f651322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x7ed77d09a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x7ed77d122d2c]
+
+270458 bio_lazy_free
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x7ed77d097389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x7ed77d099e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x5aa79f651322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x7ed77d09a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x7ed77d122d2c]
+
+270455 redis-server *
+./redis/src/redis-server *:6379(addReplyArrayLen+0x1f0) [0x5aa79f560fe0]
+./redis/src/redis-server *:6379(RM_ReplyWithArray+0x68) [0x5aa79f688f48]
+./redis/src/redis-server *:6379(VRANDMEMBER_RedisCommand+0x328) [0x5aa79f718788]
+./redis/src/redis-server *:6379(RedisModuleCommandDispatcher+0xc4) [0x5aa79f685f44]
+./redis/src/redis-server *:6379(call+0xf5) [0x5aa79f5392c5]
+./redis/src/redis-server *:6379(processCommand+0xc9d) [0x5aa79f53cc2d]
+./redis/src/redis-server *:6379(processCommandAndResetClient+0x2a) [0x5aa79f566faa]
+./redis/src/redis-server *:6379(processInputBuffer+0x21e) [0x5aa79f5672be]
+./redis/src/redis-server *:6379(readQueryFromClient+0x3d8) [0x5aa79f56a0f8]
+./redis/src/redis-server *:6379(+0x26386a) [0x5aa79f6e186a]
+./redis/src/redis-server *:6379(+0x95e72) [0x5aa79f513e72]
+./redis/src/redis-server *:6379(aeMain+0x2d) [0x5aa79f51439d]
+./redis/src/redis-server *:6379(main+0x405) [0x5aa79f50e985]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x2a4d8) [0x7ed77d02a4d8]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(__libc_start_main+0x8b) [0x7ed77d02a59b]
+./redis/src/redis-server *:6379(_start+0x25) [0x5aa79f510535]
+
+270456 bio_close_file
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x7ed77d097389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x7ed77d099e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x5aa79f651322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x7ed77d09a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x7ed77d122d2c]
+
+4/4 expected stacktraces.
+
+------ STACK TRACE DONE ------
+
+------ INFO OUTPUT ------
+# Server
+redis_version:8.8.0
+redis_git_sha1:5a693aae
+redis_git_dirty:0
+redis_build_id:bc5e0c579fda1456
+redis_mode:standalone
+os:Linux 7.3.3 x86_64
+arch_bits:64
+monotonic_clock:POSIX clock_gettime
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:14.3.0
+process_id:270455
+process_supervised:no
+run_id:2d84743c55f983c2e39a13e5d20b1d6724049364
+tcp_port:6379
+server_time_usec:1794655132125853
+uptime_in_seconds:27
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:16270236
+executable:/home/sshkgw/repo/lets-reproduce-logs/redis/redis-15384/./redis/src/redis-server
+config_file:
+io_threads_active:0
+listener0:name=tcp,bind=*,bind=-::*,port=6379
+
+# Clients
+connected_clients:1
+cluster_connections:0
+maxclients:10000
+client_recent_max_input_buffer:0
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+pubsub_clients:0
+watching_clients:0
+clients_in_timeout_table:0
+active_clients:1
+total_watched_keys:0
+total_blocking_keys:0
+total_blocking_keys_on_nokey:0
+
+# Memory
+used_memory:837808
+used_memory_human:818.17K
+used_memory_rss:7614464
+used_memory_rss_human:7.26M
+used_memory_peak:1061792
+used_memory_peak_human:1.01M
+used_memory_peak_time:1794655108
+used_memory_peak_perc:78.91%
+used_memory_overhead:805768
+used_memory_startup:735104
+used_memory_dataset:32040
+used_memory_dataset_perc:31.20%
+allocator_allocated:835496
+allocator_active:7614464
+allocator_resident:7614464
+allocator_muzzy:0
+total_system_memory:16144715776
+total_system_memory_human:15.04G
+used_memory_lua:32768
+used_memory_vm_eval:32768
+used_memory_lua_human:32.00K
+used_memory_scripts_eval:0
+number_of_cached_scripts:0
+number_of_functions:0
+number_of_libraries:0
+used_memory_vm_functions:34816
+used_memory_vm_total:67584
+used_memory_vm_total_human:66.00K
+used_memory_functions:232
+used_memory_scripts:232
+used_memory_scripts_human:232B
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.00
+allocator_frag_bytes:0
+allocator_rss_ratio:1.00
+allocator_rss_bytes:0
+rss_overhead_ratio:1.00
+rss_overhead_bytes:0
+mem_fragmentation_ratio:9.11
+mem_fragmentation_bytes:6778968
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_total_replication_buffers:0
+mem_replica_full_sync_buffer:0
+mem_clients_slaves:0
+mem_clients_normal:2128
+mem_clients_normal_shared:0
+mem_clients_normal_unshared:0
+mem_cluster_slot_migration_output_buffer:0
+mem_cluster_slot_migration_input_buffer:0
+mem_cluster_slot_migration_input_buffer_peak:0
+mem_cluster_links:0
+mem_aof_buffer:0
+mem_allocator:libc
+mem_overhead_db_hashtable_rehashing:0
+active_defrag_running:0
+lazyfree_pending_objects:0
+lazyfreed_objects:0
+
+# Persistence
+loading:0
+async_loading:0
+current_cow_peak:0
+current_cow_size:0
+current_cow_size_age:0
+current_fork_perc:0.00
+current_save_keys_processed:0
+current_save_keys_total:0
+rdb_changes_since_last_save:1
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1794655105
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_saves:0
+rdb_saves_consecutive_failures:0
+rdb_last_cow_size:0
+rdb_last_load_keys_expired:0
+rdb_last_load_keys_loaded:1
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_rewrites:0
+aof_rewrites_consecutive_failures:0
+aof_last_write_status:ok
+aof_last_cow_size:0
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+
+# Threads
+io_thread_0:clients=1,reads=4,writes=5
+
+# Stats
+total_connections_received:1
+total_commands_processed:3
+instantaneous_ops_per_sec:0
+total_net_input_bytes:195
+total_net_output_bytes:257138
+total_net_repl_input_bytes:0
+total_net_repl_output_bytes:0
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+instantaneous_input_repl_kbps:0.00
+instantaneous_output_repl_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_subkeys:0
+expired_subkeys_active:0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:0
+evicted_keys:0
+evicted_clients:0
+evicted_scripts:0
+total_eviction_exceeded_time:0
+current_eviction_exceeded_time:0
+keyspace_hits:1
+keyspace_misses:1
+pubsub_channels:0
+pubsub_patterns:0
+pubsubshard_channels:0
+latest_fork_usec:0
+total_forks:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:0
+dump_payload_sanitizations:0
+total_reads_processed:4
+total_writes_processed:5
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+io_threaded_total_prefetch_batches:0
+io_threaded_total_prefetch_entries:0
+client_query_buffer_limit_disconnections:0
+client_output_buffer_limit_disconnections:0
+reply_buffer_shrinks:1
+reply_buffer_expands:0
+eventloop_cycles:267
+eventloop_duration_sum:34090
+eventloop_duration_cmd_sum:840
+instantaneous_eventloop_cycles_per_sec:9
+instantaneous_eventloop_duration_usec:130
+eventloop_cycles_with_clients_processing:3
+total_client_processing_events:4
+avg_pipeline_length_sum:4
+avg_pipeline_length_cnt:4
+avg_pipeline_length:1.00
+slowlog_commands_count:0
+slowlog_commands_time_ms_max:0.00
+slowlog_commands_time_ms_sum:0.00
+acl_access_denied_auth:0
+acl_access_denied_cmd:0
+acl_access_denied_key:0
+acl_access_denied_channel:0
+acl_access_denied_tls_cert:0
+
+# Replication
+role:master
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:f6a82223220a8e613088086f642216c4b9b429ee
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:0.032258
+used_cpu_user:0.017405
+used_cpu_sys_children:0.000000
+used_cpu_user_children:0.000000
+used_cpu_sys_main_thread:0.032006
+used_cpu_user_main_thread:0.017269
+
+# Hotkeys
+
+# Modules
+module:name=vectorset,ver=1,api=1,filters=0,usedby=[],using=[],options=[handle-io-errors|handle-repl-async-load]
+
+# Commandstats
+cmdstat_command|docs:calls=1,usec=812,usec_per_call=812.00,rejected_calls=0,failed_calls=0
+cmdstat_VRANDMEMBER:calls=1,usec=6,usec_per_call=6.00,rejected_calls=0,failed_calls=0
+cmdstat_VADD:calls=1,usec=22,usec_per_call=22.00,rejected_calls=0,failed_calls=0
+
+# Errorstats
+
+# Latencystats
+latency_percentiles_usec_command|docs:p50=815.103,p99=815.103,p99.9=815.103
+latency_percentiles_usec_VRANDMEMBER:p50=6.015,p99=6.015,p99.9=6.015
+latency_percentiles_usec_VADD:p50=22.015,p99=22.015,p99.9=22.015
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=2,expires=0,avg_ttl=0,subexpiry=0
+
+# Keysizes
+
+------ CLIENT LIST OUTPUT ------
+id=4 addr=127.0.0.1:51636 laddr=127.0.0.1:6379 fd=12 name= age=24 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=195 tot-net-out=257138 tot-cmds=3 read-events=4 avg-pipeline-len-sum=4 avg-pipeline-len-cnt=4
+
+------ CURRENT CLIENT INFO ------
+id=4 addr=127.0.0.1:51636 laddr=127.0.0.1:6379 fd=12 name= age=24 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=195 tot-net-out=257138 tot-cmds=3 read-events=4 avg-pipeline-len-sum=4 avg-pipeline-len-cnt=4
+argc: '3'
+argv[0]: '"VRANDMEMBER"'
+argv[1]: '"v"'
+argv[2]: '"-9223372036854775808"'
+270455:M 14 Nov 2026 20:18:52.131 # key 'v' found in DB containing the following object:
+270455:M 14 Nov 2026 20:18:52.131 # Object type: 5
+270455:M 14 Nov 2026 20:18:52.131 # Object encoding: 0
+270455:M 14 Nov 2026 20:18:52.131 # Object refcount: 1
+
+------ EXECUTING CLIENT INFO ------
+id=4 addr=127.0.0.1:51636 laddr=127.0.0.1:6379 fd=12 name= age=24 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=195 tot-net-out=257138 tot-cmds=3 read-events=4 avg-pipeline-len-sum=4 avg-pipeline-len-cnt=4
+argc: '3'
+argv[0]: '"VRANDMEMBER"'
+argv[1]: '"v"'
+argv[2]: '"-9223372036854775808"'
+270455:M 14 Nov 2026 20:18:52.131 # key 'v' found in DB containing the following object:
+270455:M 14 Nov 2026 20:18:52.131 # Object type: 5
+270455:M 14 Nov 2026 20:18:52.131 # Object encoding: 0
+270455:M 14 Nov 2026 20:18:52.131 # Object refcount: 1
+
+------ MODULES INFO OUTPUT ------
+
+------ CONFIG DEBUG OUTPUT ------
+sanitize-dump-payload no
+repl-diskless-sync yes
+io-threads 1
+slave-read-only yes
+activedefrag no
+lazyfree-lazy-server-del no
+repl-diskless-load disabled
+proto-max-bulk-len 512mb
+lazyfree-lazy-eviction no
+replica-read-only yes
+lazyfree-lazy-user-flush no
+client-query-buffer-limit 1gb
+list-compress-depth 0
+lazyfree-lazy-user-del no
+lazyfree-lazy-expire no
+
+------ FAST MEMORY TEST ------
+270455:M 14 Nov 2026 20:18:52.131 # Bio worker thread #0 terminated
+270455:M 14 Nov 2026 20:18:52.131 # Bio worker thread #1 terminated
+270455:M 14 Nov 2026 20:18:52.131 # Bio worker thread #2 terminated
+*** Preparing to test memory region 5aa79f868000 (184320 bytes)
+*** Preparing to test memory region 5aa7a28db000 (1437696 bytes)
+*** Preparing to test memory region 7ed774000000 (135168 bytes)
+*** Preparing to test memory region 7ed77b1fe000 (8388608 bytes)
+*** Preparing to test memory region 7ed77b9ff000 (8388608 bytes)
+*** Preparing to test memory region 7ed77c200000 (8388608 bytes)
+*** Preparing to test memory region 7ed77d1fb000 (53248 bytes)
+*** Preparing to test memory region 7ed77d2d8000 (20480 bytes)
+*** Preparing to test memory region 7ed77d3d4000 (8192 bytes)
+.O.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/redis/redis/issues
+
+  If a Redis module was involved, please open in the module's repo instead.
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+
+  Some other issues could be detected by redis-server --check-system
+416735:C 15 Nov 2026 22:28:12.551 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+416735:C 15 Nov 2026 22:28:12.552 * Redis version=8.8.0, bits=64, commit=5a693aae, modified=0, pid=416735, just started
+416735:C 15 Nov 2026 22:28:12.552 * Configuration loaded
+416735:M 15 Nov 2026 22:28:12.555 * monotonic clock: POSIX clock_gettime
+416735:M 15 Nov 2026 22:28:12.556 * Running mode=standalone, port=6379.
+416735:M 15 Nov 2026 22:28:12.556 - <vectorset> Successfully loaded default module configuration
+416735:M 15 Nov 2026 22:28:12.556 - <vectorset> Successfully loaded user module configuration
+416735:M 15 Nov 2026 22:28:12.560 * Server initialized
+416735:M 15 Nov 2026 22:28:12.563 . The AOF directory appendonlydir doesn't exist
+416735:M 15 Nov 2026 22:28:12.563 * Loading RDB produced by version 8.8.0
+416735:M 15 Nov 2026 22:28:12.563 * RDB age 94693 seconds
+416735:M 15 Nov 2026 22:28:12.563 * RDB memory usage when created 0.79 Mb
+416735:M 15 Nov 2026 22:28:12.564 - DB 0 resized: 4 key buckets, 0 expire buckets
+416735:M 15 Nov 2026 22:28:12.564 * Done loading RDB, keys loaded: 1, keys expired: 0.
+416735:M 15 Nov 2026 22:28:12.564 * DB loaded from disk: 0.001 seconds
+416735:M 15 Nov 2026 22:28:12.564 * Ready to accept connections tcp
+416735:M 15 Nov 2026 22:28:12.564 # WARNING: Redis does not require authentication. Redis will accept connections from any local client.
+416735:M 15 Nov 2026 22:28:12.566 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:12.566 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:17.611 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:17.612 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:22.654 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:22.654 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:27.692 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:27.693 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:32.732 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:32.732 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:37.775 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:37.775 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:42.810 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:42.811 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:47.851 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:47.851 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:52.896 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:52.896 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:28:57.938 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:28:57.938 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:02.982 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:02.982 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:08.024 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:08.024 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:13.066 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:13.066 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:18.105 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:18.105 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:23.145 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:23.146 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:28.189 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:28.190 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:33.229 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:33.230 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:38.265 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:38.266 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:43.306 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:43.306 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:48.347 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:48.348 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:53.389 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:53.389 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:29:58.430 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:29:58.430 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:30:03.474 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:30:03.474 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:30:08.511 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:30:08.512 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:30:13.546 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:30:13.546 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:M 15 Nov 2026 22:30:18.585 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+416735:M 15 Nov 2026 22:30:18.585 . 0 clients connected (0 replicas), 739648 bytes in use
+416735:signal-handler (1794749421) Received SIGINT scheduling shutdown...
+416735:M 15 Nov 2026 22:30:21.105 * User requested shutdown...
+416735:M 15 Nov 2026 22:30:21.112 * Saving the final RDB snapshot before exiting.
+416735:M 15 Nov 2026 22:30:21.113 * BGSAVE done, 1 keys saved, 0 keys skipped, 272 bytes written.
+416735:M 15 Nov 2026 22:30:21.119 * DB saved on disk
+416735:M 15 Nov 2026 22:30:21.119 # Redis is now ready to exit, bye bye...

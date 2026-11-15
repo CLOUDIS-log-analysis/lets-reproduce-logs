@@ -1,0 +1,408 @@
+239530:C 14 Nov 2026 14:02:24.259 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+239530:C 14 Nov 2026 14:02:24.259 * Redis version=8.8.0, bits=64, commit=5a693aae, modified=0, pid=239530, just started
+239530:C 14 Nov 2026 14:02:24.259 * Configuration loaded
+239530:M 14 Nov 2026 14:02:24.260 * monotonic clock: POSIX clock_gettime
+239530:M 14 Nov 2026 14:02:24.260 * Running mode=standalone, port=6379.
+239530:M 14 Nov 2026 14:02:24.260 - <vectorset> Successfully loaded default module configuration
+239530:M 14 Nov 2026 14:02:24.260 - <vectorset> Successfully loaded user module configuration
+239530:M 14 Nov 2026 14:02:24.260 * Server initialized
+239530:M 14 Nov 2026 14:02:24.260 . The AOF directory appendonlydir doesn't exist
+239530:M 14 Nov 2026 14:02:24.260 * Ready to accept connections tcp
+239530:M 14 Nov 2026 14:02:24.260 # WARNING: Redis does not require authentication. Redis will accept connections from any local client.
+239530:M 14 Nov 2026 14:02:24.261 . 0 clients connected (0 replicas), 735256 bytes in use
+239530:M 14 Nov 2026 14:02:27.287 - Accepted 127.0.0.1:44904
+239530:M 14 Nov 2026 14:02:29.284 . 1 clients connected (0 replicas), 779096 bytes in use
+239530:M 14 Nov 2026 14:02:34.311 . 1 clients connected (0 replicas), 779096 bytes in use
+239530:M 14 Nov 2026 14:02:39.334 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+239530:M 14 Nov 2026 14:02:39.334 . 1 clients connected (0 replicas), 806592 bytes in use
+239530:M 14 Nov 2026 14:02:44.355 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+239530:M 14 Nov 2026 14:02:44.355 . 1 clients connected (0 replicas), 806592 bytes in use
+239530:M 14 Nov 2026 14:02:49.376 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+239530:M 14 Nov 2026 14:02:49.376 . 1 clients connected (0 replicas), 806592 bytes in use
+239530:M 14 Nov 2026 14:02:54.398 - DB 0: 1 keys (0 volatile) in 4 slots HT.
+239530:M 14 Nov 2026 14:02:54.398 . 1 clients connected (0 replicas), 806592 bytes in use
+
+
+=== REDIS BUG REPORT START: Cut & paste starting from here ===
+239530:M 14 Nov 2026 14:02:58.900 # === ASSERTION FAILED ===
+239530:M 14 Nov 2026 14:02:58.900 # ==> networking.c:1203 'length >= 0' is not true
+
+------ STACK TRACE ------
+
+239533 bio_lazy_free
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x786281a97389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x786281a99e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x6221266a6322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x786281a9a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x786281b22d2c]
+
+239530 redis-server *
+./redis/src/redis-server *:6379(addReplyArrayLen+0x1f0) [0x6221265b5fe0]
+./redis/src/redis-server *:6379(RM_ReplyWithArray+0x68) [0x6221266ddf48]
+./redis/src/redis-server *:6379(VRANDMEMBER_RedisCommand+0x328) [0x62212676d788]
+./redis/src/redis-server *:6379(RedisModuleCommandDispatcher+0xc4) [0x6221266daf44]
+./redis/src/redis-server *:6379(call+0xf5) [0x62212658e2c5]
+./redis/src/redis-server *:6379(processCommand+0xc9d) [0x622126591c2d]
+./redis/src/redis-server *:6379(processCommandAndResetClient+0x2a) [0x6221265bbfaa]
+./redis/src/redis-server *:6379(processInputBuffer+0x21e) [0x6221265bc2be]
+./redis/src/redis-server *:6379(readQueryFromClient+0x3d8) [0x6221265bf0f8]
+./redis/src/redis-server *:6379(+0x26386a) [0x62212673686a]
+./redis/src/redis-server *:6379(+0x95e72) [0x622126568e72]
+./redis/src/redis-server *:6379(aeMain+0x2d) [0x62212656939d]
+./redis/src/redis-server *:6379(main+0x405) [0x622126563985]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x2a4d8) [0x786281a2a4d8]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(__libc_start_main+0x8b) [0x786281a2a59b]
+./redis/src/redis-server *:6379(_start+0x25) [0x622126565535]
+
+239531 bio_close_file
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x786281a97389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x786281a99e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x6221266a6322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x786281a9a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x786281b22d2c]
+
+239532 bio_aof
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x97389) [0x786281a97389]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(pthread_cond_wait+0x15e) [0x786281a99e1e]
+./redis/src/redis-server *:6379(bioProcessBackgroundJobs+0x1e2) [0x6221266a6322]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x9a97a) [0x786281a9a97a]
+/nix/store/7nbi22pcc92y2fqbkyp7h3srvvklmckb-glibc-2.40-224/lib/libc.so.6(+0x122d2c) [0x786281b22d2c]
+
+4/4 expected stacktraces.
+
+------ STACK TRACE DONE ------
+
+------ INFO OUTPUT ------
+# Server
+redis_version:8.8.0
+redis_git_sha1:5a693aae
+redis_git_dirty:0
+redis_build_id:bc5e0c579fda1456
+redis_mode:standalone
+os:Linux 7.3.3 x86_64
+arch_bits:64
+monotonic_clock:POSIX clock_gettime
+multiplexing_api:epoll
+atomicvar_api:c11-builtin
+gcc_version:14.3.0
+process_id:239530
+process_supervised:no
+run_id:ee1ccbf12e5ca5759c519428d08752c408429b92
+tcp_port:6379
+server_time_usec:1794632578900152
+uptime_in_seconds:34
+uptime_in_days:0
+hz:10
+configured_hz:10
+lru_clock:16247682
+executable:/home/sshkgw/repo/lets-reproduce-logs/redis/redis-15384/./redis/src/redis-server
+config_file:
+io_threads_active:0
+listener0:name=tcp,bind=*,bind=-::*,port=6379
+
+# Clients
+connected_clients:1
+cluster_connections:0
+maxclients:10000
+client_recent_max_input_buffer:0
+client_recent_max_output_buffer:0
+blocked_clients:0
+tracking_clients:0
+pubsub_clients:0
+watching_clients:0
+clients_in_timeout_table:0
+active_clients:1
+total_watched_keys:0
+total_blocking_keys:0
+total_blocking_keys_on_nokey:0
+
+# Memory
+used_memory:808904
+used_memory_human:789.95K
+used_memory_rss:7782400
+used_memory_rss_human:7.42M
+used_memory_peak:1057432
+used_memory_peak_human:1.01M
+used_memory_peak_time:1794632547
+used_memory_peak_perc:76.50%
+used_memory_overhead:805656
+used_memory_startup:735088
+used_memory_dataset:3248
+used_memory_dataset_perc:4.40%
+allocator_allocated:806592
+allocator_active:7782400
+allocator_resident:7782400
+allocator_muzzy:0
+total_system_memory:16144715776
+total_system_memory_human:15.04G
+used_memory_lua:32768
+used_memory_vm_eval:32768
+used_memory_lua_human:32.00K
+used_memory_scripts_eval:0
+number_of_cached_scripts:0
+number_of_functions:0
+number_of_libraries:0
+used_memory_vm_functions:34816
+used_memory_vm_total:67584
+used_memory_vm_total_human:66.00K
+used_memory_functions:232
+used_memory_scripts:232
+used_memory_scripts_human:232B
+maxmemory:0
+maxmemory_human:0B
+maxmemory_policy:noeviction
+allocator_frag_ratio:1.00
+allocator_frag_bytes:0
+allocator_rss_ratio:1.00
+allocator_rss_bytes:0
+rss_overhead_ratio:1.00
+rss_overhead_bytes:0
+mem_fragmentation_ratio:9.65
+mem_fragmentation_bytes:6975808
+mem_not_counted_for_evict:0
+mem_replication_backlog:0
+mem_total_replication_buffers:0
+mem_replica_full_sync_buffer:0
+mem_clients_slaves:0
+mem_clients_normal:2128
+mem_clients_normal_shared:0
+mem_clients_normal_unshared:0
+mem_cluster_slot_migration_output_buffer:0
+mem_cluster_slot_migration_input_buffer:0
+mem_cluster_slot_migration_input_buffer_peak:0
+mem_cluster_links:0
+mem_aof_buffer:0
+mem_allocator:libc
+mem_overhead_db_hashtable_rehashing:0
+active_defrag_running:0
+lazyfree_pending_objects:0
+lazyfreed_objects:0
+
+# Persistence
+loading:0
+async_loading:0
+current_cow_peak:0
+current_cow_size:0
+current_cow_size_age:0
+current_fork_perc:0.00
+current_save_keys_processed:0
+current_save_keys_total:0
+rdb_changes_since_last_save:1
+rdb_bgsave_in_progress:0
+rdb_last_save_time:1794632544
+rdb_last_bgsave_status:ok
+rdb_last_bgsave_time_sec:-1
+rdb_current_bgsave_time_sec:-1
+rdb_saves:0
+rdb_saves_consecutive_failures:0
+rdb_last_cow_size:0
+rdb_last_load_keys_expired:0
+rdb_last_load_keys_loaded:0
+aof_enabled:0
+aof_rewrite_in_progress:0
+aof_rewrite_scheduled:0
+aof_last_rewrite_time_sec:-1
+aof_current_rewrite_time_sec:-1
+aof_last_bgrewrite_status:ok
+aof_rewrites:0
+aof_rewrites_consecutive_failures:0
+aof_last_write_status:ok
+aof_last_cow_size:0
+module_fork_in_progress:0
+module_fork_last_cow_size:0
+
+# Threads
+io_thread_0:clients=1,reads=3,writes=4
+
+# Stats
+total_connections_received:1
+total_commands_processed:2
+instantaneous_ops_per_sec:0
+total_net_input_bytes:137
+total_net_output_bytes:257134
+total_net_repl_input_bytes:0
+total_net_repl_output_bytes:0
+instantaneous_input_kbps:0.00
+instantaneous_output_kbps:0.00
+instantaneous_input_repl_kbps:0.00
+instantaneous_output_repl_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_subkeys:0
+expired_subkeys_active:0
+expired_keys:0
+expired_keys_active:0
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:0
+evicted_keys:0
+evicted_clients:0
+evicted_scripts:0
+total_eviction_exceeded_time:0
+current_eviction_exceeded_time:0
+keyspace_hits:1
+keyspace_misses:0
+pubsub_channels:0
+pubsub_patterns:0
+pubsubshard_channels:0
+latest_fork_usec:0
+total_forks:0
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:0
+dump_payload_sanitizations:0
+total_reads_processed:3
+total_writes_processed:4
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+io_threaded_total_prefetch_batches:0
+io_threaded_total_prefetch_entries:0
+client_query_buffer_limit_disconnections:0
+client_output_buffer_limit_disconnections:0
+reply_buffer_shrinks:1
+reply_buffer_expands:0
+eventloop_cycles:350
+eventloop_duration_sum:46354
+eventloop_duration_cmd_sum:964
+instantaneous_eventloop_cycles_per_sec:9
+instantaneous_eventloop_duration_usec:130
+eventloop_cycles_with_clients_processing:2
+total_client_processing_events:3
+avg_pipeline_length_sum:3
+avg_pipeline_length_cnt:3
+avg_pipeline_length:1.00
+slowlog_commands_count:0
+slowlog_commands_time_ms_max:0.00
+slowlog_commands_time_ms_sum:0.00
+acl_access_denied_auth:0
+acl_access_denied_cmd:0
+acl_access_denied_key:0
+acl_access_denied_channel:0
+acl_access_denied_tls_cert:0
+
+# Replication
+role:master
+connected_slaves:0
+master_failover_state:no-failover
+master_replid:4c0dec92e456984c35fac1f9f6cdf9c38ea8e920
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:0
+second_repl_offset:-1
+repl_backlog_active:0
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+
+# CPU
+used_cpu_sys:0.037444
+used_cpu_user:0.025987
+used_cpu_sys_children:0.000000
+used_cpu_user_children:0.000000
+used_cpu_sys_main_thread:0.037870
+used_cpu_user_main_thread:0.025297
+
+# Hotkeys
+
+# Modules
+module:name=vectorset,ver=1,api=1,filters=0,usedby=[],using=[],options=[handle-io-errors|handle-repl-async-load]
+
+# Commandstats
+cmdstat_command|docs:calls=1,usec=924,usec_per_call=924.00,rejected_calls=0,failed_calls=0
+cmdstat_VADD:calls=1,usec=40,usec_per_call=40.00,rejected_calls=0,failed_calls=0
+
+# Errorstats
+
+# Latencystats
+latency_percentiles_usec_command|docs:p50=925.695,p99=925.695,p99.9=925.695
+latency_percentiles_usec_VADD:p50=40.191,p99=40.191,p99.9=40.191
+
+# Cluster
+cluster_enabled:0
+
+# Keyspace
+db0:keys=1,expires=0,avg_ttl=0,subexpiry=0
+
+# Keysizes
+
+------ CLIENT LIST OUTPUT ------
+id=4 addr=127.0.0.1:44904 laddr=127.0.0.1:6379 fd=12 name= age=31 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=137 tot-net-out=257134 tot-cmds=2 read-events=3 avg-pipeline-len-sum=3 avg-pipeline-len-cnt=3
+
+------ CURRENT CLIENT INFO ------
+id=4 addr=127.0.0.1:44904 laddr=127.0.0.1:6379 fd=12 name= age=31 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=137 tot-net-out=257134 tot-cmds=2 read-events=3 avg-pipeline-len-sum=3 avg-pipeline-len-cnt=3
+argc: '3'
+argv[0]: '"VRANDMEMBER"'
+argv[1]: '"v"'
+argv[2]: '"-9223372036854775808"'
+239530:M 14 Nov 2026 14:02:58.904 # key 'v' found in DB containing the following object:
+239530:M 14 Nov 2026 14:02:58.904 # Object type: 5
+239530:M 14 Nov 2026 14:02:58.904 # Object encoding: 0
+239530:M 14 Nov 2026 14:02:58.904 # Object refcount: 1
+
+------ EXECUTING CLIENT INFO ------
+id=4 addr=127.0.0.1:44904 laddr=127.0.0.1:6379 fd=12 name= age=31 idle=0 flags=N db=0 sub=0 psub=0 ssub=0 multi=-1 watch=0 qbuf=56 qbuf-free=16330 argv-mem=32 multi-mem=0 rbs=1032 rbp=0 obl=0 oll=0 omem=0 omem-shared=0 omem-unshared=0 tot-mem=18576 events=r cmd=VRANDMEMBER user=default redir=-1 resp=2 lib-name= lib-ver= io-thread=0 tot-net-in=137 tot-net-out=257134 tot-cmds=2 read-events=3 avg-pipeline-len-sum=3 avg-pipeline-len-cnt=3
+argc: '3'
+argv[0]: '"VRANDMEMBER"'
+argv[1]: '"v"'
+argv[2]: '"-9223372036854775808"'
+239530:M 14 Nov 2026 14:02:58.904 # key 'v' found in DB containing the following object:
+239530:M 14 Nov 2026 14:02:58.904 # Object type: 5
+239530:M 14 Nov 2026 14:02:58.904 # Object encoding: 0
+239530:M 14 Nov 2026 14:02:58.904 # Object refcount: 1
+
+------ MODULES INFO OUTPUT ------
+
+------ CONFIG DEBUG OUTPUT ------
+activedefrag no
+slave-read-only yes
+list-compress-depth 0
+lazyfree-lazy-expire no
+sanitize-dump-payload no
+lazyfree-lazy-user-del no
+replica-read-only yes
+repl-diskless-load disabled
+proto-max-bulk-len 512mb
+repl-diskless-sync yes
+client-query-buffer-limit 1gb
+lazyfree-lazy-eviction no
+lazyfree-lazy-user-flush no
+lazyfree-lazy-server-del no
+io-threads 1
+
+------ FAST MEMORY TEST ------
+239530:M 14 Nov 2026 14:02:58.905 # Bio worker thread #0 terminated
+239530:M 14 Nov 2026 14:02:58.905 # Bio worker thread #1 terminated
+239530:M 14 Nov 2026 14:02:58.905 # Bio worker thread #2 terminated
+*** Preparing to test memory region 6221268bd000 (184320 bytes)
+*** Preparing to test memory region 622139b9f000 (1454080 bytes)
+*** Preparing to test memory region 78627fbfe000 (8388608 bytes)
+*** Preparing to test memory region 7862803ff000 (8388608 bytes)
+*** Preparing to test memory region 786280c00000 (8388608 bytes)
+*** Preparing to test memory region 786281bfb000 (53248 bytes)
+*** Preparing to test memory region 786281d90000 (20480 bytes)
+*** Preparing to test memory region 786281e8c000 (8192 bytes)
+.O.O.O.O.O.O.O.O
+Fast memory test PASSED, however your memory can still be broken. Please run a memory test for several hours if possible.
+
+=== REDIS BUG REPORT END. Make sure to include from START to END. ===
+
+       Please report the crash by opening an issue on github:
+
+           http://github.com/redis/redis/issues
+
+  If a Redis module was involved, please open in the module's repo instead.
+
+  Suspect RAM error? Use redis-server --test-memory to verify it.
+
+  Some other issues could be detected by redis-server --check-system
