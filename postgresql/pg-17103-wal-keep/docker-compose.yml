@@ -1,18 +1,23 @@
 services:
   primary:
     image: postgres:13.3
-    container_name: primary
+    container_name: pg17103
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_INITDB_WALDIR: /wal_disk/pg_wal
     tmpfs:
       - /wal_disk:size=300M,uid=999,gid=999
     volumes:
-      - ./primary_entrypoint.sh:/usr/local/bin/primary_entrypoint.sh:ro
       - ./logs:/var/log/postgresql
-    entrypoint: ["/usr/local/bin/primary_entrypoint.sh"]
-  replica:
-    image: postgres:13.3
-    container_name: replica
-    depends_on:
-      - primary
-    volumes:
-      - ./replica_entrypoint.sh:/usr/local/bin/replica_entrypoint.sh:ro
-    entrypoint: ["/usr/local/bin/replica_entrypoint.sh"] 
+    command: >
+      -c max_slot_wal_keep_size=200MB
+      -c max_wal_size=1GB
+      -c min_wal_size=32MB
+      -c checkpoint_timeout=30min
+      -c autovacuum=off
+      -c logging_collector=on
+      -c log_directory=/var/log/postgresql
+      -c log_filename=postgresql.log
+      -c log_min_messages=debug2
+      -c log_statement=all
+      -c log_error_verbosity=verbose
